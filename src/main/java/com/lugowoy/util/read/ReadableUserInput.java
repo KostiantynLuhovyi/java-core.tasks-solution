@@ -7,23 +7,12 @@ import java.util.Scanner;
  */
 public interface ReadableUserInput extends Readable {
 
-    Scanner SCANNER = new Scanner(System.in);
+    int readInt();
+
+    int readInt(int radix);
+
+    double readDouble();
 
     String readLine();
-
-    @Override
-    default int readInt() {
-        return SCANNER.nextInt();
-    }
-
-    @Override
-    default int readInt(int radix) {
-        return SCANNER.nextInt(radix);
-    }
-
-    @Override
-    default double readDouble() {
-        return SCANNER.nextDouble();
-    }
 
 }
