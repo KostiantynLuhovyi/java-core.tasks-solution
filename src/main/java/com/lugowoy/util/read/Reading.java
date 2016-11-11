@@ -22,12 +22,28 @@ public class Reading implements ReadableRandom, ReadableUserInput {
 
     @Override
     public int readInt() {
-        return SCANNER.nextInt();
+        return this.getInputCorrectNumberValue();
     }
 
-    @Override
-    public int readInt(int radix) {
-        return SCANNER.nextInt(radix);
+    private int getInputCorrectNumberValue() {
+        int inputValue = 0;
+        String value = SCANNER.nextLine();
+        try {
+            if ((value.matches("\\d+?")) || (value.matches("-\\d+?"))) {
+                inputValue = Integer.parseInt(value);
+            } else {
+                System.out.println("Entered an incorrect value.");
+                System.out.println("From -2147483648 to 2147483648.");
+                System.out.println("Re-enter the number : ");
+                this.getInputCorrectNumberValue();
+            }
+        } catch (NumberFormatException ex) {
+            System.out.println("Entered an incorrect value.");
+            System.out.println("From -2147483648 to 2147483648.");
+            System.out.println("Re-enter the number : ");
+            this.getInputCorrectNumberValue();
+        }
+        return inputValue;
     }
 
     @Override
@@ -39,5 +55,4 @@ public class Reading implements ReadableRandom, ReadableUserInput {
     public String readLine() {
         return SCANNER.nextLine();
     }
-
 }

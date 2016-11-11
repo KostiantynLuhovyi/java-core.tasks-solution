@@ -9,8 +9,6 @@ public interface ReadableUserInput extends Readable {
 
     int readInt();
 
-    int readInt(int radix);
-
     double readDouble();
 
     String readLine();
