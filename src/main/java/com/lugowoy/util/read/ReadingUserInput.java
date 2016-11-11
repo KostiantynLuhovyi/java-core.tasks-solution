@@ -9,4 +9,7 @@ public class ReadingUserInput implements ReadableUserInput {
     public String readLine() {
         return SCANNER.nextLine();
     }
+
+
+
 }

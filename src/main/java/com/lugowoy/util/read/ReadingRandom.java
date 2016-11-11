@@ -23,4 +23,5 @@ public class ReadingRandom implements Readable {
     public double readDouble() {
         return RANDOM.nextDouble();
     }
+
 }

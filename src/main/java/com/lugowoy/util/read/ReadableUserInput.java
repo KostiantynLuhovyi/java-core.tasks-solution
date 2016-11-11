@@ -25,4 +25,5 @@ public interface ReadableUserInput extends Readable {
     default double readDouble() {
         return SCANNER.nextDouble();
     }
+
 }
