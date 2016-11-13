@@ -1,1 +1,1 @@
-Enter three integers and define two of the same number of them.
+Enter three integers and define two of the same number of them./

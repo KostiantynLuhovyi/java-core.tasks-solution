@@ -5,13 +5,15 @@ import java.io.IOException;
 /**
  * Created by Konstantin on 07.11.2016.
  */
+
+/*Class "NumberForComparison" it contains instance variables, three numbers for comparison.*/
 final class NumbersForComparison {
 
     private int firstNumber;
     private int secondNumber;
     private int thirdNumber;
 
-    public NumbersForComparison() {
+    NumbersForComparison() {
     }
 
     public NumbersForComparison(int firstNumber, int secondNumber, int thirdNumber) {
@@ -20,27 +22,27 @@ final class NumbersForComparison {
         this.thirdNumber = thirdNumber;
     }
 
-    public int getFirstNumber() {
+    int getFirstNumber() {
         return firstNumber;
     }
 
-    public void setFirstNumber(int firstNumber) {
+    void setFirstNumber(int firstNumber) {
         this.firstNumber = firstNumber;
     }
 
-    public int getSecondNumber() {
+    int getSecondNumber() {
         return secondNumber;
     }
 
-    public void setSecondNumber(int secondNumber) {
+    void setSecondNumber(int secondNumber) {
         this.secondNumber = secondNumber;
     }
 
-    public int getThirdNumber() {
+    int getThirdNumber() {
         return thirdNumber;
     }
 
-    public void setThirdNumber(int thirdNumber) {
+    void setThirdNumber(int thirdNumber) {
         this.thirdNumber = thirdNumber;
     }
 }
