@@ -1,0 +1,1 @@
+Enter integers. Count how many times the maximum number of meets.
