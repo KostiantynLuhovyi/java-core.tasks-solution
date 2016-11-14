@@ -28,21 +28,21 @@ class ComputingSecondLargestNumber implements Computable<NumbersForComparison> {
                 (numbersForComparison.getFirstNumber() < numbersForComparison.getThirdNumber())) {
 
             secondLargestNumber = this.getSecondLargestNumber(numbersForComparison.getSecondNumber(),
-                                                                numbersForComparison.getThirdNumber());
+                    numbersForComparison.getThirdNumber());
 
         } else if ((numbersForComparison.getSecondNumber() < numbersForComparison.getFirstNumber())
                 &&
                 (numbersForComparison.getSecondNumber() < numbersForComparison.getThirdNumber())) {
 
             secondLargestNumber = this.getSecondLargestNumber(numbersForComparison.getFirstNumber(),
-                                                                numbersForComparison.getThirdNumber());
+                    numbersForComparison.getThirdNumber());
 
         } else if ((numbersForComparison.getThirdNumber() < numbersForComparison.getFirstNumber())
                 &&
                 (numbersForComparison.getThirdNumber() < numbersForComparison.getSecondNumber())) {
 
             secondLargestNumber = this.getSecondLargestNumber(numbersForComparison.getFirstNumber(),
-                                                                numbersForComparison.getSecondNumber());
+                    numbersForComparison.getSecondNumber());
 
         } else {
             System.out.println("Can not find the second largest number of. The numbers are equal. ");

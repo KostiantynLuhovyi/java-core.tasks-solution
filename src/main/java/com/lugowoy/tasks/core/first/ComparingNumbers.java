@@ -18,17 +18,17 @@ class ComparingNumbers implements Comparison<NumbersForComparison> {
         if ((numbersForComparison != null)) {
             /*Checking the first number is equal to the second.*/
             if (numbersForComparison.getFirstNumber() == numbersForComparison.getSecondNumber()) {
-                statusCompare = String.format("The first(%d) and second(%d) numbers are equal." + "\n",
-                                            numbersForComparison.getFirstNumber(), numbersForComparison.getSecondNumber());
+                statusCompare = String.format("The first(%d) and second(%d) numbers are equal." + "%n",
+                        numbersForComparison.getFirstNumber(), numbersForComparison.getSecondNumber());
                 System.out.println(statusCompare);
                 /*Checking the first number is equal to the third.*/
-            }else if(numbersForComparison.getFirstNumber() == numbersForComparison.getThirdNumber()) {
-                statusCompare = String.format("The first(%d) and third(%d) numbers are equal." + "\n",
+            } else if (numbersForComparison.getFirstNumber() == numbersForComparison.getThirdNumber()) {
+                statusCompare = String.format("The first(%d) and third(%d) numbers are equal." + "%n",
                         numbersForComparison.getFirstNumber(), numbersForComparison.getThirdNumber());
                 System.out.println(statusCompare);
                 /*Checking the second number is equal to the third.*/
-            }else if(numbersForComparison.getSecondNumber() == numbersForComparison.getThirdNumber()) {
-                statusCompare = String.format("The second(%d) and third(%d) numbers are equal." + "\n",
+            } else if (numbersForComparison.getSecondNumber() == numbersForComparison.getThirdNumber()) {
+                statusCompare = String.format("The second(%d) and third(%d) numbers are equal." + "%n",
                         numbersForComparison.getSecondNumber(), numbersForComparison.getThirdNumber());
                 System.out.println(statusCompare);
             } else {/*No equal numbers*/

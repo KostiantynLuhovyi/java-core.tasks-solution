@@ -65,7 +65,7 @@ public class MainFirst {
     private static int getCorrectStatusChoice() {
         int statusChoice = 0;
         String description = "Enter a number from 1 to 3\n";
-        String inputValue = new Scanner(System.in).nextLine();
+        String inputValue = new Reading().readLine();
         if (isDigit(inputValue)) {
             if (isCorrectRange(Integer.parseInt(inputValue))) {
                 statusChoice = Integer.parseInt(inputValue);
