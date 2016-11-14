@@ -8,7 +8,7 @@ import java.util.Scanner;
 /**
  * Created by Konstantin on 07.11.2016.
  */
-public class Main {
+public class MainFirst {
     /*Constants for selection, program execution method.*/
     private static final int USER_ENTER_NUMBERS = 1;
     private static final int RANDOM_ENTER_NUMBERS = 2;

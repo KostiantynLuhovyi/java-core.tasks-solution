@@ -70,7 +70,7 @@ public class Reading implements ReadableRandom, ReadableUserInput {
                 /*If verify = "false", it prints a message and with the help of recursion require re-enter.*/
                 System.out.println("Entered an incorrect value.");
                 System.out.println("From -2147483648 to 2147483648.");
-                System.out.println("Re-enter the number : */");
+                System.out.println("Re-enter the number : ");
                 this.getInputCorrectNumberValue();
             }
         } catch (NumberFormatException ex) {
