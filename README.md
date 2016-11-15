@@ -10,6 +10,7 @@ In the package com.lugowoy.tasks are solving task.
 Each task is placed in a separate package.
 Description of the task is in a file with the name of the package, and the .txt extension.
 --------------------
+
 Description package:
 - com.lugowoy.tasks.core. - in this package task for basic programming topics.
 
