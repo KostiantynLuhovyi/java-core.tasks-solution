@@ -6,9 +6,10 @@ For example the construction of a project folder structure is taken from the BAT
 The root is the package com.lugowoy.
 
 ------------------------------------
-In the package com.lugowoy.tasks are solving task.
-Each task is placed in a separate package. Description of the task is in a file with the name of the package, and the .txt extension.
+In the package com.lugowoy.tasks are solvable task.
 --------------------
+Each task is placed in a separate package.
+Description of the task is in a file with the name of the package, and the .txt extension.
 
 Description package:
 - com.lugowoy.tasks.core. - in this package task for basic programming topics.
