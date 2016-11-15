@@ -7,8 +7,7 @@ The root is the package com.lugowoy.
 
 ------------------------------------
 In the package com.lugowoy.tasks are solving task.
-Each task is placed in a separate package. Description of the task is in a file with the name of the package,
-and the .txt extension.
+Each task is placed in a separate package. Description of the task is in a file with the name of the package, and the .txt extension.
 --------------------
 
 Description package:
