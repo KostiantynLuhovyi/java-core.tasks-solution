@@ -6,20 +6,21 @@ package com.lugowoy.tasks.core.third;
 
 public class CountableNumbers implements Countable {
 
-    private static int maxNumberElement = 0;
+    private int maxNumberElement;
+    private int countMaxNumbers;
 
     @Override
     public int getCountMaximumNumbers(int number) {
-        int countMaxNumbers = 0;
 
-        if (number > maxNumberElement) {
+        if (number == maxNumberElement) {
+            countMaxNumbers++;
+
+        } else if (number > maxNumberElement) {
             maxNumberElement = number;
             countMaxNumbers = 1;
-        } else if (number == maxNumberElement) {
-            countMaxNumbers++;
         }
+
         return countMaxNumbers;
     }
-
 
 }

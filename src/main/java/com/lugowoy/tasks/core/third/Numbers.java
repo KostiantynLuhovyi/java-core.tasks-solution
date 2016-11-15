@@ -6,8 +6,8 @@ package com.lugowoy.tasks.core.third;
 
 public class Numbers {
 
-    private int [] numbers;
-    private int countMaxNumbers;
+    private int[] numbers;
+    private int maxNumberCount;
 
     public Numbers() {
     }
@@ -16,12 +16,12 @@ public class Numbers {
         this.numbers = numbers;
     }
 
-    public int getCountMaxNumbers() {
-        return countMaxNumbers;
+    public int getMaxNumberCount() {
+        return maxNumberCount;
     }
 
-    public void setCountMaxNumbers(int countMaxNumbers) {
-        this.countMaxNumbers = countMaxNumbers;
+    public void setMaxNumberCount(int maxNumberCount) {
+        this.maxNumberCount = maxNumberCount;
     }
 
     public int[] getNumbers() {

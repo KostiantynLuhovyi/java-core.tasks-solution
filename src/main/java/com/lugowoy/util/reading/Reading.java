@@ -71,7 +71,7 @@ public class Reading implements ReadableRandom, ReadableUserInput {
                 System.out.println("Entered an incorrect value.");
                 System.out.println("From -2147483648 to 2147483648.");
                 System.out.println("Re-enter the number : ");
-                this.getInputCorrectNumberValue();
+                inputValue = this.getInputCorrectNumberValue();
             }
         } catch (NumberFormatException ex) {
             /*If catch NumberFormatException exception,
@@ -79,7 +79,7 @@ public class Reading implements ReadableRandom, ReadableUserInput {
             System.out.println("Entered an incorrect value.");
             System.out.println("From -2147483648 to 2147483648.");
             System.out.println("Re-enter the number : ");
-            this.getInputCorrectNumberValue();
+            inputValue = this.getInputCorrectNumberValue();
         }
         return inputValue;
     }
