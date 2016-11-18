@@ -5,8 +5,14 @@ import com.lugowoy.util.reading.Reading;
 /**
  * Created by Konstantin on 14.11.2016.
  */
-public interface Countable {
 
+/*Interface "Countable" announced a contract
+for the implementation of counting the number of occurrences of the maximum number.*/
+interface Countable {
+
+    /*
+    * Abstract method getCountMaximumNumbers(int number) necessary to implement the count maximum number;
+    * */
     int getCountMaximumNumbers(int number);
 
 }

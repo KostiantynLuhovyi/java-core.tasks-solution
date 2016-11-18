@@ -4,7 +4,10 @@ package com.lugowoy.tasks.core.third;
  * Created by Konstantin on 14.11.2016.
  */
 
-public class Numbers {
+/*
+* Class "Numbers" is a set of attributes for the implementation of the counting and storage elements.
+* */
+class Numbers {
 
     private int[] numbers;
     private int maxNumberCount;
@@ -12,9 +15,17 @@ public class Numbers {
     public Numbers() {
     }
 
+    /*
+    * The constructor parameter is an array of integer values.
+    * */
     public Numbers(int[] numbers) {
+        /*
+        * Initialize reference variable integer copy of the array,
+        * the array passed to the constructor argument.
+        * */
         this.numbers = numbers;
     }
+
 
     public int getMaxNumberCount() {
         return maxNumberCount;
