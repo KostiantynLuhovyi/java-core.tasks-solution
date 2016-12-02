@@ -6,38 +6,34 @@ import com.lugowoy.util.reading.Reading;
  * Created by Konstantin on 19.11.2016.
  */
 
+//Class "MainFourth" to run program.
 public class MainFourth {
-
+    //Constant variable to read user input.
     private static final Reading READING = new Reading();
+    //Maximum enter counting to find prime number.
+	private static final int MAX_ENTER_COUNTING_PRIME_NUMBER = 20001;
 
     public static void main(String[] args) {
-		/*int countMaxPrime = 0;*/
-
+        //Read and assignment value user input counting prime number.
 		int number = READING.readInt();
 
         FindingPrimeNumber finding = new FindPrimeNumber();
 
-        System.out.println(finding.findPrimeNumber(number));
 
-		//loop through the numbers one by one
-		/*for(int i=1; i < Integer.MAX_VALUE; i++){
-
-			boolean isPrime = true;
-
-
-			//check to see if the number is prime
-			for(int j=2; j < i ; j++){
-
-				if(i % j == 0){
-					isPrime = false;
-					break;
-				}
+		while (true) {
+            //If input correct counting number to find prime number . . .
+			if (number < MAX_ENTER_COUNTING_PRIME_NUMBER) {
+                //Searches for a prime number and the value assigned to the variable "findPrimeNumber".
+				int findPrimeNumber = finding.findPrimeNumber(number);
+				System.out.printf("%dth prime number is : %d", number, findPrimeNumber);
+				break;
+			} else {
+                //If input number not correct value, must re-enter the number.
+				System.out.println("Not correct counting prime number.");
+				System.out.println("Re-enter (0 ... 20000) : ");
+				number = READING.readInt();
 			}
-			// print the number
-			if(isPrime)
-				countMaxPrime++;
-				System.out.println(i + "  -  " + countMaxPrime);
-		}*/
+		}
     }
 
 }
