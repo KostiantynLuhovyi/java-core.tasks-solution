@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.core.fourth;
+package com.lugowoy.tasks.core.searchNthPrimeNumber;
 
 /**
  * Created by Konstantin on 19.11.2016.

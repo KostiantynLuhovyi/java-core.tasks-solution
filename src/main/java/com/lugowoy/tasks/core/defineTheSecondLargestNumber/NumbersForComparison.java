@@ -1,19 +1,19 @@
-package com.lugowoy.tasks.core.first;
-
-import java.io.IOException;
+package com.lugowoy.tasks.core.defineTheSecondLargestNumber;
 
 /**
- * Created by Konstantin on 07.11.2016.
+ * Created by Konstantin on 14.11.2016.
  */
-
-/*Class "NumberForComparison" it contains instance variables, three numbers for comparison.*/
-final class NumbersForComparison {
+/*
+* Class "NumberForComparison" is (encapsulates) an object whose attributes,
+* are the three numbers entered to find the second largest.
+* */
+class NumbersForComparison {
 
     private int firstNumber;
     private int secondNumber;
     private int thirdNumber;
 
-    NumbersForComparison() {
+    public NumbersForComparison() {
     }
 
     public NumbersForComparison(int firstNumber, int secondNumber, int thirdNumber) {
@@ -22,27 +22,27 @@ final class NumbersForComparison {
         this.thirdNumber = thirdNumber;
     }
 
-    int getFirstNumber() {
+    public int getFirstNumber() {
         return firstNumber;
     }
 
-    void setFirstNumber(int firstNumber) {
+    public void setFirstNumber(int firstNumber) {
         this.firstNumber = firstNumber;
     }
 
-    int getSecondNumber() {
+    public int getSecondNumber() {
         return secondNumber;
     }
 
-    void setSecondNumber(int secondNumber) {
+    public void setSecondNumber(int secondNumber) {
         this.secondNumber = secondNumber;
     }
 
-    int getThirdNumber() {
+    public int getThirdNumber() {
         return thirdNumber;
     }
 
-    void setThirdNumber(int thirdNumber) {
+    public void setThirdNumber(int thirdNumber) {
         this.thirdNumber = thirdNumber;
     }
 }

@@ -1,6 +1,4 @@
-package com.lugowoy.tasks.core.third;
-
-import com.lugowoy.util.reading.Reading;
+package com.lugowoy.tasks.core.сountTheNumberOfOccurrencesOfTheMaximumNumber;
 
 /**
  * Created by Konstantin on 14.11.2016.

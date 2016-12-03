@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.core.second;
+package com.lugowoy.tasks.core.defineTheSecondLargestNumber;
 
 import com.lugowoy.util.reading.Reading;
 

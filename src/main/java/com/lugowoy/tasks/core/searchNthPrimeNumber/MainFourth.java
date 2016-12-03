@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.core.fourth;
+package com.lugowoy.tasks.core.searchNthPrimeNumber;
 
 import com.lugowoy.util.reading.Reading;
 

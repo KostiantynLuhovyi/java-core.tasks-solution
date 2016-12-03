@@ -1,9 +1,8 @@
-package com.lugowoy.tasks.core.first;
+package com.lugowoy.tasks.core.identifyTwoIdenticalNumbers;
 
 import com.lugowoy.util.reading.Reading;
 
 import java.io.IOException;
-import java.util.Scanner;
 
 /**
  * Created by Konstantin on 07.11.2016.

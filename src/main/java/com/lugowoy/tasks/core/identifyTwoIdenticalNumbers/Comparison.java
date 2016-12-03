@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.core.first;
+package com.lugowoy.tasks.core.identifyTwoIdenticalNumbers;
 
 /**
  * Created by Konstantin on 08.11.2016.
