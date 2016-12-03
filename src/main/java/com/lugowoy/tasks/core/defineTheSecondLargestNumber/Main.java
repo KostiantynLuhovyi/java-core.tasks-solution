@@ -7,7 +7,7 @@ import com.lugowoy.util.reading.Reading;
  */
 
 
-public class MainSecond {
+public class Main {
     /*
     * Class object "Reading" reads the user input data to the console.
     * See package com.lugowoy.util.reading.

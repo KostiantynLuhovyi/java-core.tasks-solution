@@ -4,7 +4,7 @@ package com.lugowoy.tasks.core.сountTheNumberOfOccurrencesOfTheMaximumNumber;
  * Created by Konstantin on 14.11.2016.
  */
 
-public class MainThird {
+public class Main {
 
     public static void main(String[] args) {
 

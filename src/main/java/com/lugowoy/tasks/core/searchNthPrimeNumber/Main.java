@@ -6,8 +6,8 @@ import com.lugowoy.util.reading.Reading;
  * Created by Konstantin on 19.11.2016.
  */
 
-//Class "MainFourth" to run program.
-public class MainFourth {
+//Class "Main" to run program.
+public class Main {
     //Constant variable to read user input.
     private static final Reading READING = new Reading();
     //Maximum enter counting to find prime number.
