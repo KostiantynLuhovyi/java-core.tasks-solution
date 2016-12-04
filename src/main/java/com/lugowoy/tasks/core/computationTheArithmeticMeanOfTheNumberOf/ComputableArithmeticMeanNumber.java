@@ -6,6 +6,6 @@ package com.lugowoy.tasks.core.computationTheArithmeticMeanOfTheNumberOf;
 
 public interface ComputableArithmeticMeanNumber {
 
-    double computationArithmeticMeanNumber(int [] intsNumbers);
+    double computationArithmeticMeanNumber(double[] doublesArray);
 
 }

@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.core.сountTheNumberOfOccurrencesOfTheMaximumNumber;
+package com.lugowoy.tasks.core.countTheNumberOfOccurrencesOfTheMaximumNumber;
 
 /**
  * Created by Konstantin on 14.11.2016.

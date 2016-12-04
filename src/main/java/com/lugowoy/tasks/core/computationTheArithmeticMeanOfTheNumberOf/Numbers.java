@@ -6,21 +6,17 @@ package com.lugowoy.tasks.core.computationTheArithmeticMeanOfTheNumberOf;
 
 public class Numbers {
 
-    private int [] numbers;
+    private double [] numbers;
     private double resultArithmeticMeanNumbers;
-
-    public Numbers(int[] numbers) {
-        this.numbers = numbers;
-    }
 
     public Numbers() {
     }
 
-    public int[] getNumbers() {
+    public double[] getNumbers() {
         return numbers;
     }
 
-    public void setNumbers(int[] numbers) {
+    public void setNumbers(double[] numbers) {
         this.numbers = numbers;
     }
 
@@ -31,4 +27,5 @@ public class Numbers {
     public void setResultArithmeticMeanNumbers(double resultArithmeticMeanNumbers) {
         this.resultArithmeticMeanNumbers = resultArithmeticMeanNumbers;
     }
+
 }

@@ -1,4 +1,6 @@
-package com.lugowoy.tasks.core.сountTheNumberOfOccurrencesOfTheMaximumNumber;
+package com.lugowoy.tasks.core.countTheNumberOfOccurrencesOfTheMaximumNumber;
+
+import com.lugowoy.util.fillable.FillingArray;
 
 /**
  * Created by Konstantin on 14.11.2016.
@@ -16,23 +18,17 @@ public class Main {
         /*
         * Instantiate an object of class "Numbers", passing the argument integer array("numbersArray") of 10 elements.
         * */
-        Numbers numbers = new Numbers(numbersArray);
+        Numbers numbers = new Numbers();
         /*
         * Instantiate an object of class "CountableNumbers",
         * to find number of occurrences of the maximum entered number.
         * */
         Countable countable = new CountableNumbers();
-        /*
-        * Instantiate an object of class "InsertionNumbers".
-        * */
-        Insertion<Numbers> insertion = new InsertionNumbers();
 
-        /*
-        * In the class of the object "InsertionNumbers",
-        * call the method to fill an array of integer values entered by the user.
-        * The method receives the argument class object "Numbers".
-        * */
-        insertion.enterNumbers(numbers);
+        //todo - Not commented.
+        FillingArray<Numbers> fillingArray = new FillingArray<>();
+
+        numbers.setNumbers(fillingArray.fillArrayIntNumbers(numbersArray));
 
         /*
         * Iteration for an array of integer values contained in the object class "Numbers".

@@ -61,7 +61,7 @@ public class Reading implements ReadableRandom, ReadableUserInput {
             /*
             * Regular expressions check entered variable value that the number of signed or unsigned.
             * */
-            if ((value.matches("\\d+?")) || (value.matches("-\\d+?"))) {
+            if ((value.matches("\\d+?.")) || (value.matches("-\\d+?"))) {
                 /*
                 * If verify = "true", the variable inputValue correct and correct.
                 * */
@@ -90,7 +90,15 @@ public class Reading implements ReadableRandom, ReadableUserInput {
     * */
     @Override
     public double readDouble() {
-        return SCANNER.nextDouble();
+        double number = 0;
+        if (SCANNER.hasNextDouble()) {
+            number = SCANNER.nextDouble();
+        } else {
+            System.out.println("Not correct input number value.");
+            System.out.println("Re-enter : ");
+            this.readDouble();
+        }
+        return number;
     }
 
     /*

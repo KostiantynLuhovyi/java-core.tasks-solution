@@ -1,26 +1,33 @@
 package com.lugowoy.tasks.core.computationTheArithmeticMeanOfTheNumberOf;
 
+import com.lugowoy.util.fillable.FillingArray;
+
 /**
  * Created by Konstantin on 03-Dec-16.
  */
 
 public class Main {
 
-    private static final InsertionNumbers INSERTION_NUMBERS = new InsertionNumbers();
-
     public static void main(String[] args) {
 
-        int [] intsNumbers = new int[5];
+        double [] doubleNumbers = new double[2];
 
-        Numbers numbers = new Numbers(intsNumbers);
+        Numbers numbers = new Numbers();
 
-        INSERTION_NUMBERS.enterNumbers(numbers);
+        FillingArray<Numbers> fillingArray = new FillingArray<>();
+
+        numbers.setNumbers(fillingArray.fillArrayDoubleNumbers(doubleNumbers));
 
         ComputationArithmeticMeanNumbers arithmeticMeanNumbers = new ComputationArithmeticMeanNumbers();
 
         numbers.setResultArithmeticMeanNumbers(arithmeticMeanNumbers.computationArithmeticMeanNumber(numbers.getNumbers()));
 
         System.out.println(numbers.getResultArithmeticMeanNumbers());
+
+        for (int i = 0; i < numbers.getNumbers().length; i++) {
+            System.out.println(numbers.getNumbers()[i]);
+        }
+
     }
 
 }
