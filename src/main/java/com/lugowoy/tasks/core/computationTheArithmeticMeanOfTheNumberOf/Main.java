@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        double [] doubleNumbers = new double[2];
+        double [] doubleNumbers = new double[5];
 
         Numbers numbers = new Numbers();
 

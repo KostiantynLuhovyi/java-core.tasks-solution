@@ -3,7 +3,7 @@ package com.lugowoy.util.reading;
 /**
  * Created by Konstantin on 11.11.2016.
  */
-
+//todo проверить комментарии и написать там где их нет.
 /*Class "Reading" implements the interface contracts for reading, processing input and generated data.*/
 public class Reading implements ReadableRandom, ReadableUserInput {
 
@@ -40,14 +40,14 @@ public class Reading implements ReadableRandom, ReadableUserInput {
     * */
     @Override
     public int readInt() {
-        /*See private method getInputCorrectNumberValue();*/
-        return this.getInputCorrectNumberValue();
+        /*See private method getCorrectIntNumberValue();*/
+        return this.getCorrectIntNumberValue();
     }
 
     /*
     * Method to determine the correctness of input integer value
     * */
-    private int getInputCorrectNumberValue() {
+    private int getCorrectIntNumberValue() {
         /*Local variable save and return correct value*/
         int inputValue = 0;
         /*Local variable String value stores the value read from the console, the class instance Scanner.*/
@@ -58,20 +58,23 @@ public class Reading implements ReadableRandom, ReadableUserInput {
         * For this reason, the code waits and catches an exception.
         * */
         try {
+
+            if (!value.equalsIgnoreCase("stop")) {
             /*
             * Regular expressions check entered variable value that the number of signed or unsigned.
             * */
-            if ((value.matches("\\d+?.")) || (value.matches("-\\d+?"))) {
+                if ((value.matches("\\d+?")) || (value.matches("-\\d+?"))) {
                 /*
                 * If verify = "true", the variable inputValue correct and correct.
                 * */
-                inputValue = Integer.parseInt(value);
-            } else {
+                    inputValue = Integer.parseInt(value);
+                } else {
                 /*If verify = "false", it prints a message and with the help of recursion require re-enter.*/
-                System.out.println("Entered an incorrect value.");
-                System.out.println("From -2147483648 to 2147483648.");
-                System.out.println("Re-enter the number : ");
-                inputValue = this.getInputCorrectNumberValue();
+                    System.out.println("Entered an incorrect value.");
+                    System.out.println("From -2147483648 to 2147483648.");
+                    System.out.println("Re-enter the number : ");
+                    inputValue = this.getCorrectIntNumberValue();
+                }
             }
         } catch (NumberFormatException ex) {
             /*If catch NumberFormatException exception,
@@ -79,7 +82,7 @@ public class Reading implements ReadableRandom, ReadableUserInput {
             System.out.println("Entered an incorrect value.");
             System.out.println("From -2147483648 to 2147483648.");
             System.out.println("Re-enter the number : ");
-            inputValue = this.getInputCorrectNumberValue();
+            inputValue = this.getCorrectIntNumberValue();
         }
         return inputValue;
     }
@@ -90,15 +93,28 @@ public class Reading implements ReadableRandom, ReadableUserInput {
     * */
     @Override
     public double readDouble() {
-        double number = 0;
-        if (SCANNER.hasNextDouble()) {
-            number = SCANNER.nextDouble();
-        } else {
+        return this.getCorrectDoubleNumberValue();
+    }
+
+    private double getCorrectDoubleNumberValue() {
+        double inputValue = 0;
+
+        String value = SCANNER.nextLine();
+        try {
+            if (((value.matches("\\d+?[.]\\d+?")) || (value.matches("-\\d+?[.]\\d+?")))
+                    || (((value.matches("\\d+?")) || (value.matches("-\\d+?"))))) {
+                inputValue = Double.parseDouble(value);
+            } else {
+                System.out.println("Not correct input number value.");
+                System.out.println("Re-enter : ");
+                inputValue = this.readDouble();
+            }
+        } catch (NumberFormatException ex) {
             System.out.println("Not correct input number value.");
             System.out.println("Re-enter : ");
-            this.readDouble();
+            inputValue = this.readDouble();
         }
-        return number;
+        return inputValue;
     }
 
     /*
