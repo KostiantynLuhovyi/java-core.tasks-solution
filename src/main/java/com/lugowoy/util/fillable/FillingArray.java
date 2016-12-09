@@ -1,5 +1,7 @@
 package com.lugowoy.util.fillable;
 
+import com.lugowoy.util.reading.ForStopingEnterValueException;
+
 /**
  * Created by Konstantin on 04-Dec-16.
  */
@@ -11,13 +13,13 @@ public class FillingArray<T> implements FillableArrayInt<T>, FillableArrayDouble
         /*
         * Local variable "number" takes an integer value that the user enters into the console.
         * */
-        double doubleNumber = 0;
+        double doubleNumber;
         /*
         * A local variable "arrayLength" is needed to determine the number of elements in the array of filled.
         * */
         int arrayLength = 0;
 
-        System.out.println("To exit, enter : -1");
+        System.out.println("To exit, enter : 'stop'.");
 
         /*
         * Iterate over the array of elements to fill the integer array.
@@ -32,66 +34,23 @@ public class FillingArray<T> implements FillableArrayInt<T>, FillableArrayDouble
 
             System.out.println("Enter the number : ");
             //Reading the values entered by the user.
-            doubleNumber = READING.readDouble();
+            try {
+                doubleNumber = READING.readDouble();
+                arrayDouble[i] = doubleNumber;
+            } catch (ForStopingEnterValueException e) {
+                break;
+            }
+
 
             /*
             * If the value of a variable "number"(the value entered by the user) equal to -1.
             * Get out of the loop. The filling of the array is completed.
             * */
-            if (doubleNumber == -1) {
-                break;
-            } else {//Otherwise assign a value entered by the user to assign an array element.
-                arrayDouble[i] = doubleNumber;
-            }
-            /*
-            * At each iteration of the loop, the variable is incremented by one,
-             * in order to determine how many elements in the array is filled.
-            * */
-            arrayLength++;
-        }
-        /*
-        * Returns an object class "Numbers" that contains an array of filled.
-        * */
-        return arrayDouble;
-    }
-
-    @Override
-    public double[] fillArrayDoubleNumbers(double[] arrayDouble, String commandToStopFilling) {
-        /*
-        * Local variable "number" takes an integer value that the user enters into the console.
-        * */
-        double doubleNumber = 0;
-        /*
-        * A local variable "arrayLength" is needed to determine the number of elements in the array of filled.
-        * */
-        int arrayLength = 0;
-
-        System.out.println("To exit, enter : " + commandToStopFilling);
-
-        /*
-        * Iterate over the array of elements to fill the integer array.
-        * */
-        for (int i = 0; i <= arrayDouble.length; i++) {
-            /*
-            * It compares the value of a variable "arrayLength" with the value of the array size.
-            * If the values are equal, the size of the array is incremented.
-            * */
-            if (arrayLength == arrayDouble.length)
-                arrayDouble = this.increaseSizeOfTheArray(arrayDouble);
-
-            System.out.println("Enter the number : ");
-            //Reading the values entered by the user.
-            doubleNumber = READING.readDouble();
-
-            /*
-            * If the value of a variable "number"(the value entered by the user) equal to -1.
-            * Get out of the loop. The filling of the array is completed.
-            * */
-            if (doubleNumber == -1) {
-                break;
-            } else {//Otherwise assign a value entered by the user to assign an array element.
-                arrayDouble[i] = doubleNumber;
-            }
+            /*if (doubleNumber == -1) {
+                break;*/
+            /*} else {*///Otherwise assign a value entered by the user to assign an array element.
+               /* arrayDouble[i] = doubleNumber;
+            }*/
             /*
             * At each iteration of the loop, the variable is incremented by one,
              * in order to determine how many elements in the array is filled.
@@ -135,7 +94,7 @@ public class FillingArray<T> implements FillableArrayInt<T>, FillableArrayDouble
         /*
         * Local variable "number" takes an integer value that the user enters into the console.
         * */
-        int number = 0;
+        int number;
         /*
         * A local variable "arrayLength" is needed to determine the number of elements in the array of filled.
         * */
@@ -156,17 +115,13 @@ public class FillingArray<T> implements FillableArrayInt<T>, FillableArrayDouble
 
             System.out.println("Enter the number : ");
             //Reading the values entered by the user.
-            number = READING.readInt();
-
-            /*
-            * If the value of a variable "number"(the value entered by the user) equal to -1.
-            * Get out of the loop. The filling of the array is completed.
-            * */
-            if (number == -1) {
-                break;
-            } else {//Otherwise assign a value entered by the user to assign an array element.
+            try {
+                number = READING.readInt();
                 arrayInt[i] = number;
+            } catch (ForStopingEnterValueException e) {
+                break;
             }
+
             /*
             * At each iteration of the loop, the variable is incremented by one,
              * in order to determine how many elements in the array is filled.
@@ -177,11 +132,6 @@ public class FillingArray<T> implements FillableArrayInt<T>, FillableArrayDouble
         * Returns an object class "Numbers" that contains an array of filled.
         * */
         return arrayInt;
-    }
-
-    @Override
-    public int[] fillArrayIntNumbers(int[] arrayInt, String commandToStopFilling) {
-        return new int[0];
     }
 
     /*

@@ -8,6 +8,4 @@ public interface FillableArrayInt<T> extends Fillable<T> {
 
     int[] fillArrayIntNumbers(int[] arrayInt);
 
-    int[] fillArrayIntNumbers(int[] arrayInt, String commandToStopFilling);
-
 }

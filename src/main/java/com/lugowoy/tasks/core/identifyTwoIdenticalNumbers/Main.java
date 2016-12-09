@@ -1,5 +1,6 @@
 package com.lugowoy.tasks.core.identifyTwoIdenticalNumbers;
 
+import com.lugowoy.util.reading.ForStopingEnterValueException;
 import com.lugowoy.util.reading.Reading;
 
 import java.io.IOException;
@@ -29,38 +30,44 @@ public class Main {
             System.out.println("Make a choice : ");
             /*Local variable statusChoice it takes the value entered by the user to identify how the program will be carried out.*/
             int statusChoice = getCorrectStatusChoice();
-            switch (statusChoice) {
+
+            try {
+                switch (statusChoice) {
                 /* If statusChoice = 1, the user enters the number for comparison.*/
-                case USER_ENTER_NUMBERS:
-                    numbersForComparison = new NumbersForComparison();
-                    System.out.println("Enter the first value : ");
-                    numbersForComparison.setFirstNumber(reading.readInt());
-                    System.out.println("Enter the second value : ");
-                    numbersForComparison.setSecondNumber(reading.readInt());
-                    System.out.println("Enter the third value : ");
-                    numbersForComparison.setThirdNumber(reading.readInt());
-                    comparingNumbers.compareNumbers(numbersForComparison);
-                    break;
-                case RANDOM_ENTER_NUMBERS:
+                    case USER_ENTER_NUMBERS:
+                        numbersForComparison = new NumbersForComparison();
+                        System.out.println("Enter the first value : ");
+                        numbersForComparison.setFirstNumber(reading.readInt());
+                        System.out.println("Enter the second value : ");
+                        numbersForComparison.setSecondNumber(reading.readInt());
+                        System.out.println("Enter the third value : ");
+                        numbersForComparison.setThirdNumber(reading.readInt());
+                        comparingNumbers.compareNumbers(numbersForComparison);
+                        break;
+                    case RANDOM_ENTER_NUMBERS:
                     /*If statusChoice = 2, the generated random number for comparison.*/
-                    numbersForComparison = new NumbersForComparison();
-                    numbersForComparison.setFirstNumber(reading.readRandomInt());
-                    numbersForComparison.setSecondNumber(reading.readRandomInt());
-                    numbersForComparison.setThirdNumber(reading.readRandomInt());
-                    comparingNumbers.compareNumbers(numbersForComparison);
-                    break;
+                        numbersForComparison = new NumbersForComparison();
+                        numbersForComparison.setFirstNumber(reading.readRandomInt());
+                        numbersForComparison.setSecondNumber(reading.readRandomInt());
+                        numbersForComparison.setThirdNumber(reading.readRandomInt());
+                        comparingNumbers.compareNumbers(numbersForComparison);
+                        break;
                     /*If statusChoice = 3, to EXIT program.*/
-                case EXIT:
-                    return;
-                default:
-                    break;
+                    case EXIT:
+                        return;
+                    default:
+                        break;
+                }
+            } catch (ForStopingEnterValueException ex) {
+                break;
             }
-        } while (true);
-    }
+            } while (true) ;
+        }
 
     /*
     * The method of reading user input to determine the progress of the program.
     * */
+
     private static int getCorrectStatusChoice() {
         int statusChoice = 0;
         String description = "Enter a number from 1 to 3\n";

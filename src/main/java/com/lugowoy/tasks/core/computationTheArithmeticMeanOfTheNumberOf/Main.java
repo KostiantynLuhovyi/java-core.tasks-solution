@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        double [] doubleNumbers = new double[5];
+        double [] doubleNumbers = new double[2];
 
         Numbers numbers = new Numbers();
 
@@ -22,11 +22,7 @@ public class Main {
 
         numbers.setResultArithmeticMeanNumbers(arithmeticMeanNumbers.computationArithmeticMeanNumber(numbers.getNumbers()));
 
-        System.out.println(numbers.getResultArithmeticMeanNumbers());
-
-        for (int i = 0; i < numbers.getNumbers().length; i++) {
-            System.out.println(numbers.getNumbers()[i]);
-        }
+        System.out.printf("The arithmetic mean of the entered real numbers equals %f",numbers.getResultArithmeticMeanNumbers());
 
     }
 

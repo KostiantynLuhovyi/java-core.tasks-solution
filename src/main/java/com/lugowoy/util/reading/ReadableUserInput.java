@@ -16,12 +16,12 @@ interface ReadableUserInput extends Readable {
     /*
     * Abstract method to reading integer number from the console.
     * */
-    int readInt();
+    int readInt() throws ForStopingEnterValueException;
 
     /*
     * Abstract method to reading double number from the console.
     * */
-    double readDouble();
+    double readDouble() throws ForStopingEnterValueException;
 
     /*
     * Abstract method to reading string line from the console.

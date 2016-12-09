@@ -39,7 +39,7 @@ public class Reading implements ReadableRandom, ReadableUserInput {
     * it with the delegation of responsibilities for the implementation of the class instance Scanner.
     * */
     @Override
-    public int readInt() {
+    public int readInt() throws ForStopingEnterValueException {
         /*See private method getCorrectIntNumberValue();*/
         return this.getCorrectIntNumberValue();
     }
@@ -47,7 +47,7 @@ public class Reading implements ReadableRandom, ReadableUserInput {
     /*
     * Method to determine the correctness of input integer value
     * */
-    private int getCorrectIntNumberValue() {
+    private int getCorrectIntNumberValue() throws ForStopingEnterValueException {
         /*Local variable save and return correct value*/
         int inputValue = 0;
         /*Local variable String value stores the value read from the console, the class instance Scanner.*/
@@ -58,7 +58,6 @@ public class Reading implements ReadableRandom, ReadableUserInput {
         * For this reason, the code waits and catches an exception.
         * */
         try {
-
             if (!value.equalsIgnoreCase("stop")) {
             /*
             * Regular expressions check entered variable value that the number of signed or unsigned.
@@ -75,6 +74,8 @@ public class Reading implements ReadableRandom, ReadableUserInput {
                     System.out.println("Re-enter the number : ");
                     inputValue = this.getCorrectIntNumberValue();
                 }
+            } else {
+                throw new ForStopingEnterValueException();
             }
         } catch (NumberFormatException ex) {
             /*If catch NumberFormatException exception,
@@ -87,27 +88,42 @@ public class Reading implements ReadableRandom, ReadableUserInput {
         return inputValue;
     }
 
+    private boolean isStop(String inputValue) {
+        boolean isStop = true;
+        if (inputValue.equalsIgnoreCase("stop")) {
+            isStop = false;
+        }
+        return isStop;
+    }
+
     /*
     * Override abstract method interface "ReadableUserInput" to implement
     * it with the delegation of responsibilities for the implementation of the class instance Scanner.
     * */
     @Override
-    public double readDouble() {
+    public double readDouble() throws ForStopingEnterValueException {
         return this.getCorrectDoubleNumberValue();
     }
 
-    private double getCorrectDoubleNumberValue() {
+    private double getCorrectDoubleNumberValue() throws ForStopingEnterValueException {
         double inputValue = 0;
 
         String value = SCANNER.nextLine();
+
         try {
-            if (((value.matches("\\d+?[.]\\d+?")) || (value.matches("-\\d+?[.]\\d+?")))
-                    || (((value.matches("\\d+?")) || (value.matches("-\\d+?"))))) {
-                inputValue = Double.parseDouble(value);
+
+            if (!value.equalsIgnoreCase("stop")) {
+
+                if (((value.matches("\\d+?[.]\\d+?")) || (value.matches("-\\d+?[.]\\d+?")))
+                        || (((value.matches("\\d+?")) || (value.matches("-\\d+?"))))) {
+                    inputValue = Double.parseDouble(value);
+                } else {
+                    System.out.println("Not correct input number value.");
+                    System.out.println("Re-enter : ");
+                    inputValue = this.readDouble();
+                }
             } else {
-                System.out.println("Not correct input number value.");
-                System.out.println("Re-enter : ");
-                inputValue = this.readDouble();
+                throw new ForStopingEnterValueException();
             }
         } catch (NumberFormatException ex) {
             System.out.println("Not correct input number value.");
