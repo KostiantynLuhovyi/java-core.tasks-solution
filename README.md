@@ -1,4 +1,4 @@
-# Java_Core_Tasks_Solution
+# Solution_Tasks_For_Java_Fundamentals
 In this repository you will find many tasks solutions  on the topics of Java programming language.
 
 For example the construction of a project folder structure is taken from the BAT framework Maven.
