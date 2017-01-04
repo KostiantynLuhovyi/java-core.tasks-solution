@@ -1,0 +1,1 @@
+Write a program that finds the percentage P of the sum of S.
