@@ -10,6 +10,8 @@ public class Main {
 
     public static final Reading READING = new Reading();
 
+    private static final CalculableTheDegreeOfNumber CALCULABLE_THE_DEGREE_OF_NUMBER = Math::pow;
+
     public static void main(String[] args) throws ForStopingEnterValueException {
 
         Number number = new Number();
@@ -20,11 +22,7 @@ public class Main {
         System.out.println("Enter degree : ");
         number.setDegree(READING.readDouble());
 
-        CalculableTheDegreeOfNumber calculableTheDegreeOfNumber = new CalculateTheDegreeOfNumber();
-
-
-            number.setResultNumber(
-                    calculableTheDegreeOfNumber.getResultToCalculateTheDegreeOfNumber(number.getNumber(), number.getDegree()));
+        number.setResultNumber(CALCULABLE_THE_DEGREE_OF_NUMBER.getResultToCalculateTheDegreeOfNumber(number.getNumber(),number.getDegree()));
 
         System.out.format("Result calculate the degree of the number equal %f", number.getResultNumber());
 

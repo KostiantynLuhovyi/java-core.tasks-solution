@@ -4,7 +4,8 @@ package com.lugowoy.tasks.core.calculateTheDegreeOfNumber;
  * Created by Konstantin on 14-Dec-16.
  */
 
-public interface CalculableTheDegreeOfNumber {
+@FunctionalInterface
+interface CalculableTheDegreeOfNumber {
 
     double getResultToCalculateTheDegreeOfNumber(double number, double degree);
 
