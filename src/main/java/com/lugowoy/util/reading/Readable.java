@@ -1,14 +1,15 @@
 package com.lugowoy.util.reading;
 
-import java.util.Random;
-import java.util.Scanner;
-
 /**
- * Created by Konstantin on 10.11.2016.
+ * @author Konstantin
+ * @version 1.1
+ *
+ *
+ *
  */
-/*
-* Interface "Readable" is the root of the hierarchy
-* provides for the functional reading of the data entered.
-* */
-interface Readable {
+
+@FunctionalInterface
+interface Readable<T, V> {
+
+    T reading(V v);
 }
