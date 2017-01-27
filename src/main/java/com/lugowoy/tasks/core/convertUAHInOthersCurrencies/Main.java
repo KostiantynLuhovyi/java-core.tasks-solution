@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.core.convertUAHInOthersCurrencies;
 
-import com.lugowoy.util.reading.ForStopingEnterValueException;
-import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.*;
+import com.lugowoy.util.reading.Readable;
 
 import java.math.BigDecimal;
 
@@ -11,16 +11,15 @@ import java.math.BigDecimal;
 
 public class Main {
 
-    private static final Reading READING = new Reading();
-
     private static final ConvertUAHInOtherCurrencies CONVERT_UAH_IN_OTHER_CURRENCIES = new ConvertUAHInOtherCurrencies();
 
-    public static void main(String[] args) throws ForStopingEnterValueException {
+    public static void main(String[] args) throws StoppingEnterValueException {
 
         Account account = new Account();
 
         System.out.println("Enter the amount in UAH : ");
-        account.setUAH(new BigDecimal(READING.readDouble()));
+        ReadingData<Double> readingData = new ReadingData<>(new ReadingUserInputData()::readDouble);
+        account.setUAH(new BigDecimal(readingData.read()));
 
         account.setUSD(CONVERT_UAH_IN_OTHER_CURRENCIES.convertUAHtoUSD(account.getUAH()));
         account.setEUR(CONVERT_UAH_IN_OTHER_CURRENCIES.convertUAHtoEUR(account.getUAH()));

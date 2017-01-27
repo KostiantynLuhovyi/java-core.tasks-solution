@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.core.calculationThePercentageOfTheSum;
 
-import com.lugowoy.util.reading.ForStopingEnterValueException;
-import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.*;
+import com.lugowoy.util.reading.Readable;
 
 import java.math.BigDecimal;
 import java.util.Comparator;
@@ -12,17 +12,17 @@ import java.util.Comparator;
 
 public class Main {
 
-    private static final Reading READING = new Reading();
+    private static final ReadingData<Double> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readDouble);
 
-    public static void main(String[] args) throws ForStopingEnterValueException {
+    public static void main(String[] args) throws StoppingEnterValueException {
 
         System.out.println("Enter sum : ");
         Sum sum = new Sum();
-        sum.setSum(new BigDecimal(READING.readDouble()));
+        sum.setSum(new BigDecimal(READING_DATA.read()));
 
         System.out.println("Enter part of the sum : ");
         PartOfTheSum partOfTheSum = new PartOfTheSum();
-        partOfTheSum.setPartOfSum(new BigDecimal(READING.readDouble()));
+        partOfTheSum.setPartOfSum(new BigDecimal(READING_DATA.read()));
 
         Comparator<BigDecimal> comparator = new Comparator<BigDecimal>() {
             @Override

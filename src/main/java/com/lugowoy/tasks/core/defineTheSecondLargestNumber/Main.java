@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.core.defineTheSecondLargestNumber;
 
-import com.lugowoy.util.reading.ForStopingEnterValueException;
-import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.*;
+import com.lugowoy.util.reading.Readable;
 
 /**
  * Created by Konstantin on 14.11.2016.
@@ -10,10 +10,10 @@ import com.lugowoy.util.reading.Reading;
 
 public class Main {
     /*
-    * Class object "Reading" reads the user input data to the console.
-    * See package com.lugowoy.util.reading.
+    * Class object "Readable" reads the user input data to the console.
+    * See package com.lugowoy.util.read.
     * */
-    private static Reading reading = new Reading();
+    private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
 
     public static void main(String[] args) {
 
@@ -23,14 +23,14 @@ public class Main {
         NumbersForComparison numbersForComparison = new NumbersForComparison();
         try {
             System.out.println("Enter the first value : ");
-            numbersForComparison.setFirstNumber(reading.readInt());
+            numbersForComparison.setFirstNumber(readingData.read());
 
             System.out.println("Enter the second value : ");
-            numbersForComparison.setSecondNumber(reading.readInt());
+            numbersForComparison.setSecondNumber(readingData.read());
 
             System.out.println("Enter the third value : ");
-            numbersForComparison.setThirdNumber(reading.readInt());
-        } catch (ForStopingEnterValueException ex) {
+            numbersForComparison.setThirdNumber(readingData.read());
+        } catch (StoppingEnterValueException ex) {
             ex.printStackTrace();
         }
         ComputingSecondLargestNumber computingSecondLargestNumber = new ComputingSecondLargestNumber();

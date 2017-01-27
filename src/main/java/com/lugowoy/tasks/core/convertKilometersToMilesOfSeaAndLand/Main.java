@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.core.convertKilometersToMilesOfSeaAndLand;
 
-import com.lugowoy.util.reading.ForStopingEnterValueException;
-import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.*;
+import com.lugowoy.util.reading.Readable;
 
 /**
  * Created by Konstantin on 31-Dec-16.
@@ -9,20 +9,20 @@ import com.lugowoy.util.reading.Reading;
 
 public class Main {
 
-    private static final Reading READING = new Reading();
+    public static void main(String[] args) throws StoppingEnterValueException {
 
-    public static void main(String[] args) throws ForStopingEnterValueException {
+        ReadingData<Number> readingData = new ReadingData<>(new ReadingUserInputData()::readDouble);
 
         System.out.println("Enter the number of kilometers for conversion : ");
         Length length = new Length();
-        length.setKilometers(READING.readDouble());
+        length.setKilometers((Double) readingData.read());
 
         System.out.println("Convert entered number of kilometers, ");
         System.out.println("In nautical miles, enter : \"1\" .");
         System.out.println("In the statute miles, enter : \"2\" .");
         System.out.println("Nothing to convert, enter : \"3\" .");
 
-        int selection = READING.readInt();
+        int selection = (int) readingData.read();
 
         if ((selection > 0) && (selection <= 3)) {
             Convertable<Length> lengthConvertable;

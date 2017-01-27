@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.core.exchangePlacesTwoVariablesWithAndWithoutTheUseOfAThirdVariable;
 
-import com.lugowoy.util.reading.ForStopingEnterValueException;
-import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.*;
+import com.lugowoy.util.reading.Readable;
 
 /**
  * Created by Konstantin on 18-Jan-17.
@@ -9,18 +9,18 @@ import com.lugowoy.util.reading.Reading;
 
 public class Main {
 
-    private static final Reading READING = new Reading();
+    private static final ReadingData<Integer> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readInt);
 
-    public static void main(String[] args) throws ForStopingEnterValueException {
+    public static void main(String[] args) throws StoppingEnterValueException {
 
         Variables variableForExchangePlacesTwoVariablesWithThirdVariable = new Variables();
 
         System.out.println("Enter the value of the first variable : ");
-        int firstValue = READING.readInt();
+        int firstValue = READING_DATA.read();
         variableForExchangePlacesTwoVariablesWithThirdVariable.setFirstVariable(firstValue);
 
         System.out.println("Enter the value of the second variable : ");
-        int secondValue = READING.readInt();
+        int secondValue = READING_DATA.read();
         variableForExchangePlacesTwoVariablesWithThirdVariable.setSecondVariable(secondValue);
 
         Exchangeable<Variables> variablesExchangeableWithTheUseThirdVariable =

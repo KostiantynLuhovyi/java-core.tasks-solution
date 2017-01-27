@@ -1,15 +1,8 @@
 package com.lugowoy.util.reading;
 
 /**
- * @author Konstantin
- * @version 1.1
- *
- *
- *
+ * Created by Konstantin on 11.11.2016.
  */
 
-@FunctionalInterface
-interface Readable<T, V> {
-
-    T reading(V v);
+public interface Readable {
 }

@@ -1,6 +1,6 @@
 package com.lugowoy.util.fillable;
 
-import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.Readable;
 
 /**
  * Created by Konstantin on 04-Dec-16.
@@ -8,5 +8,4 @@ import com.lugowoy.util.reading.Reading;
 
 public interface Fillable<T> {
 
-    Reading READING = new Reading();
 }

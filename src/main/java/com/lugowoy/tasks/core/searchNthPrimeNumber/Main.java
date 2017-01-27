@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.core.searchNthPrimeNumber;
 
-import com.lugowoy.util.reading.ForStopingEnterValueException;
-import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.*;
+import com.lugowoy.util.reading.Readable;
 
 /**
  * Created by Konstantin on 19.11.2016.
@@ -9,17 +9,17 @@ import com.lugowoy.util.reading.Reading;
 
 //Class "Main" to run program.
 public class Main {
-    //Constant variable to read user input.
-    private static final Reading READING = new Reading();
     //Maximum enter counting to find prime number.
     private static final int MAX_ENTER_COUNTING_PRIME_NUMBER = 20001;
+
+    private static final ReadingData<Integer> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readInt);
 
     public static void main(String[] args) {
         //Read and assignment value user input counting prime number.
         int number = 0;
         try {
-            number = READING.readInt();
-        } catch (ForStopingEnterValueException e) {
+            number = READING_DATA.read();
+        } catch (StoppingEnterValueException e) {
             e.printStackTrace();
         }
 
@@ -38,8 +38,8 @@ public class Main {
                 System.out.println("Not correct counting prime number.");
                 System.out.println("Re-enter (0 ... 20000) : ");
                 try {
-                    number = READING.readInt();
-                } catch (ForStopingEnterValueException e) {
+                    number = READING_DATA.read();
+                } catch (StoppingEnterValueException e) {
                     break;
                 }
             }

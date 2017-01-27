@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.core.convertingDegreesTemperatures;
 
-import com.lugowoy.util.reading.ForStopingEnterValueException;
-import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.*;
+import com.lugowoy.util.reading.Readable;
 
 /**
  * Created by Konstantin on 11-Jan-17.
@@ -9,16 +9,18 @@ import com.lugowoy.util.reading.Reading;
 
 public class Main {
 
-    private static final Reading READING = new Reading();
+    private static final Reading<Double> DOUBLE_READING = new ReadingUserInputData()::readDouble;
+    private static final Reading<Integer> INTEGER_READING = new ReadingUserInputData()::readInt;
 
-    public static void main(String[] args) throws ForStopingEnterValueException {
+    public static void main(String[] args) throws StoppingEnterValueException {
 
         Temperature temperature = new Temperature();
 
         temperature = setSelectionOfTemperatureScaleForInputTemperature(temperature);
 
         System.out.println("Enter the temperature value :");
-        temperature.setDegreesTemperatures(READING.readDouble());
+
+        temperature.setDegreesTemperatures(DOUBLE_READING.reading());
 
         if (temperature.getScale().equals(TemperatureScale.Celsius)) {
             choiceAndConvertCelsiusToOtherTemperatureScale(temperature);
@@ -45,14 +47,14 @@ public class Main {
         }
     }
 
-    private static void choiceAndConvertCelsiusToOtherTemperatureScale(Temperature temperature) throws ForStopingEnterValueException {
+    private static void choiceAndConvertCelsiusToOtherTemperatureScale(Temperature temperature) throws StoppingEnterValueException {
         System.out.println("Make a choice in what scale to convert degrees Celsius.");
         System.out.println(TemperatureScale.Fahrenheit + " - \"1\" ;");
         System.out.println(TemperatureScale.Kelvin + " - \"2\" ;");
         System.out.println(TemperatureScale.Reaumur + " - \"3\" ;");
         System.out.println(TemperatureScale.Delisle + " - \"4\" ;");
 
-        int choice = READING.readInt();
+        int choice = INTEGER_READING.reading();
 
         while (true) {
             if ((choice > 0) && (choice < 5)) {
@@ -79,12 +81,12 @@ public class Main {
                 break;
             } else {
                 System.out.println("Invalid selection. \n Re-enter : ");
-                choice = READING.readInt();
+                choice = INTEGER_READING.reading();
             }
         }
     }
 
-    private static Temperature setSelectionOfTemperatureScaleForInputTemperature(Temperature temperature) throws ForStopingEnterValueException {
+    private static Temperature setSelectionOfTemperatureScaleForInputTemperature(Temperature temperature) throws StoppingEnterValueException {
         System.out.println("Select what temperature scale will enter the temperature.Enter the number.");
         System.out.println(TemperatureScale.Celsius + " - \"1\" ;");
         System.out.println(TemperatureScale.Fahrenheit + " - \"2\" ;");
@@ -92,7 +94,7 @@ public class Main {
         System.out.println(TemperatureScale.Reaumur + " - \"4\" ;");
         System.out.println(TemperatureScale.Delisle + " - \"5\" ;");
         while (true) {
-            int choice = READING.readInt();
+            int choice = INTEGER_READING.reading();
             if ((choice > 0) && (choice < 6)) {
                 switch (choice) {
                     case 1:

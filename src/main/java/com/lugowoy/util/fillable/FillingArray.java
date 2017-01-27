@@ -1,6 +1,9 @@
 package com.lugowoy.util.fillable;
 
-import com.lugowoy.util.reading.ForStopingEnterValueException;
+import com.lugowoy.util.reading.ReadableUserInputData;
+import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.util.reading.StoppingEnterValueException;
 
 /**
  * Created by Konstantin on 04-Dec-16.
@@ -33,11 +36,12 @@ public class FillingArray<T> implements FillableArrayInt<T>, FillableArrayDouble
                 arrayDouble = this.increaseSizeOfTheArray(arrayDouble);
 
             System.out.println("Enter the number : ");
-            //Reading the values entered by the user.
+            //Readable the values entered by the user.
             try {
-                doubleNumber = READING.readDouble();
+                Reading<Double> reading = new ReadingUserInputData()::readDouble;
+                doubleNumber = reading.reading();
                 arrayDouble[i] = doubleNumber;
-            } catch (ForStopingEnterValueException e) {
+            } catch (StoppingEnterValueException e) {
                 break;
             }
 
@@ -114,11 +118,12 @@ public class FillingArray<T> implements FillableArrayInt<T>, FillableArrayDouble
                 arrayInt = this.increaseSizeOfTheArray(arrayInt);
 
             System.out.println("Enter the number : ");
-            //Reading the values entered by the user.
+            //Readable the values entered by the user.
             try {
-                number = READING.readInt();
+                Reading<Integer> reading = new ReadingUserInputData()::readInt;
+                number = reading.reading();
                 arrayInt[i] = number;
-            } catch (ForStopingEnterValueException e) {
+            } catch (StoppingEnterValueException e) {
                 break;
             }
 
