@@ -1,6 +1,9 @@
 package com.lugowoy.tasks.core.computationTheArithmeticMeanOfTheNumberOf;
 
-import com.lugowoy.util.fillable.FillingArray;
+import com.lugowoy.util.fillable.Fillable;
+import com.lugowoy.util.fillable.FillableArray;
+import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.util.reading.StoppingEnterValueException;
 
 /**
  * Created by Konstantin on 03-Dec-16.
@@ -8,15 +11,19 @@ import com.lugowoy.util.fillable.FillingArray;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws StoppingEnterValueException {
 
-        double [] doubleNumbers = new double[2];
+        Double[] doubleNumbers = new Double[2];
 
         Numbers numbers = new Numbers();
 
-        FillingArray<Numbers> fillingArray = new FillingArray<>();
+        Fillable<Double> fillable = new FillableArray<>(new ReadingUserInputData()::readDouble);
 
-        numbers.setNumbers(fillingArray.fillArrayDoubleNumbers(doubleNumbers));
+        numbers.setNumbers(fillable.fillArray(doubleNumbers));
+
+        for (int i = 0; i < numbers.getNumbers().length; i++) {
+            System.out.println(numbers.getNumbers()[i]);
+        }
 
         ComputationArithmeticMeanNumbers arithmeticMeanNumbers = new ComputationArithmeticMeanNumbers();
 

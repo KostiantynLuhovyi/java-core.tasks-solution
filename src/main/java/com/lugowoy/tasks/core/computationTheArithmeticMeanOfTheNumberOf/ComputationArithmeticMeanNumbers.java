@@ -7,13 +7,14 @@ package com.lugowoy.tasks.core.computationTheArithmeticMeanOfTheNumberOf;
 public class ComputationArithmeticMeanNumbers implements ComputableArithmeticMeanNumber {
 
     @Override
-    public double computationArithmeticMeanNumber(double[] doublesArray) {
-        double resultArithmeticMeanNumber = 0;
+    public double computationArithmeticMeanNumber(Double[] doublesArray) {
+        Double resultArithmeticMeanNumber = 0d;
 
-        for (double number : doublesArray) {
-            resultArithmeticMeanNumber += number;
+        for (Double number : doublesArray) {
+            if (number != null) {
+                resultArithmeticMeanNumber += number;
+            }
         }
-
         resultArithmeticMeanNumber /= (doublesArray.length-1);
 
         return resultArithmeticMeanNumber;

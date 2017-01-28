@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.core.countTheNumberOfOccurrencesOfTheMaximumNumber;
 
-import com.lugowoy.util.fillable.FillingArray;
+import com.lugowoy.util.fillable.FillingArrayW;
 
 /**
  * Created by Konstantin on 14.11.2016.
@@ -26,9 +26,9 @@ public class Main {
         Countable countable = new CountableNumbers();
 
         //todo - Not commented.
-        FillingArray<Numbers> fillingArray = new FillingArray<>();
+        FillingArrayW<Numbers> fillingArrayW = new FillingArrayW<>();
 
-        numbers.setNumbers(fillingArray.fillArrayIntNumbers(numbersArray));
+        numbers.setNumbers(fillingArrayW.fillArrayIntNumbers(numbersArray));
 
         /*
         * Iteration for an array of integer values contained in the object class "Numbers".
