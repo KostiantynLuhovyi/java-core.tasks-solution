@@ -2,16 +2,36 @@ package com.lugowoy.util.reading;
 
 /**
  * Created by Konstantin on 27-Jan-17.
+ * @author Konstantin
+ * @version 1.1
+ * @since 1.1
+ *
+ * This class implements the contract announced in the interface "ReadableUserInputData"
+ * and abstract contract passed by inheritance from interface "ReadableData".
+ *
+ * @see com.lugowoy.util.reading.ReadableData
+ * @see com.lugowoy.util.reading.ReadableUserInputData
  */
 public class ReadingUserInputData implements ReadableUserInputData {
 
-    public String readLine() {
+    /**
+    * This method read user input in the console.
+    * Override(implements) method with interface "ReadableUserInputData".
+    *
+    * @return User input string.
+     * @since 1.0
+     * */
+    public String readLine(){
         return SCANNER.nextLine();
     }
 
-    /*
-    * Override abstract static method interface "ReadableUserInputData" to implement
-    * it with the delegation of responsibilities for the implementation of the class instance Scanner.
+    /**
+    * This method read user input in the console.
+     * Override(implements) method with interface "ReadableData".
+     *
+     * @return User input integer number.
+     * @since 1.0
+     * @throws com.lugowoy.util.reading.StoppingEnterValueException
     * */
     @Override
     public int readInt() throws StoppingEnterValueException {
@@ -63,6 +83,14 @@ public class ReadingUserInputData implements ReadableUserInputData {
         return inputValue;
     }
 
+    /**
+     * This method read user input in the console.
+     * Override(implements) method with interface "ReadableData".
+     *
+     * @return User input double value.
+     * @since 1.0
+     * @throws com.lugowoy.util.reading.StoppingEnterValueException
+     * */
     @Override
     public double readDouble() throws StoppingEnterValueException {
         return this.getCorrectDoubleNumberValue();
