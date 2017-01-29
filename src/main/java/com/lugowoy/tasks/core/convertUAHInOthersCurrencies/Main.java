@@ -1,7 +1,9 @@
 package com.lugowoy.tasks.core.convertUAHInOthersCurrencies;
 
-import com.lugowoy.util.reading.*;
-import com.lugowoy.util.reading.Readable;
+import com.lugowoy.util.converting.ConvertingData;
+import com.lugowoy.util.reading.ReadingData;
+import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.util.reading.StoppingEnterValueException;
 
 import java.math.BigDecimal;
 
@@ -21,9 +23,9 @@ public class Main {
         ReadingData<Double> readingData = new ReadingData<>(new ReadingUserInputData()::readDouble);
         account.setUAH(new BigDecimal(readingData.read()));
 
-        account.setUSD(CONVERT_UAH_IN_OTHER_CURRENCIES.convertUAHtoUSD(account.getUAH()));
-        account.setEUR(CONVERT_UAH_IN_OTHER_CURRENCIES.convertUAHtoEUR(account.getUAH()));
-        account.setRUB(CONVERT_UAH_IN_OTHER_CURRENCIES.convertUAHtoRUB(account.getUAH()));
+        ConvertingData<Account> convertingData = new ConvertingData<>(new ConvertUAHInOtherCurrencies(29.11, 27.21, 2.20)::convert);
+
+        convertingData.convert(account);
 
         System.out.println("In the UAH : " + account.getUAH());
         System.out.println("In the USD : " + account.getUSD());

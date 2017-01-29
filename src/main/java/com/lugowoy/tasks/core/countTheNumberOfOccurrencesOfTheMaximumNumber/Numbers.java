@@ -9,7 +9,7 @@ package com.lugowoy.tasks.core.countTheNumberOfOccurrencesOfTheMaximumNumber;
 * */
 class Numbers {
 
-    private int[] numbers;
+    private Integer[] numbers;
     private int maxNumberCount;
 
     public Numbers() {
@@ -23,11 +23,11 @@ class Numbers {
         this.maxNumberCount = maxNumberCount;
     }
 
-    public int[] getNumbers() {
+    public Integer[] getNumbers() {
         return numbers;
     }
 
-    public void setNumbers(int[] numbers) {
+    public void setNumbers(Integer[] numbers) {
         this.numbers = numbers;
     }
 }
