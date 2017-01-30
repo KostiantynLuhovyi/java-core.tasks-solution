@@ -1,16 +1,18 @@
 package com.lugowoy.tasks.core.calculateTheRootOfLinearEquation;
 
-import org.jetbrains.annotations.Contract;
+import com.lugowoy.util.calculating.Сalculable;
 
 /**
  * Created by Konstantin on 14-Dec-16.
+ * @author Konstantin
+ * @version 1.1
+ * @since 1.0
  */
 
-public class CalculateLinearEquation implements CalculableLinearEquation {
-
+public class CalculateLinearEquation implements Сalculable<LinearEquation> {
 
     @Override
-    public LinearEquation getCalculateXRootLinearEquation(LinearEquation equation) {
+    public LinearEquation calculate(LinearEquation equation) {
         if ((equation.getA() == 0) && (equation.getB() == 0)) {
             System.out.println("Linear equation have many solutions");
         } else if ((equation.getA() == 0) && (equation.getB() != 0)) {
@@ -21,4 +23,8 @@ public class CalculateLinearEquation implements CalculableLinearEquation {
         return equation;
     }
 
+    @Override
+    public LinearEquation calculate(LinearEquation tFirst, LinearEquation tSecond) {
+        throw new RuntimeException("Not realization.");
+    }
 }

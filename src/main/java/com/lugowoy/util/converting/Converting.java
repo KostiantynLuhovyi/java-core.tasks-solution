@@ -6,11 +6,11 @@ package com.lugowoy.util.converting;
  * @version 1.0
  * @since 1.1
  *
- * Functional interface declares a function to perform the conversion.
+ * Functional interface declares a function to perform the convert.
  */
 @FunctionalInterface
 public interface Converting<T> {
 
-    /*Method to conversion.*/
+    /*Method to convert.*/
     void convert(T t);
 }

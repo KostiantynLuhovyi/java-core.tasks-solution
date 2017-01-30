@@ -17,14 +17,14 @@ public class ConvertingData<T> {
 
     /**
      * The constructor takes arguments version
-     * to perform the conversion to be performed by the function of the functional interface.
+     * to perform the convert to be performed by the function of the functional interface.
      * */
     public ConvertingData(Converting<T> converting) {
         this.converting = converting;
     }
 
     /**
-     * Performing conversion.
+     * Performing convert.
      * */
     public void convert(T t) {
         converting.convert(t);
