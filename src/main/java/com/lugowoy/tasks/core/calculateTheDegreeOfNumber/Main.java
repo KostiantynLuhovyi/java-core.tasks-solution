@@ -1,16 +1,20 @@
 package com.lugowoy.tasks.core.calculateTheDegreeOfNumber;
 
-import com.lugowoy.util.reading.ReadableUserInputData;
 import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingUserInputData;
 import com.lugowoy.util.reading.StoppingEnterValueException;
 
 /**
  * Created by Konstantin on 14-Dec-16.
+ * @author Konstantin Lugowoy
+ * @version 1.1
+ * @since 14.12.2016
+ *
+ * This class is required for startup.
  */
 public class Main {
 
-    private static final CalculableTheDegreeOfNumber CALCULABLE_THE_DEGREE_OF_NUMBER = Math::pow;
+    private static final CalculateTheDegreeOfNumber CALCULATE_THE_DEGREE_OF_NUMBER = Math::pow;
 
     public static void main(String[] args) throws StoppingEnterValueException {
 
@@ -24,7 +28,7 @@ public class Main {
         System.out.println("Enter degree : ");
         number.setDegree(readingData.read());
 
-        number.setResultNumber(CALCULABLE_THE_DEGREE_OF_NUMBER.getResultToCalculateTheDegreeOfNumber(number.getNumber(), number.getDegree()));
+        number.setResultNumber(CALCULATE_THE_DEGREE_OF_NUMBER.calculateDegreeOfNumber(number.getNumber(), number.getDegree()));
 
         System.out.format("Result calculate the degree of the number equal %f", number.getResultNumber());
 

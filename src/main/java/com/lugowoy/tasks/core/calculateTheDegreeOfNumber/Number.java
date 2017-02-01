@@ -1,9 +1,13 @@
 package com.lugowoy.tasks.core.calculateTheDegreeOfNumber;
 
 /**
- * Created by Konstantin on 14-Dec-16.
- */
-
+ * Created by Konstantin Lugowoy on 14-Dec-16.
+ * @author Konstantin Lugowoy
+ * @version 1.0
+ * @since 14.12.2016
+ *
+ * This class encapsulates attribute necessary for the performance of a number  to a degree
+ * */
 public class Number {
 
     private double number;
