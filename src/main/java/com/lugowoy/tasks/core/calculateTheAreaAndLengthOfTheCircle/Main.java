@@ -1,18 +1,20 @@
 package com.lugowoy.tasks.core.calculateTheAreaAndLengthOfTheCircle;
 
-import com.lugowoy.util.reading.ReadableUserInputData;
+import com.lugowoy.util.calculating.CalculatingData;
 import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingUserInputData;
 import com.lugowoy.util.reading.StoppingEnterValueException;
 
 /**
  * Created by Konstantin on 15-Dec-16.
+ * @author Konstantin Lugowoy
+ * @version 1.1
+ * @since 15.12.2016
+ *
+ * This class is required for startup.
  */
 
 public class Main {
-
-    private static final CalculableTheAreaAndLengthOfTheCircle CALCULABLE_THE_AREA_AND_LENGTH_OF_THE_CIRCLE =
-            new CalculateTheAreaAndLehgthOfTheCircle();
 
     public static void main(String[] args) throws StoppingEnterValueException {
 
@@ -24,12 +26,16 @@ public class Main {
 
         circle.setRadius(readingData.read());
 
-        circle.setArea(CALCULABLE_THE_AREA_AND_LENGTH_OF_THE_CIRCLE.calculateTheAreaOfTheCircle(circle.getRadius()));
+        CalculatingData<Double> calculatingData;
+
+        calculatingData = new CalculatingData<>(new CalculateTheAreaOfTheCircle()::calculate);
+        circle.setArea(calculatingData.calculate(circle.getRadius()));
         System.out.format("The area of the circle is equal to %f", circle.getArea());
 
         System.out.println();
 
-        circle.setLength(CALCULABLE_THE_AREA_AND_LENGTH_OF_THE_CIRCLE.calculateTheLengthOfThtCircle(circle.getRadius()));
+        calculatingData = new CalculatingData<>(new CalculateTheLengthOfTheCircle()::calculate);
+        circle.setLength(calculatingData.calculate(circle.getRadius()));
         System.out.format("The lehgth of the circle is equal to %.3f", circle.getLength());
 
 
