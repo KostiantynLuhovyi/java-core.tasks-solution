@@ -41,7 +41,7 @@ public class FindPrimeNumber implements FindingPrimeNumber {
             }
             //If the number is prime . . .
             if (isPrime) {
-                //The value of the variable is incremented by one in order to calculate a counting is a prime number.
+                //The value of the variable is incremented by one in order to calculateTheAreaOfTheCircle a counting is a prime number.
                 count++;
                 //If the value of a variable "" equal to the number passed into the method parameter . . .
                 if (count == countingNumber) {

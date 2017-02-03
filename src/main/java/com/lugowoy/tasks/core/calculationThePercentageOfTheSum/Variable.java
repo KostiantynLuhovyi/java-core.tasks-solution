@@ -7,6 +7,8 @@ import java.math.BigDecimal;
  * @author Konstantin Lugowoy
  * @version 1.1
  * @since 30.01.2017
+ *
+ * This class encapsulates the data necessary to calculate the percentage of the sum.
  */
 public class Variable {
 

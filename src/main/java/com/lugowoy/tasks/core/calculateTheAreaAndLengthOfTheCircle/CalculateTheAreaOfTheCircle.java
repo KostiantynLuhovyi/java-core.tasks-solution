@@ -1,40 +1,32 @@
 package com.lugowoy.tasks.core.calculateTheAreaAndLengthOfTheCircle;
 
-import com.lugowoy.util.calculating.Сalculable;
-
 import static java.lang.Math.PI;
+import static java.lang.Math.pow;
 
 /**
  * Created by Konstantin on 15-Dec-16.
+ *
  * @author Konstantin Lugowoy
- * @version 1.1
+ * @version 1.3
  * @since 15.12.2016
- *
+ * <p>
  * Implements calculation of finding the area of a circle.
- *
- * @see com.lugowoy.util.calculating.Сalculable
  */
-
-public class CalculateTheAreaOfTheCircle implements Сalculable<Double>{
-
-    /**
-     * The method calculates the area of the circle.
-     * @since 01.02.2017
-     * @param radius Radius of the circle.
-     * */
-    @Override
-    public Double calculate(Double radius) {
-        return PI * Math.pow(radius, 2);
-    }
+public class CalculateTheAreaOfTheCircle {
 
     /**
-     * The method calculates the area of the circle.
-     * @since 01.02.2017
-     * @param radius Radius of the circle.
-     * @param two Number "2" to calculate the area of the circle
-     * */
-    @Override
-    public Double calculate(Double radius, Double two) {
-        return PI * Math.pow(radius, two);
+     * Circle area calculation.
+     *
+     * @param circle The object circle encapsulates the data necessary to calculate the area of a circle.
+     * @return The object containing the result of calculation range area of a circle.
+     * @since 15.12.2016
+     */
+    public Circle calculateTheAreaOfTheCircle(Circle circle) {
+        /*
+        * Calculating the area of the circle knowing the radius of the formula "S = πr²".
+        * To erect the square of the radius in a static class method Math pow().
+        * */
+        circle.setArea(PI * pow(circle.getRadius(), 2));
+        return circle;
     }
 }

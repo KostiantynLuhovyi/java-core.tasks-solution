@@ -30,7 +30,7 @@ public class Main {
 
         number.setResultNumber(CALCULATE_THE_DEGREE_OF_NUMBER.calculateDegreeOfNumber(number.getNumber(), number.getDegree()));
 
-        System.out.format("Result calculate the degree of the number equal %f", number.getResultNumber());
+        System.out.format("Result calculateTheAreaOfTheCircle the degree of the number equal %f", number.getResultNumber());
 
     }
 }

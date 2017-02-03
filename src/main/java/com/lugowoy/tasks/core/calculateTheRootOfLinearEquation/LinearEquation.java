@@ -1,16 +1,23 @@
 package com.lugowoy.tasks.core.calculateTheRootOfLinearEquation;
 
 /**
- * Created by Konstantin on 14-Dec-16.
+ * Created by Konstantin Lugowoy on 14-Dec-16.
+ *
+ * @author Konstantin Lugowoy
+ * @version 1.0
+ * @since 14.12.2016
+ * <p>
+ * This class encapsulates all the variables of the linear equation.
  */
 
 public class LinearEquation {
 
-    private static final double RESULT_LINEAR_EQUATION = 0;
-
     private double a;
     private double b;
 
+    /**
+    * Field "x" - root linear equation
+     * */
     private double xRootLinearEquation;
 
     public LinearEquation() {

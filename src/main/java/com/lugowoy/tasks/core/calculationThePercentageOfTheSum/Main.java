@@ -1,10 +1,9 @@
 package com.lugowoy.tasks.core.calculationThePercentageOfTheSum;
 
-import com.lugowoy.util.calculating.CalculatingData;
+import com.lugowoy.util.calculable.CalculableOnTheObject;
 import com.lugowoy.util.reading.*;
 
 import java.math.BigDecimal;
-import java.util.Comparator;
 
 
 /**
@@ -36,13 +35,12 @@ public class Main {
         };
 
         if (variableComparable.compareTo(variable) == 1) {
-            CalculatingData<Variable> variableCalculatingData = new CalculatingData<>(new CalculatingThePercentOfSum()::calculate);
-
-            variableCalculatingData.calculate(variable);
+            CalculableOnTheObject<Variable> variableCalculableOnTheObject = new CalculatingThePercentOfSum()::calculateThePercentageOfTheSum;
+            variableCalculableOnTheObject.calculate(variable);
 
             System.out.printf("Result calculation the percent of the sum of equal : %s", variable.getPercent().setScale(2, BigDecimal.ROUND_HALF_DOWN).stripTrailingZeros().toPlainString());
         } else {
-            System.out.println("It is impossible to calculate the percentage of the sum.");
+            System.out.println("It is impossible to calculateTheAreaOfTheCircle the percentage of the sum.");
         }
 
 

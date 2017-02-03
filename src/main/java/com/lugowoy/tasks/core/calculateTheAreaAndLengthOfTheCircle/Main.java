@@ -1,42 +1,57 @@
 package com.lugowoy.tasks.core.calculateTheAreaAndLengthOfTheCircle;
 
-import com.lugowoy.util.calculating.CalculatingData;
+import com.lugowoy.util.calculable.CalculableOnTheObject;
 import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingUserInputData;
 import com.lugowoy.util.reading.StoppingEnterValueException;
 
 /**
  * Created by Konstantin on 15-Dec-16.
+ *
  * @author Konstantin Lugowoy
  * @version 1.1
  * @since 15.12.2016
- *
+ * <p>
  * This class is required for startup.
  */
-
 public class Main {
 
     public static void main(String[] args) throws StoppingEnterValueException {
 
+        /*
+        * Instantiation of class "Circle" object.
+        * */
         Circle circle = new Circle();
 
         System.out.println("Enter the radius of the circle : ");
-
+        /*
+        * Instantiation class "ReadingData" object to read user input.
+        * The constructor takes a parameter a reference to the method of implementing the reading of user input into the console.
+        * */
         ReadingData<Double> readingData = new ReadingData<>(new ReadingUserInputData()::readDouble);
-
+        /*
+        * The read data is assigned to the variable object class "Circle".
+        * */
         circle.setRadius(readingData.read());
 
-        CalculatingData<Double> calculatingData;
+        //Declaring reference variable functional interface "CalculableOnTheObject" to calculate on the object.
+        CalculableOnTheObject<Circle> calculable;
 
-        calculatingData = new CalculatingData<>(new CalculateTheAreaOfTheCircle()::calculate);
-        circle.setArea(calculatingData.calculate(circle.getRadius()));
+        //Variable instantiation "calculable" reference to the method of implementing the calculation area of a circle.
+        calculable = new CalculateTheAreaOfTheCircle()::calculateTheAreaOfTheCircle;
+        //Calling from the functional interface of the object to calculate area of a circle.
+        calculable.calculate(circle);
+        //Output result.
         System.out.format("The area of the circle is equal to %f", circle.getArea());
 
         System.out.println();
 
-        calculatingData = new CalculatingData<>(new CalculateTheLengthOfTheCircle()::calculate);
-        circle.setLength(calculatingData.calculate(circle.getRadius()));
-        System.out.format("The lehgth of the circle is equal to %.3f", circle.getLength());
+        //Variable instantiation "calculable" reference to the method of implementing the calculation length of a circle.
+        calculable = new CalculateTheLengthOfTheCircle()::calculateTheLengthOfTheCircle;
+        //Calling from the functional interface of the object to calculate length of a circle.
+        calculable.calculate(circle);
+        //Output result.
+        System.out.format("The length of the circle is equal to %.3f", circle.getLength());
 
 
     }
