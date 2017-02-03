@@ -2,31 +2,43 @@ package com.lugowoy.util.calculating;
 
 /**
  * Created by Konstantin Lugowoy on 30-Jan-17.
+ *
  * @author Konstantin Lugowoy
  * @version 1.0
+ * <p>
+ * An abstract class declares the root of the class hierarchy to execute a function for calculate.
+ * In fact, the duty of delegating the function to calculate the implementation of the functional interface.
  * @since 30.01.2017
- *
- * Class "CalculatingData" encapsulates the implementation of the functional interface function delegating duties to her execution.
  */
-public class CalculatingData<T> {
+public abstract class CalculatingData<T> {
 
     /**
-     * Field to delegating duties to her exceution.
+     * Field class which is delegated to execution of calculate.
+     *
+     * @see com.lugowoy.util.calculating.Calculable
+     * @since 30.01.2017
+     */
+    private Calculable<T> calculable;
+
+    /**
+     * Constructor class takes as argument realization calculating function.
+     *
+     * @param calculating The object or method implementation the function for calculation.
+     * @see com.lugowoy.util.calculating.Calculable
+     * @since 30.01.2017
      * */
-    private Calculating<T> calculating;
-
-    public CalculatingData(Calculating<T> calculating) {
-        this.calculating = calculating;
+    public CalculatingData(Calculable<T> calculating) {
+        this.calculable = calculating;
     }
 
     /**
-     * Method to calculation.
-    * */
-    public T calculate(T t) {
-        return this.calculating.calculate(t);
+     * The method returns an instance to implement the function(functional interface) for calculation.
+     *
+     * @see com.lugowoy.util.calculating.Calculable
+     * @since 30.01.2017
+     * */
+    public Calculable getCalculable() {
+        return calculable;
     }
 
-    public Calculating getCalculating() {
-        return calculating;
-    }
 }
