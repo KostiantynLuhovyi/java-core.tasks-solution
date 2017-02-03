@@ -25,7 +25,7 @@ public class ReadingData<T> {
      * This method delegation realization functional to functional interface "Reading".
      *
      * @since 1.1
-     * @return Parameterized type initialized with the classified functional interface object.
+     * @return Parameterize type initialized with the classified functional interface object.
      * @throws com.lugowoy.util.reading.StoppingEnterValueException
      * */
     public T read() throws StoppingEnterValueException {
