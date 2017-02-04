@@ -7,16 +7,16 @@ package com.lugowoy.tasks.core.calculateTheDegreeOfNumber;
  * @version 1.1
  * @since 14.12.2016
  * <p>
- * Functional interface provides access to the implementation of the functional construction of a number of degree.
+ * Functional interface declares a function of a number raised to a degree.
  */
 @FunctionalInterface
 public interface CalculateTheDegreeOfNumber {
 
     /**
-     * The method of performing the the construction number of a degree.
+     * This is a function to perform a number raised to a degree.
      *
-     * @param number The number for exponentiation.
-     * @param degree Degree
+     * @param number The number for raised of a degree.
+     * @param degree The degree.
      * @return The result of a number of a degree .
      */
     double calculateDegreeOfNumber(double number, double degree);

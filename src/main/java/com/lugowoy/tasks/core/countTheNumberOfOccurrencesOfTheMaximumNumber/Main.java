@@ -27,7 +27,6 @@ public class Main {
         * */
         Countable countable = new CountableNumbers();
 
-        //todo - Not commented.
         FillableArray<Integer> fillingArray = new FillableArray<>(new ReadingUserInputData()::readInt);
 
         numbers.setNumbers(fillingArray.fillArray(numbersArray));
