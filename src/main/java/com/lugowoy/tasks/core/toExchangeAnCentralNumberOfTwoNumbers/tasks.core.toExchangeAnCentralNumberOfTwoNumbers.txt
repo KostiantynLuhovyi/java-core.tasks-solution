@@ -1,0 +1,1 @@
+Enter from the keyboard two three-digit numbers and change their central numbers.
