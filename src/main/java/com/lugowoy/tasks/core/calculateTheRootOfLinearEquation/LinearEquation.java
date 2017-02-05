@@ -9,41 +9,74 @@ package com.lugowoy.tasks.core.calculateTheRootOfLinearEquation;
  * <p>
  * This class encapsulates all the variables of the linear equation.
  */
-
 public class LinearEquation {
-
+    /**
+     * The first value of the linear expression.
+     */
     private double a;
+    /**
+     * The second value of the linear expression.
+     */
     private double b;
 
     /**
-    * Field "x" - root linear equation
-     * */
-    private double xRootLinearEquation;
+     * Field "x" - root of the linear equation.
+     */
+    private double xRootOfTheLinearEquation;
 
+    /**
+     * Defaut constructor.
+     */
     public LinearEquation() {
     }
 
+    /**
+     * The constructor with the parameters for the initialization of variables {@link LinearEquation#a} and {@link LinearEquation#b}
+     */
+    public LinearEquation(double a, double b) {
+        this.a = a;
+        this.b = b;
+    }
+
+    /**
+     * Get value of the first variable in the linear equation.
+     */
     public double getA() {
         return a;
     }
 
+    /**
+     * Set value of the first variable in the linear equation.
+     */
     public void setA(double a) {
         this.a = a;
     }
 
-    public double getXRootLinearEquation() {
-        return xRootLinearEquation;
-    }
-
-    public void setXRootLinearEquation(double xRootLinearEquation) {
-        this.xRootLinearEquation = xRootLinearEquation;
-    }
-
+    /**
+     * Get value of the second variable in the linear equation.
+     */
     public double getB() {
         return b;
     }
 
+    /**
+     * Set value of the second variable in the linear equation.
+     */
     public void setB(double b) {
         this.b = b;
+    }
+
+    /**
+     * Get  value of the "x" - root of the linear equation.
+     */
+    public double getXRootLinearEquation() {
+        return xRootOfTheLinearEquation;
+    }
+
+    /**
+     * Set value of the "x" - root of the linear equation.
+     */
+    public void setXRootLinearEquation(double xRootLinearEquation) {
+        this.xRootOfTheLinearEquation = xRootLinearEquation;
     }
 }
