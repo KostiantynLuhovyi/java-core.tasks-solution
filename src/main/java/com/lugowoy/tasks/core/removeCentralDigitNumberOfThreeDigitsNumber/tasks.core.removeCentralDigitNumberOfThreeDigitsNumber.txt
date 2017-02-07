@@ -1,0 +1,1 @@
+Entered from the keyboard three-digit number and remove it from the central digit.
