@@ -1,27 +1,40 @@
 package com.lugowoy.tasks.core.convertingDegreesTemperatures;
 
-import com.lugowoy.util.reading.*;
-import com.lugowoy.util.reading.Readable;
+import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.util.reading.StoppingEnterValueException;
 
 /**
- * Created by Konstantin on 11-Jan-17.
+ * Created by Konstantin Lugowoy on 11-Jan-17.
+ *
+ * @author Konstantin Lugowoy
+ * @version 1.1
+ * @since 11.01.2017
+ * <p>
+ * This class is required for startup.
  */
-
 public class Main {
-
+    //Instantiation of a functional interface initializing its reference to the method for reading the real numbers entered by the user.
     private static final Reading<Double> DOUBLE_READING = new ReadingUserInputData()::readDouble;
+    //Instantiation of a functional interface initializing its reference to the method for reading the integer numbers entered by the user.
     private static final Reading<Integer> INTEGER_READING = new ReadingUserInputData()::readInt;
 
     public static void main(String[] args) throws StoppingEnterValueException {
-
+        //Instantiation object class "Temperature".
         Temperature temperature = new Temperature();
-
-        temperature = setSelectionOfTemperatureScaleForInputTemperature(temperature);
-
+        /*
+         * The user makes a choice which temperature scale is used for conversion.
+         * The result of selection is assigned to the field "scale" encapsulated in an object of class "Temperature"
+         */
+        temperature.setScale(setSelectionOfTemperatureScaleForInputTemperature());
+        //The user enters the temperature of a real number in the temperature scale he chose in the previous step.
         System.out.println("Enter the temperature value :");
-
         temperature.setDegreesTemperatures(DOUBLE_READING.reading());
-
+        /*
+        * If the user-selected temperature scale Celsius, then he is given a choice in what kind of temperature scale it converted.
+        * If the selected user is different from the temperature scale Celsius,
+        * the temperature conversion takes place in the actual stored in the temperature scale in Celsius temperature scale.
+        * */
         if (temperature.getScale().equals(TemperatureScale.Celsius)) {
             choiceAndConvertCelsiusToOtherTemperatureScale(temperature);
         } else {
@@ -47,6 +60,10 @@ public class Main {
         }
     }
 
+    /*
+    * In the event that the user selected temperature is in Celsius temperature scale,
+    * this method is invoked, and provides the user the choice of the temperature at which it converted scales.
+    * */
     private static void choiceAndConvertCelsiusToOtherTemperatureScale(Temperature temperature) throws StoppingEnterValueException {
         System.out.println("Make a choice in what scale to convert degrees Celsius.");
         System.out.println(TemperatureScale.Fahrenheit + " - \"1\" ;");
@@ -86,7 +103,12 @@ public class Main {
         }
     }
 
-    private static Temperature setSelectionOfTemperatureScaleForInputTemperature(Temperature temperature) throws StoppingEnterValueException {
+    /*
+    * The method is used for the user to select what he wants the temperature scale input temperature.
+    * */
+    private static TemperatureScale setSelectionOfTemperatureScaleForInputTemperature() throws StoppingEnterValueException {
+        TemperatureScale temperatureScale = null;
+
         System.out.println("Select what temperature scale will enter the temperature.Enter the number.");
         System.out.println(TemperatureScale.Celsius + " - \"1\" ;");
         System.out.println(TemperatureScale.Fahrenheit + " - \"2\" ;");
@@ -98,19 +120,19 @@ public class Main {
             if ((choice > 0) && (choice < 6)) {
                 switch (choice) {
                     case 1:
-                        temperature.setScale(TemperatureScale.Celsius);
+                        temperatureScale = TemperatureScale.Celsius;
                         break;
                     case 2:
-                        temperature.setScale(TemperatureScale.Fahrenheit);
+                        temperatureScale = TemperatureScale.Fahrenheit;
                         break;
                     case 3:
-                        temperature.setScale(TemperatureScale.Kelvin);
+                        temperatureScale = TemperatureScale.Kelvin;
                         break;
                     case 4:
-                        temperature.setScale(TemperatureScale.Reaumur);
+                        temperatureScale = TemperatureScale.Reaumur;
                         break;
                     case 5:
-                        temperature.setScale(TemperatureScale.Delisle);
+                        temperatureScale = TemperatureScale.Delisle;
                         break;
                 }
                 break;
@@ -119,6 +141,6 @@ public class Main {
                 System.out.println("Not correct selection. Re-entered choice : ");
             }
         }
-        return temperature;
+        return temperatureScale;
     }
 }
