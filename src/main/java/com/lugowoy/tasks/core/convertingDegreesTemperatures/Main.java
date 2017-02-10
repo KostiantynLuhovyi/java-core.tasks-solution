@@ -38,7 +38,7 @@ public class Main {
         if (temperature.getScale().equals(TemperatureScale.Celsius)) {
             choiceAndConvertCelsiusToOtherTemperatureScale(temperature);
         } else {
-            Convertable<Temperature, TemperatureScale> convertable = new ConvertingOtherTemperaturesToCelsius();
+            Convertable<Temperature> convertable = new ConvertingOtherTemperaturesToCelsius();
             switch (temperature.getScale()) {
                 case Fahrenheit:
                     System.out.printf("%f degrees Fahrenheit is equal to %f degrees Celsius.", temperature.getDegreesTemperatures(),
@@ -75,7 +75,7 @@ public class Main {
 
         while (true) {
             if ((choice > 0) && (choice < 5)) {
-                Convertable<Temperature, TemperatureScale> temperatureScaleConvertable = new ConvertingCelsiusTemperaturesToOther();
+                Convertable<Temperature> temperatureScaleConvertable = new ConvertingCelsiusTemperaturesToOther();
                 switch (choice) {
                     case 1:
                         System.out.printf("%f degrees Celsius is equal to %f degrees Fahrenheit.", temperature.getDegreesTemperatures(),
