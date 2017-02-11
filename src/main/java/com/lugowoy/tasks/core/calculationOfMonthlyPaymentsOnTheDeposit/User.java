@@ -1,7 +1,5 @@
 package com.lugowoy.tasks.core.calculationOfMonthlyPaymentsOnTheDeposit;
 
-import java.math.BigDecimal;
-
 /**
  * Created by Konstantin on 10-Feb-17.
  *
@@ -9,20 +7,68 @@ import java.math.BigDecimal;
  */
 public class User {
 
-    private BigDecimal sum;
+    private Bank bank;
+    private PersonalAccount personalAccount;
+
+    private int id;
+    private String firstName;
+    private String secondName;
 
     public User() {
     }
 
-    public User(BigDecimal sum) {
-        this.sum = sum;
+    public User(String firstName, String secondName) {
+        this.firstName = firstName;
+        this.secondName = secondName;
     }
 
-    public BigDecimal getSum() {
-        return sum;
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", personalAccount=" + personalAccount +
+                '}';
     }
 
-    public void setSum(BigDecimal sum) {
-        this.sum = sum;
+    public Bank getBank() {
+        return bank;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
+    }
+
+    public PersonalAccount getPersonalAccount() {
+        return personalAccount;
+    }
+
+    public void setPersonalAccount(PersonalAccount personalAccount) {
+        this.personalAccount = personalAccount;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
     }
 }

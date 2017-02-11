@@ -1,0 +1,2 @@
+Write a program that asks the user enter sum cash deposit , as well as a percentage per yearly, which pays the bank.
+Determine the amount of money paid by the bank in the current month
