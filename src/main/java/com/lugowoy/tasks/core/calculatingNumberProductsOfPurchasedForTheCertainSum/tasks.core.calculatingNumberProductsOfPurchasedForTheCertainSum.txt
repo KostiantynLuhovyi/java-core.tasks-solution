@@ -1,0 +1,1 @@
+How many products can be purchased at the cost of Y on X hryvnia and how many receive the change money?
