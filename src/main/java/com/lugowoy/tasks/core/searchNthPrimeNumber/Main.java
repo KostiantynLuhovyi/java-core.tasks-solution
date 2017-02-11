@@ -3,9 +3,7 @@ package com.lugowoy.tasks.core.searchNthPrimeNumber;
 import com.lugowoy.util.reading.*;
 import com.lugowoy.util.reading.Readable;
 
-/**
- * Created by Konstantin on 19.11.2016.
- */
+/**Created by Konstantin Lugowoy on 19.11.2016.*/
 
 //Class "Main" to run program.
 public class Main {

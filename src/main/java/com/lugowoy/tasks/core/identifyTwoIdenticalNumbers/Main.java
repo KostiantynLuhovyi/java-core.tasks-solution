@@ -5,9 +5,8 @@ import com.lugowoy.util.reading.Readable;
 
 import java.io.IOException;
 
-/**
- * Created by Konstantin on 07.11.2016.
- */
+/**Created by Konstantin Lugowoy on 07.11.2016.*/
+
 public class Main {
     /*Constants for selection, program execution method.*/
     private static final int USER_ENTER_NUMBERS = 1;

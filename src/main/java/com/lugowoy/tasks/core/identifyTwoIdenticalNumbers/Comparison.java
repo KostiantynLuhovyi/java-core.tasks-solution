@@ -1,8 +1,6 @@
 package com.lugowoy.tasks.core.identifyTwoIdenticalNumbers;
 
-/**
- * Created by Konstantin on 08.11.2016.
- */
+/**Created by Konstantin Lugowoy on 08.11.2016.*/
 
 /*Interface "Comparison" announces contract for comparing numerical values.*/
 interface Comparison<T> {

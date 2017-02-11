@@ -6,9 +6,7 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
-/**
- * Created by Konstantin on 15-Dec-16.
- */
+/**Created by Konstantin Lugowoy on 15-Dec-16.*/
 
 public class ConvertUAHInOtherCurrencies implements Convertable<Account> {
 

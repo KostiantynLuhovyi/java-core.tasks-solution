@@ -1,8 +1,6 @@
 package com.lugowoy.tasks.core.exchangePlacesTwoVariablesWithAndWithoutTheUseOfAThirdVariable;
 
-/**
- * Created by Konstantin on 18-Jan-17.
- */
+/**Created by Konstantin Lugowoy on 18-Jan-17.*/
 
 public class Variables {
 

@@ -3,9 +3,7 @@ package com.lugowoy.tasks.core.convertKilometersToMilesOfSeaAndLand;
 import com.lugowoy.util.reading.*;
 import com.lugowoy.util.reading.Readable;
 
-/**
- * Created by Konstantin on 31-Dec-16.
- */
+/**Created by Konstantin Lugowoy on 31-Dec-16.*/
 
 public class Main {
 

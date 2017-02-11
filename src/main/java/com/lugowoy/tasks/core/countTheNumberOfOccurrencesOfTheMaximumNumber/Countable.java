@@ -1,8 +1,6 @@
 package com.lugowoy.tasks.core.countTheNumberOfOccurrencesOfTheMaximumNumber;
 
-/**
- * Created by Konstantin on 14.11.2016.
- */
+/**Created by Konstantin Lugowoy on 14.11.2016.*/
 
 /*Interface "Countable" announced a contract
 for the implementation of counting the number of occurrences of the maximum number.*/

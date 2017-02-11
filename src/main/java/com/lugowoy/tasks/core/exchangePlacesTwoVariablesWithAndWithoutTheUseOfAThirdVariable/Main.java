@@ -3,9 +3,7 @@ package com.lugowoy.tasks.core.exchangePlacesTwoVariablesWithAndWithoutTheUseOfA
 import com.lugowoy.util.reading.*;
 import com.lugowoy.util.reading.Readable;
 
-/**
- * Created by Konstantin on 18-Jan-17.
- */
+/**Created by Konstantin Lugowoy on 18-Jan-17.*/
 
 public class Main {
 

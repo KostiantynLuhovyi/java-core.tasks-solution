@@ -1,8 +1,6 @@
 package com.lugowoy.tasks.core.identifyTwoIdenticalNumbers;
 
-/**
- * Created by Konstantin on 07.11.2016.
- */
+/**Created by Konstantin Lugowoy on 07.11.2016.*/
 
 /*Class "NumberForComparison" it contains instance variables, three numbers for comparison.*/
 final class NumbersForComparison {

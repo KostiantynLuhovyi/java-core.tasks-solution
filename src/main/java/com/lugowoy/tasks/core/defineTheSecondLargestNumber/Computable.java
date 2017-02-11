@@ -1,11 +1,9 @@
 package com.lugowoy.tasks.core.defineTheSecondLargestNumber;
 
-/**
- * Created by Konstantin on 14.11.2016.
- */
+/**Created by Konstantin Lugowoy on 14.11.2016.*/
 
 /*
-* nterface "Computable" announces contract to find the second-largest number. Interface generic type T.
+* Interface "Computable" announces contract to find the second-largest number. Interface generic type T.
 * */
 interface Computable<T> {
     /*

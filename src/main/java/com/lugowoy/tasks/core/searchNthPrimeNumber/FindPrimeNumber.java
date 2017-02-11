@@ -1,8 +1,6 @@
 package com.lugowoy.tasks.core.searchNthPrimeNumber;
 
-/**
- * Created by Konstantin on 19.11.2016.
- */
+/**Created by Konstantin Lugowoy on 19.11.2016.*/
 
 //Class "FindPrimeNumber" realizes a contract to search for a particular prime number.
 public class FindPrimeNumber implements FindingPrimeNumber {

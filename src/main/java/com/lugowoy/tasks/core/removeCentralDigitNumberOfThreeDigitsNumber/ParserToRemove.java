@@ -1,10 +1,7 @@
 package com.lugowoy.tasks.core.removeCentralDigitNumberOfThreeDigitsNumber;
 
-/**
- * Created by Konstantin on 07-Feb-17.
- *
- * @author Konstantin Lugowoy
- */
+/**Created by Konstantin Lugowoy on 07-Feb-17.*/
+
 public class ParserToRemove {
 
     public void removeCentralDigitOfTheNumber(Number number) {

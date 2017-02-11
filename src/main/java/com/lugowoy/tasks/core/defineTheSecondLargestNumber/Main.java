@@ -1,16 +1,11 @@
 package com.lugowoy.tasks.core.defineTheSecondLargestNumber;
 
-import com.lugowoy.util.reading.*;
-import com.lugowoy.util.reading.Readable;
+import com.lugowoy.util.reading.ReadingData;
+import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.util.reading.StoppingEnterValueException;
 
-/**
- * Created by Konstantin Lugowoy on 14.11.2016.
- * @author Konstantin Lugowoy
- * @version 1.1
- * @since 14.11.2016
- *
- *
- */
+/**Created by Konstantin Lugowoy on 14.11.2016.*/
+
 public class Main {
     /*
     * Class object "Readable" reads the user input data to the console.

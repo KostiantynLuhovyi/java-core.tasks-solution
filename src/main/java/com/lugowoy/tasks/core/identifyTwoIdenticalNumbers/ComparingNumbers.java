@@ -1,11 +1,11 @@
 package com.lugowoy.tasks.core.identifyTwoIdenticalNumbers;
 
-/**
- * Created by Konstantin on 08.11.2016.
- */
+/**Created by Konstantin Lugowoy on 08.11.2016.*/
 
-/*Class "ComparingNumbers" implements contract interface "Comparison" with a generic type <NumberForComparison>.
-* Class "NumberForComparison" encapsulates (has attributes) in the field itself for comparison.*/
+/*
+* Class "ComparingNumbers" implements contract interface "Comparison" with a generic type <NumberForComparison>.
+* Class "NumberForComparison" encapsulates (has attributes) in the field itself for comparison.
+* */
 class ComparingNumbers implements Comparison<NumbersForComparison> {
 
     /*Override abstract method compareNumber() from the interface "Comparison".

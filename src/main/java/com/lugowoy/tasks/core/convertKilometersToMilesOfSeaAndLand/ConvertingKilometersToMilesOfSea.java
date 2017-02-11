@@ -1,8 +1,6 @@
 package com.lugowoy.tasks.core.convertKilometersToMilesOfSeaAndLand;
 
-/**
- * Created by Konstantin on 31-Dec-16.
- */
+/**Created by Konstantin Lugowoy on 31-Dec-16.*/
 
 public class ConvertingKilometersToMilesOfSea implements Convertable<Length> {
 

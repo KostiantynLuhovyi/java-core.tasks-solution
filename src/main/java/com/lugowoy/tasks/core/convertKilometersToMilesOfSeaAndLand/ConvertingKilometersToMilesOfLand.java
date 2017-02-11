@@ -2,9 +2,7 @@ package com.lugowoy.tasks.core.convertKilometersToMilesOfSeaAndLand;
 
 import com.lugowoy.tasks.core.calculateTheDegreeOfNumber.Number;
 
-/**
- * Created by Konstantin on 31-Dec-16.
- */
+/**Created by Konstantin Lugowoy on 31-Dec-16.*/
 
 public class ConvertingKilometersToMilesOfLand implements Convertable<Length> {
 

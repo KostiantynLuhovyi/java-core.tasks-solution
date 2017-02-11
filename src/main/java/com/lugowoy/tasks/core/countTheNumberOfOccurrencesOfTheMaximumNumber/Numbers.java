@@ -1,8 +1,6 @@
 package com.lugowoy.tasks.core.countTheNumberOfOccurrencesOfTheMaximumNumber;
 
-/**
- * Created by Konstantin on 14.11.2016.
- */
+/**Created by Konstantin Lugowoy on 14.11.2016.*/
 
 /*
 * Class "Numbers" is a set of attributes for the implementation of the counting and storage elements.

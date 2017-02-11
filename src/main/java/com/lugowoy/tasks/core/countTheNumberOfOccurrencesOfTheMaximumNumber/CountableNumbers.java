@@ -1,8 +1,6 @@
 package com.lugowoy.tasks.core.countTheNumberOfOccurrencesOfTheMaximumNumber;
 
-/**
- * Created by Konstantin on 14.11.2016.
- */
+/**Created by Konstantin Lugowoy on 14.11.2016.*/
 
 /*
 * Class "CountableNumbers" implements interface "Countable" and implements abstract method

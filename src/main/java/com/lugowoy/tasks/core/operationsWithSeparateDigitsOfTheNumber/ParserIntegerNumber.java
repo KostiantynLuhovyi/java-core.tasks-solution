@@ -2,11 +2,8 @@ package com.lugowoy.tasks.core.operationsWithSeparateDigitsOfTheNumber;
 
 import java.util.InputMismatchException;
 
-/**
- * Created by Konstantin on 05-Feb-17.
- *
- * @author Konstantin Lugowoy
- */
+/**Created by Konstantin Lugowoy on 05-Feb-17.*/
+
 public class ParserIntegerNumber {
 
     public static int getSingleDigitOfTheNumber(int number, int posDigit) {

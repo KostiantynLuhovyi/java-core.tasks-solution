@@ -1,10 +1,7 @@
 package com.lugowoy.tasks.core.operationsWithSeparateDigitsOfTheNumber;
 
-/**
- * Created by Konstantin on 05-Feb-17.
- *
- * @author Konstantin Lugowoy
- */
+/**Created by Konstantin Lugowoy on 05-Feb-17.*/
+
 public class Number {
 
     private int number;

@@ -2,9 +2,7 @@ package com.lugowoy.tasks.core.convertUAHInOthersCurrencies;
 
 import java.math.BigDecimal;
 
-/**
- * Created by Konstantin on 15-Dec-16.
- */
+/**Created by Konstantin Lugowoy on 15-Dec-16.*/
 
 public class Account {
 

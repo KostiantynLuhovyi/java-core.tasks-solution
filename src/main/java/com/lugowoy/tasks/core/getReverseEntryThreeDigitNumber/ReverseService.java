@@ -1,10 +1,7 @@
 package com.lugowoy.tasks.core.getReverseEntryThreeDigitNumber;
 
-/**
- * Created by Konstantin on 03-Feb-17.
- *
- * @author Konstantin Lugowoy
- */
+/**Created by Konstantin Lugowoy on 03-Feb-17.*/
+
 public class ReverseService implements Reversible {
 
     @Override

@@ -4,9 +4,7 @@ import com.lugowoy.util.fillable.FillableArray;
 import com.lugowoy.util.reading.ReadingUserInputData;
 import com.lugowoy.util.reading.StoppingEnterValueException;
 
-/**
- * Created by Konstantin on 14.11.2016.
- */
+/**Created by Konstantin Lugowoy on 14.11.2016.*/
 
 public class Main {
 
