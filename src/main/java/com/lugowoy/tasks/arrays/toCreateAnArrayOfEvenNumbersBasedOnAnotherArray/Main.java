@@ -1,5 +1,9 @@
 package com.lugowoy.tasks.arrays.toCreateAnArrayOfEvenNumbersBasedOnAnotherArray;
 
+import com.lugowoy.util.fillable.FillableArray;
+import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
+import com.lugowoy.util.reading.ReadingRandomData;
+
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,13 +13,13 @@ import java.util.Random;
 
 public class Main {
 
-    private static final Random RANDOM = new Random();
+    private static final FillableArray<Integer> FILLING_ARRAY = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
 
     public static void main(String[] args) {
 
         Numbers<Integer> numbers = new Numbers<>();
 
-        numbers.setNumbers(Arrays.stream(new int[20]).map(operand -> RANDOM.nextInt(100)).boxed().toArray(Integer[]::new));
+        numbers.setNumbers(FILLING_ARRAY.fillArray(new Integer[20]));
 
         System.out.println("Original array numbers.");
         Arrays.stream(numbers.getNumbers()).forEachOrdered(integer -> System.out.print(integer + " "));

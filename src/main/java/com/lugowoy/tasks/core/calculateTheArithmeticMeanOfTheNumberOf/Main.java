@@ -2,6 +2,7 @@ package com.lugowoy.tasks.core.calculateTheArithmeticMeanOfTheNumberOf;
 
 import com.lugowoy.util.fillable.Fillable;
 import com.lugowoy.util.fillable.FillableArray;
+import com.lugowoy.util.fillable.FillingArrayOfUserInput;
 import com.lugowoy.util.reading.ReadingUserInputData;
 import com.lugowoy.util.reading.StoppingEnterValueException;
 
@@ -19,7 +20,7 @@ public class Main {
     * Instantiate the object to fill an array of real numbers.
     * Pass an argument to the constructor a reference to the method for reading the user input from the console.
     * */
-    private static final Fillable<Double> DOUBLE_ARRAY_FILLABLE = new FillableArray<>(new ReadingUserInputData()::readDouble);
+    private static final FillableArray<Double> DOUBLE_ARRAY_FILLABLE = new FillingArrayOfUserInput<>(new ReadingUserInputData()::readDouble);
 
     public static void main(String[] args) throws StoppingEnterValueException {
         //Initialize an array of real numbers two dimension element.
@@ -27,10 +28,11 @@ public class Main {
         //Instantiate an object of class "Numbers".
         Numbers numbers = new Numbers();
 
+        DOUBLE_ARRAY_FILLABLE.fillArray(doubleNumbers);
         /*
         * Fill an array of values and assigning it to an attribute stored in the object class "Numbers".
         * */
-        numbers.setNumbers(DOUBLE_ARRAY_FILLABLE.fillArray(doubleNumbers));
+        numbers.setNumbers(doubleNumbers);
 
         /*
         * Print the filled array of the elements.

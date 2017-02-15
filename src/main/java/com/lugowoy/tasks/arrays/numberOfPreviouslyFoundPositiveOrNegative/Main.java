@@ -1,5 +1,9 @@
 package com.lugowoy.tasks.arrays.numberOfPreviouslyFoundPositiveOrNegative;
 
+import com.lugowoy.util.fillable.FillableArray;
+import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
+import com.lugowoy.util.reading.ReadingRandomData;
+
 import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.IntStream;
@@ -9,12 +13,12 @@ import java.util.stream.Stream;
 
 public class Main {
 
-    private static final Random RANDOM = new Random();
+    private static final FillableArray<Integer> FILLING_ARRAY = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
 
     public static void main(String[] args) {
 
         SequenceOfIntegers sequence = new SequenceOfIntegers();
-        sequence.setSequenceOfIntegers(Arrays.stream(new int[20]).map(operand -> RANDOM.nextInt(200) - 100).toArray());
+        sequence.setSequenceOfIntegers(Arrays.stream(FILLING_ARRAY.fillArray(new Integer[20])).mapToInt(Integer::intValue).toArray());
 
         System.out.println("The sequence of integers to determine a sign of the number is the first in the sequence : ");
         Arrays.stream(sequence.getSequenceOfIntegers()).forEach(value -> System.out.print(value + " "));

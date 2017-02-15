@@ -1,1 +1,1 @@
-Enter integers. Count the number of occurrences of the maximum number in the integer array.
+Enter numbers. Count the number of occurrences of the maximum number in the integer array.

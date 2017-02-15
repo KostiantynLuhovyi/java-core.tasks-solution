@@ -1,5 +1,9 @@
 package com.lugowoy.tasks.arrays.createAnArrayOfZeroElementsOfAnotherArray;
 
+import com.lugowoy.util.fillable.FillableArray;
+import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
+import com.lugowoy.util.reading.ReadingRandomData;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -8,17 +12,14 @@ import java.util.Random;
 
 public class Main {
 
-    private static final Random RANDOM_NUMBER = new Random();
+    private static Integer[] integers = new FillingArrayOfRandomNumber<>(() -> new Random().nextInt(20)).fillArray(new Integer[30]);
 
     public static void main(String[] args) {
 
-        Array<Integer> originalIntegerArray = new Array<>(new Integer[30]);
+        Array<Integer> originalIntegerArray = new Array<>(integers);
 
         System.out.println("Elements of of the original array : ");
-        for (int i = 0; i < originalIntegerArray.getArray().length; i++) {
-            originalIntegerArray.getArray()[i] = RANDOM_NUMBER.nextInt(20);
-            System.out.print(originalIntegerArray.getArray()[i] + " ");
-        }
+        Arrays.stream(originalIntegerArray.getArray()).forEachOrdered(integer -> System.out.print(integer + " "));
         System.out.println();
 
         ArrayIndexZero<Integer> integerArrayIndexZero = new ArrayIndexZero<>();

@@ -1,1 +1,1 @@
-Enter three integers and define the second largest number.
+Enter three numbers and define the second largest number.

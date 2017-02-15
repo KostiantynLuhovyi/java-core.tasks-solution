@@ -1,1 +1,1 @@
-Given integers a1 a2, .... an. Print out only the number, for which the condition ai ≤ i.
+Given numbers a1 a2, .... an. Print out only the number, for which the condition ai ≤ i.

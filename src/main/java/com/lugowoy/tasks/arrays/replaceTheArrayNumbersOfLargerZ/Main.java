@@ -1,6 +1,9 @@
 package com.lugowoy.tasks.arrays.replaceTheArrayNumbersOfLargerZ;
 
+import com.lugowoy.util.fillable.FillableArray;
+import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
 import com.lugowoy.util.reading.ReadingData;
+import com.lugowoy.util.reading.ReadingRandomData;
 import com.lugowoy.util.reading.ReadingUserInputData;
 import com.lugowoy.util.reading.StoppingEnterValueException;
 
@@ -11,17 +14,14 @@ import java.util.Random;
 
 public class Main {
 
-    private static final Random RANDOM = new Random();
+    private static final FillableArray<Integer> FILLING_ARRAY = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
     private static final ReadingData<Integer> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readInt);
 
     public static void main(String[] args) throws StoppingEnterValueException {
 
         Numbers numbersSequence = new Numbers();
 
-        numbersSequence.setNumbers(Arrays
-                                        .stream(new Integer[10])
-                                        .mapToInt(value -> RANDOM.nextInt(50))
-                                        .toArray());
+        numbersSequence.setNumbers(Arrays.stream(FILLING_ARRAY.fillArray(new Integer[20])).mapToInt(Integer::intValue).toArray());
 
         System.out.println("Enter number of replace : ");
         int numberToReplace = READING_DATA.read();

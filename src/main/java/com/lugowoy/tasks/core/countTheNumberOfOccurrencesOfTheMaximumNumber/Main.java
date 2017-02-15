@@ -1,6 +1,7 @@
 package com.lugowoy.tasks.core.countTheNumberOfOccurrencesOfTheMaximumNumber;
 
 import com.lugowoy.util.fillable.FillableArray;
+import com.lugowoy.util.fillable.FillingArrayOfUserInput;
 import com.lugowoy.util.reading.ReadingUserInputData;
 import com.lugowoy.util.reading.StoppingEnterValueException;
 
@@ -25,9 +26,10 @@ public class Main {
         * */
         Countable countable = new CountableNumbers();
 
-        FillableArray<Integer> fillingArray = new FillableArray<>(new ReadingUserInputData()::readInt);
+        FillableArray<Integer> fillingArray = new FillingArrayOfUserInput<>(new ReadingUserInputData()::readInt);
+        fillingArray.fillArray(numbersArray);
 
-        numbers.setNumbers(fillingArray.fillArray(numbersArray));
+        numbers.setNumbers(numbersArray);
 
         /*
         * Iteration for an array of integer values contained in the object class "Numbers".

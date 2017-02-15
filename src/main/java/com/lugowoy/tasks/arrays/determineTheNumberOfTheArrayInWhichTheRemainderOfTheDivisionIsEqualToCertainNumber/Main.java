@@ -1,6 +1,10 @@
 package com.lugowoy.tasks.arrays.determineTheNumberOfTheArrayInWhichTheRemainderOfTheDivisionIsEqualToCertainNumber;
 
 import com.lugowoy.tasks.arrays.interchangedMaximumAndMinimumElementOfTheArray.*;
+import com.lugowoy.util.fillable.FillableArray;
+import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
+import com.lugowoy.util.reading.ReadingData;
+import com.lugowoy.util.reading.ReadingRandomData;
 import com.lugowoy.util.reading.ReadingUserInputData;
 import com.lugowoy.util.reading.StoppingEnterValueException;
 
@@ -11,8 +15,10 @@ import java.util.Random;
 
 public class Main {
 
-    private static final Random RANDOM = new Random();
-    private static final ReadingUserInputData READING_DATA = new ReadingUserInputData();
+    private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
+    private static final FillableArray<Integer> FILLING_ARRAY = new FillingArrayOfRandomNumber<>(() -> new Random().nextInt(200) - 100);
+
+    private static Integer[] integers = FILLING_ARRAY.fillArray(new Integer[20]);
 
     private static final Determinable DETERMINABLE = (numbers, numberToModulo, resultModulo) -> {
         System.out.println("Result to the modulo operation : ");
@@ -31,21 +37,18 @@ public class Main {
 
     public static void main(String[] args) throws StoppingEnterValueException {
 
-        Numbers numbers = new Numbers(Arrays.stream(new Integer[20]).mapToInt(value -> RANDOM.nextInt(100)).toArray());
+        Numbers numbers = new Numbers(Arrays.stream(integers).mapToInt(Integer::intValue).toArray());
 
         System.out.println("Original array : ");
         Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
         System.out.println();
 
         System.out.println("Enter number to the modulo : ");
-        int numberToModulo = READING_DATA.readInt();
+        int numberToModulo = readingData.read();
 
         System.out.println("Enter result to the modulo : ");
-        int resultModulo = READING_DATA.readInt();
-
+        int resultModulo = readingData.read();
 
         DETERMINABLE.determinate(numbers.getNumbers(), numberToModulo, resultModulo);
-
-
     }
 }

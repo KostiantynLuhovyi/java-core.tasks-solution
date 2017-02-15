@@ -1,6 +1,7 @@
 package com.lugowoy.tasks.arrays.findTheSumOfAnArrayOfMultipleElementsToThisPresent;
 
 import com.lugowoy.util.fillable.FillableArray;
+import com.lugowoy.util.fillable.FillingArrayOfUserInput;
 import com.lugowoy.util.reading.ReadingRandomData;
 import com.lugowoy.util.reading.ReadingUserInputData;
 import com.lugowoy.util.reading.StoppingEnterValueException;
@@ -21,12 +22,14 @@ public class Main {
         return sumElements;
     };
 
-    private static final FillableArray<Integer> INTEGER_FILLABLE_ARRAY = new FillableArray<>(new ReadingUserInputData()::readInt);
+    private static final FillableArray<Integer> INTEGER_FILLABLE_ARRAY = new FillingArrayOfUserInput<>(new ReadingUserInputData()::readInt);
 
     public static void main(String[] args) throws StoppingEnterValueException {
 
+        Integer[] integers = INTEGER_FILLABLE_ARRAY.fillArray(new Integer[20]);
+
         Numbers numbers = new Numbers();
-        numbers.setSourceArray(INTEGER_FILLABLE_ARRAY.fillArray(new Integer[5]));
+        numbers.setSourceArray(integers);
 
         System.out.println("Result fill arrays randomly integers : ");
         for (int i = 0; i < numbers.getSourceArray().length; i++) {

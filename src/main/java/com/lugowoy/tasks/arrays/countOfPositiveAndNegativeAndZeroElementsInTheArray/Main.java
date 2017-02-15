@@ -1,5 +1,9 @@
 package com.lugowoy.tasks.arrays.countOfPositiveAndNegativeAndZeroElementsInTheArray;
 
+import com.lugowoy.util.fillable.FillableArray;
+import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
+import com.lugowoy.util.reading.ReadingRandomData;
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -7,11 +11,13 @@ import java.util.Random;
 
 public class Main {
 
-    private static final Random RANDOM = new Random();
+    private static final FillableArray<Integer> FILLING_ARRAY = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
 
     public static void main(String[] args) {
 
-        Numbers numbers = new Numbers(Arrays.stream(new Integer[20]).mapToInt(value -> RANDOM.nextInt(200) - 100).toArray());
+        Integer[] integers = FILLING_ARRAY.fillArray(new Integer[20]);
+
+        Numbers numbers = new Numbers(Arrays.stream(integers).mapToInt(Integer::intValue).toArray());
 
         System.out.println("Numbers : ");
         Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));

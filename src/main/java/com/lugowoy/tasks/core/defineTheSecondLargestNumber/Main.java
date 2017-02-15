@@ -19,18 +19,14 @@ public class Main {
         * Entering data and calculating the second-largest number.
         * */
         NumbersForComparison numbersForComparison = new NumbersForComparison();
-        try {
-            System.out.println("Enter the first value : ");
-            numbersForComparison.setFirstNumber(readingData.read());
+        System.out.println("Enter the first value : ");
+        numbersForComparison.setFirstNumber(readingData.read());
 
-            System.out.println("Enter the second value : ");
-            numbersForComparison.setSecondNumber(readingData.read());
+        System.out.println("Enter the second value : ");
+        numbersForComparison.setSecondNumber(readingData.read());
 
-            System.out.println("Enter the third value : ");
-            numbersForComparison.setThirdNumber(readingData.read());
-        } catch (StoppingEnterValueException ex) {
-            ex.printStackTrace();
-        }
+        System.out.println("Enter the third value : ");
+        numbersForComparison.setThirdNumber(readingData.read());
         ComputingSecondLargestNumber computingSecondLargestNumber = new ComputingSecondLargestNumber();
         computingSecondLargestNumber.getSecondLargestNumber(numbersForComparison);
 

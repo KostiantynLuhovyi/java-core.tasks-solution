@@ -15,11 +15,7 @@ public class Main {
     public static void main(String[] args) {
         //Read and assignment value user input counting prime number.
         int number = 0;
-        try {
-            number = READING_DATA.read();
-        } catch (StoppingEnterValueException e) {
-            e.printStackTrace();
-        }
+        number = READING_DATA.read();
 
         FindingPrimeNumber finding = new FindPrimeNumber();
 
@@ -35,11 +31,7 @@ public class Main {
                 //If input number not correct value, must re-enter the number.
                 System.out.println("Not correct counting prime number.");
                 System.out.println("Re-enter (0 ... 20000) : ");
-                try {
-                    number = READING_DATA.read();
-                } catch (StoppingEnterValueException e) {
-                    break;
-                }
+                number = READING_DATA.read();
             }
         }
     }

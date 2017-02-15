@@ -1,5 +1,9 @@
 package com.lugowoy.tasks.arrays.toDisplayTheNumberForParticularCondition;
 
+import com.lugowoy.util.fillable.FillableArray;
+import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
+import com.lugowoy.util.reading.ReadingRandomData;
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -7,7 +11,7 @@ import java.util.Random;
 
 public class Main {
 
-    private static final Random RANDOM = new Random();
+    private static final FillableArray<Integer> FILLING_ARRAY = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
 
     private static final Displayable DISPLAYABLE = numbers -> {
         int firstValue = numbers.getNumbers()[0];
@@ -20,7 +24,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Numbers numbers = new Numbers(Arrays.stream(new Integer[20]).mapToInt(value -> RANDOM.nextInt(100)).toArray());
+        Numbers numbers = new Numbers(Arrays.stream(FILLING_ARRAY.fillArray(new Integer[20])).mapToInt(Integer::intValue).toArray());
 
         System.out.println("Original array : ");
         Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));

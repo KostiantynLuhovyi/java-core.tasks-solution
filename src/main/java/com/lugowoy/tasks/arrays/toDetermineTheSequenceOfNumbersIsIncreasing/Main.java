@@ -1,5 +1,9 @@
 package com.lugowoy.tasks.arrays.toDetermineTheSequenceOfNumbersIsIncreasing;
 
+import com.lugowoy.util.fillable.FillableArray;
+import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
+import com.lugowoy.util.reading.ReadingRandomData;
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -7,27 +11,21 @@ import java.util.Random;
 
 public class Main {
 
-    private static final Random RANDOM = new Random();
+    private static final FillableArray<Integer> FILLING_ARRAY = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
 
     public static void main(String[] args) {
 
         Numbers<Integer> numbers = new Numbers<>();
 
-        numbers.setSequenceNumbers(Arrays
-                                        .stream(new Integer[10])
-                                        .mapToInt(value -> RANDOM.nextInt(20))
-                                        .boxed()
-                                        .toArray(Integer[]::new));
+        numbers.setSequenceNumbers(FILLING_ARRAY.fillArray(new Integer[20]));
 
+        System.out.println("Sequence : ");
         Arrays.stream(numbers.getSequenceNumbers()).forEachOrdered(integer -> System.out.print(integer + " "));
 
         boolean resultIncreasingSequence = false;
-        for (int i = 2; i < numbers.getSequenceNumbers().length; i++) {
-            if (numbers.getSequenceNumbers()[i] > numbers.getSequenceNumbers()[i - 1]) {
+            if (numbers.getSequenceNumbers()[1] > numbers.getSequenceNumbers()[0]) {
                 resultIncreasingSequence = true;
             }
-        }
-
         System.out.println();
 
         if (resultIncreasingSequence) System.out.println("The sequence of increasing.");

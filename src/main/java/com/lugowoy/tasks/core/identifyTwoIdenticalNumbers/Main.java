@@ -29,40 +29,36 @@ public class Main {
             /*Local variable statusChoice it takes the value entered by the user to identify how the program will be carried out.*/
             int statusChoice = getCorrectStatusChoice();
 
-            try {
-                Reading<Integer> reading;
-                switch (statusChoice) {
-                /* If statusChoice = 1, the user enters the number for comparison.*/
-                    case USER_ENTER_NUMBERS:
-                        reading = new ReadingUserInputData()::readInt;
-                        numbersForComparison = new NumbersForComparison();
-                        System.out.println("Enter the first value : ");
-                        numbersForComparison.setFirstNumber(reading.reading());
-                        System.out.println("Enter the second value : ");
-                        numbersForComparison.setSecondNumber(reading.reading());
-                        System.out.println("Enter the third value : ");
-                        numbersForComparison.setThirdNumber(reading.reading());
-                        comparingNumbers.compareNumbers(numbersForComparison);
-                        break;
-                    case RANDOM_ENTER_NUMBERS:
-                        reading = new ReadingUserInputData()::readInt;
-                    /*If statusChoice = 2, the generated random number for comparison.*/
-                        numbersForComparison = new NumbersForComparison();
-                        numbersForComparison.setFirstNumber(reading.reading());
-                        numbersForComparison.setSecondNumber(reading.reading());
-                        numbersForComparison.setThirdNumber(reading.reading());
-                        comparingNumbers.compareNumbers(numbersForComparison);
-                        break;
-                    /*If statusChoice = 3, to EXIT program.*/
-                    case EXIT:
-                        return;
-                    default:
-                        break;
-                }
-            } catch (StoppingEnterValueException ex) {
-                break;
+            Reading<Integer> reading;
+            switch (statusChoice) {
+            /* If statusChoice = 1, the user enters the number for comparison.*/
+                case USER_ENTER_NUMBERS:
+                    reading = new ReadingUserInputData()::readInt;
+                    numbersForComparison = new NumbersForComparison();
+                    System.out.println("Enter the first value : ");
+                    numbersForComparison.setFirstNumber(reading.reading());
+                    System.out.println("Enter the second value : ");
+                    numbersForComparison.setSecondNumber(reading.reading());
+                    System.out.println("Enter the third value : ");
+                    numbersForComparison.setThirdNumber(reading.reading());
+                    comparingNumbers.compareNumbers(numbersForComparison);
+                    break;
+                case RANDOM_ENTER_NUMBERS:
+                    reading = new ReadingUserInputData()::readInt;
+                /*If statusChoice = 2, the generated random number for comparison.*/
+                    numbersForComparison = new NumbersForComparison();
+                    numbersForComparison.setFirstNumber(reading.reading());
+                    numbersForComparison.setSecondNumber(reading.reading());
+                    numbersForComparison.setThirdNumber(reading.reading());
+                    comparingNumbers.compareNumbers(numbersForComparison);
+                    break;
+                /*If statusChoice = 3, to EXIT program.*/
+                case EXIT:
+                    return;
+                default:
+                    break;
             }
-            } while (true) ;
+        } while (true) ;
         }
 
     /*
