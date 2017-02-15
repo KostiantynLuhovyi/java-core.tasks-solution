@@ -26,9 +26,8 @@ public class ReadingData<T> {
      *
      * @since 1.1
      * @return Parameterize type initialized with the classified functional interface object.
-     * @throws com.lugowoy.util.reading.StoppingEnterValueException
      * */
-    public T read() throws StoppingEnterValueException {
+    public T read() {
         return this.reading.reading();
     }
 

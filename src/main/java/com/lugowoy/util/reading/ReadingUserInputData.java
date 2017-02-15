@@ -31,10 +31,9 @@ public class ReadingUserInputData implements ReadableUserInputData {
      *
      * @return User input integer number.
      * @since 1.0
-     * @throws com.lugowoy.util.reading.StoppingEnterValueException
     * */
     @Override
-    public int readInt() throws StoppingEnterValueException {
+    public int readInt() {
         /*See private method getCorrectIntNumberValue();*/
         return getCorrectIntNumberValue();
     }
@@ -42,7 +41,7 @@ public class ReadingUserInputData implements ReadableUserInputData {
     /*
     * Method to determine the correctness of input integer value
     * */
-    private int getCorrectIntNumberValue() throws StoppingEnterValueException {
+    private int getCorrectIntNumberValue() {
         /*Local variable save and return correct value*/
         int inputValue = 0;
         /*Local variable String value stores the value read from the console, the class instance Scanner.*/
@@ -79,6 +78,8 @@ public class ReadingUserInputData implements ReadableUserInputData {
             System.out.println("From -2147483648 to 2147483648.");
             System.out.println("Re-enter the number : ");
             inputValue = this.getCorrectIntNumberValue();
+        } catch (StoppingEnterValueException e) {
+            e.printStackTrace();
         }
         return inputValue;
     }
@@ -89,14 +90,13 @@ public class ReadingUserInputData implements ReadableUserInputData {
      *
      * @return User input double value.
      * @since 1.0
-     * @throws com.lugowoy.util.reading.StoppingEnterValueException
      * */
     @Override
-    public double readDouble() throws StoppingEnterValueException {
+    public double readDouble() {
         return this.getCorrectDoubleNumberValue();
     }
 
-    private double getCorrectDoubleNumberValue() throws StoppingEnterValueException {
+    private double getCorrectDoubleNumberValue() {
         double inputValue = 0;
 
         String value = SCANNER.nextLine();
@@ -120,6 +120,8 @@ public class ReadingUserInputData implements ReadableUserInputData {
             System.out.println("Not correct input number value.");
             System.out.println("Re-enter : ");
             inputValue = this.getCorrectDoubleNumberValue();
+        } catch (StoppingEnterValueException e) {
+            e.printStackTrace();
         }
         return inputValue;
     }

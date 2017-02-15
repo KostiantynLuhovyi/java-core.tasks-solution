@@ -32,12 +32,11 @@ public class ReadingRandomData implements ReadableRandomData {
      *
      * @return Randomly generated integer value of type integer.
      * @since 1.0
-     * @throws com.lugowoy.util.reading.StoppingEnterValueException
      * When generating a random number is not thrown.
      * */
     @Override
-    public int readInt() throws StoppingEnterValueException {
-        return RANDOM.nextInt();
+    public int readInt() {
+        return RANDOM.nextInt(200) - 100;
     }
     /**
      * The method generates a random number.
@@ -45,11 +44,10 @@ public class ReadingRandomData implements ReadableRandomData {
      *
      * @return Randomly generated double value of type double.
      * @since 1.0
-     * @throws com.lugowoy.util.reading.StoppingEnterValueException
      * When generating a random number is not thrown.
      * */
     @Override
-    public double readDouble() throws StoppingEnterValueException {
+    public double readDouble() {
         return RANDOM.nextDouble();
     }
 }

@@ -15,7 +15,6 @@ public interface Reading<T> {
      *
      * @since 1.1
      * @return Parameterized type initialized with the classified functional interface object.
-     * @throws com.lugowoy.util.reading.StoppingEnterValueException
      * */
-    T reading() throws StoppingEnterValueException;
+    T reading();
 }

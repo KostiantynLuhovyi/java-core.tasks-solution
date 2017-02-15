@@ -17,10 +17,10 @@ public interface ReadableData extends Readable {
     /*
     * Abstract method reads the integer value type, depending on the particular implementation.
     * */
-    int readInt() throws StoppingEnterValueException;
+    int readInt();
 
     /*
     * Abstract method reads the double value type, depending on the particular implementation.
     * */
-    double readDouble() throws StoppingEnterValueException;
+    double readDouble();
 }
