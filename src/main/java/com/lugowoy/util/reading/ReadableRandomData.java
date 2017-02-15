@@ -4,19 +4,19 @@ import java.util.Random;
 
 /**
  * Created by Konstantin on 11.11.2016.
+ *
  * @author Konstantin
  * @version 1.1
+ * @see com.lugowoy.util.reading.ReadableData
  * @since 1.0
- *
+ * <p>
  * Interface "ReadableUserInputData" announces contract to generated random number and read result.
  * Inherits interface "ReadableData".
- *
- * @see com.lugowoy.util.reading.ReadableData
  */
-public interface ReadableRandomData extends ReadableData {
+interface ReadableRandomData extends ReadableData {
     /**
-    * Instance of the class Random, for generating random numbers.
-    * */
+     * Instance of the class Random, for generating random numbers.
+     */
     Random RANDOM = new Random();
 
     /*

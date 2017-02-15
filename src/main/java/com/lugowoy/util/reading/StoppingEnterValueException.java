@@ -5,10 +5,10 @@ package com.lugowoy.util.reading;
  *
  * @author Konstantin
  * @version 1.0
- * @since 1.0
  * @see java.lang.Exception
- *
+ * <p>
  * This class exception used to determine the correctness of the data input stop.
+ * @since 1.0
  */
 public class StoppingEnterValueException extends Exception {
 

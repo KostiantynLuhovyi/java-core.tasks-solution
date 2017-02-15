@@ -2,36 +2,36 @@ package com.lugowoy.util.reading;
 
 /**
  * Created by Konstantin on 27-Jan-17.
+ *
  * @author Konstantin
  * @version 1.1
- * @since 1.1
- *
- * This class implements the contract announced in the interface "ReadableUserInputData"
- * and abstract contract passed by inheritance from interface "ReadableData".
- *
  * @see com.lugowoy.util.reading.ReadableData
  * @see com.lugowoy.util.reading.ReadableUserInputData
+ * @since 1.1
+ * <p>
+ * This class implements the contract announced in the interface "ReadableUserInputData"
+ * and abstract contract passed by inheritance from interface "ReadableData".
  */
 public class ReadingUserInputData implements ReadableUserInputData {
 
     /**
-    * This method read user input in the console.
-    * Override(implements) method with interface "ReadableUserInputData".
-    *
-    * @return User input string.
+     * This method read user input in the console.
+     * Override(implements) method with interface "ReadableUserInputData".
+     *
+     * @return User input string.
      * @since 1.0
-     * */
-    public String readLine(){
+     */
+    public String readLine() {
         return SCANNER.nextLine();
     }
 
     /**
-    * This method read user input in the console.
+     * This method read user input in the console.
      * Override(implements) method with interface "ReadableData".
      *
      * @return User input integer number.
      * @since 1.0
-    * */
+     */
     @Override
     public int readInt() {
         /*See private method getCorrectIntNumberValue();*/
@@ -90,7 +90,7 @@ public class ReadingUserInputData implements ReadableUserInputData {
      *
      * @return User input double value.
      * @since 1.0
-     * */
+     */
     @Override
     public double readDouble() {
         return this.getCorrectDoubleNumberValue();
