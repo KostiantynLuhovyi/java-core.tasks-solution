@@ -1,2 +1,2 @@
 Write a program that prompts the user to enter the radius of the circle,
-and then finds the area and the length of the circumference. The number Pi to set the program as a real constant.
+and then finds the area and the lengthRoom of the circumference. The number Pi to set the program as a real constant.
