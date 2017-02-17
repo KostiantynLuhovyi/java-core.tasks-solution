@@ -15,6 +15,7 @@ Description package:
 - com.lugowoy.tasks.core. - in this package tasks on basic programming topics.
 - com.lugowoy.tasks.array. - in this package task on arrays.
 - сom.lugowoy.tasks.oop. - in this package tasks on basic oop topics.
+
 -----------------------------------------------------------------------------------------------------
 In the package com.lugowoy.util are util classes separated into packages for different implementation.
 --------------------
