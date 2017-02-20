@@ -14,6 +14,8 @@ public class Room {
     private BigDecimal percentageOfWindowsInTheRoom;
     private List<Window> windowListInTheFlat;
 
+    private TypeOfSurface typeOfSurface;
+
     public Room() {
     }
 
@@ -45,7 +47,10 @@ public class Room {
             return false;
         if (getPercentageOfWindowsInTheRoom() != null ? !getPercentageOfWindowsInTheRoom().equals(room.getPercentageOfWindowsInTheRoom()) : room.getPercentageOfWindowsInTheRoom() != null)
             return false;
-        return getWindowListInTheFlat() != null ? getWindowListInTheFlat().equals(room.getWindowListInTheFlat()) : room.getWindowListInTheFlat() == null;
+        if (getWindowListInTheFlat() != null ? !getWindowListInTheFlat().equals(room.getWindowListInTheFlat()) : room.getWindowListInTheFlat() != null)
+            return false;
+        return getTypeOfSurface() == room.getTypeOfSurface();
+
     }
 
     @Override
@@ -55,6 +60,7 @@ public class Room {
         result = 31 * result + (getHeightRoom() != null ? getHeightRoom().hashCode() : 0);
         result = 31 * result + (getPercentageOfWindowsInTheRoom() != null ? getPercentageOfWindowsInTheRoom().hashCode() : 0);
         result = 31 * result + (getWindowListInTheFlat() != null ? getWindowListInTheFlat().hashCode() : 0);
+        result = 31 * result + (getTypeOfSurface() != null ? getTypeOfSurface().hashCode() : 0);
         return result;
     }
 
@@ -66,6 +72,7 @@ public class Room {
                 ", heightRoom=" + heightRoom +
                 ", percentageOfWindowsInTheRoom=" + percentageOfWindowsInTheRoom +
                 ", windowListInTheFlat=" + windowListInTheFlat +
+                ", typeOfSurface=" + typeOfSurface +
                 ']';
     }
 
@@ -107,5 +114,13 @@ public class Room {
 
     public void setWindowListInTheFlat(List<Window> windowListInTheFlat) {
         this.windowListInTheFlat = windowListInTheFlat;
+    }
+
+    public TypeOfSurface getTypeOfSurface() {
+        return typeOfSurface;
+    }
+
+    public void setTypeOfSurface(TypeOfSurface typeOfSurface) {
+        this.typeOfSurface = typeOfSurface;
     }
 }

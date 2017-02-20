@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom;
 
-import java.awt.*;
+import java.awt.Color;
 import java.math.BigDecimal;
 
 /**Created by Konstantin Lugowoy on 17-Feb-17.*/
@@ -11,20 +11,20 @@ public class Paint {
 
     private Color colorPaint;
 
-    private BigDecimal paintConsumptionPerSquareMeter;
+    private TypeOfPaint typeOfPaint;
 
     public Paint() {
     }
 
-    public Paint(BigDecimal pricePerLiter, BigDecimal paintConsumptionPerSquareMeter) {
+    public Paint(BigDecimal pricePerLiter, TypeOfPaint typeOfPaint) {
         this.pricePerLiter = pricePerLiter;
-        this.paintConsumptionPerSquareMeter = paintConsumptionPerSquareMeter;
+        this.typeOfPaint = typeOfPaint;
     }
 
-    public Paint(BigDecimal pricePerLiter, Color colorPaint, BigDecimal paintConsumptionPerSquareMeter) {
+    public Paint(BigDecimal pricePerLiter, Color colorPaint, TypeOfPaint typeOfPaint) {
         this.pricePerLiter = pricePerLiter;
         this.colorPaint = colorPaint;
-        this.paintConsumptionPerSquareMeter = paintConsumptionPerSquareMeter;
+        this.typeOfPaint = typeOfPaint;
     }
 
     @Override
@@ -34,18 +34,19 @@ public class Paint {
 
         Paint paint = (Paint) o;
 
-        if (pricePerLiter != null ? !pricePerLiter.equals(paint.pricePerLiter) : paint.pricePerLiter != null)
+        if (getPricePerLiter() != null ? !getPricePerLiter().equals(paint.getPricePerLiter()) : paint.getPricePerLiter() != null)
             return false;
-        if (colorPaint != null ? !colorPaint.equals(paint.colorPaint) : paint.colorPaint != null) return false;
-        return paintConsumptionPerSquareMeter != null ? paintConsumptionPerSquareMeter.equals(paint.paintConsumptionPerSquareMeter) : paint.paintConsumptionPerSquareMeter == null;
+        if (getColorPaint() != null ? !getColorPaint().equals(paint.getColorPaint()) : paint.getColorPaint() != null)
+            return false;
+        return getTypeOfPaint() == paint.getTypeOfPaint();
 
     }
 
     @Override
     public int hashCode() {
-        int result = pricePerLiter != null ? pricePerLiter.hashCode() : 0;
-        result = 31 * result + (colorPaint != null ? colorPaint.hashCode() : 0);
-        result = 31 * result + (paintConsumptionPerSquareMeter != null ? paintConsumptionPerSquareMeter.hashCode() : 0);
+        int result = getPricePerLiter() != null ? getPricePerLiter().hashCode() : 0;
+        result = 31 * result + (getColorPaint() != null ? getColorPaint().hashCode() : 0);
+        result = 31 * result + (getTypeOfPaint() != null ? getTypeOfPaint().hashCode() : 0);
         return result;
     }
 
@@ -54,7 +55,7 @@ public class Paint {
         return "Paint[" +
                 "pricePerLiter=" + pricePerLiter +
                 ", colorPaint=" + colorPaint +
-                ", paintConsumptionPerSquareMeter=" + paintConsumptionPerSquareMeter +
+                ", typeOfPaint=" + typeOfPaint +
                 ']';
     }
 
@@ -74,11 +75,11 @@ public class Paint {
         this.colorPaint = colorPaint;
     }
 
-    public BigDecimal getPaintConsumptionPerSquareMeter() {
-        return paintConsumptionPerSquareMeter;
+    public TypeOfPaint getTypeOfPaint() {
+        return typeOfPaint;
     }
 
-    public void setPaintConsumptionPerSquareMeter(BigDecimal paintConsumptionPerSquareMeter) {
-        this.paintConsumptionPerSquareMeter = paintConsumptionPerSquareMeter;
+    public void setTypeOfPaint(TypeOfPaint typeOfPaint) {
+        this.typeOfPaint = typeOfPaint;
     }
 }
