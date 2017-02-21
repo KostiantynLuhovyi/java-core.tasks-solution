@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom;
+package com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.models;
 
 /**Created by Konstantin Lugowoy on 18-Feb-17.*/
 

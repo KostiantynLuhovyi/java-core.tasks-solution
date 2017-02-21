@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom;
+package com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.models;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -14,6 +14,9 @@ public class Room {
     private BigDecimal percentageOfWindowsInTheRoom;
     private List<Window> windowListInTheFlat;
 
+    private BigDecimal percentageOfDoorsInTheRoom;
+    private List<Door> doorListInTheFlat;
+
     private TypeOfSurface typeOfSurface;
 
     public Room() {
@@ -23,13 +26,6 @@ public class Room {
         this.widthRoom = widthRoom;
         this.lengthRoom = lengthRoom;
         this.heightRoom = heightRoom;
-    }
-
-    public Room(BigDecimal widthRoom, BigDecimal lengthRoom, BigDecimal heightRoom, BigDecimal percentageOfWindowsInTheRoom) {
-        this.widthRoom = widthRoom;
-        this.lengthRoom = lengthRoom;
-        this.heightRoom = heightRoom;
-        this.percentageOfWindowsInTheRoom = percentageOfWindowsInTheRoom;
     }
 
     @Override
@@ -49,6 +45,10 @@ public class Room {
             return false;
         if (getWindowListInTheFlat() != null ? !getWindowListInTheFlat().equals(room.getWindowListInTheFlat()) : room.getWindowListInTheFlat() != null)
             return false;
+        if (getPercentageOfDoorsInTheRoom() != null ? !getPercentageOfDoorsInTheRoom().equals(room.getPercentageOfDoorsInTheRoom()) : room.getPercentageOfDoorsInTheRoom() != null)
+            return false;
+        if (getDoorListInTheFlat() != null ? !getDoorListInTheFlat().equals(room.getDoorListInTheFlat()) : room.getDoorListInTheFlat() != null)
+            return false;
         return getTypeOfSurface() == room.getTypeOfSurface();
 
     }
@@ -60,6 +60,8 @@ public class Room {
         result = 31 * result + (getHeightRoom() != null ? getHeightRoom().hashCode() : 0);
         result = 31 * result + (getPercentageOfWindowsInTheRoom() != null ? getPercentageOfWindowsInTheRoom().hashCode() : 0);
         result = 31 * result + (getWindowListInTheFlat() != null ? getWindowListInTheFlat().hashCode() : 0);
+        result = 31 * result + (getPercentageOfDoorsInTheRoom() != null ? getPercentageOfDoorsInTheRoom().hashCode() : 0);
+        result = 31 * result + (getDoorListInTheFlat() != null ? getDoorListInTheFlat().hashCode() : 0);
         result = 31 * result + (getTypeOfSurface() != null ? getTypeOfSurface().hashCode() : 0);
         return result;
     }
@@ -72,6 +74,8 @@ public class Room {
                 ", heightRoom=" + heightRoom +
                 ", percentageOfWindowsInTheRoom=" + percentageOfWindowsInTheRoom +
                 ", windowListInTheFlat=" + windowListInTheFlat +
+                ", percentageOfDoorsInTheRoom=" + percentageOfDoorsInTheRoom +
+                ", doorListInTheFlat=" + doorListInTheFlat +
                 ", typeOfSurface=" + typeOfSurface +
                 ']';
     }
@@ -116,6 +120,22 @@ public class Room {
         this.windowListInTheFlat = windowListInTheFlat;
     }
 
+    public BigDecimal getPercentageOfDoorsInTheRoom() {
+        return percentageOfDoorsInTheRoom;
+    }
+
+    public void setPercentageOfDoorsInTheRoom(BigDecimal percentageOfDoorsInTheRoom) {
+        this.percentageOfDoorsInTheRoom = percentageOfDoorsInTheRoom;
+    }
+
+    public List<Door> getDoorListInTheFlat() {
+        return doorListInTheFlat;
+    }
+
+    public void setDoorListInTheFlat(List<Door> doorListInTheFlat) {
+        this.doorListInTheFlat = doorListInTheFlat;
+    }
+
     public TypeOfSurface getTypeOfSurface() {
         return typeOfSurface;
     }
@@ -123,4 +143,5 @@ public class Room {
     public void setTypeOfSurface(TypeOfSurface typeOfSurface) {
         this.typeOfSurface = typeOfSurface;
     }
+
 }

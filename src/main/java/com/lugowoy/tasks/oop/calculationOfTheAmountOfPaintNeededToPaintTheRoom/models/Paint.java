@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom;
+package com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.models;
 
 import java.awt.Color;
 import java.math.BigDecimal;
