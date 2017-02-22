@@ -12,6 +12,7 @@ public class Paint {
     private Color colorPaint;
 
     private TypeOfPaint typeOfPaint;
+    private BigDecimal expenseOfThePaintPerSquareMeter;
 
     public Paint() {
     }
@@ -38,7 +39,8 @@ public class Paint {
             return false;
         if (getColorPaint() != null ? !getColorPaint().equals(paint.getColorPaint()) : paint.getColorPaint() != null)
             return false;
-        return getTypeOfPaint() == paint.getTypeOfPaint();
+        if (getTypeOfPaint() != paint.getTypeOfPaint()) return false;
+        return getExpenseOfThePaintPerSquareMeter() != null ? getExpenseOfThePaintPerSquareMeter().equals(paint.getExpenseOfThePaintPerSquareMeter()) : paint.getExpenseOfThePaintPerSquareMeter() == null;
 
     }
 
@@ -47,6 +49,7 @@ public class Paint {
         int result = getPricePerLiter() != null ? getPricePerLiter().hashCode() : 0;
         result = 31 * result + (getColorPaint() != null ? getColorPaint().hashCode() : 0);
         result = 31 * result + (getTypeOfPaint() != null ? getTypeOfPaint().hashCode() : 0);
+        result = 31 * result + (getExpenseOfThePaintPerSquareMeter() != null ? getExpenseOfThePaintPerSquareMeter().hashCode() : 0);
         return result;
     }
 
@@ -56,6 +59,7 @@ public class Paint {
                 "pricePerLiter=" + pricePerLiter +
                 ", colorPaint=" + colorPaint +
                 ", typeOfPaint=" + typeOfPaint +
+                ", expenseOfThePaintPerSquareMeter=" + expenseOfThePaintPerSquareMeter +
                 ']';
     }
 
@@ -81,5 +85,13 @@ public class Paint {
 
     public void setTypeOfPaint(TypeOfPaint typeOfPaint) {
         this.typeOfPaint = typeOfPaint;
+    }
+
+    public BigDecimal getExpenseOfThePaintPerSquareMeter() {
+        return expenseOfThePaintPerSquareMeter;
+    }
+
+    public void setExpenseOfThePaintPerSquareMeter(BigDecimal expenseOfThePaintPerSquareMeter) {
+        this.expenseOfThePaintPerSquareMeter = expenseOfThePaintPerSquareMeter;
     }
 }

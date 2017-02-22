@@ -9,6 +9,8 @@ public class Door {
     private BigDecimal widthDoor;
     private BigDecimal heightDoor;
 
+    private BigDecimal areaDoor;
+
     public Door(BigDecimal widthDoor, BigDecimal heightDoor) {
         this.widthDoor = widthDoor;
         this.heightDoor = heightDoor;
@@ -21,15 +23,19 @@ public class Door {
 
         Door door = (Door) o;
 
-        if (widthDoor != null ? !widthDoor.equals(door.widthDoor) : door.widthDoor != null) return false;
-        return heightDoor != null ? heightDoor.equals(door.heightDoor) : door.heightDoor == null;
+        if (getWidthDoor() != null ? !getWidthDoor().equals(door.getWidthDoor()) : door.getWidthDoor() != null)
+            return false;
+        if (getHeightDoor() != null ? !getHeightDoor().equals(door.getHeightDoor()) : door.getHeightDoor() != null)
+            return false;
+        return getAreaDoor() != null ? getAreaDoor().equals(door.getAreaDoor()) : door.getAreaDoor() == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = widthDoor != null ? widthDoor.hashCode() : 0;
-        result = 31 * result + (heightDoor != null ? heightDoor.hashCode() : 0);
+        int result = getWidthDoor() != null ? getWidthDoor().hashCode() : 0;
+        result = 31 * result + (getHeightDoor() != null ? getHeightDoor().hashCode() : 0);
+        result = 31 * result + (getAreaDoor() != null ? getAreaDoor().hashCode() : 0);
         return result;
     }
 
@@ -38,6 +44,7 @@ public class Door {
         return "Door[" +
                 "widthDoor=" + widthDoor +
                 ", heightDoor=" + heightDoor +
+                ", areaDoor=" + areaDoor +
                 ']';
     }
 
@@ -55,5 +62,13 @@ public class Door {
 
     public void setHeightDoor(BigDecimal heightDoor) {
         this.heightDoor = heightDoor;
+    }
+
+    public BigDecimal getAreaDoor() {
+        return areaDoor;
+    }
+
+    public void setAreaDoor(BigDecimal areaDoor) {
+        this.areaDoor = areaDoor;
     }
 }

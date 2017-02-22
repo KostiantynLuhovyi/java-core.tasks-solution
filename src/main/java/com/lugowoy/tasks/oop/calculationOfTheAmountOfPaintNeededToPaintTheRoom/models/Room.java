@@ -11,11 +11,16 @@ public class Room {
     private BigDecimal lengthRoom;
     private BigDecimal heightRoom;
 
-    private BigDecimal percentageOfWindowsInTheRoom;
-    private List<Window> windowListInTheFlat;
+    private BigDecimal totalAreaRoom;
+    private BigDecimal areaRoomWithoutAreaDoorsAndWindows;
 
-    private BigDecimal percentageOfDoorsInTheRoom;
+    private List<Window> windowListInTheFlat;
+    private BigDecimal percentageOfTheAreaOfTheWindowsFromTheAreaRoom;
+    private BigDecimal totalAreaOfTheWindowsInTheRoom;
+
     private List<Door> doorListInTheFlat;
+    private BigDecimal percentageOfTheAreaOfTheDoorsFromTheAreaRoom;
+    private BigDecimal totalAreaOfTheDoorsInTheRoom;
 
     private TypeOfSurface typeOfSurface;
 
@@ -41,13 +46,21 @@ public class Room {
             return false;
         if (getHeightRoom() != null ? !getHeightRoom().equals(room.getHeightRoom()) : room.getHeightRoom() != null)
             return false;
-        if (getPercentageOfWindowsInTheRoom() != null ? !getPercentageOfWindowsInTheRoom().equals(room.getPercentageOfWindowsInTheRoom()) : room.getPercentageOfWindowsInTheRoom() != null)
+        if (getTotalAreaRoom() != null ? !getTotalAreaRoom().equals(room.getTotalAreaRoom()) : room.getTotalAreaRoom() != null)
+            return false;
+        if (getAreaRoomWithoutAreaDoorsAndWindows() != null ? !getAreaRoomWithoutAreaDoorsAndWindows().equals(room.getAreaRoomWithoutAreaDoorsAndWindows()) : room.getAreaRoomWithoutAreaDoorsAndWindows() != null)
             return false;
         if (getWindowListInTheFlat() != null ? !getWindowListInTheFlat().equals(room.getWindowListInTheFlat()) : room.getWindowListInTheFlat() != null)
             return false;
-        if (getPercentageOfDoorsInTheRoom() != null ? !getPercentageOfDoorsInTheRoom().equals(room.getPercentageOfDoorsInTheRoom()) : room.getPercentageOfDoorsInTheRoom() != null)
+        if (getPercentageOfTheAreaOfTheWindowsFromTheAreaRoom() != null ? !getPercentageOfTheAreaOfTheWindowsFromTheAreaRoom().equals(room.getPercentageOfTheAreaOfTheWindowsFromTheAreaRoom()) : room.getPercentageOfTheAreaOfTheWindowsFromTheAreaRoom() != null)
+            return false;
+        if (getTotalAreaOfTheWindowsInTheRoom() != null ? !getTotalAreaOfTheWindowsInTheRoom().equals(room.getTotalAreaOfTheWindowsInTheRoom()) : room.getTotalAreaOfTheWindowsInTheRoom() != null)
             return false;
         if (getDoorListInTheFlat() != null ? !getDoorListInTheFlat().equals(room.getDoorListInTheFlat()) : room.getDoorListInTheFlat() != null)
+            return false;
+        if (getPercentageOfTheAreaOfTheDoorsFromTheAreaRoom() != null ? !getPercentageOfTheAreaOfTheDoorsFromTheAreaRoom().equals(room.getPercentageOfTheAreaOfTheDoorsFromTheAreaRoom()) : room.getPercentageOfTheAreaOfTheDoorsFromTheAreaRoom() != null)
+            return false;
+        if (getTotalAreaOfTheDoorsInTheRoom() != null ? !getTotalAreaOfTheDoorsInTheRoom().equals(room.getTotalAreaOfTheDoorsInTheRoom()) : room.getTotalAreaOfTheDoorsInTheRoom() != null)
             return false;
         return getTypeOfSurface() == room.getTypeOfSurface();
 
@@ -58,10 +71,14 @@ public class Room {
         int result = getWidthRoom() != null ? getWidthRoom().hashCode() : 0;
         result = 31 * result + (getLengthRoom() != null ? getLengthRoom().hashCode() : 0);
         result = 31 * result + (getHeightRoom() != null ? getHeightRoom().hashCode() : 0);
-        result = 31 * result + (getPercentageOfWindowsInTheRoom() != null ? getPercentageOfWindowsInTheRoom().hashCode() : 0);
+        result = 31 * result + (getTotalAreaRoom() != null ? getTotalAreaRoom().hashCode() : 0);
+        result = 31 * result + (getAreaRoomWithoutAreaDoorsAndWindows() != null ? getAreaRoomWithoutAreaDoorsAndWindows().hashCode() : 0);
         result = 31 * result + (getWindowListInTheFlat() != null ? getWindowListInTheFlat().hashCode() : 0);
-        result = 31 * result + (getPercentageOfDoorsInTheRoom() != null ? getPercentageOfDoorsInTheRoom().hashCode() : 0);
+        result = 31 * result + (getPercentageOfTheAreaOfTheWindowsFromTheAreaRoom() != null ? getPercentageOfTheAreaOfTheWindowsFromTheAreaRoom().hashCode() : 0);
+        result = 31 * result + (getTotalAreaOfTheWindowsInTheRoom() != null ? getTotalAreaOfTheWindowsInTheRoom().hashCode() : 0);
         result = 31 * result + (getDoorListInTheFlat() != null ? getDoorListInTheFlat().hashCode() : 0);
+        result = 31 * result + (getPercentageOfTheAreaOfTheDoorsFromTheAreaRoom() != null ? getPercentageOfTheAreaOfTheDoorsFromTheAreaRoom().hashCode() : 0);
+        result = 31 * result + (getTotalAreaOfTheDoorsInTheRoom() != null ? getTotalAreaOfTheDoorsInTheRoom().hashCode() : 0);
         result = 31 * result + (getTypeOfSurface() != null ? getTypeOfSurface().hashCode() : 0);
         return result;
     }
@@ -72,10 +89,14 @@ public class Room {
                 "widthRoom=" + widthRoom +
                 ", lengthRoom=" + lengthRoom +
                 ", heightRoom=" + heightRoom +
-                ", percentageOfWindowsInTheRoom=" + percentageOfWindowsInTheRoom +
+                ", totalAreaRoom=" + totalAreaRoom +
+                ", areaRoomWithoutAreaDoorsAndWindows=" + areaRoomWithoutAreaDoorsAndWindows +
                 ", windowListInTheFlat=" + windowListInTheFlat +
-                ", percentageOfDoorsInTheRoom=" + percentageOfDoorsInTheRoom +
+                ", percentageOfTheAreaOfTheWindowsFromTheAreaRoom=" + percentageOfTheAreaOfTheWindowsFromTheAreaRoom +
+                ", totalAreaOfTheWindowsInTheRoom=" + totalAreaOfTheWindowsInTheRoom +
                 ", doorListInTheFlat=" + doorListInTheFlat +
+                ", percentageOfTheAreaOfTheDoorsFromTheAreaRoom=" + percentageOfTheAreaOfTheDoorsFromTheAreaRoom +
+                ", totalAreaOfTheDoorsInTheRoom=" + totalAreaOfTheDoorsInTheRoom +
                 ", typeOfSurface=" + typeOfSurface +
                 ']';
     }
@@ -104,12 +125,20 @@ public class Room {
         this.heightRoom = heightRoom;
     }
 
-    public BigDecimal getPercentageOfWindowsInTheRoom() {
-        return percentageOfWindowsInTheRoom;
+    public BigDecimal getTotalAreaRoom() {
+        return totalAreaRoom;
     }
 
-    public void setPercentageOfWindowsInTheRoom(BigDecimal percentageOfWindowsInTheRoom) {
-        this.percentageOfWindowsInTheRoom = percentageOfWindowsInTheRoom;
+    public void setTotalAreaRoom(BigDecimal totalAreaRoom) {
+        this.totalAreaRoom = totalAreaRoom;
+    }
+
+    public BigDecimal getAreaRoomWithoutAreaDoorsAndWindows() {
+        return areaRoomWithoutAreaDoorsAndWindows;
+    }
+
+    public void setAreaRoomWithoutAreaDoorsAndWindows(BigDecimal areaRoomWithoutAreaDoorsAndWindows) {
+        this.areaRoomWithoutAreaDoorsAndWindows = areaRoomWithoutAreaDoorsAndWindows;
     }
 
     public List<Window> getWindowListInTheFlat() {
@@ -120,12 +149,20 @@ public class Room {
         this.windowListInTheFlat = windowListInTheFlat;
     }
 
-    public BigDecimal getPercentageOfDoorsInTheRoom() {
-        return percentageOfDoorsInTheRoom;
+    public BigDecimal getPercentageOfTheAreaOfTheWindowsFromTheAreaRoom() {
+        return percentageOfTheAreaOfTheWindowsFromTheAreaRoom;
     }
 
-    public void setPercentageOfDoorsInTheRoom(BigDecimal percentageOfDoorsInTheRoom) {
-        this.percentageOfDoorsInTheRoom = percentageOfDoorsInTheRoom;
+    public void setPercentageOfTheAreaOfTheWindowsFromTheAreaRoom(BigDecimal percentageOfTheAreaOfTheWindowsFromTheAreaRoom) {
+        this.percentageOfTheAreaOfTheWindowsFromTheAreaRoom = percentageOfTheAreaOfTheWindowsFromTheAreaRoom;
+    }
+
+    public BigDecimal getTotalAreaOfTheWindowsInTheRoom() {
+        return totalAreaOfTheWindowsInTheRoom;
+    }
+
+    public void setTotalAreaOfTheWindowsInTheRoom(BigDecimal totalAreaOfTheWindowsInTheRoom) {
+        this.totalAreaOfTheWindowsInTheRoom = totalAreaOfTheWindowsInTheRoom;
     }
 
     public List<Door> getDoorListInTheFlat() {
@@ -136,6 +173,22 @@ public class Room {
         this.doorListInTheFlat = doorListInTheFlat;
     }
 
+    public BigDecimal getPercentageOfTheAreaOfTheDoorsFromTheAreaRoom() {
+        return percentageOfTheAreaOfTheDoorsFromTheAreaRoom;
+    }
+
+    public void setPercentageOfTheAreaOfTheDoorsFromTheAreaRoom(BigDecimal percentageOfTheAreaOfTheDoorsFromTheAreaRoom) {
+        this.percentageOfTheAreaOfTheDoorsFromTheAreaRoom = percentageOfTheAreaOfTheDoorsFromTheAreaRoom;
+    }
+
+    public BigDecimal getTotalAreaOfTheDoorsInTheRoom() {
+        return totalAreaOfTheDoorsInTheRoom;
+    }
+
+    public void setTotalAreaOfTheDoorsInTheRoom(BigDecimal totalAreaOfTheDoorsInTheRoom) {
+        this.totalAreaOfTheDoorsInTheRoom = totalAreaOfTheDoorsInTheRoom;
+    }
+
     public TypeOfSurface getTypeOfSurface() {
         return typeOfSurface;
     }
@@ -143,5 +196,4 @@ public class Room {
     public void setTypeOfSurface(TypeOfSurface typeOfSurface) {
         this.typeOfSurface = typeOfSurface;
     }
-
 }
