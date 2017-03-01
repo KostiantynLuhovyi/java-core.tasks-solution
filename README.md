@@ -23,4 +23,4 @@ Description util package:
 - com.lugowoy.util.reading - Classes for implementing functionality for reading data entered by the user in the console.
 - com.lugowoy.util.fillable - Classes to implementing the functionality of filling arrays to store different types of data.
 - com.lugowoy.util.calculable - Classes to implementing the functionality of perform mathematical calculations.
-- com.lugowoy.util.converting - Classes to implementing the functionality of
+- com.lugowoy.util.converting - Classes to implementing the functionality of the converting.
