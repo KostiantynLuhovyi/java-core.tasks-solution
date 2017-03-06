@@ -12,29 +12,28 @@ public class CalculatorForTheWindowsArea extends CalculatorForTheObjectArea<Wind
                                                             implements CalculableTotalAreaOfTheObjectInTheRoom<Window> {
 
     @Override
-    public Window calculateArea(Window window) {
+    public void calculateArea(Window window) {
         BigDecimal areaWindow = new BigDecimal(window.getWidthWindow().multiply(window.getHeightWindow()).doubleValue());
         window.setAreaWindow(areaWindow);
-        return window;
     }
 
     @Override
     public BigDecimal calculateTotalAreaOfTheObjectInTheRoom(Room room) {
-        BigDecimal totalAreaOfTheDoorsInTheRoom = new BigDecimal(0);
-        BigDecimal resultTotalArea = null;
+        BigDecimal totalAreaOfTheWindowsInTheRoom = new BigDecimal(0);
         for (Window window : room.getWindowListInTheFlat()) {
-            resultTotalArea = new BigDecimal(totalAreaOfTheDoorsInTheRoom.add(this.calculateArea(window).getAreaWindow()).doubleValue());
+            this.calculateArea(window);
+            totalAreaOfTheWindowsInTheRoom = new BigDecimal(totalAreaOfTheWindowsInTheRoom.add(window.getAreaWindow()).doubleValue());
         }
-        return resultTotalArea;
+        return totalAreaOfTheWindowsInTheRoom;
     }
 
     @Override
     public BigDecimal calculateTotalAreaOfTheObjectInTheRoom(List<Window> windowList) {
-        BigDecimal totalAreaOfTheDoorsInTheRoom = new BigDecimal(0);
-        BigDecimal resultTotalArea = null;
+        BigDecimal totalAreaOfTheWindowsInTheRoom = new BigDecimal(0);
         for (Window window : windowList) {
-            resultTotalArea = new BigDecimal(totalAreaOfTheDoorsInTheRoom.add(this.calculateArea(window).getAreaWindow()).doubleValue());
+            this.calculateArea(window);
+            totalAreaOfTheWindowsInTheRoom = new BigDecimal(totalAreaOfTheWindowsInTheRoom.add(window.getAreaWindow()).doubleValue());
         }
-        return resultTotalArea;
+        return totalAreaOfTheWindowsInTheRoom;
     }
 }

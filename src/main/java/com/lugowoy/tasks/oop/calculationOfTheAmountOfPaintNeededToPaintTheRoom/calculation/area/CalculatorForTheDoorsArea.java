@@ -11,30 +11,29 @@ import java.util.List;
 public class CalculatorForTheDoorsArea extends CalculatorForTheObjectArea<Door> implements CalculableTotalAreaOfTheObjectInTheRoom<Door> {
 
     @Override
-    public Door calculateArea(Door door) {
+    public void calculateArea(Door door) {
         BigDecimal areaDoor = new BigDecimal(door.getWidthDoor().multiply(door.getHeightDoor()).doubleValue());
         door.setAreaDoor(areaDoor);
-        return door;
     }
 
     @Override
     public BigDecimal calculateTotalAreaOfTheObjectInTheRoom(Room room) {
         BigDecimal totalAreaOfTheDoorsInTheRoom = new BigDecimal(0);
-        BigDecimal resultTotalArea = null;
         for (Door door : room.getDoorListInTheFlat()) {
-            resultTotalArea = new BigDecimal(totalAreaOfTheDoorsInTheRoom.add(this.calculateArea(door).getAreaDoor()).doubleValue());
+            this.calculateArea(door);
+            totalAreaOfTheDoorsInTheRoom = new BigDecimal(totalAreaOfTheDoorsInTheRoom.add(door.getAreaDoor()).doubleValue());
         }
-        return resultTotalArea;
+        return totalAreaOfTheDoorsInTheRoom;
     }
 
     @Override
     public BigDecimal calculateTotalAreaOfTheObjectInTheRoom(List<Door> doors) {
         BigDecimal totalAreaOfTheDoorsInTheRoom = new BigDecimal(0);
-        BigDecimal resultTotalArea = null;
         for (Door door : doors) {
-            resultTotalArea = new BigDecimal(totalAreaOfTheDoorsInTheRoom.add(this.calculateArea(door).getAreaDoor()).doubleValue());
+            this.calculateArea(door);
+            totalAreaOfTheDoorsInTheRoom = new BigDecimal(totalAreaOfTheDoorsInTheRoom.add(door.getAreaDoor()).doubleValue());
         }
-        return resultTotalArea;
+        return totalAreaOfTheDoorsInTheRoom;
     }
 
 

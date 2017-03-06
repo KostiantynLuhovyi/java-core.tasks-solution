@@ -4,15 +4,15 @@ import com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.m
 
 import java.math.BigDecimal;
 
-/** Created by Konstantin Lugowoy on 22-Feb-17. */
+/** Created by Konstantin Lugowoy on 06.03.2017. */
 
-public class CalculatorPercentOfTheAreaOfTheWindowsFromTheRoomArea
+public class CalculatorPercentOfTheAreaOfTheDoorsFromTheRoomArea
         implements CalculablePercentOfTheAreaOfTheObjectsFromTheRoomArea {
 
     @Override
     public BigDecimal calculatePercentage(Room room) {
         return new BigDecimal(room.getTotalAreaRoom()
-                        .multiply(new BigDecimal(room.getTotalAreaOfTheWindowsInTheRoom().doubleValue())
+                        .multiply(new BigDecimal(room.getTotalAreaOfTheDoorsInTheRoom().doubleValue())
                         .divide(new BigDecimal(100), 2, BigDecimal.ROUND_DOWN)).doubleValue());
     }
 }

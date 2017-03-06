@@ -6,5 +6,5 @@ import com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.c
 
 public interface CalculableForTheObjectArea<T> extends CalculableArea {
 
-    T calculateArea(T t);
+    void calculateArea(T t);
 }

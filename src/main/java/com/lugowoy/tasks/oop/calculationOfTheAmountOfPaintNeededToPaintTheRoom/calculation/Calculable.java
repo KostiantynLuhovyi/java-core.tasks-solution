@@ -2,5 +2,5 @@ package com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.
 
 /**Created by Konstantin Lugowoy on 22-Feb-17.*/
 
-public interface Calculable {
+public interface Calculable<T> {
 }

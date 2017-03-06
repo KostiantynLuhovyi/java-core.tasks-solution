@@ -5,6 +5,6 @@ package com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.
 public abstract class CalculatorForTheObjectArea<T> implements CalculableForTheObjectArea<T> {
 
     @Override
-    public abstract T calculateArea(T t);
+    public abstract void calculateArea(T t);
 
 }

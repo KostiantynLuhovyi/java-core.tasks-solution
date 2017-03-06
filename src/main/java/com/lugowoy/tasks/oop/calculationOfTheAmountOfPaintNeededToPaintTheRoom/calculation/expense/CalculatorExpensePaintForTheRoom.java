@@ -11,6 +11,6 @@ public class CalculatorExpensePaintForTheRoom implements CalculableExpensePaintF
 
     @Override
     public BigDecimal calculateExpensePaintForTheRoom(Room room, Paint paint) {
-        return room.getAreaRoomWithoutAreaDoorsAndWindows().multiply(new BigDecimal(0));
+        return room.getAreaRoomWithoutAreaDoorsAndWindows().multiply(new BigDecimal(paint.getExpenseOfThePaintPerSquareMeter().doubleValue())).setScale(2, BigDecimal.ROUND_DOWN);
     }
 }
