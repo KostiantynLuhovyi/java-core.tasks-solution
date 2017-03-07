@@ -1,0 +1,2 @@
+The suitability of the component is estimated by the size B, which must correspond to the interval (A - N, A + N).
+Calculate the number of suitable and unusable components.
