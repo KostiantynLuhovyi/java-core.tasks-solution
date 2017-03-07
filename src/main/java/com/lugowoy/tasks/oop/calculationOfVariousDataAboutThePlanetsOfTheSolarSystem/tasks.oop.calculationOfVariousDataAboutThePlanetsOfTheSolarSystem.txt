@@ -1,0 +1,3 @@
+Calculate the total mass of all the planets of the solar system.
+Calculate the arithmetic mean of the masses of the planets.
+Then - the mass of each planet in percentages, if we take as 100% the total mass of all the planets.
