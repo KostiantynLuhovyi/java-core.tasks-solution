@@ -1,7 +1,5 @@
 package com.lugowoy.tasks.oop.calculationOfVariousDataAboutThePlanetsOfTheSolarSystem.model;
 
-import com.lugowoy.tasks.oop.calculationOfVariousDataAboutThePlanetsOfTheSolarSystem.model.Planet;
-
 import java.util.List;
 
 /** Created by Konstantin Lugowoy on 07.03.2017. */

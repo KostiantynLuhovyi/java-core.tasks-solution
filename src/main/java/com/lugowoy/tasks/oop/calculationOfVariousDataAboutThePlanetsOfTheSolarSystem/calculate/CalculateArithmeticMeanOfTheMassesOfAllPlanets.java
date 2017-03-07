@@ -12,8 +12,6 @@ import static com.lugowoy.tasks.oop.calculationOfVariousDataAboutThePlanetsOfThe
 public class CalculateArithmeticMeanOfTheMassesOfAllPlanets {
 
     public static BigDecimal calculateArithmeticMeanOfTheMassesOfAllPlanets(Collection<Planet> collection) {
-        CalculateMassAllPlanets calculateMassAllPlanets = new CalculateMassAllPlanets();
-
-        return calculateMassAllPlanets.calculateMassAllPlanets(collection).divide(new BigDecimal(PLANETS_IN_THE_SOLAR_SYSTEM), 2, BigDecimal.ROUND_DOWN);
+        return CalculateMassAllPlanets.calculateMassAllPlanets(collection).divide(new BigDecimal(PLANETS_IN_THE_SOLAR_SYSTEM), 2, BigDecimal.ROUND_DOWN);
     }
 }
