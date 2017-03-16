@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.arrays.squeezeTheArrayByThrowingEverySecondElement;
+package com.lugowoy.tasks.arrays.compressTheArrayByThrowingEverySecondElement;
 
 import com.lugowoy.util.fillable.FillableArray;
 import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
@@ -25,7 +25,7 @@ public class Main {
         Arrays.stream(integerArray.getArray()).forEachOrdered(integer -> System.out.print(integer + " "));
         System.out.println();
 
-        ARRAY_SQUEEZABLE.squeeze(integerArray);
+        ARRAY_COMPRESSIBLE.squeeze(integerArray);
 
         System.out.println("Result array : ");
         Arrays.stream(integerArray.getArray()).filter(Objects::nonNull).forEachOrdered(integer -> System.out.print(integer + " "));
@@ -33,7 +33,7 @@ public class Main {
 
     }
 
-    private static final Squeezable<Array> ARRAY_SQUEEZABLE = array -> {
+    private static final Compressible<Array> ARRAY_COMPRESSIBLE = array -> {
         if (array != null) {
             List<Object> integerList = new ArrayList<>(0);
             for (int i = 0; i < array.getArray().length; i++) {
