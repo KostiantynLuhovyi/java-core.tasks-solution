@@ -2,6 +2,7 @@ package com.lugowoy.tasks.oop.determiningProfitableExchangeOfCurrencyInBank.util
 
 import com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.factory.Factory;
 import com.lugowoy.tasks.oop.determiningProfitableExchangeOfCurrencyInBank.factory.FactoryBank;
+import com.lugowoy.tasks.oop.determiningProfitableExchangeOfCurrencyInBank.factory.FactoryCurrency;
 import com.lugowoy.tasks.oop.determiningProfitableExchangeOfCurrencyInBank.model.Bank;
 import com.lugowoy.tasks.oop.determiningProfitableExchangeOfCurrencyInBank.model.Currency;
 import com.lugowoy.tasks.oop.determiningProfitableExchangeOfCurrencyInBank.model.TypeOfCurrency;
@@ -18,7 +19,7 @@ public class FillingBankCurrency {
 
     private static final int QUANTITY_OF_CURRENCY_IN_THE_BANK = 4;
 
-    private static final Factory<Currency> CURRENCY_FACTORY = Currency::new;
+    private static final Factory<Currency> CURRENCY_FACTORY = FactoryCurrency::createCurrency;
 
     public static void fillingBankCurrency(List<Bank> bankList) {
         for (Bank bank : bankList) {
