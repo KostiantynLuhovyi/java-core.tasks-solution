@@ -13,8 +13,8 @@ public interface FactoryCurrency {
         return new Currency();
     }
 
-    static Currency createCurrency(TypeOfCurrency typeOfCurrency, BigDecimal rate) {
-        return new Currency(typeOfCurrency, rate);
+    static Currency createCurrency(TypeOfCurrency typeOfCurrency) {
+        return new Currency(typeOfCurrency);
     }
 
 }
