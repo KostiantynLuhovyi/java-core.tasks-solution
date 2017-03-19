@@ -48,9 +48,9 @@ public abstract class FillingBankCurrency {
         switch (currency.getTypeOfCurrency()) {
             case UAH:
                 fillingAndSetCurrencyRateList(currencyRateList,
-                        new CurrencyRate(TypeOfCurrency.USD, calculableCurrencyRate.calculateRate(CurrencyRate.MAX_UAH_TO_USD, CurrencyRate.MIN_UAH_TO_USD)),
-                        new CurrencyRate(TypeOfCurrency.EUR, calculableCurrencyRate.calculateRate(CurrencyRate.MAX_UAH_TO_EUR, CurrencyRate.MIN_UAH_TO_EUR)),
-                        new CurrencyRate(TypeOfCurrency.RUB, calculableCurrencyRate.calculateRate(CurrencyRate.MAX_UAH_TO_RUB, CurrencyRate.MIN_UAH_TO_RUB)));
+                        new CurrencyRate(TypeOfCurrency.USD, calculableCurrencyRate.calculateRate(CurrencyRate.MAX_UAH_TO_USD, CurrencyRate.MIN_UAH_TO_USD).setScale(2, BigDecimal.ROUND_DOWN)),
+                        new CurrencyRate(TypeOfCurrency.EUR, calculableCurrencyRate.calculateRate(CurrencyRate.MAX_UAH_TO_EUR, CurrencyRate.MIN_UAH_TO_EUR).setScale(2, BigDecimal.ROUND_DOWN)),
+                        new CurrencyRate(TypeOfCurrency.RUB, calculableCurrencyRate.calculateRate(CurrencyRate.MAX_UAH_TO_RUB, CurrencyRate.MIN_UAH_TO_RUB).setScale(2, BigDecimal.ROUND_DOWN)));
                 break;
             case USD:
                 fillingAndSetCurrencyRateList(currencyRateList,

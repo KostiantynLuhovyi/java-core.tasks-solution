@@ -10,6 +10,6 @@ public interface CalculableCurrencyRate {
     BigDecimal calculateRate(double maxRate, double minRate);
 
     static BigDecimal calculateCurrencyRate(double maxRate, double minRate) {
-        return new BigDecimal((Math.random() * (maxRate - minRate)) + minRate);
+        return new BigDecimal((Math.random() * (maxRate - minRate)) + minRate).setScale(2, BigDecimal.ROUND_DOWN);
     }
 }
