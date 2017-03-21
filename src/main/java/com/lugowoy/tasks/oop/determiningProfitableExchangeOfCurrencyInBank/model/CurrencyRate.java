@@ -84,5 +84,37 @@ public class CurrencyRate {
     public void setCurrencyRate(BigDecimal currencyRate) {
         this.currencyRate = currencyRate;
     }
+
+    public enum Rate {
+        UAH_TO_USD_AND_USD_TO_UAH(26.50, 29.00),
+        UAH_TO_EUR_AND_EUR_TO_UAH(28.30, 31.00),
+        UAH_TO_RUB_AND_RUB_TO_UAH(0.35, 0.45),
+        RUB_TO_USD_AND_USD_TO_RUB(56.00, 59.00),
+        RUB_TO_EUR_AND_EUR_TO_RUB(60.00, 64.00),
+        USD_TO_EUR_AND_EUR_TO_USD(1.030, 1.090);
+
+        private double minRate; double maxRate;
+
+        Rate(double minRate, double maxRate) {
+            this.minRate = minRate;
+            this.maxRate = maxRate;
+        }
+
+        public double getMinRate() {
+            return minRate;
+        }
+
+        public void setMinRate(double minRate) {
+            this.minRate = minRate;
+        }
+
+        public double getMaxRate() {
+            return maxRate;
+        }
+
+        public void setMaxRate(double maxRate) {
+            this.maxRate = maxRate;
+        }
+    }
 }
 

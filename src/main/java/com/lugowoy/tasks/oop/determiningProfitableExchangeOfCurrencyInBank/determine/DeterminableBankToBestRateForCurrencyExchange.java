@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface DeterminableBankToBestRateForCurrencyExchange extends Determinable {
 
-    Bank determineBankToBestRateForCurrencyExchange(List<Bank> bankList, TypeOfCurrency fromTypeOfCurrency, TypeOfCurrency inTypeOfCurrency);
+     Bank determineBankToBestRateForConcreteCurrencyExchange(List<Bank> bankList, TypeOfCurrency fromTypeOfCurrency, TypeOfCurrency inTypeOfCurrency);
 
 }

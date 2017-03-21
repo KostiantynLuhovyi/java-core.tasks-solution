@@ -1,5 +1,6 @@
 package com.lugowoy.tasks.oop.determiningProfitableExchangeOfCurrencyInBank;
 
+import com.lugowoy.tasks.oop.determiningProfitableExchangeOfCurrencyInBank.determine.DeterminerCurrencyProfitabilityOfBanksList;
 import com.lugowoy.tasks.oop.determiningProfitableExchangeOfCurrencyInBank.model.Bank;
 import com.lugowoy.tasks.oop.determiningProfitableExchangeOfCurrencyInBank.model.Currency;
 import com.lugowoy.tasks.oop.determiningProfitableExchangeOfCurrencyInBank.model.TypeOfCurrency;
@@ -36,11 +37,13 @@ public class Main {
         TypeOfCurrency currencyInWhichYouWantToExchange = selectTheCurrencyInWhichYouWantToExchange();
         System.out.println();
 
+        DeterminerCurrencyProfitabilityOfBanksList determinerCurrencyProfitability = new DeterminerCurrencyProfitabilityOfBanksList();
 
+        List<Bank> banks = determinerCurrencyProfitability.determineBanksListHaveCorrectnessOfSumOnBalanceForCurrencyExchange(banksListInTheCity, currencyInWhichYouWantToExchange, sumToBeExchanged);
+        banks.forEach(System.out::println);
 
-
-
-
+        Bank bank = determinerCurrencyProfitability.determineBankToBestRateForConcreteCurrencyExchange(banks, currency.getTypeOfCurrency(), currencyInWhichYouWantToExchange);
+        System.out.println("The most profitable bank for the exchange of funds you choose" + bank);
 
     }
 

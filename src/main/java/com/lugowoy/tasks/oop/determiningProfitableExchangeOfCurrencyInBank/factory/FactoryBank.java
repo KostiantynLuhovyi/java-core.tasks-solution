@@ -17,8 +17,4 @@ public interface FactoryBank {
         return new Bank(nameBank);
     }
 
-    static Bank createBank(String nameBank, List<Currency> currencyList) {
-        return new Bank(nameBank, currencyList);
-    }
-
 }

@@ -1,6 +1,5 @@
 package com.lugowoy.tasks.oop.determiningProfitableExchangeOfCurrencyInBank.model;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 /** Created by Konstantin Lugowoy on 09.03.2017. */
@@ -11,8 +10,6 @@ public class Currency {
 
     private List<CurrencyRate> currencyRateList;
 
-    private List<CurrencyBalance> currencyBalanceList;
-
     public Currency() {
     }
 
@@ -20,10 +17,9 @@ public class Currency {
         this.typeOfCurrency = typeOfCurrency;
     }
 
-    public Currency(TypeOfCurrency typeOfCurrency, List<CurrencyRate> currencyRateList, List<CurrencyBalance> currencyBalanceList) {
+    public Currency(TypeOfCurrency typeOfCurrency, List<CurrencyRate> currencyRateList) {
         this.typeOfCurrency = typeOfCurrency;
         this.currencyRateList = currencyRateList;
-        this.currencyBalanceList = currencyBalanceList;
     }
 
     @Override
@@ -33,17 +29,14 @@ public class Currency {
 
         Currency currency = (Currency) o;
 
-        if (typeOfCurrency != currency.typeOfCurrency) return false;
-        if (currencyRateList != null ? !currencyRateList.equals(currency.currencyRateList) : currency.currencyRateList != null)
-            return false;
-        return currencyBalanceList != null ? currencyBalanceList.equals(currency.currencyBalanceList) : currency.currencyBalanceList == null;
+        if (getTypeOfCurrency() != currency.getTypeOfCurrency()) return false;
+        return getCurrencyRateList() != null ? getCurrencyRateList().equals(currency.getCurrencyRateList()) : currency.getCurrencyRateList() == null;
     }
 
     @Override
     public int hashCode() {
-        int result = typeOfCurrency != null ? typeOfCurrency.hashCode() : 0;
-        result = 31 * result + (currencyRateList != null ? currencyRateList.hashCode() : 0);
-        result = 31 * result + (currencyBalanceList != null ? currencyBalanceList.hashCode() : 0);
+        int result = getTypeOfCurrency() != null ? getTypeOfCurrency().hashCode() : 0;
+        result = 31 * result + (getCurrencyRateList() != null ? getCurrencyRateList().hashCode() : 0);
         return result;
     }
 
@@ -52,7 +45,6 @@ public class Currency {
         return "Currency[" +
                 "typeOfCurrency=" + typeOfCurrency +
                 ", currencyRateList=" + currencyRateList +
-                ", currencyBalanceList=" + currencyBalanceList +
                 ']';
     }
 
@@ -72,11 +64,5 @@ public class Currency {
         this.currencyRateList = currencyRateList;
     }
 
-    public List<CurrencyBalance> getCurrencyBalanceList() {
-        return currencyBalanceList;
-    }
 
-    public void setCurrencyBalanceList(List<CurrencyBalance> currencyBalanceList) {
-        this.currencyBalanceList = currencyBalanceList;
-    }
 }

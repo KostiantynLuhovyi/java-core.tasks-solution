@@ -8,8 +8,8 @@ import java.util.List;
 
 /** Created by Konstantin Lugowoy on 19.03.2017. */
 
-public interface DeterminableCorrectnessOfSumOnBalanceForCurrencyExchange {
+public interface DeterminableBanksListHaveCorrectnessOfSumOnBalanceForCurrencyExchange {
 
-    void determineCorrectnessOfSumOnBalanceForCurrencyExchange(Bank bank, TypeOfCurrency inTypeOfCurrency, BigDecimal sumForExchange);
+    List<Bank> determineBanksListHaveCorrectnessOfSumOnBalanceForCurrencyExchange(List<Bank> banksList, TypeOfCurrency inTypeOfCurrency, BigDecimal sumForExchange);
 
 }

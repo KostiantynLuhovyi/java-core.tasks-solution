@@ -10,6 +10,8 @@ public class Bank {
 
     private List<Currency> currencyList;
 
+    private List<CurrencyBalance> currencyBalanceList;
+
     public Bank() {
     }
 
@@ -21,10 +23,9 @@ public class Bank {
         this.currencyList = currencyList;
     }
 
-    public Bank(String bankName, List<Currency> currencyList) {
-        this.bankName = bankName;
-        this.currencyList = currencyList;
-    }
+    /*public Bank(List<CurrencyBalance> currencyBalanceList) {
+        this.currencyBalanceList = currencyBalanceList;
+    }*/
 
     @Override
     public boolean equals(Object o) {
@@ -33,14 +34,18 @@ public class Bank {
 
         Bank bank = (Bank) o;
 
-        if (bankName != null ? !bankName.equals(bank.bankName) : bank.bankName != null) return false;
-        return currencyList != null ? currencyList.equals(bank.currencyList) : bank.currencyList == null;
+        if (getBankName() != null ? !getBankName().equals(bank.getBankName()) : bank.getBankName() != null)
+            return false;
+        if (getCurrencyList() != null ? !getCurrencyList().equals(bank.getCurrencyList()) : bank.getCurrencyList() != null)
+            return false;
+        return getCurrencyBalanceList() != null ? getCurrencyBalanceList().equals(bank.getCurrencyBalanceList()) : bank.getCurrencyBalanceList() == null;
     }
 
     @Override
     public int hashCode() {
-        int result = bankName != null ? bankName.hashCode() : 0;
-        result = 31 * result + (currencyList != null ? currencyList.hashCode() : 0);
+        int result = getBankName() != null ? getBankName().hashCode() : 0;
+        result = 31 * result + (getCurrencyList() != null ? getCurrencyList().hashCode() : 0);
+        result = 31 * result + (getCurrencyBalanceList() != null ? getCurrencyBalanceList().hashCode() : 0);
         return result;
     }
 
@@ -49,6 +54,7 @@ public class Bank {
         return "Bank[" +
                 "bankName='" + bankName + '\'' +
                 ", currencyList=" + currencyList +
+                ", currencyBalanceList=" + currencyBalanceList +
                 ']';
     }
 
@@ -66,5 +72,13 @@ public class Bank {
 
     public void setCurrencyList(List<Currency> currencyList) {
         this.currencyList = currencyList;
+    }
+
+    public List<CurrencyBalance> getCurrencyBalanceList() {
+        return currencyBalanceList;
+    }
+
+    public void setCurrencyBalanceList(List<CurrencyBalance> currencyBalanceList) {
+        this.currencyBalanceList = currencyBalanceList;
     }
 }

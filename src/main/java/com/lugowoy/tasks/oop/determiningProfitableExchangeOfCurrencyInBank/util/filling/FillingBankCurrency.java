@@ -9,6 +9,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.lugowoy.tasks.oop.determiningProfitableExchangeOfCurrencyInBank.model.CurrencyRate.*;
+
 /** Created by Konstantin Lugowoy on 09.03.2017. */
 
 public abstract class FillingBankCurrency {
@@ -22,17 +24,16 @@ public abstract class FillingBankCurrency {
             for (Bank bank : bankList) {
                 if (bank != null) {
                     bank.setCurrencyList(new ArrayList<>(0));
+                    bank.setCurrencyBalanceList(new ArrayList<>(0));
 
                     for (int indexCurrency = 1; indexCurrency <= QUANTITY_OF_CURRENCY_IN_THE_BANK; indexCurrency++) {
                         Currency currency = CURRENCY_FACTORY.create();
                         currency.setTypeOfCurrency(TypeOfCurrency.getIndexTypeOfCurrency(indexCurrency));
 
                         bank.getCurrencyList().add(currency);
-
                         fillingAndSetCurrencyRatesListForConcreteCurrency(currency);
 
-                        currency.setCurrencyBalanceList(new ArrayList<>(0));
-                        fillingAndSetCurrencyBalanceListForConcreteCurrency(indexCurrency, currency);
+                        fillingAndSetCurrencyBalanceListForConcreteCurrency(indexCurrency, bank);
                     }
                 }
             }
@@ -45,30 +46,34 @@ public abstract class FillingBankCurrency {
 
         CalculableCurrencyRate calculableCurrencyRate = CalculableCurrencyRate::calculateCurrencyRate;
 
+        switchForFillingCurrencyRateListOfConcreteCurrency(currency, currencyRateList, calculableCurrencyRate);
+    }
+
+    private static void switchForFillingCurrencyRateListOfConcreteCurrency(Currency currency, List<CurrencyRate> currencyRateList, CalculableCurrencyRate calculableCurrencyRate) {
         switch (currency.getTypeOfCurrency()) {
             case UAH:
                 fillingAndSetCurrencyRateList(currencyRateList,
-                        new CurrencyRate(TypeOfCurrency.USD, calculableCurrencyRate.calculateRate(CurrencyRate.MAX_UAH_TO_USD, CurrencyRate.MIN_UAH_TO_USD).setScale(2, BigDecimal.ROUND_DOWN)),
-                        new CurrencyRate(TypeOfCurrency.EUR, calculableCurrencyRate.calculateRate(CurrencyRate.MAX_UAH_TO_EUR, CurrencyRate.MIN_UAH_TO_EUR).setScale(2, BigDecimal.ROUND_DOWN)),
-                        new CurrencyRate(TypeOfCurrency.RUB, calculableCurrencyRate.calculateRate(CurrencyRate.MAX_UAH_TO_RUB, CurrencyRate.MIN_UAH_TO_RUB).setScale(2, BigDecimal.ROUND_DOWN)));
+                        new CurrencyRate(TypeOfCurrency.USD, calculableCurrencyRate.calculateRate(Rate.UAH_TO_USD_AND_USD_TO_UAH)),
+                        new CurrencyRate(TypeOfCurrency.EUR, calculableCurrencyRate.calculateRate(Rate.UAH_TO_EUR_AND_EUR_TO_UAH)),
+                        new CurrencyRate(TypeOfCurrency.RUB, calculableCurrencyRate.calculateRate(Rate.UAH_TO_RUB_AND_RUB_TO_UAH)));
                 break;
             case USD:
                 fillingAndSetCurrencyRateList(currencyRateList,
-                        new CurrencyRate(TypeOfCurrency.EUR, calculableCurrencyRate.calculateRate(CurrencyRate.MAX_USD_TO_EUR, CurrencyRate.MIN_USD_TO_EUR)),
-                        new CurrencyRate(TypeOfCurrency.UAH, calculableCurrencyRate.calculateRate(CurrencyRate.MAX_UAH_TO_USD, CurrencyRate.MIN_UAH_TO_USD)),
-                        new CurrencyRate(TypeOfCurrency.RUB, calculableCurrencyRate.calculateRate(CurrencyRate.MAX_RUB_TO_USD, CurrencyRate.MIN_RUB_TO_USD)));
+                        new CurrencyRate(TypeOfCurrency.EUR, calculableCurrencyRate.calculateRate(Rate.USD_TO_EUR_AND_EUR_TO_USD)),
+                        new CurrencyRate(TypeOfCurrency.UAH, calculableCurrencyRate.calculateRate(Rate.UAH_TO_USD_AND_USD_TO_UAH)),
+                        new CurrencyRate(TypeOfCurrency.RUB, calculableCurrencyRate.calculateRate(Rate.RUB_TO_USD_AND_USD_TO_RUB)));
                 break;
             case EUR:
                 fillingAndSetCurrencyRateList(currencyRateList,
-                        new CurrencyRate(TypeOfCurrency.USD, calculableCurrencyRate.calculateRate(CurrencyRate.MAX_USD_TO_EUR, CurrencyRate.MIN_USD_TO_EUR)),
-                        new CurrencyRate(TypeOfCurrency.UAH, calculableCurrencyRate.calculateRate(CurrencyRate.MAX_UAH_TO_EUR, CurrencyRate.MIN_UAH_TO_EUR)),
-                        new CurrencyRate(TypeOfCurrency.RUB, calculableCurrencyRate.calculateRate(CurrencyRate.MAX_RUB_TO_EUR, CurrencyRate.MIN_RUB_TO_EUR)));
+                        new CurrencyRate(TypeOfCurrency.USD, calculableCurrencyRate.calculateRate(Rate.USD_TO_EUR_AND_EUR_TO_USD)),
+                        new CurrencyRate(TypeOfCurrency.UAH, calculableCurrencyRate.calculateRate(Rate.UAH_TO_EUR_AND_EUR_TO_UAH)),
+                        new CurrencyRate(TypeOfCurrency.RUB, calculableCurrencyRate.calculateRate(Rate.RUB_TO_EUR_AND_EUR_TO_RUB)));
                 break;
             case RUB:
                 fillingAndSetCurrencyRateList(currencyRateList,
-                        new CurrencyRate(TypeOfCurrency.USD, calculableCurrencyRate.calculateRate(CurrencyRate.MAX_RUB_TO_USD, CurrencyRate.MIN_RUB_TO_USD)),
-                        new CurrencyRate(TypeOfCurrency.EUR, calculableCurrencyRate.calculateRate(CurrencyRate.MAX_RUB_TO_EUR, CurrencyRate.MIN_RUB_TO_EUR)),
-                        new CurrencyRate(TypeOfCurrency.UAH, calculableCurrencyRate.calculateRate(CurrencyRate.MAX_UAH_TO_RUB, CurrencyRate.MIN_UAH_TO_RUB)));
+                        new CurrencyRate(TypeOfCurrency.USD, calculableCurrencyRate.calculateRate(Rate.RUB_TO_USD_AND_USD_TO_RUB)),
+                        new CurrencyRate(TypeOfCurrency.EUR, calculableCurrencyRate.calculateRate(Rate.RUB_TO_EUR_AND_EUR_TO_RUB)),
+                        new CurrencyRate(TypeOfCurrency.UAH, calculableCurrencyRate.calculateRate(Rate.UAH_TO_RUB_AND_RUB_TO_UAH)));
                 break;
         }
     }
@@ -80,11 +85,11 @@ public abstract class FillingBankCurrency {
         currencyRateList.add(currencyRateThird);
     }
 
-    private static void fillingAndSetCurrencyBalanceListForConcreteCurrency(int indexTypeOfCurrency, Currency currency) {
+    private static void fillingAndSetCurrencyBalanceListForConcreteCurrency(int indexTypeOfCurrency, Bank bank) {
         CurrencyBalance currencyBalance = new CurrencyBalance();
         currencyBalance.setTypeOfCurrency(TypeOfCurrency.getIndexTypeOfCurrency(indexTypeOfCurrency));
-        currencyBalance.setCurrencyBalance(new BigDecimal((Math.random() * (10000 - 2000)) + 2000));
-        currency.getCurrencyBalanceList().add(currencyBalance);
+        currencyBalance.setCurrencyBalance(new BigDecimal((Math.random() * (10000 - 2000)) + 2000).setScale(2, BigDecimal.ROUND_HALF_UP));
+        bank.getCurrencyBalanceList().add(currencyBalance);
     }
 
 }

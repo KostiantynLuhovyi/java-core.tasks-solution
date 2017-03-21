@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.oop.determiningProfitableExchangeOfCurrencyInBank.calculate;
 
+import com.lugowoy.tasks.oop.determiningProfitableExchangeOfCurrencyInBank.model.CurrencyRate;
+
 import java.math.BigDecimal;
 
 /** Created by Konstantin Lugowoy on 18.03.2017. */
@@ -7,9 +9,9 @@ import java.math.BigDecimal;
 @FunctionalInterface
 public interface CalculableCurrencyRate {
 
-    BigDecimal calculateRate(double maxRate, double minRate);
+    BigDecimal calculateRate(CurrencyRate.Rate rate);
 
-    static BigDecimal calculateCurrencyRate(double maxRate, double minRate) {
-        return new BigDecimal((Math.random() * (maxRate - minRate)) + minRate).setScale(2, BigDecimal.ROUND_DOWN);
+    static BigDecimal calculateCurrencyRate(CurrencyRate.Rate rate) {
+        return new BigDecimal((Math.random() * (rate.getMaxRate() - rate.getMinRate())) + rate.getMinRate()).setScale(2, BigDecimal.ROUND_DOWN);
     }
 }
