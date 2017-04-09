@@ -3,6 +3,7 @@ package com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.
 import com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.models.Paint;
 import com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.models.TypeOfPaint;
 import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingUserInputData;
 
 import java.awt.*;
@@ -20,7 +21,9 @@ public class FactoryPaint extends FactoryModel<Double> {
         Paint paint = new Paint();
 
         System.out.println("Fill in the information about the paint you need.");
-        paint.setPricePerLiter(this.inputOfThePricePerLiterOfPaint());
+        BigDecimal pricePerLiter = this.inputOfThePricePerLiterOfPaint();
+
+        paint.setPricePerLiter(pricePerLiter);
 
         paint.setColorPaint(this.chooseColorOfPaint());
 
@@ -39,8 +42,10 @@ public class FactoryPaint extends FactoryModel<Double> {
         System.out.println("Choose a paint color.");
         System.out.println("Black : 1; \n" + "Blue : 2; \n" + "Cyan : 3; \n" + "Gray : 4; \n" + "Green : 5; \n"
                          + "Magenta : 6; \n" + "Orange : 7; \n" + "Pink : 8; \n" + "Red : 9; \n" + "White : 10;");
-        Reading<Integer> reading = new ReadingUserInputData()::readInt;
-        int choose = reading.reading();
+
+        ReadingData<Integer> reading = new ReadingData<>(new ReadingUserInputData()::readInt);
+        int choose = reading.read();
+
         if ((choose >= 1) && (choose <= 10)) {
             switch (choose) {
                 case 1: colorPaint = Color.BLACK; break;
@@ -66,8 +71,10 @@ public class FactoryPaint extends FactoryModel<Double> {
         System.out.println("Choose type of paint.");
         System.out.println("Waterbased : 1; \n" + "Enamel : 2; \n" + "Oil : 3; \n" + "Silicone : 4; \n"
                          + "Plastic : 5; \n" + "Acrylic : 6; \n" + "Latex : 7; \n" + "Alkyd : 8;");
-        Reading<Integer> reading = new ReadingUserInputData()::readInt;
-        int choose = reading.reading();
+
+        ReadingData<Integer> reading = new ReadingData<>(new ReadingUserInputData()::readInt);
+        int choose = reading.read();
+
         if ((choose >= 1) && (choose <= 8)) {
             switch (choose) {
                 case 1: resultTypeOfPaint = TypeOfPaint.TYPE_WATERBASED; break;

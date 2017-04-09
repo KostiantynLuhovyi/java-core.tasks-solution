@@ -7,8 +7,9 @@ import com.lugowoy.tasks.oop.determiningProfitableExchangeOfCurrencyInBank.model
 import com.lugowoy.tasks.oop.determiningProfitableExchangeOfCurrencyInBank.util.filling.Fillable;
 import com.lugowoy.tasks.oop.determiningProfitableExchangeOfCurrencyInBank.util.filling.FillingBankCurrency;
 import com.lugowoy.tasks.oop.determiningProfitableExchangeOfCurrencyInBank.util.filling.FillingBankList;
-import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.util.reading.StoppingEnterValueException;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -63,8 +64,9 @@ public class Main {
                 "USD : 2 ,\n" +
                 "EUR : 3 ,\n" +
                 "RUB : 4 .");
-        Reading<Integer> reading = new ReadingUserInputData()::readInt;
-        int selectCurrencyForExchange = reading.reading();
+        ReadingData<Integer> reading = new ReadingData<>(new ReadingUserInputData()::readInt);
+        int selectCurrencyForExchange = reading.read();
+
         if ((selectCurrencyForExchange >= 1) && (selectCurrencyForExchange <= 4)) {
             typeOfCurrency = TypeOfCurrency.getIndexTypeOfCurrency(selectCurrencyForExchange);
         } else {
@@ -77,10 +79,11 @@ public class Main {
 
     private static BigDecimal enterTheSumToBeExchanged() {
         BigDecimal sumToBeExchanged = new BigDecimal(0);
-        Reading<Double> reading = new ReadingUserInputData()::readDouble;
 
         System.out.println("Select the sum to be exchanged : ");
-        double enterSum = reading.reading();
+        ReadingData<Double> reading = new ReadingData<>(new ReadingUserInputData()::readDouble);
+        double enterSum = reading.read();
+
         if (enterSum <= 0) {
             System.out.println("The amount was incorrectly entered.");
             System.out.println("The amount must be nonzero and positive.");

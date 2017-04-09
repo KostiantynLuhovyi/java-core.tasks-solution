@@ -14,14 +14,22 @@ public class FactoryDoor extends FactoryModel<Double> {
     }
 
     public Door createDoor() {
-        System.out.println("Enter the width of the door : ");
-        BigDecimal widthDoor = new BigDecimal(super.getReadingData().reading());
+        BigDecimal widthDoor = setWidthOfDoor();
 
-        System.out.println("Enter the height of the door : ");
-        BigDecimal heightDoor = new BigDecimal(super.getReadingData().reading());
+        BigDecimal heightDoor = setHeightOfDoor();
 
         System.out.println();
 
         return new Door(widthDoor, heightDoor);
+    }
+
+    private BigDecimal setHeightOfDoor() {
+        System.out.println("Enter the height of the door : ");
+        return new BigDecimal(super.getReadingData().reading());
+    }
+
+    private BigDecimal setWidthOfDoor() {
+        System.out.println("Enter the width of the door : ");
+        return new BigDecimal(super.getReadingData().reading());
     }
 }

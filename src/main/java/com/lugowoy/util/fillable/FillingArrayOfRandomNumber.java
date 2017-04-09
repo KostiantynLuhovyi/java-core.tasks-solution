@@ -1,6 +1,7 @@
 package com.lugowoy.util.fillable;
 
 import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.StoppingEnterValueException;
 
 /**Created by Konstantin Lugowoy on 15-Feb-17.*/
 

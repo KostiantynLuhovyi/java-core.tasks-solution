@@ -8,6 +8,7 @@ import com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.d
 import com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.factory.*;
 import com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.models.*;
 import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.util.reading.StoppingEnterValueException;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class Main {
     private static Determinable<BigDecimal, TypeOfSurface, TypeOfPaint> determineExpenseOfThePaintPerSquareMeterOfConcreteSurface
             = DeterminantExpensesOfThePaintPerSquareMeterOfConcreteSurface::determineExpenseOfThePaintPerSquareMeterOfConcreteSurface;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws StoppingEnterValueException {
 
         System.out.println("Fill in the data for the room.");
         Room room = FACTORY_ROOM.create();
@@ -118,7 +119,7 @@ public class Main {
         return doorArrayList;
     }
 
-    private static TypeOfSurface chooseWallSurfaceInTheRoom() {
+    private static TypeOfSurface chooseWallSurfaceInTheRoom() throws StoppingEnterValueException {
         TypeOfSurface resultTypeOfSurface = null;
         System.out.println("Choose a wall surface in the room : ");
         System.out.println("METAL : 1; \n" +
