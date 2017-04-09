@@ -6,12 +6,12 @@ public class Option {
 
     private int countChoice;
 
-    private ValueForOption valueForOption;
+    private Enum valueForOption;
 
     public Option() {
     }
 
-    public Option(ValueForOption valueForOption) {
+    public Option(Enum valueForOption) {
         this.valueForOption = valueForOption;
     }
 
@@ -22,13 +22,13 @@ public class Option {
 
         Option option = (Option) o;
 
-        if (countChoice != option.countChoice) return false;
-        return getValueForOption() == option.getValueForOption();
+        if (getCountChoice() != option.getCountChoice()) return false;
+        return getValueForOption() != null ? getValueForOption().equals(option.getValueForOption()) : option.getValueForOption() == null;
     }
 
     @Override
     public int hashCode() {
-        int result = countChoice;
+        int result = getCountChoice();
         result = 31 * result + (getValueForOption() != null ? getValueForOption().hashCode() : 0);
         return result;
     }
@@ -49,11 +49,11 @@ public class Option {
         this.countChoice = countChoice;
     }
 
-    public ValueForOption getValueForOption() {
+    public Enum getValueForOption() {
         return valueForOption;
     }
 
-    public void setValueForOption(ValueForOption valueForOption) {
+    public void setValueForOption(Enum valueForOption) {
         this.valueForOption = valueForOption;
     }
 }

@@ -2,7 +2,7 @@ package com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnsw
 
 import com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnswersInTheQuizAndTheirPercentages.model.Option;
 import com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnswersInTheQuizAndTheirPercentages.model.Quiz;
-import com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnswersInTheQuizAndTheirPercentages.model.ValueForOption;
+import com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnswersInTheQuizAndTheirPercentages.model.ValueForOptionJapanSymbols;
 
 import java.util.Random;
 
@@ -24,6 +24,6 @@ public class RandomVoting {
     }
 
     private static int generateIndexOfRandomChoiceOfOption() {
-        return new Random().nextInt(ValueForOption.QUANTITY_VALUE_FOR_OPTION + 1);
+        return new Random().nextInt(ValueForOptionJapanSymbols.QUANTITY_VALUE_FOR_OPTION + 1);
     }
 }
