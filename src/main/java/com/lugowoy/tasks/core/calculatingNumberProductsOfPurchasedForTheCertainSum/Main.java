@@ -2,10 +2,8 @@ package com.lugowoy.tasks.core.calculatingNumberProductsOfPurchasedForTheCertain
 
 import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingUserInputData;
-import com.lugowoy.util.reading.StoppingEnterValueException;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 /**Created by Konstantin Lugowoy on 11-Feb-17.*/
 
@@ -13,7 +11,7 @@ public class Main {
 
     private static final ReadingData<Double> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readDouble);
 
-    public static void main(String[] args) throws StoppingEnterValueException {
+    public static void main(String[] args) {
 
         User user = new User();
         Product product = new Product();

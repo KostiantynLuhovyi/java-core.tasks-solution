@@ -1,7 +1,6 @@
 package com.lugowoy.tasks.core.calculationOfMonthlyPaymentsOnTheDeposit;
 
 import com.lugowoy.util.reading.ReadingUserInputData;
-import com.lugowoy.util.reading.StoppingEnterValueException;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ public class Main {
 
     private static final ReadingUserInputData READING_DATA = new ReadingUserInputData();
 
-    public static void main(String[] args) throws StoppingEnterValueException {
+    public static void main(String[] args) {
 
         Bank bank = new Bank();
         User user = new User();

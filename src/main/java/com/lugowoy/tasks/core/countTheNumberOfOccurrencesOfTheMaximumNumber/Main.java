@@ -3,13 +3,12 @@ package com.lugowoy.tasks.core.countTheNumberOfOccurrencesOfTheMaximumNumber;
 import com.lugowoy.util.fillable.FillableArray;
 import com.lugowoy.util.fillable.FillingArrayOfUserInput;
 import com.lugowoy.util.reading.ReadingUserInputData;
-import com.lugowoy.util.reading.StoppingEnterValueException;
 
 /**Created by Konstantin Lugowoy on 14.11.2016.*/
 
 public class Main {
 
-    public static void main(String[] args) throws StoppingEnterValueException {
+    public static void main(String[] args) {
 
         /*
         *Instantiate integer array whose size is equal 10 elements.

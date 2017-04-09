@@ -2,7 +2,6 @@ package com.lugowoy.tasks.core.defineTheSecondLargestNumber;
 
 import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingUserInputData;
-import com.lugowoy.util.reading.StoppingEnterValueException;
 
 /**Created by Konstantin Lugowoy on 14.11.2016.*/
 

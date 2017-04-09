@@ -19,7 +19,7 @@ public class Main {
     * */
     private static final ReadingData<Integer> INTEGER_READING_DATA = new ReadingData<>(new ReadingUserInputData()::readInt);
 
-    public static void main(String[] args) throws StoppingEnterValueException {
+    public static void main(String[] args) {
         /*
         * Instantiating an object of class "Number". The object encapsulates a variable whose value will be used for the exchange.
         * */
@@ -52,7 +52,7 @@ public class Main {
     /*
     * Static method of validating user input. If the value is correct, then return the object containing the value.
     * */
-    private static Number getInputNumber() throws StoppingEnterValueException {
+    private static Number getInputNumber() {
         Number number = null;
         int value = 0;
         do {

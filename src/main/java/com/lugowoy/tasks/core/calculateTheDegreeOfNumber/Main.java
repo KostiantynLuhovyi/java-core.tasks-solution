@@ -2,7 +2,6 @@ package com.lugowoy.tasks.core.calculateTheDegreeOfNumber;
 
 import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingUserInputData;
-import com.lugowoy.util.reading.StoppingEnterValueException;
 
 /**
  * Created by Konstantin on 14-Dec-16.
@@ -21,7 +20,7 @@ public class Main {
     * */
     private static final CalculateTheDegreeOfNumber CALCULATE_THE_DEGREE_OF_NUMBER = Math::pow;
 
-    public static void main(String[] args) throws StoppingEnterValueException {
+    public static void main(String[] args) {
         /*
         * Class Number object instantiation,
         * that encapsulates the data to perform and assigning the result of a number raised to a degree.

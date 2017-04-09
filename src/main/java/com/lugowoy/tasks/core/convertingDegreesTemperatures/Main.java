@@ -2,7 +2,6 @@ package com.lugowoy.tasks.core.convertingDegreesTemperatures;
 
 import com.lugowoy.util.reading.Reading;
 import com.lugowoy.util.reading.ReadingUserInputData;
-import com.lugowoy.util.reading.StoppingEnterValueException;
 
 /**
  * Created by Konstantin Lugowoy on 11-Jan-17.
@@ -19,7 +18,7 @@ public class Main {
     //Instantiation of a functional interface initializing its reference to the method for reading the integer numbers entered by the user.
     private static final Reading<Integer> INTEGER_READING = new ReadingUserInputData()::readInt;
 
-    public static void main(String[] args) throws StoppingEnterValueException {
+    public static void main(String[] args) {
         //Instantiation object class "Temperature".
         Temperature temperature = new Temperature();
         /*
@@ -64,7 +63,7 @@ public class Main {
     * In the event that the user selected temperature is in Celsius temperature scale,
     * this method is invoked, and provides the user the choice of the temperature at which it converted scales.
     * */
-    private static void choiceAndConvertCelsiusToOtherTemperatureScale(Temperature temperature) throws StoppingEnterValueException {
+    private static void choiceAndConvertCelsiusToOtherTemperatureScale(Temperature temperature) {
         System.out.println("Make a choice in what scale to convert degrees Celsius.");
         System.out.println(TemperatureScale.Fahrenheit + " - \"1\" ;");
         System.out.println(TemperatureScale.Kelvin + " - \"2\" ;");
@@ -106,7 +105,7 @@ public class Main {
     /*
     * The method is used for the user to select what he wants the temperature scale input temperature.
     * */
-    private static TemperatureScale setSelectionOfTemperatureScaleForInputTemperature() throws StoppingEnterValueException {
+    private static TemperatureScale setSelectionOfTemperatureScaleForInputTemperature() {
         TemperatureScale temperatureScale = null;
 
         System.out.println("Select what temperature scale will enter the temperature.Enter the number.");

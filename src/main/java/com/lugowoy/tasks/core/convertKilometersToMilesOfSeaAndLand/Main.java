@@ -1,13 +1,13 @@
 package com.lugowoy.tasks.core.convertKilometersToMilesOfSeaAndLand;
 
-import com.lugowoy.util.reading.*;
-import com.lugowoy.util.reading.Readable;
+import com.lugowoy.util.reading.ReadingData;
+import com.lugowoy.util.reading.ReadingUserInputData;
 
 /**Created by Konstantin Lugowoy on 31-Dec-16.*/
 
 public class Main {
 
-    public static void main(String[] args) throws StoppingEnterValueException {
+    public static void main(String[] args) {
 
         ReadingData<Number> readingData = new ReadingData<>(new ReadingUserInputData()::readDouble);
 

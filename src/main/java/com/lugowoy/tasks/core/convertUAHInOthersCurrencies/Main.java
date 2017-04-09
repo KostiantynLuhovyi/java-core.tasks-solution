@@ -3,7 +3,6 @@ package com.lugowoy.tasks.core.convertUAHInOthersCurrencies;
 import com.lugowoy.util.converting.ConvertingData;
 import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingUserInputData;
-import com.lugowoy.util.reading.StoppingEnterValueException;
 
 import java.math.BigDecimal;
 
@@ -11,9 +10,7 @@ import java.math.BigDecimal;
 
 public class Main {
 
-    private static final ConvertUAHInOtherCurrencies CONVERT_UAH_IN_OTHER_CURRENCIES = new ConvertUAHInOtherCurrencies();
-
-    public static void main(String[] args) throws StoppingEnterValueException {
+    public static void main(String[] args) {
 
         Account account = new Account();
 
@@ -29,7 +26,6 @@ public class Main {
         System.out.println("In the USD : " + account.getUSD());
         System.out.println("In the EUR : " + account.getEUR());
         System.out.println("In the RUB : " + account.getRUB());
-
 
     }
 }

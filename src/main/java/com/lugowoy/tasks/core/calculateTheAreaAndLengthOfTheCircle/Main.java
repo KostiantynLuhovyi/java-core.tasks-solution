@@ -3,7 +3,6 @@ package com.lugowoy.tasks.core.calculateTheAreaAndLengthOfTheCircle;
 import com.lugowoy.util.calculable.CalculableOnTheObject;
 import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingUserInputData;
-import com.lugowoy.util.reading.StoppingEnterValueException;
 
 /**
  * Created by Konstantin on 15-Dec-16.
@@ -16,7 +15,7 @@ import com.lugowoy.util.reading.StoppingEnterValueException;
  */
 public class Main {
 
-    public static void main(String[] args) throws StoppingEnterValueException {
+    public static void main(String[] args) {
 
         /*
         * Instantiation of class "Circle" object.

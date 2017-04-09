@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.core.searchNthPrimeNumber;
 
-import com.lugowoy.util.reading.*;
-import com.lugowoy.util.reading.Readable;
+import com.lugowoy.util.reading.ReadingData;
+import com.lugowoy.util.reading.ReadingUserInputData;
 
 /**Created by Konstantin Lugowoy on 19.11.2016.*/
 
@@ -18,7 +18,6 @@ public class Main {
         number = READING_DATA.read();
 
         FindingPrimeNumber finding = new FindPrimeNumber();
-
 
         while (true) {
             //If input correct counting number to find prime number . . .

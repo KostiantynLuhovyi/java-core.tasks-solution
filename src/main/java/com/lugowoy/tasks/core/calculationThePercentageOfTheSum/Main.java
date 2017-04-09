@@ -1,7 +1,8 @@
 package com.lugowoy.tasks.core.calculationThePercentageOfTheSum;
 
 import com.lugowoy.util.calculable.CalculableOnTheObject;
-import com.lugowoy.util.reading.*;
+import com.lugowoy.util.reading.ReadingData;
+import com.lugowoy.util.reading.ReadingUserInputData;
 
 import java.math.BigDecimal;
 
@@ -20,7 +21,7 @@ public class Main {
     * */
     private static final ReadingData<Double> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readDouble);
 
-    public static void main(String[] args) throws StoppingEnterValueException {
+    public static void main(String[] args) {
 
         System.out.println("Enter sum : ");
         /*

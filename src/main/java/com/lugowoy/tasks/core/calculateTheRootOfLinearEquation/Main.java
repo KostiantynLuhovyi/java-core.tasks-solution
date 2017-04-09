@@ -1,10 +1,8 @@
 package com.lugowoy.tasks.core.calculateTheRootOfLinearEquation;
 
 import com.lugowoy.util.calculable.CalculableOnTheObject;
-import com.lugowoy.util.calculable.CalculableOnTheTwoVariables;
 import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingUserInputData;
-import com.lugowoy.util.reading.StoppingEnterValueException;
 
 /**
  * Created by Konstantin Lugowoy on 14-Dec-16.
@@ -17,7 +15,7 @@ import com.lugowoy.util.reading.StoppingEnterValueException;
  */
 public class Main {
 
-    public static void main(String[] args) throws StoppingEnterValueException {
+    public static void main(String[] args) {
         /*
         * Instantiation class "LinearEquation" the reference variable "equation" to calculate the value of the root of a linear equation.
         */

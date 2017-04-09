@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.core.identifyTwoIdenticalNumbers;
 
-import com.lugowoy.util.reading.*;
-import com.lugowoy.util.reading.Readable;
+import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.ReadingUserInputData;
 
 import java.io.IOException;
 
@@ -16,7 +16,7 @@ public class Main {
     /*The instance class.*/
     private static ComparingNumbers comparingNumbers = new ComparingNumbers();
 
-    public static void main(String[] args) throws IOException, StoppingEnterValueException {
+    public static void main(String[] args) throws IOException {
 
         NumbersForComparison numbersForComparison;
 
@@ -65,7 +65,7 @@ public class Main {
     * The method of read user input to determine the progress of the program.
     * */
 
-    private static int getCorrectStatusChoice() throws StoppingEnterValueException {
+    private static int getCorrectStatusChoice() {
         Reading<String> stringReading = new ReadingUserInputData()::readLine;
         int statusChoice = 0;
         String description = "Enter a number from 1 to 3\n";

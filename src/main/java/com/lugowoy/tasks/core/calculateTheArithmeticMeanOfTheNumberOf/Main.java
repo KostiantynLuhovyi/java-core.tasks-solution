@@ -1,10 +1,8 @@
 package com.lugowoy.tasks.core.calculateTheArithmeticMeanOfTheNumberOf;
 
-import com.lugowoy.util.fillable.Fillable;
 import com.lugowoy.util.fillable.FillableArray;
 import com.lugowoy.util.fillable.FillingArrayOfUserInput;
 import com.lugowoy.util.reading.ReadingUserInputData;
-import com.lugowoy.util.reading.StoppingEnterValueException;
 
 /**
  * Created by Konstantin Lugowoy on 03-Dec-16.
@@ -22,7 +20,7 @@ public class Main {
     * */
     private static final FillableArray<Double> DOUBLE_ARRAY_FILLABLE = new FillingArrayOfUserInput<>(new ReadingUserInputData()::readDouble);
 
-    public static void main(String[] args) throws StoppingEnterValueException {
+    public static void main(String[] args) {
         //Initialize an array of real numbers two dimension element.
         Double[] doubleNumbers = new Double[2];
         //Instantiate an object of class "Numbers".
