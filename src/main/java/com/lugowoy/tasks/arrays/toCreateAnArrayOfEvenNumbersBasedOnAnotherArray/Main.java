@@ -4,10 +4,8 @@ import com.lugowoy.util.fillable.FillableArray;
 import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
 import com.lugowoy.util.reading.ReadingRandomData;
 
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
 
 /**Created by Konstantin Lugowoy on 13-Feb-17.*/
 
@@ -37,11 +35,9 @@ public class Main {
         for (int i = 0; i < numbers.getNumbers().length; i++) {
             if (numbers.getNumbers()[i] % 2 == 0) integers.add(numbers.getNumbers()[i]);
         }
-        return Arrays.stream(
-                            integers
-                                    .stream()
-                                    .mapToInt(Integer::intValue)
-                                    .toArray())
+        return Arrays.stream(integers.stream()
+                                     .mapToInt(Integer::intValue)
+                                     .toArray())
                      .boxed()
                      .toArray(Integer[]::new);
     }

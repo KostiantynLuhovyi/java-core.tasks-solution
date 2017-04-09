@@ -11,9 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Integer[] integers = new Integer[40];
-
-        integers = Arrays.stream(new Integer[40]).mapToInt(value -> RANDOM.nextInt(200)).boxed().toArray(Integer[]::new);
+        Integer[] integers = Arrays.stream(new Integer[40]).mapToInt(value -> RANDOM.nextInt(200)).boxed().toArray(Integer[]::new);
 
         Array<Integer> originalArray = new Array<>(integers);
 

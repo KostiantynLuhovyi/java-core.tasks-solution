@@ -13,15 +13,6 @@ public class Main {
 
     private static final FillableArray<Integer> FILLING_ARRAY = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
 
-    private static final Displayable DISPLAYABLE = numbers -> {
-        int firstValue = numbers.getNumbers()[0];
-        for (int i = 0; i < numbers.getNumbers().length; i++) {
-            if (firstValue <= numbers.getNumbers()[i]) {
-                System.out.print(numbers.getNumbers()[i] + " ");
-            }
-        }
-    };
-
     public static void main(String[] args) {
 
         Numbers numbers = new Numbers(Arrays.stream(FILLING_ARRAY.fillArray(new Integer[20])).mapToInt(Integer::intValue).toArray());
@@ -34,4 +25,13 @@ public class Main {
         System.out.println("Result : ");
         DISPLAYABLE.displaying(numbers);
     }
+
+    private static final Displayable DISPLAYABLE = numbers -> {
+        int firstValue = numbers.getNumbers()[0];
+        for (int i = 0; i < numbers.getNumbers().length; i++) {
+            if (firstValue <= numbers.getNumbers()[i]) {
+                System.out.print(numbers.getNumbers()[i] + " ");
+            }
+        }
+    };
 }

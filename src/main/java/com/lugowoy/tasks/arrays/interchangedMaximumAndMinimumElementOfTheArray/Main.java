@@ -12,6 +12,25 @@ public class Main {
 
     private static final Random RANDOM = new Random();
 
+    public static void main(String[] args) {
+
+        Numbers numbers = new Numbers(MAX_RANDOM_NUMBER, MIN_RANDOM_NUMBER  , Arrays.stream(new Integer[20])
+                                                                                  .mapToInt(value -> RANDOM.nextInt(100))
+                                                                                  .toArray());
+
+        System.out.println("Original array : ");
+        Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
+        System.out.println();
+
+        INTERCHANGEABLE.interchange(numbers);
+
+        System.out.println("Max element : " + numbers.getMaxElement());
+        System.out.println("Min element : " + numbers.getMinElement());
+
+        System.out.println("An array after exchange of places of the maximum and minimum element : ");
+        Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
+    }
+
     private static final Interchangeable INTERCHANGEABLE = numbers -> {
         int indexMaxElement = 0, indexMinElement = 0;
 
@@ -30,25 +49,6 @@ public class Main {
                 numbers.getNumbers()[index] = numbers.getMaxElement();
             }
         }
-    }
-
-    public static void main(String[] args) {
-
-        Numbers numbers = new Numbers(MAX_RANDOM_NUMBER, MIN_RANDOM_NUMBER  , Arrays.stream(new Integer[20])
-                                                                                  .mapToInt(value -> RANDOM.nextInt(100))
-                                                                                  .toArray());
-
-        System.out.println("Original array : ");
-        Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
-        System.out.println();
-
-        INTERCHANGEABLE.interchange(numbers);
-
-        System.out.println("Max element : " + numbers.getMaxElement());
-        System.out.println("Min element : " + numbers.getMinElement());
-
-        System.out.println("An array after exchange of places of the maximum and minimum element : ");
-        Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
     }
 
     private static class GetMaxAndMinElement {

@@ -1,9 +1,7 @@
 package com.lugowoy.tasks.arrays.openTheLockOnTheDoorByLookingThroughThePlayingDice;
 
-import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingUserInputData;
-
-import java.util.Random;
 
 /** Created by Konstantin Lugowoy on 27.03.2017. */
 
@@ -17,8 +15,8 @@ public class Main {
         DoorLock doorLock = new DoorLock();
         System.out.println(doorLock);
 
-        String resume = "";
-        Reading<String> reading = new ReadingUserInputData()::readLine;
+        String resume;
+        ReadingData<String> reading = new ReadingData<>(new ReadingUserInputData()::readLine);
         do {
             FILLABLE.filling(doorLock);
             System.out.println(doorLock);
@@ -29,7 +27,7 @@ public class Main {
                 System.out.println("Door not open. Do you want to repeat, press \'r\'.");
                 System.out.println("If you do not want to repeat, press \'f\'.");
                 System.out.println("Enter : ");
-                resume = reading.reading();
+                resume = reading.read();
 
                 if (resume.equals("f")) break;
             }

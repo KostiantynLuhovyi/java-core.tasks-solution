@@ -25,7 +25,7 @@ public class Main {
         Arrays.stream(integerArray.getArray()).forEachOrdered(integer -> System.out.print(integer + " "));
         System.out.println();
 
-        ARRAY_COMPRESSIBLE.squeeze(integerArray);
+        ARRAY_COMPRESSIBLE.compress(integerArray);
 
         System.out.println("Result array : ");
         Arrays.stream(integerArray.getArray()).filter(Objects::nonNull).forEachOrdered(integer -> System.out.print(integer + " "));

@@ -1,10 +1,9 @@
 package com.lugowoy.tasks.arrays.determinePairsOfNumbersFromTheSequenceWhoseSumIsEqualToEnteredNumber;
 
-import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingUserInputData;
 
 import java.util.Arrays;
-import java.util.Random;
 
 /** Created by Konstantin Lugowoy on 19.03.2017. */
 
@@ -28,10 +27,9 @@ public class Main {
     }
 
     private static int enterNumber() {
-        Reading<Integer> reading = new ReadingUserInputData()::readInt;
+        ReadingData<Integer> reading = new ReadingData<>(new ReadingUserInputData()::readInt);
 
         System.out.println("Enter number : ");
-
-        return reading.reading();
+        return reading.read();
     }
 }

@@ -12,7 +12,7 @@ public interface Insertable<T> {
     void insert(T t, Numbers numbers);
 
     static void insertElement(Integer integer, Numbers<Integer> integersArray) {
-        List<Integer> integerList = null;
+        List<Integer> integerList;
         if ((integer != null) && (integersArray != null)) {
             for (int i = 1; i < integersArray.getArray().length; i++) {
                 if (((integer > integersArray.getArray()[i - 1]) || (integer.intValue() == (integersArray.getArray()[i - 1])))

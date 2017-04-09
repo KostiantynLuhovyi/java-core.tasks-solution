@@ -2,7 +2,6 @@ package com.lugowoy.tasks.arrays.interchangeTheElementsStandingOnOddAndEvenPosit
 
 import com.lugowoy.util.fillable.FillableArray;
 import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
-import com.lugowoy.util.reading.Reading;
 import com.lugowoy.util.reading.ReadingRandomData;
 
 import java.util.Arrays;
@@ -12,16 +11,6 @@ import java.util.Arrays;
 public class Main {
 
     private static final FillableArray<Integer> INTEGER_FILLABLE_ARRAY = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
-
-    private static final Interchangeable INTERCHANGEABLE = numbers -> {
-        for (int i = 1; i < numbers.getNumbers().length; i++) {
-            if (i % 2 == 0) {
-                int tmp = numbers.getNumbers()[i];
-                numbers.getNumbers()[i] = numbers.getNumbers()[i + 1];
-                numbers.getNumbers()[i + 1] = tmp;
-            }
-        }
-    };
 
     public static void main(String[] args) {
 
@@ -37,4 +26,14 @@ public class Main {
         System.out.println("Array after exchange of places of elements of even and odd positions : ");
         Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
     }
+
+    private static final Interchangeable INTERCHANGEABLE = numbers -> {
+        for (int i = 1; i < numbers.getNumbers().length; i++) {
+            if (i % 2 == 0) {
+                int tmp = numbers.getNumbers()[i];
+                numbers.getNumbers()[i] = numbers.getNumbers()[i + 1];
+                numbers.getNumbers()[i + 1] = tmp;
+            }
+        }
+    };
 }

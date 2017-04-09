@@ -11,8 +11,6 @@ import java.util.Random;
 
 public class Main {
 
-    private static final FillableArray<Integer> FILLABLE_ARRAY = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
-
     public static void main(String[] args) {
 
         Numbers numbers = new Numbers();

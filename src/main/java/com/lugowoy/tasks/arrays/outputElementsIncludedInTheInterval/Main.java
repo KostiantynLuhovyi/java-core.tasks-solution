@@ -2,7 +2,7 @@ package com.lugowoy.tasks.arrays.outputElementsIncludedInTheInterval;
 
 import com.lugowoy.util.fillable.Fillable;
 import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
-import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingRandomData;
 import com.lugowoy.util.reading.ReadingUserInputData;
 
@@ -22,11 +22,11 @@ public class Main {
         Arrays.stream(integers).forEachOrdered(integer -> System.out.print(integer + " "));
         System.out.println();
 
-        Reading<Integer> reading = new ReadingUserInputData()::readInt;
+        ReadingData<Integer> reading = new ReadingData<>(new ReadingUserInputData()::readInt);
         System.out.println("Enter the value of the start of the segment : ");
-        int startOfInterval = reading.reading();
+        int startOfInterval = reading.read();
         System.out.println("Enter the value of the finish of the segment : ");
-        int finishOfInterval = reading.reading();
+        int finishOfInterval = reading.read();
 
         System.out.println("Elements entering the sequence of numbers from a segment : ");
         Arrays.stream(integers).forEachOrdered(integer -> {

@@ -1,7 +1,5 @@
 package com.lugowoy.tasks.arrays.determineTheTimeOfStayOfTheIthCustomerInTheQueue;
 
-import com.lugowoy.util.reading.Readable;
-import com.lugowoy.util.reading.Reading;
 import com.lugowoy.util.reading.ReadingUserInputData;
 
 import java.math.BigDecimal;

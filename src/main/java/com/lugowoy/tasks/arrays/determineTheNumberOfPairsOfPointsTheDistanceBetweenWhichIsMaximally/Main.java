@@ -24,7 +24,7 @@ public class Main {
 
     }
 
-    static void fill(Point[] pointsArray) {
+    private static void fill(Point[] pointsArray) {
         for (int i = 0; i < pointsArray.length; i++) {
             pointsArray[i] = new Point((Math.random() * 40) + 1, (Math.random() * 40) + 1);
         }

@@ -2,7 +2,7 @@ package com.lugowoy.tasks.arrays.insertAnIntegerInTheSequencePositionWithoutViol
 
 import com.lugowoy.util.fillable.Fillable;
 import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
-import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingRandomData;
 import com.lugowoy.util.reading.ReadingUserInputData;
 
@@ -30,8 +30,8 @@ public class Main {
         System.out.println();
 
         System.out.println("Enter numbers to insert : ");
-        Reading<Integer> reading = new ReadingUserInputData()::readInt;
-        int insertNumber = reading.reading();
+        ReadingData<Integer> reading = new ReadingData<>(new ReadingUserInputData()::readInt);
+        int insertNumber = reading.read();
         System.out.println();
 
         System.out.println("Result sequence : ");

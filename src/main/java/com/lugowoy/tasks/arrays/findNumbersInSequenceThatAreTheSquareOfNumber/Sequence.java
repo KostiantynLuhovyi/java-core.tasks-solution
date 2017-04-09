@@ -4,21 +4,21 @@ package com.lugowoy.tasks.arrays.findNumbersInSequenceThatAreTheSquareOfNumber;
 
 public class Sequence<T> {
 
-    T[] tSequence;
+    private T[] sequence;
 
     public Sequence() {
     }
 
-    public Sequence(T[] tSequence) {
-        this.tSequence = tSequence;
+    public Sequence(T[] sequence) {
+        this.sequence = sequence;
     }
 
-    public T[] gettSequence() {
-        return tSequence;
+    public T[] getSequence() {
+        return sequence;
     }
 
-    public void settSequence(T[] tSequence) {
-        this.tSequence = tSequence;
+    public void setSequence(T[] sequence) {
+        this.sequence = sequence;
     }
 }
 

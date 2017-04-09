@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.arrays.findNumbersInSequenceThatAreTheSquareOfNumber;
 
-import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingUserInputData;
 
 import java.util.Arrays;
@@ -15,22 +15,22 @@ public class Main {
     public static void main(String[] args) {
 
         Sequence<Integer> sequence = new Sequence<>();
-        sequence.settSequence(Arrays.stream(new Integer[20])
+        sequence.setSequence(Arrays.stream(new Integer[20])
                                     .mapToInt(value -> value = RANDOM.nextInt(50))
                                     .boxed().toArray(Integer[]::new));
 
         System.out.println("Original sequence : ");
-        Arrays.stream(sequence.gettSequence()).forEachOrdered(integer -> System.out.print(integer + " "));
+        Arrays.stream(sequence.getSequence()).forEachOrdered(integer -> System.out.print(integer + " "));
         System.out.println();
 
         System.out.println("Enter a number to compare : ");
-        Reading<Integer> reading = new ReadingUserInputData()::readInt;
-        int compareNumber = reading.reading();
+        ReadingData<Integer> reading = new ReadingData<>(new ReadingUserInputData()::readInt);
+        int compareNumber = reading.read();
 
         System.out.println("Result : ");
         int quantityResult = 0;
-        for (int i = 0; i < sequence.gettSequence().length; i++) {
-            int number = sequence.gettSequence()[i];
+        for (int i = 0; i < sequence.getSequence().length; i++) {
+            int number = sequence.getSequence()[i];
             int squareRootNumber = (int)Math.pow(number, 2);
             if (compareNumber == squareRootNumber) {
                 System.out.printf("Sequence index : %d, element : %d", i,number);

@@ -5,10 +5,8 @@ import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
 import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingRandomData;
 import com.lugowoy.util.reading.ReadingUserInputData;
-import com.lugowoy.util.reading.StoppingEnterValueException;
 
 import java.util.Arrays;
-import java.util.Random;
 
 /**Created by Konstantin Lugowoy on 13-Feb-17.*/
 
@@ -17,7 +15,7 @@ public class Main {
     private static final FillableArray<Integer> FILLING_ARRAY = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
     private static final ReadingData<Integer> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readInt);
 
-    public static void main(String[] args) throws StoppingEnterValueException {
+    public static void main(String[] args) {
 
         Numbers numbersSequence = new Numbers();
 

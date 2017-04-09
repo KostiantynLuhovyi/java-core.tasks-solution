@@ -5,7 +5,6 @@ import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
 import com.lugowoy.util.reading.ReadingRandomData;
 
 import java.util.Arrays;
-import java.util.Random;
 
 /**Created by Konstantin Lugowoy on 13-Feb-17.*/
 
