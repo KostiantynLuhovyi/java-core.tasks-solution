@@ -10,4 +10,5 @@ public class OptionFactory extends ModelFactory<Option> {
     public Option createModel() {
         return new Option();
     }
+
 }

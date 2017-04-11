@@ -5,4 +5,5 @@ package com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnsw
 public abstract class ModelFactory<T> {
 
     public abstract T createModel();
+
 }

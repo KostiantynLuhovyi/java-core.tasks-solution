@@ -2,9 +2,11 @@ package com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnsw
 
 /** Created by Konstantin Lugowoy on 07.04.2017. */
 
-public class Option {
+public class Option implements Comparable<Option> {
 
     private int countChoice;
+
+    private double percentageOfOption;
 
     private Enum valueForOption;
 
@@ -23,12 +25,17 @@ public class Option {
         Option option = (Option) o;
 
         if (getCountChoice() != option.getCountChoice()) return false;
+        if (Double.compare(option.percentageOfOption, percentageOfOption) != 0) return false;
         return getValueForOption() != null ? getValueForOption().equals(option.getValueForOption()) : option.getValueForOption() == null;
     }
 
     @Override
     public int hashCode() {
-        int result = getCountChoice();
+        int result;
+        long temp;
+        result = getCountChoice();
+        temp = Double.doubleToLongBits(percentageOfOption);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + (getValueForOption() != null ? getValueForOption().hashCode() : 0);
         return result;
     }
@@ -37,8 +44,20 @@ public class Option {
     public String toString() {
         return "Option[" +
                 "countChoice=" + countChoice +
+                ", percentageOfOption=" + percentageOfOption +
                 ", valueForOption=" + valueForOption +
                 ']';
+    }
+
+    @Override
+    public int compareTo(Option o) {
+        int res = 0;
+        if (this.countChoice > o.getCountChoice()) {
+            res = 1;
+        } else if (this.countChoice < o.getCountChoice()) {
+            res = -1;
+        }
+        return res;
     }
 
     public int getCountChoice() {
@@ -55,5 +74,13 @@ public class Option {
 
     public void setValueForOption(Enum valueForOption) {
         this.valueForOption = valueForOption;
+    }
+
+    public double getPercentageOfOption() {
+        return percentageOfOption;
+    }
+
+    public void setPercentageOfOption(double percentageOfOption) {
+        this.percentageOfOption = percentageOfOption;
     }
 }

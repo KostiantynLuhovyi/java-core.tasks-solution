@@ -1,0 +1,2 @@
+The radio company interviewed N radio listeners on the question: "What animal do you connect with Japan and the Japanese?"
+To compile a program for obtaining k of the most frequently encountered answers and their shares (in percentages).

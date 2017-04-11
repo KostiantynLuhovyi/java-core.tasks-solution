@@ -6,6 +6,8 @@ import java.util.List;
 
 public class Quiz {
 
+    private static int numberOfParticipantsInVoting;
+
     private List<Option> optionList;
 
     public Quiz() {
@@ -35,6 +37,14 @@ public class Quiz {
         return "Quiz[" +
                 "optionList=" + optionList +
                 ']';
+    }
+
+    public static int getNumberOfParticipantsInVoting() {
+        return numberOfParticipantsInVoting;
+    }
+
+    public static void setNumberOfParticipantsInVoting(int numberOfParticipantsInVoting) {
+        Quiz.numberOfParticipantsInVoting = numberOfParticipantsInVoting;
     }
 
     public List<Option> getOptionList() {

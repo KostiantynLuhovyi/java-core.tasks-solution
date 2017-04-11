@@ -2,28 +2,57 @@ package com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnsw
 
 import com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnswersInTheQuizAndTheirPercentages.model.Option;
 import com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnswersInTheQuizAndTheirPercentages.model.Quiz;
-import com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnswersInTheQuizAndTheirPercentages.model.ValueForOptionJapanSymbols;
 
 import java.util.Random;
 
 /** Created by Konstantin Lugowoy on 07.04.2017. */
 
-public class RandomVoting {
+public class RandomVoting<T extends Enum> extends Voting<T> {
 
-    private static int quantityVote;
+    public RandomVoting() {
+    }
 
-    public static void votingRandom(Quiz quiz) {
-        for (int i = 0; i < quantityVote; i++) {
-            Option option = quiz.getOptionList().get(generateIndexOfRandomChoiceOfOption());
+    public RandomVoting(int quantityVote) {
+        super(quantityVote);
+    }
+
+    public RandomVoting(Class<T> valueForOption) {
+        super(valueForOption);
+    }
+
+    public RandomVoting(int quantityVote, Class<T> valueForOption) {
+        super(quantityVote, valueForOption);
+    }
+
+    public void vote(Quiz quiz) {
+        for (int i = 0; i < this.getQuantityVote(); i++) {
+            Option option = quiz.getOptionList().get(generateIndexOfRandomChoiceOfOption(this.getValueForOption()));
             option.setCountChoice(option.getCountChoice() + 1);
         }
     }
 
-    public static void setQuantityVote(int quantityVote) {
-        RandomVoting.quantityVote = quantityVote;
+    private int generateIndexOfRandomChoiceOfOption(Class<T> valueEnumClass) {
+        return new Random().nextInt(valueEnumClass.getEnumConstants().length);
     }
 
-    private static int generateIndexOfRandomChoiceOfOption() {
-        return new Random().nextInt(ValueForOptionJapanSymbols.QUANTITY_VALUE_FOR_OPTION + 1);
+    @Override
+    public int getQuantityVote() {
+        return super.getQuantityVote();
     }
+
+    @Override
+    public void setQuantityVote(int quantityVote) {
+        super.setQuantityVote(quantityVote);
+    }
+
+    @Override
+    public Class<T> getValueForOption() {
+        return super.getValueForOption();
+    }
+
+    @Override
+    public void setValueForOption(Class<T> valueForOption) {
+        super.setValueForOption(valueForOption);
+    }
+
 }
