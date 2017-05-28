@@ -1,0 +1,38 @@
+package com.lugowoy.tasks.arrays.determineTheNumberOfDifferentElementsInOneDimensionalArray;
+
+/** Created by Konstantin Lugowoy on 28.05.2017. */
+
+@FunctionalInterface
+public interface Determinable<T extends Number> {
+
+    int determine(Array<T> array);
+
+    static int determineTheNumberOfDifferentElementsInOneDimensionalArray(Array<Integer> array) {
+        int resultCountOfDifferentElements = 0;
+
+        for (int i = 0; i < array.getArray().length; i++) {
+            if (isUnique(array.getArray()[i], array)) {
+                resultCountOfDifferentElements++;
+            }
+        }
+
+        return resultCountOfDifferentElements;
+    }
+
+    static boolean isUnique(int number, Array<Integer> array) {
+        boolean isUnique = false;
+        int countUnique = 0;
+
+        for (int i = 0; i < array.getArray().length; i++) {
+            if (number == array.getArray()[i]) {
+                countUnique++;
+            }
+        }
+
+        if (!(countUnique > 1)) {
+            isUnique = true;
+        }
+
+        return isUnique;
+    }
+}
