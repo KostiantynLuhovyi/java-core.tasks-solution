@@ -1,4 +1,4 @@
-package com.lugowoy.util.calculable;
+package com.lugowoy.util.calculating;
 
 /**
  * Created by Konstantin Lugowoy on 03-Feb-17.

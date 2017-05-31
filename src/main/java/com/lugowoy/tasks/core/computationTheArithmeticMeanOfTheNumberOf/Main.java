@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.core.computationTheArithmeticMeanOfTheNumberOf;
 
-import com.lugowoy.util.fillable.Fillable;
-import com.lugowoy.util.fillable.FillingArrayOfUserInput;
+import com.lugowoy.util.filling.Fillable;
+import com.lugowoy.util.filling.FillingArrayOfUserInput;
 import com.lugowoy.util.reading.ReadingUserInputData;
 
 /**Created by Konstantin Lugowoy on 03-Dec-16.*/

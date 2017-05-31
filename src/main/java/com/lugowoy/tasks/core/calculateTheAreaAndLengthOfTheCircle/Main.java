@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.core.calculateTheAreaAndLengthOfTheCircle;
 
-import com.lugowoy.util.calculable.CalculableOnTheObject;
+import com.lugowoy.util.calculating.CalculableOnTheObject;
 import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingUserInputData;
 
@@ -36,7 +36,7 @@ public class Main {
         //Declaring reference variable functional interface "CalculableOnTheObject" to calculate on the object.
         CalculableOnTheObject<Circle> calculable;
 
-        //Variable instantiation "calculable" reference to the method of implementing the calculation area of a circle.
+        //Variable instantiation "calculating" reference to the method of implementing the calculation area of a circle.
         calculable = new CalculateTheAreaOfTheCircle()::calculateTheAreaOfTheCircle;
         //Calling from the functional interface of the object to calculate area of a circle.
         calculable.calculate(circle);
@@ -45,7 +45,7 @@ public class Main {
 
         System.out.println();
 
-        //Variable instantiation "calculable" reference to the method of implementing the calculation length of a circle.
+        //Variable instantiation "calculating" reference to the method of implementing the calculation length of a circle.
         calculable = new CalculateTheLengthOfTheCircle()::calculateTheLengthOfTheCircle;
         //Calling from the functional interface of the object to calculate length of a circle.
         calculable.calculate(circle);

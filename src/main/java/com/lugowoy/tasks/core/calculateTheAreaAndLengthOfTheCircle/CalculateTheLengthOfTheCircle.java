@@ -7,7 +7,7 @@ import static java.lang.Math.PI;
  *
  * @author Konstantin Lugowoy
  * @version 1.2
- * @see com.lugowoy.util.calculable.CalculableOnTheObject
+ * @see com.lugowoy.util.calculating.CalculableOnTheObject
  * @since 01.02.2017
  * <p>
  * Implements calculation of finding the length of a circle.
@@ -19,7 +19,7 @@ public class CalculateTheLengthOfTheCircle {
      *
      * @param circle The class object "Circle" encapsulating data to calculateTheAreaOfTheCircle length.
      * @return The class object of the "Circle" to set the result of calculating the length of a circle.
-     * @see com.lugowoy.util.calculable.CalculableOnTheObject
+     * @see com.lugowoy.util.calculating.CalculableOnTheObject
      * @since 01.02.2017
      */
     public Circle calculateTheLengthOfTheCircle(Circle circle) {

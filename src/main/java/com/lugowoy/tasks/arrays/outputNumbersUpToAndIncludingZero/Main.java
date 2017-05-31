@@ -1,9 +1,5 @@
 package com.lugowoy.tasks.arrays.outputNumbersUpToAndIncludingZero;
 
-import com.lugowoy.util.fillable.FillableArray;
-import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
-import com.lugowoy.util.reading.ReadingRandomData;
-
 import java.util.Arrays;
 import java.util.Random;
 

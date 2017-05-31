@@ -1,4 +1,4 @@
-package com.lugowoy.util.fillable;
+package com.lugowoy.util.filling;
 
 import com.lugowoy.util.reading.Reading;
 
@@ -7,7 +7,7 @@ import com.lugowoy.util.reading.Reading;
  *
  * @author Konstantin
  * @version 1.1
- * @see com.lugowoy.util.fillable.Fillable
+ * @see com.lugowoy.util.filling.Fillable
  * @since 1.1
  * <p>
  * The class implements the functionality (interface "Fillable") to fill an array of values.

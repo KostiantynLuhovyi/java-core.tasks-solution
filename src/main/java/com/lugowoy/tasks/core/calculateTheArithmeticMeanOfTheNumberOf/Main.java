@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.core.calculateTheArithmeticMeanOfTheNumberOf;
 
-import com.lugowoy.util.fillable.FillableArray;
-import com.lugowoy.util.fillable.FillingArrayOfUserInput;
+import com.lugowoy.util.filling.FillableArray;
+import com.lugowoy.util.filling.FillingArrayOfUserInput;
 import com.lugowoy.util.reading.ReadingUserInputData;
 
 /**

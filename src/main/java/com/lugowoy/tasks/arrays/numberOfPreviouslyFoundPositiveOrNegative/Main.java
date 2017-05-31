@@ -1,13 +1,10 @@
 package com.lugowoy.tasks.arrays.numberOfPreviouslyFoundPositiveOrNegative;
 
-import com.lugowoy.util.fillable.FillableArray;
-import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
+import com.lugowoy.util.filling.FillableArray;
+import com.lugowoy.util.filling.FillingArrayOfRandomNumber;
 import com.lugowoy.util.reading.ReadingRandomData;
 
 import java.util.Arrays;
-import java.util.Random;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 /**Created by Konstantin Lugowoy on 12-Feb-17.*/
 

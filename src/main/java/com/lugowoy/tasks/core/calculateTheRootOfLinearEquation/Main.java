@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.core.calculateTheRootOfLinearEquation;
 
-import com.lugowoy.util.calculable.CalculableOnTheObject;
+import com.lugowoy.util.calculating.CalculableOnTheObject;
 import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingUserInputData;
 

@@ -3,8 +3,8 @@ package com.lugowoy.tasks.arrays.compareTheMultiplicationModulesOfPositiveAndNeg
 import com.lugowoy.tasks.arrays.compareTheMultiplicationModulesOfPositiveAndNegativeNumbers.multiplicate.Multipliable;
 import com.lugowoy.tasks.arrays.compareTheMultiplicationModulesOfPositiveAndNegativeNumbers.multiplicate.MultipliableNegativeNumbers;
 import com.lugowoy.tasks.arrays.compareTheMultiplicationModulesOfPositiveAndNegativeNumbers.multiplicate.MultipliablePositiveNumbers;
-import com.lugowoy.util.fillable.Fillable;
-import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
+import com.lugowoy.util.filling.Fillable;
+import com.lugowoy.util.filling.FillingArrayOfRandomNumber;
 import com.lugowoy.util.reading.ReadingRandomData;
 
 import java.util.Arrays;

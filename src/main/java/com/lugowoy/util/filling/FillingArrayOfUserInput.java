@@ -1,4 +1,4 @@
-package com.lugowoy.util.fillable;
+package com.lugowoy.util.filling;
 
 import com.lugowoy.util.reading.Reading;
 

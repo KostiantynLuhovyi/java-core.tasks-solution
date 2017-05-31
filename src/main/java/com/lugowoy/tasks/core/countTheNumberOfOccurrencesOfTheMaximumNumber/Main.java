@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.core.countTheNumberOfOccurrencesOfTheMaximumNumber;
 
-import com.lugowoy.util.fillable.FillableArray;
-import com.lugowoy.util.fillable.FillingArrayOfUserInput;
+import com.lugowoy.util.filling.FillableArray;
+import com.lugowoy.util.filling.FillingArrayOfUserInput;
 import com.lugowoy.util.reading.ReadingUserInputData;
 
 /**Created by Konstantin Lugowoy on 14.11.2016.*/

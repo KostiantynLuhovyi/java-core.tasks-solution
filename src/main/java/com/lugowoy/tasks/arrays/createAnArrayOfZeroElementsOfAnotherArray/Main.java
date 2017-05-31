@@ -1,8 +1,6 @@
 package com.lugowoy.tasks.arrays.createAnArrayOfZeroElementsOfAnotherArray;
 
-import com.lugowoy.util.fillable.FillableArray;
-import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
-import com.lugowoy.util.reading.ReadingRandomData;
+import com.lugowoy.util.filling.FillingArrayOfRandomNumber;
 
 import java.util.ArrayList;
 import java.util.Arrays;

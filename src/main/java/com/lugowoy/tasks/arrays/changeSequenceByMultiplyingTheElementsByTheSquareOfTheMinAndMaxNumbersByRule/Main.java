@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.arrays.changeSequenceByMultiplyingTheElementsByTheSquareOfTheMinAndMaxNumbersByRule;
 
-import com.lugowoy.util.fillable.Fillable;
-import com.lugowoy.util.fillable.FillingArrayOfRandomNumber;
+import com.lugowoy.util.filling.Fillable;
+import com.lugowoy.util.filling.FillingArrayOfRandomNumber;
 import com.lugowoy.util.reading.ReadingRandomData;
 
 import java.util.Arrays;
