@@ -1,12 +1,16 @@
-package com.lugowoy.util.filling;
+package com.lugowoy.util.filling.arrays;
 
 import com.lugowoy.util.reading.Reading;
+import java.util.Arrays;
 
 import static java.util.Arrays.copyOf;
 
 /**Created by Konstantin Lugowoy on 15-Feb-17.*/
 
-public class FillingArrayOfUserInput<T> extends FillableArray<T> {
+public class FillingArrayOfUserInput<T extends Number> extends FillingArray<T> {
+
+    public FillingArrayOfUserInput() {
+    }
 
     public FillingArrayOfUserInput(Reading<T> reading) {
         super(reading);
@@ -22,13 +26,27 @@ public class FillingArrayOfUserInput<T> extends FillableArray<T> {
                 if (arrayLength == tArray.length) {
                     tArray = this.increaseSizeOfTheArray(tArray);
                 }
-                tArray[i] = super.getReading().reading();
+                tArray[i] = super.getReadingData().read();
                 arrayLength++;
             }
         } else {
             throw new NullPointerException("The array must not be equal to null.");
         }
         return tArray;
+    }
+
+    @Override
+    public int[] fillArray(int[] intArray) {
+        Integer[] tmpIntegersArray = (Integer[]) Arrays.stream(intArray).boxed().toArray();
+        tmpIntegersArray = (Integer[]) this.fillArray((T[]) tmpIntegersArray);
+        return Arrays.stream(tmpIntegersArray).mapToInt(Integer::intValue).toArray();
+    }
+
+    @Override
+    public double[] fillArray(double[] doubleArray) {
+        Double[] tmpDoublesArray = (Double[]) Arrays.stream(doubleArray).boxed().toArray();
+        tmpDoublesArray = (Double[]) this.fillArray((T[]) tmpDoublesArray);
+        return Arrays.stream(tmpDoublesArray).mapToDouble(Double::doubleValue).toArray();
     }
 
     private T[] increaseSizeOfTheArray(T[] t) {
