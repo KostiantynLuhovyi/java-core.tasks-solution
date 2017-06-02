@@ -1,19 +1,30 @@
 package com.lugowoy.tasks.arrays.calculateTheSumOfArrayElementsLocatedBetweenTheMinAndMaxElementsInclusive;
 
+import com.lugowoy.util.models.arrays.Array;
+
 /** Created by Konstantin Lugowoy on 27.03.2017. */
 
 @FunctionalInterface
 public interface Calculable {
 
-    int calculate(Array array, int indexMinElement, int indexMaxElement);
+    int calculate(Array<Integer> array, int indexMinElement, int indexMaxElement);
 
-    static int calculateTheSumOfArrayElementsLocatedBetweenTheMinAndMaxElementsInclusive(Array array, int indexMinElement, int indexMaxElement) {
+    static int calculateTheSumOfArrayElementsLocatedBetweenTheMinAndMaxElementsInclusive(Array<Integer> array, int indexMinElement, int indexMaxElement) {
         int resultSum = 0;
 
-        for (int i = indexMinElement; i <= indexMaxElement; i++) {
-            resultSum += array.getArray()[i];
+        if (array != null) {
+            if ((array.getArrayOfIntegerPrimitives() != null) && (array.getArrayOfIntegerPrimitives().length > 0)) {
+                    for (int i = indexMinElement; i <= indexMaxElement; i++) {
+                        resultSum += array.getArrayOfIntegerPrimitives()[i];
+                    }
+            } else {
+                System.out.println("The array is not valid for any operations or calculations.");
+            }
+        } else {
+            System.out.println("The array is not valid for any operations or calculations.");
         }
 
         return resultSum;
     }
+
 }

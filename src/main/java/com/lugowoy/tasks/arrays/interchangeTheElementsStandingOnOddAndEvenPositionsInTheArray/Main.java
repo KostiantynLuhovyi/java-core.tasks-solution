@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.arrays.interchangeTheElementsStandingOnOddAndEvenPositionsInTheArray;
 
-import com.lugowoy.util.filling.FillableArray;
-import com.lugowoy.util.filling.FillingArrayOfRandomNumber;
+import com.lugowoy.util.filling.arrays.FillableArray;
+import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
 import com.lugowoy.util.reading.ReadingRandomData;
 
 import java.util.Arrays;
@@ -23,7 +23,7 @@ public class Main {
 
         INTERCHANGEABLE.interchange(numbers);
 
-        System.out.println("Array after exchange of places of elements of even and odd positions : ");
+        System.out.println("ArrayOfObjects after exchange of places of elements of even and odd positions : ");
         Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
     }
 

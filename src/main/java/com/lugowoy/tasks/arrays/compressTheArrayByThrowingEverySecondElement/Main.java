@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.arrays.compressTheArrayByThrowingEverySecondElement;
 
-import com.lugowoy.util.filling.FillableArray;
-import com.lugowoy.util.filling.FillingArrayOfRandomNumber;
+import com.lugowoy.util.filling.arrays.FillableArray;
+import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
 import com.lugowoy.util.reading.ReadingRandomData;
 
 import java.util.ArrayList;

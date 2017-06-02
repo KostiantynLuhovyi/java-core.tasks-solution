@@ -3,7 +3,7 @@ package com.lugowoy.tasks.arrays.compareTheMultiplicationModulesOfPositiveAndNeg
 /** Created by Konstantin Lugowoy on 11.03.2017. */
 
 @FunctionalInterface
-public interface Multipliable<T> {
+public interface Multipliable<T, V> {
 
-    T multiplication(T[] tArray);
+    T multiplication(V v);
 }

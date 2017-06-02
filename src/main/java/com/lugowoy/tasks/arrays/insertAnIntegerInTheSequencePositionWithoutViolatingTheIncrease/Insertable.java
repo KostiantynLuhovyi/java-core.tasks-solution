@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.arrays.insertAnIntegerInTheSequencePositionWithoutViolatingTheIncrease;
 
+import com.lugowoy.util.models.arrays.Array;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,9 +11,9 @@ import java.util.stream.Collectors;
 @FunctionalInterface
 public interface Insertable<T> {
 
-    void insert(T t, Numbers numbers);
+    void insert(T t, Array<T> numbers);
 
-    static void insertElement(Integer integer, Numbers<Integer> integersArray) {
+    static void insertElement(Integer integer, Array<Integer> integersArray) {
         List<Integer> integerList;
         if ((integer != null) && (integersArray != null)) {
             for (int i = 1; i < integersArray.getArray().length; i++) {

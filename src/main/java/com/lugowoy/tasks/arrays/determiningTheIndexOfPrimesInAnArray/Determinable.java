@@ -9,15 +9,18 @@ public interface Determinable<T extends Number> {
 
     static boolean determineTheIndexOfPrimesInAnArray(Integer number) {
         boolean isPrimeNumber = true;
-        if (number == 1) {
-            isPrimeNumber = false;
-        }
-        for (int i = 2; i * i <= number; i++) {
-            if (number % i == 0) {
+        if (number != 0) {
+            if (number == 1) {
                 isPrimeNumber = false;
             }
+            for (int i = 2; i * i <= number; i++) {
+                if (number % i == 0) {
+                    isPrimeNumber = false;
+                }
+            }
+        } else {
+            isPrimeNumber = false;
         }
-
         return isPrimeNumber;
     }
 

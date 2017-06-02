@@ -15,7 +15,7 @@ public interface CalculableArithmeticMeanNumber {
     /**
      * The method for calculating the arithmetic mean of the values of an array of real numbers.
      *
-     * @param doublesArray Array of real numbers.
+     * @param doublesArray ArrayOfObjects of real numbers.
      * @return The calculation result of the arithmetic mean value of the array of real numbers.
      */
     double calculateArithmeticMeanNumber(Double[] doublesArray);

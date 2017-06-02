@@ -1,19 +1,21 @@
 package com.lugowoy.tasks.arrays.convertTheSecondSequenceAccordingToTheRuleDefinedByTheFirstSequence;
 
+import com.lugowoy.util.models.arrays.Array;
+
 /** Created by Konstantin Lugowoy on 25.03.2017. */
 
 @FunctionalInterface
 public interface Convertable<T> {
 
-    void convert(Sequence<T> firstSequence, Sequence<T> secondSequence);
+    void convert(Array<T> firstArray, Array<T> secondArray);
     
-    static void convertSecondSequenceAccordingToTheRuleDefinedByTheFirstSequence(Sequence<Integer> firstSequence, Sequence<Integer> secondSequence) {
-        if (firstSequence.getSequence().length == secondSequence.getSequence().length) {
-            for (int i = 0; i < firstSequence.getSequence().length; i++) {
-                if (firstSequence.getSequence()[i] <= 0) {
-                    secondSequence.getSequence()[i] *= 10;
+    static void convertSecondSequenceAccordingToTheRuleDefinedByTheFirstSequence(Array<Integer> firstArray, Array<Integer> secondArray) {
+        if (firstArray.getArrayOfIntegerPrimitives().length == secondArray.getArrayOfIntegerPrimitives().length) {
+            for (int i = 0; i < firstArray.getArrayOfIntegerPrimitives().length; i++) {
+                if (firstArray.getArrayOfIntegerPrimitives()[i] <= 0) {
+                    secondArray.getArrayOfIntegerPrimitives()[i] *= 10;
                 } else {
-                    secondSequence.getSequence()[i] = 0;
+                    secondArray.getArrayOfIntegerPrimitives()[i] = 0;
                 }
             }
         } else {

@@ -1,7 +1,10 @@
 package com.lugowoy.tasks.arrays.outputElementsIncludedInTheInterval;
 
+import com.lugowoy.util.factory.creating.arrays.CreatorArray;
+import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
 import com.lugowoy.util.filling.Fillable;
-import com.lugowoy.util.filling.FillingArrayOfRandomNumber;
+import com.lugowoy.util.filling.arrays.FillingArray;
+import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
 import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingRandomData;
 import com.lugowoy.util.reading.ReadingUserInputData;
@@ -12,11 +15,15 @@ import java.util.Arrays;
 
 public class Main {
 
-    private static final Fillable<Integer> DOUBLE_FILLABLE = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
+    private static FillingArray<Integer> fillArray = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
+    private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
 
     public static void main(String[] args) {
 
-        Integer[] integers = DOUBLE_FILLABLE.fillArray(new Integer[50]);
+        System.out.println("Enter a value for the size of the array : ");
+        int sizeArray = readingData.read();
+
+        Integer[] integers = fillArray.fillArray(new Integer[sizeArray]);
 
         System.out.println("Original sequence : ");
         Arrays.stream(integers).forEachOrdered(integer -> System.out.print(integer + " "));

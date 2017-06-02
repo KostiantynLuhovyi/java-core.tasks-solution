@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.arrays.getIntegersInAscendingOrderThatDoesNotBelongToThisArray;
 
+import com.lugowoy.util.models.arrays.Array;
+
 import java.util.Arrays;
 import java.util.Collections;
 

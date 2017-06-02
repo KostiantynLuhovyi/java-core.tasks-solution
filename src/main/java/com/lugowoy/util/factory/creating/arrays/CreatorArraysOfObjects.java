@@ -6,7 +6,7 @@ import com.lugowoy.util.models.arrays.ArrayOfObjects;
 
 /** Created by Konstantin Lugowoy on 31.05.2017. */
 
-public class CreatorArraysOfObjects<T> implements FactoryArrayOfObjects<T> {
+public class CreatorArraysOfObjects<T> extends CreatorArray<T> {
 
     @Override
     public Array<T> create() {
