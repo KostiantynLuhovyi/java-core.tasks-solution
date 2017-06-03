@@ -42,7 +42,7 @@ public class ArrayOfDoublePrimitives extends Array<Double> {
 
     @Override
     public String toString() {
-        return "ArrayOfDoublePrimitives[" +
+        return super.toString() + "[" +
                 "array=" + Arrays.toString(array) +
                 ']';
     }

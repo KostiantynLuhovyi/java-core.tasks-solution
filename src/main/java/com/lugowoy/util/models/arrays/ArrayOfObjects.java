@@ -38,7 +38,7 @@ public class ArrayOfObjects<T> extends Array<T> {
 
     @Override
     public String toString() {
-        return "ArrayOfObjects[" +
+        return super.toString() + "[" +
                 "array=" + Arrays.toString(array) +
                 ']';
     }

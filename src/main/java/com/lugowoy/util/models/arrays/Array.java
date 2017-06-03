@@ -27,7 +27,7 @@ public abstract class Array<T> extends Model {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Array";
     }
 
     public T[] getArray() {

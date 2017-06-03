@@ -42,7 +42,7 @@ public class ArrayOfIntegerPrimitives extends Array<Integer> {
 
     @Override
     public String toString() {
-        return "ArrayOfIntegerPrimitives[" +
+        return super.toString() + "[" +
                 "array=" + Arrays.toString(array) +
                 ']';
     }
