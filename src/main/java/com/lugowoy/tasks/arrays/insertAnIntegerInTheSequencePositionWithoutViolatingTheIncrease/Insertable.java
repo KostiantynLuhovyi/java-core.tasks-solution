@@ -11,20 +11,21 @@ import java.util.stream.Collectors;
 @FunctionalInterface
 public interface Insertable<T> {
 
-    void insert(T t, Array<T> numbers);
+    void insert(T t, Array<T> array);
 
-    static void insertElement(Integer integer, Array<Integer> integersArray) {
+    static void insertElement(Integer integer, Array<Integer> array) {
         List<Integer> integerList;
-        if ((integer != null) && (integersArray != null)) {
-            for (int i = 1; i < integersArray.getArray().length; i++) {
-                if (((integer > integersArray.getArray()[i - 1]) || (integer.intValue() == (integersArray.getArray()[i - 1])))
-                        && ((integer < integersArray.getArray()[i]) || (integer.intValue() == (integersArray.getArray()[i])))) {
-                    integerList = Arrays.stream(integersArray.getArray()).collect(Collectors.toList());
+        if ((integer != null) && (array != null)) {
+            for (int i = 1; i < array.getArray().length; i++) {
+                if (((integer > array.getArray()[i - 1]) || (integer.intValue() == (array.getArray()[i - 1])))
+                        && ((integer < array.getArray()[i]) || (integer.intValue() == (array.getArray()[i])))) {
+                    integerList = Arrays.stream(array.getArray()).collect(Collectors.toList());
                     integerList.add(i, integer);
-                    integersArray.setArray(integerList.toArray(new Integer[integerList.size()]));
+                    array.setArray(integerList.toArray(new Integer[integerList.size()]));
                     break;
                 }
             }
         }
     }
+
 }

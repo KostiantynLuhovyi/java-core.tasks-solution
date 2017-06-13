@@ -1,7 +1,12 @@
 package com.lugowoy.tasks.arrays.divideTheOriginalArrayInToAnEvenAndOddArray;
 
+import com.lugowoy.util.factory.creating.arrays.CreatorArray;
+import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
+import com.lugowoy.util.models.arrays.Array;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /** Created by Konstantin Lugowoy on 16.03.2017. */
 
@@ -10,13 +15,15 @@ public interface Selectable<T> {
     int STATUS_EVEN_NUMBERS = 1;
     int STATUS_ODD_NUMBERS = 0;
 
-    T[] select(T[] t, int statusNumbers);
+    T select(T t, int statusNumbers);
 
-    static Integer[] selectableArray(Integer[] integers, int statusNumbers) {
+    static Array<Integer> selectableArray(Array<Integer> array, int statusNumbers) {
+        CreatorArray<Integer> creator = new CreatorArrayOfIntegerPrimitives();
+
         ArrayList<Integer> integerList = new ArrayList<>(0);
-        if (integers != null) {
+        if (Objects.nonNull(array)) {
             if (statusNumbers == STATUS_EVEN_NUMBERS) {
-                for (Integer integer : integers) {
+                for (Integer integer : array.getArray()) {
                     if (integer != null) {
                         if (integer % 2 == 0) {
                             integerList.add(integer);
@@ -24,7 +31,7 @@ public interface Selectable<T> {
                     }
                 }
             } else if (statusNumbers == STATUS_ODD_NUMBERS) {
-                for (Integer integer : integers) {
+                for (Integer integer : array.getArray()) {
                     if (integer != null) {
                         if (integer % 2 != 0) {
                             integerList.add(integer);
@@ -33,6 +40,8 @@ public interface Selectable<T> {
                 }
             }
         }
-        return integerList.toArray(new Integer[integerList.size()]);
+        return creator.create(integerList.stream().toArray(Integer[]::new));
+
     }
+
 }

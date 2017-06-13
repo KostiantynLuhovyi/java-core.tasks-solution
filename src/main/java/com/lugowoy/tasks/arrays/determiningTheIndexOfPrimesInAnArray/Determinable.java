@@ -7,7 +7,7 @@ public interface Determinable<T extends Number> {
 
     boolean determine(T number);
 
-    static boolean determineTheIndexOfPrimesInAnArray(Integer number) {
+    static boolean determineTheIndexOfPrimesInAnArray(int number) {
         boolean isPrimeNumber = true;
         if (number != 0) {
             if (number == 1) {
@@ -22,6 +22,7 @@ public interface Determinable<T extends Number> {
             isPrimeNumber = false;
         }
         return isPrimeNumber;
+
     }
 
 }

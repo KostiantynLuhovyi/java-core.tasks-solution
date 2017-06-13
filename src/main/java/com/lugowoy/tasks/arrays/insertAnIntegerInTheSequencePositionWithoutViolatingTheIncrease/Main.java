@@ -47,4 +47,5 @@ public class Main {
         insertable.insert(insertNumber, array);
         Arrays.stream(array.getArray()).forEachOrdered(integer -> System.out.print(integer + " "));
     }
+
 }

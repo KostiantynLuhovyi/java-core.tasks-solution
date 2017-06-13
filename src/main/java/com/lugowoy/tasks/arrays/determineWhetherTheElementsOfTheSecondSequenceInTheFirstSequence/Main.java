@@ -1,5 +1,15 @@
 package com.lugowoy.tasks.arrays.determineWhetherTheElementsOfTheSecondSequenceInTheFirstSequence;
 
+import com.lugowoy.util.EnteringTheSizeOfTheArray;
+import com.lugowoy.util.factory.creating.arrays.CreatorArray;
+import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
+import com.lugowoy.util.filling.arrays.FillingArray;
+import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
+import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.util.reading.ReadingData;
+import com.lugowoy.util.reading.ReadingRandomData;
+import com.lugowoy.util.reading.ReadingUserInputData;
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -7,28 +17,27 @@ import java.util.Random;
 
 public class Main {
 
+    private static FillingArray<Integer> fillArray = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
+    private static CreatorArray<Integer> creator = new CreatorArrayOfIntegerPrimitives();
+    private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
+
+    private static EnteringTheSizeOfTheArray<Integer> enterUserValueForSizeOfTheArray = EnteringTheSizeOfTheArray::enterUserInputForSizeOfTheArray;
+
     public static void main(String[] args) {
 
-        Sequence<Integer> sequenceFirst = new Sequence<>(Arrays.stream(new int[20])
-                                                               .map(operand -> new Random().nextInt(50))
-                                                               .boxed()
-                                                               .toArray(Integer[]::new));
+        int sizeArrays = enterUserValueForSizeOfTheArray.enter(readingData);
 
-        Sequence<Integer> sequenceSecond = new Sequence<>(Arrays.stream(new int[3])
-                                                                .map(operand -> new Random().nextInt(50))
-                                                                .boxed()
-                                                                .toArray(Integer[]::new));
+        Array<Integer> firstArray = creator.create(fillArray.fillArray(new int[sizeArrays], 50));
+        Array<Integer> secondArray = creator.create(fillArray.fillArray(new int[sizeArrays], 50));
 
-        System.out.println("First sequence : ");
-        Arrays.stream(sequenceFirst.getSequence()).forEachOrdered(integer -> System.out.print(integer + " "));
+        System.out.println("First array : " + firstArray);
         System.out.println();
 
-        System.out.println("Second sequence : ");
-        Arrays.stream(sequenceSecond.getSequence()).forEachOrdered(integer -> System.out.print(integer + " "));
+        System.out.println("Second array : " + secondArray);
         System.out.println();
 
-        Determinable<Sequence> determinable = Determinable::determineWhetherTheElementsOfTheSecondSequenceInTheFirstSequence;
-        boolean resultDetermine = determinable.determine(sequenceFirst, sequenceSecond);
+        Determinable<Array<Integer>> determinable = Determinable::determineWhetherTheElementsOfTheSecondSequenceInTheFirstSequence;
+        boolean resultDetermine = determinable.determine(firstArray, secondArray);
 
         if (resultDetermine) {
             System.out.println("Elements of the second sequence are included in the first sequence.");
@@ -37,4 +46,5 @@ public class Main {
         }
 
     }
+
 }

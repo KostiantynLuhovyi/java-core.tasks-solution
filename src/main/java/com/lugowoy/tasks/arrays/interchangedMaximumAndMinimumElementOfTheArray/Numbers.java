@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.arrays.interchangedMaximumAndMinimumElementOfTheArray;
 
-/**Created by Konstantin Lugowoy on 14-Feb-17.*/
+/** Created by Konstantin Lugowoy on 13.06.2017. */
 
 public class Numbers {
 
@@ -38,4 +38,5 @@ public class Numbers {
     public void setMinElement(int minElement) {
         this.minElement = minElement;
     }
+
 }

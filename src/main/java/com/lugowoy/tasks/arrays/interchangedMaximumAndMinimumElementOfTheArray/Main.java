@@ -15,8 +15,8 @@ public class Main {
     public static void main(String[] args) {
 
         Numbers numbers = new Numbers(MAX_RANDOM_NUMBER, MIN_RANDOM_NUMBER  , Arrays.stream(new Integer[20])
-                                                                                  .mapToInt(value -> RANDOM.nextInt(100))
-                                                                                  .toArray());
+                            .mapToInt(value -> RANDOM.nextInt(100))
+                            .toArray());
 
         System.out.println("Original array : ");
         Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
@@ -29,6 +29,7 @@ public class Main {
 
         System.out.println("An array after exchange of places of the maximum and minimum element : ");
         Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
+
     }
 
     private static final Interchangeable INTERCHANGEABLE = numbers -> {

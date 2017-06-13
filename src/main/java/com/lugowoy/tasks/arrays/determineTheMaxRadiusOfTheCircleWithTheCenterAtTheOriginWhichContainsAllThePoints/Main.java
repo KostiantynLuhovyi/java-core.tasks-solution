@@ -41,4 +41,5 @@ public class Main {
         System.out.printf("Maximal radius is %.2f", determinable.determine(arrayOfCoordinates));
 
     }
+
 }

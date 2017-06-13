@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.arrays.findTwoNumbersWhoseArithmeticMeanIsClosestToTheNumberEntered;
 
+import com.lugowoy.util.models.arrays.Array;
+
 /** Created by Konstantin Lugowoy on 12.04.2017. */
 
 public interface Findable<T, V> {
@@ -21,12 +23,10 @@ public interface Findable<T, V> {
                         secondNumber = array.getArray()[j];
                     }
                 }
-/*
-                System.out.println(firstNumber + " " + secondNumber);
-*/
             }
             System.out.println();
             System.out.println("Result numbers : " + firstNumber + " and " + secondNumber + " .");
         }
     }
+
 }

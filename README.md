@@ -20,7 +20,10 @@ Description package:
 In the package com.lugowoy.util are util classes separated into packages for different implementation.
 --------------------
 Description util package:
-- com.lugowoy.util.reading - Classes for implementing functionality for reading data entered by the user in the console.
-- com.lugowoy.util.fillable - Classes to implementing the functionality of filling arrays to store different types of data.
-- com.lugowoy.util.calculable - Classes to implementing the functionality of perform mathematical calculations.
+- com.lugowoy.util.calculating - Classes to implementing the functionality of perform mathematical calculations.
 - com.lugowoy.util.converting - Classes to implementing the functionality of the converting.
+- com.lugowoy.util.factory - Classes to implementing the functionality of the pattern "Abstract factory" for the create of all objects.
+- com.lugowoy.util.filling - Classes to implementing the functionality of filling arrays to store different types of data.
+- com.lugowoy.util.models - Classes hierarchy Class hierarchy for providing different entities for solving tasks.
+- com.lugowoy.util.reading - Classes for implementing functionality for reading data entered by the user in the console.
+

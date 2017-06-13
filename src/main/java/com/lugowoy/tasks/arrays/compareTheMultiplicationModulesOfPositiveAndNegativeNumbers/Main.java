@@ -3,6 +3,7 @@ package com.lugowoy.tasks.arrays.compareTheMultiplicationModulesOfPositiveAndNeg
 import com.lugowoy.tasks.arrays.compareTheMultiplicationModulesOfPositiveAndNegativeNumbers.multiplicate.Multipliable;
 import com.lugowoy.tasks.arrays.compareTheMultiplicationModulesOfPositiveAndNegativeNumbers.multiplicate.MultipliableNegativeNumbers;
 import com.lugowoy.tasks.arrays.compareTheMultiplicationModulesOfPositiveAndNegativeNumbers.multiplicate.MultipliablePositiveNumbers;
+import com.lugowoy.util.EnteringTheSizeOfTheArray;
 import com.lugowoy.util.factory.creating.arrays.CreatorArray;
 import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
 import com.lugowoy.util.filling.arrays.FillingArray;
@@ -22,22 +23,22 @@ public class Main {
     private static CreatorArray<Integer> creator = new CreatorArrayOfIntegerPrimitives();
     private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
 
+    private static EnteringTheSizeOfTheArray<Integer> enteringTheSizeOfTheArray = EnteringTheSizeOfTheArray::enterUserInputForSizeOfTheArray;
+
     public static void main(String[] args) {
 
-        System.out.println("Enter a value for the size of the array : ");
-        int sizeArray = readingData.read();
+        int sizeArray = enteringTheSizeOfTheArray.enter(readingData);
 
-        Array<Integer> arrays = creator.create(fillArray.fillArray(new int[sizeArray]));
+        Array<Integer> array = creator.create(fillArray.fillArray(new int[sizeArray]));
 
-        System.out.println("Original array : ");
-        Arrays.stream(arrays.getArrayOfIntegerPrimitives()).forEachOrdered(integer -> System.out.print(integer + " "));
+        System.out.println("Original array : " + array);
         System.out.println();
 
         Multipliable<Integer, Array<Integer>> multipliable = MultipliableNegativeNumbers::multiplication;
-        Integer resultModuleOfNegativeNumbers = Math.abs(multipliable.multiplication(arrays));
+        Integer resultModuleOfNegativeNumbers = Math.abs(multipliable.multiplication(array));
 
         multipliable = MultipliablePositiveNumbers::multiplication;
-        Integer resultModuleOfPositiveNumbers = Math.abs(multipliable.multiplication(arrays));
+        Integer resultModuleOfPositiveNumbers = Math.abs(multipliable.multiplication(array));
 
         if (resultModuleOfNegativeNumbers > resultModuleOfPositiveNumbers) {
             System.out.println("Multiplication negative numbers on the module larger positive numbers.");
@@ -46,4 +47,5 @@ public class Main {
         }
 
     }
+
 }

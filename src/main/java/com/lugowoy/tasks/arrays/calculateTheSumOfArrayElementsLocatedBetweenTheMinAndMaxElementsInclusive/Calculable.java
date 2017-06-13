@@ -11,12 +11,19 @@ public interface Calculable {
 
     static int calculateTheSumOfArrayElementsLocatedBetweenTheMinAndMaxElementsInclusive(Array<Integer> array, int indexMinElement, int indexMaxElement) {
         int resultSum = 0;
-
         if (array != null) {
-            if ((array.getArrayOfIntegerPrimitives() != null) && (array.getArrayOfIntegerPrimitives().length > 0)) {
-                    for (int i = indexMinElement; i <= indexMaxElement; i++) {
-                        resultSum += array.getArrayOfIntegerPrimitives()[i];
+            if ((array.getArray() != null) && (array.getArray().length > 0)) {
+                if ((indexMinElement < indexMaxElement)) {
+                    if ((indexMinElement >= 0) && (indexMaxElement > 0)) {
+                        for (int i = indexMinElement; i <= indexMaxElement; i++) {
+                            resultSum += array.getArray()[i];
+                        }
+                    } else {
+                        System.out.println("The value of the index is invalid.");
                     }
+                } else {
+                    System.out.println("The value of the index is invalid.");
+                }
             } else {
                 System.out.println("The array is not valid for any operations or calculations.");
             }

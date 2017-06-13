@@ -6,4 +6,5 @@ package com.lugowoy.tasks.arrays.interchangedMaximumAndMinimumElementOfTheArray;
 public interface Interchangeable {
 
     void interchange(Numbers numbers);
+
 }

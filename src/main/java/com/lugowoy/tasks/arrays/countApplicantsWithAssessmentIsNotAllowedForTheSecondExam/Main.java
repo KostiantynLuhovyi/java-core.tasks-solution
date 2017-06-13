@@ -10,6 +10,7 @@ public class Main {
     private static final Random RANDOM = new Random();
 
     public static void main(String[] args) {
+
         Applicant[] applicantsArray = Arrays.stream(new Applicant[20])
                                             .map(applicant -> new Applicant(RANDOM.nextInt(5) - 1 + 1 + 1))
                                             .toArray(Applicant[]::new);

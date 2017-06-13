@@ -1,5 +1,14 @@
 package com.lugowoy.tasks.arrays.createNewArrayWhoseElementsWillBeElementsOfSourceEndingInSpecificNumber;
 
+import com.lugowoy.util.EnteringTheSizeOfTheArray;
+import com.lugowoy.util.factory.creating.arrays.CreatorArray;
+import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
+import com.lugowoy.util.filling.arrays.FillingArray;
+import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
+import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.util.models.arrays.ArrayOfIntegerPrimitives;
+import com.lugowoy.util.reading.ReadingData;
+import com.lugowoy.util.reading.ReadingRandomData;
 import com.lugowoy.util.reading.ReadingUserInputData;
 
 import java.util.ArrayList;
@@ -11,14 +20,18 @@ import java.util.Random;
 
 public class Main {
 
-    public static final Random RANDOM = new Random();
+    private static CreatorArray<Integer> creator = new CreatorArrayOfIntegerPrimitives();
+    private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
+
+    private static EnteringTheSizeOfTheArray<Integer> enterUserValueForSizeOfTheArray = EnteringTheSizeOfTheArray::enterUserInputForSizeOfTheArray;
 
     public static void main(String[] args) {
 
-        Array array = new Array(Arrays.stream(new int[30]).map(operand -> RANDOM.nextInt(Integer.MAX_VALUE)).toArray());
+        int sizeArray = enterUserValueForSizeOfTheArray.enter(readingData);
 
-        System.out.println("Original array : ");
-        Arrays.stream(array.getArray()).forEachOrdered(value -> System.out.print(value + " "));
+        Array array = creator.create(new FillingArrayOfRandomNumber<Integer>().fillArray(new int[sizeArray], Integer.MAX_VALUE));
+
+        System.out.println("Original array : " + array);
         System.out.println();
 
         System.out.println("Enter specific ending number : ");
@@ -27,13 +40,12 @@ public class Main {
 
         Array newArray = createNewArrayWhoseElementsWillBeElementsOfSourceEndingInSpecificNumber(array, specificEndingNumber);
 
-        System.out.println("New array : ");
-        Arrays.stream(newArray.getArray()).forEachOrdered(value -> System.out.print(value + " "));
+        System.out.println("New array : " + newArray);
         System.out.println();
 
     }
 
-    private static Array createNewArrayWhoseElementsWillBeElementsOfSourceEndingInSpecificNumber(Array array, int specificEndingNumber) {
+    private static Array<Integer> createNewArrayWhoseElementsWillBeElementsOfSourceEndingInSpecificNumber(Array<Integer> array, int specificEndingNumber) {
         List<Integer> resultNewIntegerList = new ArrayList<>(0);
 
         if (array != null) {
@@ -50,7 +62,7 @@ public class Main {
             System.out.println("Incorrect argument passed.");
         }
 
-        return new Array(resultNewIntegerList.stream().mapToInt(Integer::intValue).toArray());
+        return new ArrayOfIntegerPrimitives(resultNewIntegerList.stream().mapToInt(Integer::intValue).toArray());
     }
 
 }

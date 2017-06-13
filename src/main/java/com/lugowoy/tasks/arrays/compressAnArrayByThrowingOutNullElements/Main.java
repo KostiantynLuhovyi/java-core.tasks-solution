@@ -1,46 +1,64 @@
 package com.lugowoy.tasks.arrays.compressAnArrayByThrowingOutNullElements;
 
-import com.lugowoy.util.filling.arrays.FillableArray;
+import com.lugowoy.util.EnteringTheSizeOfTheArray;
+import com.lugowoy.util.factory.creating.arrays.CreatorArray;
+import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
+import com.lugowoy.util.filling.arrays.FillingArray;
 import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
+import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingRandomData;
+import com.lugowoy.util.reading.ReadingUserInputData;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 /** Created by Konstantin Lugowoy on 16.03.2017. */
 
 public class Main {
 
-    private static final FillableArray<Integer> FILLABLE_ARRAY
-                                            = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
+    private static FillingArray<Integer> fillArray = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
+    private static CreatorArray<Integer> creator = new CreatorArrayOfIntegerPrimitives();
+    private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
+
+    private static EnteringTheSizeOfTheArray<Integer> enteringTheSizeOfTheArray = EnteringTheSizeOfTheArray::enterUserInputForSizeOfTheArray;
 
     public static void main(String[] args) {
 
-        Array<Integer> integerArray = new Array<>(FILLABLE_ARRAY.fillArray(new Integer[30]));
+        int sizeArray = enteringTheSizeOfTheArray.enter(readingData);
 
-        System.out.println("Original array : ");
-        Arrays.stream(integerArray.getArray()).forEachOrdered(integer -> System.out.print(integer + " "));
+        Array<Integer> array = creator.create(fillArray.fillArray(new int[sizeArray]));
+
+        System.out.println("Original array : " + array);
         System.out.println();
 
-        COMPRESSIBLE.compress(integerArray);
+        COMPRESSIBLE.compress(array);
 
-        System.out.println("Result array : ");
-        Arrays.stream(integerArray.getArray()).forEachOrdered(integer -> System.out.print(integer + " "));
+        System.out.println();
+        System.out.println("\nResult array : " + array);
     }
 
     private static final Compressible<Integer> COMPRESSIBLE = array -> {
         int numberZeroElements = 0;
-        List<Integer> list = new ArrayList<>(0);
-        for (int i = 0; i < array.getArray().length; i++) {
-            if (array.getArray()[i] != 0) {
-                list.add(array.getArray()[i]);
+        if (Objects.nonNull(array)) {
+            if ((Objects.nonNull(array.getArray())) && (array.getArray().length > 0)) {
+                List<Integer> list = new ArrayList<>(0);
+                for (int i = 0; i < array.getArray().length; i++) {
+                    if (array.getArray()[i] != 0) {
+                        list.add(array.getArray()[i]);
+                    } else {
+                        numberZeroElements++;
+                    }
+                }
+                array.setArray(list.toArray(new Integer[list.size()]));
             } else {
-                numberZeroElements++;
+                System.out.println("The array is not valid for any operations or calculations.");
             }
+        } else {
+            System.out.println("The array is not valid for any operations or calculations.");
         }
-        array.setArray(list.toArray(new Integer[list.size()]));
+
         System.out.printf("Number of zero elements in the array : %d .", numberZeroElements);
-        System.out.println();
     };
 }

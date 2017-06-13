@@ -5,5 +5,5 @@ package com.lugowoy.tasks.arrays.calculateTheSumOfTheMaxAndMinElementOfThisParti
 @FunctionalInterface
 public interface Findable <T> {
 
-    T find(T[] tArray);
+    T find(T[] t);
 }

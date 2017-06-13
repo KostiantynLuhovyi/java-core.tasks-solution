@@ -15,7 +15,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ArrayOfHumans humans = null;
+        ArrayOfHumans humans;
 
         System.out.println("Enter the quantity number of people to count : ");
         while(true) {
@@ -60,7 +60,7 @@ public class Main {
         arrayOfHumans.setHumans(new Human[quantityHumans]);
         for (int i = 0; i < arrayOfHumans.getHumans().length; i++) {
             arrayOfHumans.getHumans()[i] = new Human();
-            arrayOfHumans.getHumans()[i].setAge(RANDOM_AGE.nextInt(150));
+            arrayOfHumans.getHumans()[i].setAge(RANDOM_AGE.nextInt(130));
         }
         return arrayOfHumans;
     }

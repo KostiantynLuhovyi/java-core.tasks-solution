@@ -12,10 +12,10 @@ public interface Determinable {
     static int determineMinElementIndex(Array<Integer> array) {
         int indexMinElement = 0, valueForDetermineMinElementIndex = Integer.MAX_VALUE;
             if (array != null) {
-                if ((array.getArrayOfIntegerPrimitives() != null) && (array.getArrayOfIntegerPrimitives().length > 0)) {
-                    for (int i = 0; i < array.getArrayOfIntegerPrimitives().length; i++) {
-                        if (array.getArrayOfIntegerPrimitives()[i] < valueForDetermineMinElementIndex) {
-                        valueForDetermineMinElementIndex = array.getArrayOfIntegerPrimitives()[i];
+                if ((array.getArray() != null) && (array.getArray().length > 0)) {
+                    for (int i = 0; i < array.getArray().length; i++) {
+                        if (array.getArray()[i] < valueForDetermineMinElementIndex) {
+                        valueForDetermineMinElementIndex = array.getArray()[i];
                         indexMinElement = i;
                         }
                     }
@@ -32,10 +32,10 @@ public interface Determinable {
     static int determineMaxElementIndex(Array<Integer> array) {
         int indexMaxElement = 0, valueForDetermineMaxElementIndex = Integer.MIN_VALUE;
         if (array != null) {
-            if ((array.getArrayOfIntegerPrimitives() != null) && (array.getArrayOfIntegerPrimitives().length > 0)) {
-                for (int i = 0; i < array.getArrayOfIntegerPrimitives().length; i++) {
-                    if (array.getArrayOfIntegerPrimitives()[i] > valueForDetermineMaxElementIndex) {
-                        valueForDetermineMaxElementIndex = array.getArrayOfIntegerPrimitives()[i];
+            if ((array.getArray() != null) && (array.getArray().length > 0)) {
+                for (int i = 0; i < array.getArray().length; i++) {
+                    if (array.getArray()[i] > valueForDetermineMaxElementIndex) {
+                        valueForDetermineMaxElementIndex = array.getArray()[i];
                         indexMaxElement = i;
                     }
                 }

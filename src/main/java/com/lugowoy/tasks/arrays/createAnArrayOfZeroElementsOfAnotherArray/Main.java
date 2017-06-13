@@ -1,35 +1,54 @@
 package com.lugowoy.tasks.arrays.createAnArrayOfZeroElementsOfAnotherArray;
 
+import com.lugowoy.util.EnteringTheSizeOfTheArray;
+import com.lugowoy.util.factory.creating.arrays.CreatorArray;
+import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
+import com.lugowoy.util.filling.arrays.FillingArray;
 import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
+import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.util.reading.ReadingData;
+import com.lugowoy.util.reading.ReadingRandomData;
+import com.lugowoy.util.reading.ReadingUserInputData;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Random;
 
 /**Created by Konstantin Lugowoy on 12-Feb-17.*/
 
 public class Main {
 
-    private static Integer[] integers = new FillingArrayOfRandomNumber<>(() -> new Random().nextInt(20)).fillArray(new Integer[30]);
+    private static FillingArray<Integer> fillArray = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
+    private static CreatorArray<Integer> creator = new CreatorArrayOfIntegerPrimitives();
+    private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
+
+    private static EnteringTheSizeOfTheArray<Integer> enterUserValueForSizeOfTheArray = EnteringTheSizeOfTheArray::enterUserInputForSizeOfTheArray;
 
     public static void main(String[] args) {
 
-        Array<Integer> originalIntegerArray = new Array<>(integers);
+        int sizeArray = enterUserValueForSizeOfTheArray.enter(readingData);
 
-        System.out.println("Elements of of the original array : ");
-        Arrays.stream(originalIntegerArray.getArray()).forEachOrdered(integer -> System.out.print(integer + " "));
+        Array<Integer> originalIntegerArray = creator.create(fillArray.fillArray(new int[sizeArray]));
+
+        System.out.println("Elements of of the original array : " + originalIntegerArray);
         System.out.println();
 
-        ArrayIndexZero<Integer> integerArrayIndexZero = new ArrayIndexZero<>();
+        Array<Integer> integerArrayIndexZero = creator.create();
 
-        FillingArrayOfAnotherArrayElementsZero<Integer> fillingArray = originalArray -> {
+        FillingArrayOfAnotherArrayElementsZero<Integer> fillingArrayOfAnotherArrayElementsZero = originalArray -> {
             ArrayList<Integer> integers = new ArrayList<>();
             Integer[] resultArray;
-            for (int i = 0; i < originalArray.length; i++) {
-                if (originalArray[i] == 0) {
-                    integers.add(i);
+            if (Objects.nonNull(originalArray)) {
+                for (int i = 0; i < originalArray.length; i++) {
+                    if (originalArray[i] == 0) {
+                        integers.add(i);
+                    }
                 }
+            } else {
+                System.out.println("The array is not valid for any operations or calculations.");
             }
+
             if (integers.isEmpty()) {
                 resultArray = new Integer[0];
             } else {
@@ -45,15 +64,16 @@ public class Main {
             return resultArray;
         };
 
-        integerArrayIndexZero.setArrayIndexZero(fillingArray.fillArrayOfAnotherArrayElementsZero(originalIntegerArray.getArray()));
+        integerArrayIndexZero.setArray(fillingArrayOfAnotherArrayElementsZero.fillArrayOfAnotherArrayElementsZero(originalIntegerArray.getArray()));
 
         System.out.print("Index of zero elements of the original array : ");
-        if (integerArrayIndexZero.getArrayIndexZero().length != 0) {
-            for (int i = 0; i < integerArrayIndexZero.getArrayIndexZero().length; i++) {
-                System.out.print(integerArrayIndexZero.getArrayIndexZero()[i] + " ");
+        if (integerArrayIndexZero.getArray().length != 0) {
+            for (int i = 0; i < integerArrayIndexZero.getArray().length; i++) {
+                System.out.print(integerArrayIndexZero.getArray()[i] + " ");
             }
         } else {
             System.out.println("It does not contain zero elements.");
         }
     }
+
 }

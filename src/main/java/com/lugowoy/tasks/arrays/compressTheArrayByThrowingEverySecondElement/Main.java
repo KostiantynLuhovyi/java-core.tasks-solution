@@ -1,8 +1,14 @@
 package com.lugowoy.tasks.arrays.compressTheArrayByThrowingEverySecondElement;
 
-import com.lugowoy.util.filling.arrays.FillableArray;
+import com.lugowoy.util.EnteringTheSizeOfTheArray;
+import com.lugowoy.util.factory.creating.arrays.CreatorArray;
+import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
+import com.lugowoy.util.filling.arrays.FillingArray;
 import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
+import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingRandomData;
+import com.lugowoy.util.reading.ReadingUserInputData;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,35 +19,43 @@ import java.util.Objects;
 
 public class Main {
 
-    private static final FillableArray<Integer> FILLABLE = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
+    private static FillingArray<Integer> fillArray = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
+    private static CreatorArray<Integer> creator = new CreatorArrayOfIntegerPrimitives();
+    private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
+
+    private static EnteringTheSizeOfTheArray<Integer> enterUserValueForSizeOfTheArray = EnteringTheSizeOfTheArray::enterUserInputForSizeOfTheArray;
 
     public static void main(String[] args) {
 
-        Integer[] integers = FILLABLE.fillArray(new Integer[17]);
+        int sizeArray = enterUserValueForSizeOfTheArray.enter(readingData);
 
-        Array<Integer> integerArray = new Array<>(integers);
+        Array<Integer> array = creator.create(fillArray.fillArray(new int[sizeArray]));
 
-        System.out.println("Original array : ");
-        Arrays.stream(integerArray.getArray()).forEachOrdered(integer -> System.out.print(integer + " "));
+        System.out.println("Original array : " + array);
         System.out.println();
 
-        ARRAY_COMPRESSIBLE.compress(integerArray);
+        ARRAY_COMPRESSIBLE.compress(array);
 
-        System.out.println("Result array : ");
-        Arrays.stream(integerArray.getArray()).filter(Objects::nonNull).forEachOrdered(integer -> System.out.print(integer + " "));
+        System.out.println("Result array : " + array);
         System.out.println();
 
     }
 
-    private static final Compressible<Array> ARRAY_COMPRESSIBLE = array -> {
-        if (array != null) {
-            List<Object> integerList = new ArrayList<>(0);
-            for (int i = 0; i < array.getArray().length; i++) {
-                if (i % 2 != 0) {
-                    integerList.add(array.getArray()[i]);
+    private static final Compressible<Array<Integer>> ARRAY_COMPRESSIBLE = array -> {
+        if (Objects.nonNull(array)) {
+            if ((Objects.nonNull(array.getArray())) && (array.getArray().length >= 2)) {
+                List<Integer> integerList = new ArrayList<>(0);
+                for (int i = 0; i < array.getArray().length; i++) {
+                    if ((i % 2 == 0) || (i == 0)) {
+                        integerList.add(array.getArray()[i]);
+                    }
                 }
+                    array.setArray(integerList.stream().mapToInt(Integer::intValue).boxed().toArray(Integer[]::new));
+            } else {
+                System.out.println("The array is not valid for any operations or calculations.");
             }
-            array.setArray(integerList.toArray(new Object[integerList.size()]));
+        } else {
+            System.out.println("The array is not valid for any operations or calculations.");
         }
     };
 

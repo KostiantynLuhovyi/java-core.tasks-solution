@@ -1,8 +1,14 @@
 package com.lugowoy.tasks.arrays.determineTheNumberOfTheArrayInWhichTheRemainderOfTheDivisionIsEqualToCertainNumber;
 
+import com.lugowoy.util.EnteringTheSizeOfTheArray;
+import com.lugowoy.util.factory.creating.arrays.CreatorArray;
+import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
 import com.lugowoy.util.filling.arrays.FillableArray;
+import com.lugowoy.util.filling.arrays.FillingArray;
 import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
+import com.lugowoy.util.models.arrays.Array;
 import com.lugowoy.util.reading.ReadingData;
+import com.lugowoy.util.reading.ReadingRandomData;
 import com.lugowoy.util.reading.ReadingUserInputData;
 
 import java.util.Arrays;
@@ -12,7 +18,11 @@ import java.util.Random;
 
 public class Main {
 
+    private static FillingArray<Integer> fillArray = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
+    private static CreatorArray<Integer> creator = new CreatorArrayOfIntegerPrimitives();
     private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
+
+    private static EnteringTheSizeOfTheArray<Integer> enterUserValueForSizeOfTheArray = EnteringTheSizeOfTheArray::enterUserInputForSizeOfTheArray;
 
     private static final FillableArray<Integer> FILLING_ARRAY = new FillingArrayOfRandomNumber<>(() -> new Random().nextInt(200) - 100);
 
@@ -20,10 +30,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Numbers numbers = new Numbers(Arrays.stream(integers).mapToInt(Integer::intValue).toArray());
+        int sizeArray = enterUserValueForSizeOfTheArray.enter(readingData);
 
-        System.out.println("Original array : ");
-        Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
+        Array<Integer> array = creator.create(fillArray.fillArray(new int[sizeArray], -300, 300));
+
+        System.out.println("Original array : " + array);
         System.out.println();
 
         System.out.println("Enter number to the modulo : ");
@@ -32,7 +43,7 @@ public class Main {
         System.out.println("Enter result to the modulo : ");
         int resultModulo = readingData.read();
 
-        DETERMINABLE.determinate(numbers.getNumbers(), numberToModulo, resultModulo);
+        DETERMINABLE.determinate(array.getArrayOfIntegerPrimitives(), numberToModulo, resultModulo);
     }
 
     private static final Determinable DETERMINABLE = (numbers, numberToModulo, resultModulo) -> {
@@ -49,4 +60,5 @@ public class Main {
             System.out.println("No numbers which satisfy the condition.");
         }
     };
+
 }

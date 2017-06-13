@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.arrays.determineTheNumberOfElementsThatAreIdenticalInTwoSequences;
 
+import com.lugowoy.util.models.arrays.Array;
+
 /** Created by Konstantin Lugowoy on 30.05.2017. */
 
 @FunctionalInterface
@@ -7,17 +9,18 @@ public interface Determinable<T> {
 
     int determine(T firstT, T secondT);
 
-    static int determineTheNumberOfElementsThatAreIdenticalInTwoSequences(Sequence<Integer> firstSequence, Sequence<Integer> secondSequence) {
+    static int determineTheNumberOfElementsThatAreIdenticalInTwoSequences(Array<Integer> firstArray, Array<Integer> secondArray) {
         int resultNumberOfIdenticalElements = 0;
 
-        for (int i = 0; i < firstSequence.getSequence().length; i++) {
-            for (int j = 0; j < secondSequence.getSequence().length; j++) {
-                if (firstSequence.getSequence()[i].intValue() == secondSequence.getSequence()[j].intValue()) {
+        for (int i = 0; i < firstArray.getArray().length; i++) {
+            for (int j = 0; j < secondArray.getArray().length; j++) {
+                if (firstArray.getArray()[i].intValue() == secondArray.getArray()[j].intValue()) {
                     resultNumberOfIdenticalElements++;
                 }
             }
         }
-
         return resultNumberOfIdenticalElements;
+
     }
+
 }

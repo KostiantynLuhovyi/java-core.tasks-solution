@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.arrays.countingTheNumberOfPeopleWhoseAgeIsInGivenInterval;
 
+import java.util.Objects;
+
 /** Created by Konstantin Lugowoy on 14.05.2017. */
 
 public class ArrayOfHumans {
@@ -10,7 +12,9 @@ public class ArrayOfHumans {
     }
 
     public ArrayOfHumans(Human[] humans) {
-        this.humans = humans;
+        if (Objects.nonNull(humans)) {
+            this.humans = humans;
+        }
     }
 
     public Human[] getHumans() {

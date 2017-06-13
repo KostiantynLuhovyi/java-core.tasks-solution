@@ -1,48 +1,60 @@
 package com.lugowoy.tasks.arrays.findTheSumOfAnArrayOfMultipleElementsToThisPresent;
 
+import com.lugowoy.util.EnteringTheSizeOfTheArray;
+import com.lugowoy.util.factory.creating.arrays.CreatorArray;
+import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
 import com.lugowoy.util.filling.arrays.FillableArray;
+import com.lugowoy.util.filling.arrays.FillingArray;
+import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
 import com.lugowoy.util.filling.arrays.FillingArrayOfUserInput;
+import com.lugowoy.util.models.arrays.Array;
 import com.lugowoy.util.reading.ReadingData;
+import com.lugowoy.util.reading.ReadingRandomData;
 import com.lugowoy.util.reading.ReadingUserInputData;
 
 /**Created by Konstantin Lugowoy on 12-Feb-17.*/
 
 public class Main {
 
-    private static final FillableArray<Integer> INTEGER_FILLABLE_ARRAY = new FillingArrayOfUserInput<>(new ReadingUserInputData()::readInt);
+    private static FillingArray<Integer> fillArray = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
+    private static CreatorArray<Integer> creator = new CreatorArrayOfIntegerPrimitives();
+    private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
+
+    private static EnteringTheSizeOfTheArray<Integer> enterUserValueForSizeOfTheArray = EnteringTheSizeOfTheArray::enterUserInputForSizeOfTheArray;
 
     public static void main(String[] args) {
 
-        Integer[] integers = INTEGER_FILLABLE_ARRAY.fillArray(new Integer[20]);
+        int sizeArray = enterUserValueForSizeOfTheArray.enter(readingData);
 
-        Numbers numbers = new Numbers();
-        numbers.setSourceArray(integers);
+        Array<Integer> array = creator.create(fillArray.fillArray(new int[sizeArray]));
 
         System.out.println("Result fill arrays randomly integers : ");
-        for (int i = 0; i < numbers.getSourceArray().length; i++) {
-            if (numbers.getSourceArray()[i] != null) {
-                System.out.print(numbers.getSourceArray()[i] + " ");
+        for (int i = 0; i < array.getArray().length; i++) {
+            if (array.getArray()[i] != null) {
+                System.out.print(array.getArray()[i] + " ");
             }
         }
         System.out.println();
 
         System.out.println("Enter K number : ");
-        numbers.setPresentK(new ReadingData<>(new ReadingUserInputData()::readInt).read());
+        int K = readingData.read();
 
-        numbers.setResultOfSumNumbersOfMultipleElement(FINDING_SUM_ELEMENTS.getSumElements(numbers));
+        int resultOfSumNumbersOfMultipleElement = (FINDING_SUM_ELEMENTS.getSumElements(array, K));
 
-        System.out.println("Result : " + numbers.getResultOfSumNumbersOfMultipleElement());
+        System.out.println("Result : " + resultOfSumNumbersOfMultipleElement);
     }
 
-    private static final FindingSumElements FINDING_SUM_ELEMENTS = numbers -> {
+    private static final FindingSumElements FINDING_SUM_ELEMENTS = (array, k) -> {
         int sumElements = 0;
-        for (int i = 0; i < numbers.getSourceArray().length; i++) {
-            if (numbers.getSourceArray()[i] != null) {
-                if (numbers.getSourceArray()[i] % numbers.getPresentK() == 0) {
-                    sumElements += numbers.getSourceArray()[i];
+        for (int i = 0; i < array.getArray().length; i++) {
+            if (array.getArray()[i] != null) {
+                if (array.getArray()[i] % k == 0) {
+                    sumElements += array.getArray()[i];
                 }
             }
         }
         return sumElements;
+
     };
+
 }

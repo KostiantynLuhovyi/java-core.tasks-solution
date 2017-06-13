@@ -1,5 +1,9 @@
 package com.lugowoy.tasks.arrays.determineTheNumberOfDifferentElementsInOneDimensionalArray;
 
+import com.lugowoy.util.models.arrays.Array;
+
+import java.util.Objects;
+
 /** Created by Konstantin Lugowoy on 28.05.2017. */
 
 @FunctionalInterface
@@ -10,9 +14,13 @@ public interface Determinable<T extends Number> {
     static int determineTheNumberOfDifferentElementsInOneDimensionalArray(Array<Integer> array) {
         int resultCountOfDifferentElements = 0;
 
-        for (int i = 0; i < array.getArray().length; i++) {
-            if (isUnique(array.getArray()[i], array)) {
-                resultCountOfDifferentElements++;
+        if (Objects.nonNull(array)) {
+            if ((Objects.nonNull(array.getArray())) && (array.getArray().length > 2)) {
+                for (int i = 0; i < array.getArray().length; i++) {
+                    if (isUnique(array.getArray()[i], array)) {
+                        resultCountOfDifferentElements++;
+                    }
+                }
             }
         }
 
@@ -23,9 +31,15 @@ public interface Determinable<T extends Number> {
         boolean isUnique = false;
         int countUnique = 0;
 
-        for (int i = 0; i < array.getArray().length; i++) {
-            if (number == array.getArray()[i]) {
-                countUnique++;
+        if (Objects.nonNull(array)) {
+            if ((Objects.nonNull(array.getArray())) && (array.getArray().length > 2)) {
+                if (number >= 0) {
+                    for (int i = 0; i < array.getArray().length; i++) {
+                        if (number == array.getArray()[i]) {
+                            countUnique++;
+                        }
+                    }
+                }
             }
         }
 
@@ -35,4 +49,5 @@ public interface Determinable<T extends Number> {
 
         return isUnique;
     }
+
 }

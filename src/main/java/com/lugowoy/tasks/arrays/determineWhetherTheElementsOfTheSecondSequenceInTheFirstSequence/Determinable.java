@@ -1,5 +1,9 @@
 package com.lugowoy.tasks.arrays.determineWhetherTheElementsOfTheSecondSequenceInTheFirstSequence;
 
+import com.lugowoy.util.models.arrays.Array;
+
+import java.util.Objects;
+
 /** Created by Konstantin Lugowoy on 12.04.2017. */
 
 @FunctionalInterface
@@ -7,14 +11,21 @@ public interface Determinable<T> {
 
     boolean determine(T tFirst, T tSecond);
 
-    static boolean determineWhetherTheElementsOfTheSecondSequenceInTheFirstSequence(Sequence<Integer> tFirst, Sequence<Integer> tSecond) {
+    static boolean determineWhetherTheElementsOfTheSecondSequenceInTheFirstSequence(Array<Integer> firstArray, Array<Integer> secondArray) {
         boolean result = true;
-        label :
-        for (int i : tFirst.getSequence()) {
-            for (int j : tSecond.getSequence())
-                if (i == j) continue label;
-            result = false;
+        if ((Objects.nonNull(firstArray)) && (Objects.nonNull(secondArray))) {
+            if (((Objects.nonNull(firstArray.getArray())) && (Objects.nonNull(secondArray.getArray())))
+                    && ((firstArray.getArray().length > 0) && (secondArray.getArray().length > 0))) {
+                label:
+                for (int i : firstArray.getArray()) {
+                    for (int j : secondArray.getArray())
+                        if (i == j) continue label;
+                    result = false;
+                }
+            }
         }
         return result;
+
     }
+
 }

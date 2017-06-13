@@ -14,4 +14,5 @@ public interface Sortable<T> {
     static void sortingIntegerSequence(Integer[] integers) {
         Arrays.stream(integers).sorted().collect(Collectors.toList()).toArray(integers);
     }
+
 }
