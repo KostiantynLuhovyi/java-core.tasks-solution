@@ -10,15 +10,15 @@ package com.lugowoy.util.calculating;
  * Functional interface declares a contract for calculations using the two variables.
  */
 @FunctionalInterface
-public interface CalculableOnTheTwoVariables<T> {
+public interface CalculableOnTheTwoVariables<T, K, V> {
 
     /**
      * The method(function) of performing calculations on the value of the two variables.
      *
-     * @param tFirst  The first variable for calculate.
-     * @param tSecond The second variable for calculate.
-     * @return The result of the calculation.
+     * @param kFirst  The first variable for calculate.
+     * @param vSecond The second variable for calculate.
+     * @return The result of the calculation T.
      * @since 03.02.2017
      */
-    T calculate(T tFirst, T tSecond);
+    T calculate(K kFirst, V vSecond);
 }
