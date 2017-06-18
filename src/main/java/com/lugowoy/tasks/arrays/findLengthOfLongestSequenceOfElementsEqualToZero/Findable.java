@@ -4,6 +4,7 @@ import com.lugowoy.util.models.arrays.Array;
 
 /** Created by Konstantin Lugowoy on 18.06.2017. */
 
+@FunctionalInterface
 public interface Findable<T, V> {
 
      T find(V v);
