@@ -1,6 +1,5 @@
 package com.lugowoy.tasks.arrays.determineTheNumberOfTheArrayInWhichTheRemainderOfTheDivisionIsEqualToCertainNumber;
 
-import com.lugowoy.util.EnteringTheSizeOfTheArray;
 import com.lugowoy.util.factory.creating.arrays.CreatorArray;
 import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
 import com.lugowoy.util.filling.arrays.FillableArray;
@@ -10,8 +9,8 @@ import com.lugowoy.util.models.arrays.Array;
 import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingRandomData;
 import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.util.reading.ReadingUserInputSizeOfTheArray;
 
-import java.util.Arrays;
 import java.util.Random;
 
 /**Created by Konstantin Lugowoy on 14-Feb-17.*/
@@ -22,15 +21,13 @@ public class Main {
     private static CreatorArray<Integer> creator = new CreatorArrayOfIntegerPrimitives();
     private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
 
-    private static EnteringTheSizeOfTheArray<Integer> enterUserValueForSizeOfTheArray = EnteringTheSizeOfTheArray::enterUserInputForSizeOfTheArray;
-
     private static final FillableArray<Integer> FILLING_ARRAY = new FillingArrayOfRandomNumber<>(() -> new Random().nextInt(200) - 100);
 
     private static Integer[] integers = FILLING_ARRAY.fillArray(new Integer[20]);
 
     public static void main(String[] args) {
 
-        int sizeArray = enterUserValueForSizeOfTheArray.enter(readingData);
+        int sizeArray = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray();
 
         Array<Integer> array = creator.create(fillArray.fillArray(new int[sizeArray], -300, 300));
 

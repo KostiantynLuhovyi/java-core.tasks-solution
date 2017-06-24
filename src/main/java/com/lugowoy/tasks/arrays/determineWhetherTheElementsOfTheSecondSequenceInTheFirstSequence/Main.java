@@ -1,6 +1,5 @@
 package com.lugowoy.tasks.arrays.determineWhetherTheElementsOfTheSecondSequenceInTheFirstSequence;
 
-import com.lugowoy.util.EnteringTheSizeOfTheArray;
 import com.lugowoy.util.factory.creating.arrays.CreatorArray;
 import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
 import com.lugowoy.util.filling.arrays.FillingArray;
@@ -9,9 +8,7 @@ import com.lugowoy.util.models.arrays.Array;
 import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingRandomData;
 import com.lugowoy.util.reading.ReadingUserInputData;
-
-import java.util.Arrays;
-import java.util.Random;
+import com.lugowoy.util.reading.ReadingUserInputSizeOfTheArray;
 
 /** Created by Konstantin Lugowoy on 12.04.2017. */
 
@@ -21,14 +18,13 @@ public class Main {
     private static CreatorArray<Integer> creator = new CreatorArrayOfIntegerPrimitives();
     private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
 
-    private static EnteringTheSizeOfTheArray<Integer> enterUserValueForSizeOfTheArray = EnteringTheSizeOfTheArray::enterUserInputForSizeOfTheArray;
-
     public static void main(String[] args) {
 
-        int sizeArrays = enterUserValueForSizeOfTheArray.enter(readingData);
+        int sizeToFirstArray = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray("Enter a value for the size of the first array : ");
+        int sizeToSecondArray = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray("Enter a value for the size of the second array : ");
 
-        Array<Integer> firstArray = creator.create(fillArray.fillArray(new int[sizeArrays], 50));
-        Array<Integer> secondArray = creator.create(fillArray.fillArray(new int[sizeArrays], 50));
+        Array<Integer> firstArray = creator.create(fillArray.fillArray(new int[sizeToFirstArray], 50));
+        Array<Integer> secondArray = creator.create(fillArray.fillArray(new int[sizeToSecondArray], 50));
 
         System.out.println("First array : " + firstArray);
         System.out.println();

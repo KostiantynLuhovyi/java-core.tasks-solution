@@ -1,11 +1,5 @@
 package com.lugowoy.tasks.core.convertTheTimeInSecondsToTheCorrespondingTimeOfTheStandardView;
 
-import com.lugowoy.util.EnteringTheSizeOfTheArray;
-import com.lugowoy.util.converting.Converting;
-import com.lugowoy.util.converting.ConvertingData;
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
-
 import java.util.Scanner;
 
 /** Created by Konstantin Lugowoy on 06.06.2017. */

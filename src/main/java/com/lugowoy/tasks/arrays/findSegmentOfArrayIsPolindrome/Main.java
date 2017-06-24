@@ -1,13 +1,11 @@
 package com.lugowoy.tasks.arrays.findSegmentOfArrayIsPolindrome;
 
-import com.lugowoy.util.EnteringTheSizeOfTheArray;
 import com.lugowoy.util.factory.creating.arrays.CreatorArray;
 import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
 import com.lugowoy.util.filling.arrays.FillingArray;
 import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
 import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.util.reading.ReadingUserInputSizeOfTheArray;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -18,15 +16,12 @@ import static java.util.Arrays.copyOfRange;
 
 public class Main {
 
-    private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
     private static FillingArray<Integer> fillingArray = new FillingArrayOfRandomNumber<>();
     private static CreatorArray<Integer> creatorArray = new CreatorArrayOfIntegerPrimitives();
 
-    private static EnteringTheSizeOfTheArray<Integer> enteringTheSizeOfTheArray = EnteringTheSizeOfTheArray::enterUserInputForSizeOfTheArray;
-
     public static void main(String[] args) {
 
-        int sizeArray = enteringTheSizeOfTheArray.enter(readingData);
+        int sizeArray = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray();
 
         Array<Integer> array = creatorArray.create(fillingArray.fillArray(new int[sizeArray], 50));
 
