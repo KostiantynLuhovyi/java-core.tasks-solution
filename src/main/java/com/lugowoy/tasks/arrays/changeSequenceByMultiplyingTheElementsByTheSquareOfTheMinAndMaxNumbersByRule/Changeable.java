@@ -13,12 +13,12 @@ public interface Changeable<T, V> {
 
     static void changeSequenceByMultiplyingTheElementsByTheSquareOfTheMinAndMaxNumberByRule(Array<Integer> array, int squareMinNumber, int squareMaxNumber) {
         if (Objects.nonNull(array)) {
-            if ((Objects.nonNull(array.getArray()) && (array.getArray().length > 0))) {
-                for (int i = 0; i < array.getArray().length; i++) {
-                    if (array.getArray()[i] >= 0) {
-                        array.getArray()[i] *= squareMinNumber;
-                    } else if (array.getArray()[i] <= 0) {
-                        array.getArray()[i] *= squareMaxNumber;
+            if ((Objects.nonNull(array.getArrayOfIntegerPrimitives()) && (array.getArrayOfIntegerPrimitives().length > 0))) {
+                for (int i = 0; i < array.getArrayOfIntegerPrimitives().length; i++) {
+                    if (array.getArrayOfIntegerPrimitives()[i] >= 0) {
+                        array.getArrayOfIntegerPrimitives()[i] *= squareMinNumber;
+                    } else if (array.getArrayOfIntegerPrimitives()[i] <= 0) {
+                        array.getArrayOfIntegerPrimitives()[i] *= squareMaxNumber;
                     }
                 }
             } else {

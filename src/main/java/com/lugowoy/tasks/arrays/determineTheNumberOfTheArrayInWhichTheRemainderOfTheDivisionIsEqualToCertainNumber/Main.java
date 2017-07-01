@@ -21,15 +21,11 @@ public class Main {
     private static CreatorArray<Integer> creator = new CreatorArrayOfIntegerPrimitives();
     private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
 
-    private static final FillableArray<Integer> FILLING_ARRAY = new FillingArrayOfRandomNumber<>(() -> new Random().nextInt(200) - 100);
-
-    private static Integer[] integers = FILLING_ARRAY.fillArray(new Integer[20]);
-
     public static void main(String[] args) {
 
         int sizeArray = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray();
 
-        Array<Integer> array = creator.create(fillArray.fillArray(new int[sizeArray], -300, 300));
+        Array<Integer> array = creator.create(fillArray.fillArray(new int[sizeArray], -200, 300));
 
         System.out.println("Original array : " + array);
         System.out.println();

@@ -28,11 +28,13 @@ public class Main {
 
         Findable<Integer> findable = Main::findMax;
         int maxElement = findable.find(array.getArray());
-        System.out.println(maxElement);
+        System.out.println("Max element in the array is " + maxElement);
 
         findable = Main::findMin;
         int minElement = findable.find(array.getArray());
-        System.out.println(minElement);
+        System.out.println("Min element in the array is " + minElement);
+
+        System.out.println();
 
         System.out.println("Result summation : " + (maxElement + minElement));
     }

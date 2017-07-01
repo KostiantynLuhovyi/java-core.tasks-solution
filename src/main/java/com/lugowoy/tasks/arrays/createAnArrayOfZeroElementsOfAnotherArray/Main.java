@@ -23,7 +23,7 @@ public class Main {
 
         int sizeArray = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray();
 
-        Array<Integer> originalIntegerArray = creator.create(fillArray.fillArray(new int[sizeArray]));
+        Array<Integer> originalIntegerArray = creator.create(fillArray.fillArray(new int[sizeArray], 50));
 
         System.out.println("Elements of of the original array : " + originalIntegerArray);
         System.out.println();

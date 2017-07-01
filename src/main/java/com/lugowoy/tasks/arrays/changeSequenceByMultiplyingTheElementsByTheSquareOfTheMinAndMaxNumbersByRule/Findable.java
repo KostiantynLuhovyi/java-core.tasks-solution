@@ -28,10 +28,10 @@ public interface Findable<T> {
         } else {
             System.out.println("The array is not valid for any operations or calculations.");
         }
-
         resultFindMinNumber = array.getArray()[indexMinNumber];
 
         return resultFindMinNumber;
+
     }
 
     static Integer findMaxNumber(Array<Integer> array) {
@@ -52,9 +52,10 @@ public interface Findable<T> {
         } else {
             System.out.println("The array is not valid for any operations or calculations.");
         }
-
         resultFindMaxNumber = array.getArray()[indexMaxNumber];
 
         return resultFindMaxNumber;
+
     }
+
 }

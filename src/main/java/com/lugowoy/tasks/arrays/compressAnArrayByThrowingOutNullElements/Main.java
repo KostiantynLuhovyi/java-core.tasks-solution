@@ -31,7 +31,7 @@ public class Main {
         COMPRESSIBLE.compress(array);
 
         System.out.println();
-        System.out.println("\nResult array : " + array);
+        System.out.println("Result array : " + array);
     }
 
     private static final Compressible<Integer> COMPRESSIBLE = array -> {
@@ -55,5 +55,7 @@ public class Main {
         }
 
         System.out.printf("Number of zero elements in the array : %d .", numberZeroElements);
+        System.out.println();
     };
+
 }

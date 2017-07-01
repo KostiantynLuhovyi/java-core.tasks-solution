@@ -9,6 +9,9 @@ import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingUserInputData;
 import com.lugowoy.util.reading.ReadingUserInputSizeOfTheArray;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /** Created by Konstantin Lugowoy on 18.06.2017. */
 
 public class Main {
@@ -23,16 +26,32 @@ public class Main {
 
         Array<Integer> array = creatorArray.create(fillingArray.fillArray(new int[sizeArray], 0, 10));
 
+        System.out.println("Original " + array);
+        System.out.println();
+
         int number = getNumber();
 
         Findable<Array<Integer>, Integer> findable = Findable::findSubsetOfContiguousElementsOfArraySumOfValuesOfElementsWhichIsEqualToNumber;
 
-        Array<Integer> resultArray = creatorArray.create(findable.find(array, number));
-        if (resultArray.getArray() != null) {
-            System.out.println("Result : " + resultArray);
+        Integer[] resultIntegers = findable.find(array, number);
+
+        if (resultIntegers != null) {
+
+            Array<Integer> resultArray = creatorArray.create(findable.find(array, number));
+
+            if (Objects.nonNull(resultArray)) {
+                if (resultArray.getArray() != null) {
+                    System.out.println("Result : " + resultArray);
+                } else {
+                    System.out.println("An array does not contain such a sequence of elements.");
+                }
+            } else {
+                System.out.println("Result array is null.");
+            }
         } else {
-            System.out.println("An array does not contain such a sequence of elements.");
+            System.out.println("Result array is null.");
         }
+
 
 
     }
@@ -42,7 +61,7 @@ public class Main {
         int number;
         while (true) {
             number = readingData.read();
-            if ((number > 0) && (number < 200)) {
+            if ((number >= 0) && (number <= 200)) {
                 break;
             } else {
                 System.out.println("Number must be a positive number.");

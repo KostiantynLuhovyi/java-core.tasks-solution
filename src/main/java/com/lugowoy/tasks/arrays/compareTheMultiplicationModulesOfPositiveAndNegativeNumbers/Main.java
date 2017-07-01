@@ -28,10 +28,10 @@ public class Main {
         System.out.println();
 
         Multipliable<Integer, Array<Integer>> multipliable = MultipliableNegativeNumbers::multiplication;
-        Integer resultModuleOfNegativeNumbers = Math.abs(multipliable.multiplication(array));
+        int resultModuleOfNegativeNumbers = Math.abs(multipliable.multiplication(array));
 
         multipliable = MultipliablePositiveNumbers::multiplication;
-        Integer resultModuleOfPositiveNumbers = Math.abs(multipliable.multiplication(array));
+        int resultModuleOfPositiveNumbers = Math.abs(multipliable.multiplication(array));
 
         if (resultModuleOfNegativeNumbers > resultModuleOfPositiveNumbers) {
             System.out.println("Multiplication negative numbers on the module larger positive numbers.");

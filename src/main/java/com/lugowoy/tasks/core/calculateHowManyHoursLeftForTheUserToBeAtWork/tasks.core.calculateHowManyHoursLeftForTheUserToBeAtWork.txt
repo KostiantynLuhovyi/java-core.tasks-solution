@@ -1,0 +1,1 @@
+Calculate how many hours left for the user to be at work.

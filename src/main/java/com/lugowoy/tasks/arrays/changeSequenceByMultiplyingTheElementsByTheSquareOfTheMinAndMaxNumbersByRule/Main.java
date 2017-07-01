@@ -26,18 +26,31 @@ public class Main {
         System.out.println("Original sequence : " + array);
         System.out.println();
 
-        Findable<Integer> findable = Findable::findMinNumber;
-        int squareMinNumberInTheSequence = (int) Math.pow(findable.find(array), 2);
-        System.out.println("Square min number in the sequence is " + squareMinNumberInTheSequence + " .");
+        int squareMinNumberInTheSequence = getSquareMinNumberInTheSequence(array, Findable::findMinNumber);
 
-        findable = Findable::findMaxNumber;
-        int squareMaxNumberInTheSequence = (int) Math.pow(findable.find(array), 2);
-        System.out.println("Square max number in the sequence is " + squareMaxNumberInTheSequence + " .");
+        int squareMaxNumberInTheSequence = getSquareMaxNumberInTheSequence(array, Findable::findMaxNumber);
 
         CHANGEABLE.change(array, squareMinNumberInTheSequence, squareMaxNumberInTheSequence);
 
+        System.out.println();
         System.out.println("Result sequence after changing : " + array);
         System.out.println();
+
+    }
+
+    private static int getSquareMaxNumberInTheSequence(Array<Integer> array, Findable<Integer> findable) {
+        int squareMaxNumberInTheSequence = (int) Math.pow(findable.find(array), 2);
+        System.out.println("Square max number in the array is " + squareMaxNumberInTheSequence + " .");
+
+        return squareMaxNumberInTheSequence;
+
+    }
+
+    private static int getSquareMinNumberInTheSequence(Array<Integer> array, Findable<Integer> findable) {
+        int squareMinNumberInTheSequence = (int) Math.pow(findable.find(array), 2);
+        System.out.println("Square min number in the array is " + squareMinNumberInTheSequence + " .");
+
+        return squareMinNumberInTheSequence;
 
     }
 
