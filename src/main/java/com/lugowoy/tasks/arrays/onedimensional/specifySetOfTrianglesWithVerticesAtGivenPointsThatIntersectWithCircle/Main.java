@@ -11,6 +11,8 @@ import com.lugowoy.util.reading.ReadingRandomData;
 import com.lugowoy.util.reading.ReadingUserInputData;
 import com.lugowoy.util.reading.ReadingUserInputSizeOfTheArray;
 
+import java.util.Arrays;
+
 /** Created by Konstantin Lugowoy on 02.07.2017. */
 
 public class Main {
@@ -27,7 +29,9 @@ public class Main {
 
         fillPointsArray(pointsArray, creatorPoint, readingData);
 
-        System.out.println("Points : " + pointsArray);
+        System.out.println();
+        System.out.println("Points : ");
+        Arrays.stream(pointsArray.getArray()).forEachOrdered(System.out::println);
         System.out.println();
 
         double radius = getRadius();
@@ -59,6 +63,7 @@ public class Main {
         for (int i = 0; i < pointsArray.getArray().length; i++) {
             pointsArray.getArray()[i] = creatorPoint.create(readingData.read(), readingData.read());
         }
+
     }
 
 }

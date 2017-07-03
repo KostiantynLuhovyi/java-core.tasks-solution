@@ -7,6 +7,7 @@ import static java.lang.Math.*;
 
 /** Created by Konstantin Lugowoy on 03.07.2017. */
 
+@FunctionalInterface
 public interface TrigonometricDeterminable<T, V> {
 
     void determine(T t, V v);

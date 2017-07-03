@@ -49,7 +49,7 @@ public class Point<T> extends Model {
     public String toString() {
         return "Point[" +
                 "coordinateX=" + coordinateX +
-                ", coordinateY=" +  +
+                ", coordinateY=" + coordinateY +
                 ']';
     }
 
