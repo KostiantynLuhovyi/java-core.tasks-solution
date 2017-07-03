@@ -47,10 +47,10 @@ public class Point<T> extends Model {
 
     @Override
     public String toString() {
-        return "Point{" +
+        return "Point[" +
                 "coordinateX=" + coordinateX +
                 ", coordinateY=" +  +
-                '}';
+                ']';
     }
 
     public T getCoordinateX() {
