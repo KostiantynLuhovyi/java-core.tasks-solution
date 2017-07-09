@@ -1,0 +1,2 @@
+Write a program that introduces positive real numbers for the quadratic equation ax² + bx + c = 0.
+Find both roots of this equation.
