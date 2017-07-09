@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.arrays.onedimensional.toDetermineTheSequenceOfNumbersIsIncreasing;
+package com.lugowoy.tasks.arrays.onedimensional.determineTheSequenceOfNumbersIsIncreasing;
 
 import com.lugowoy.util.filling.arrays.FillableArray;
 import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;

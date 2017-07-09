@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.arrays.onedimensional.toDisplayTheNumberForParticularCondition;
+package com.lugowoy.tasks.arrays.onedimensional.outputToDisplayTheNumberForParticularCondition;
 
 /**Created by Konstantin Lugowoy on 14-Feb-17.*/
 

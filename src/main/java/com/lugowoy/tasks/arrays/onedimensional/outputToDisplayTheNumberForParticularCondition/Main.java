@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.arrays.onedimensional.toDisplayTheNumberForParticularCondition;
+package com.lugowoy.tasks.arrays.onedimensional.outputToDisplayTheNumberForParticularCondition;
 
 import com.lugowoy.util.filling.arrays.FillableArray;
 import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;

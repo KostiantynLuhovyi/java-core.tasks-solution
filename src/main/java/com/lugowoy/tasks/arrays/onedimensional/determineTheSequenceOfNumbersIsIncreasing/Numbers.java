@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.arrays.onedimensional.toDetermineTheSequenceOfNumbersIsIncreasing;
+package com.lugowoy.tasks.arrays.onedimensional.determineTheSequenceOfNumbersIsIncreasing;
 
 /**Created by Konstantin Lugowoy on 13-Feb-17.*/
 

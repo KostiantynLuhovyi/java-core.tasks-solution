@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.core.toExchangeAnCentralNumberOfTwoNumbers;
+package com.lugowoy.tasks.core.exchangeAnCentralNumberOfTwoNumbers;
 
 /**
  * Created by Konstantin Lugowoy on 05-Feb-17.

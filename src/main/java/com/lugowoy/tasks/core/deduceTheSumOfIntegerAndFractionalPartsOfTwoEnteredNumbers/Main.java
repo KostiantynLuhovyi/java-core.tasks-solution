@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.core.toDeduceTheSumOfIntegerAndFractionalPartsOfTwoEnteredNumbers;
+package com.lugowoy.tasks.core.deduceTheSumOfIntegerAndFractionalPartsOfTwoEnteredNumbers;
 
 import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingUserInputData;

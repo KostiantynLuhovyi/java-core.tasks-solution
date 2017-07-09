@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.arrays.onedimensional.toCreateAnArrayOfEvenNumbersBasedOnAnotherArray;
+package com.lugowoy.tasks.arrays.onedimensional.createAnArrayOfEvenNumbersBasedOnAnotherArray;
 
 import com.lugowoy.util.filling.arrays.FillableArray;
 import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;

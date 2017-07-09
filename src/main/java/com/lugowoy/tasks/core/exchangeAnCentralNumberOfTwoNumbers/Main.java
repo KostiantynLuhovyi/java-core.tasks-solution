@@ -1,8 +1,7 @@
-package com.lugowoy.tasks.core.toExchangeAnCentralNumberOfTwoNumbers;
+package com.lugowoy.tasks.core.exchangeAnCentralNumberOfTwoNumbers;
 
 import com.lugowoy.util.reading.ReadingData;
 import com.lugowoy.util.reading.ReadingUserInputData;
-import com.lugowoy.util.reading.StoppingEnterValueException;
 
 /**
  * Created by Konstantin Lugowoy on 05-Feb-17.

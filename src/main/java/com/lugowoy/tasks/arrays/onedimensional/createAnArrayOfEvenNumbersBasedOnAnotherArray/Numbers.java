@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.arrays.onedimensional.toCreateAnArrayOfEvenNumbersBasedOnAnotherArray;
+package com.lugowoy.tasks.arrays.onedimensional.createAnArrayOfEvenNumbersBasedOnAnotherArray;
 
 /**Created by Konstantin Lugowoy on 13-Feb-17.*/
 
