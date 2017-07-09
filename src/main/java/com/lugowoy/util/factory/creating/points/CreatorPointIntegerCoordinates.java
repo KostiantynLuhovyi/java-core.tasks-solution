@@ -5,7 +5,7 @@ import com.lugowoy.util.models.other.PointIntegerCoordinates;
 
 /** Created by Konstantin Lugowoy on 02.07.2017. */
 
-public class CreatePointIntegerCoordinates extends CreatorPoint<Integer> {
+public class CreatorPointIntegerCoordinates extends CreatorPoint<Integer> {
 
     @Override
     public Point<Integer> create() {

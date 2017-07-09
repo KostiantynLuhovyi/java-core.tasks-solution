@@ -43,7 +43,7 @@ public class FillingArrayOfRandomNumber<T extends Number> extends FillingArray<T
     @Override
     public int[] fillArray(int[] intArray, int minBound, int maxBound) {
         Random random = new Random();
-        intArray = Arrays.stream(new Integer[intArray.length]).mapToInt(value -> (minBound + random.nextInt(maxBound))).toArray();
+        intArray = Arrays.stream(new Integer[intArray.length]).mapToInt(value -> (minBound + (random.nextInt((maxBound - minBound) + 1)))).toArray();
         return intArray;
     }
 
@@ -56,7 +56,7 @@ public class FillingArrayOfRandomNumber<T extends Number> extends FillingArray<T
 
     @Override
     public double[] fillArray(double[] doubleArray, double minBound, double maxBound) {
-        doubleArray = Arrays.stream(new Double[doubleArray.length]).mapToDouble(value -> minBound + (Math.random() * maxBound)).toArray();
+        doubleArray = Arrays.stream(new Double[doubleArray.length]).mapToDouble(value -> (minBound + (Math.random() * (maxBound - minBound)) + 1)).toArray();
         return doubleArray;
     }
 

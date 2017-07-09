@@ -2,7 +2,7 @@ package com.lugowoy.tasks.arrays.onedimensional.findIndicesOfMostRemoteAndLeastD
 
 import com.lugowoy.util.factory.creating.arrays.CreatorArray;
 import com.lugowoy.util.factory.creating.arrays.CreatorArraysOfObjects;
-import com.lugowoy.util.factory.creating.points.CreatePointDoubleCoordinates;
+import com.lugowoy.util.factory.creating.points.CreatorPointDoubleCoordinates;
 import com.lugowoy.util.factory.creating.points.CreatorPoint;
 import com.lugowoy.util.models.arrays.Array;
 import com.lugowoy.util.models.other.Point;
@@ -17,7 +17,7 @@ import java.util.Arrays;
 public class Main {
 
     private static CreatorArray<Point<Double>> creatorArray = new CreatorArraysOfObjects<>();
-    private static CreatorPoint<Double> creatorPoint = new CreatePointDoubleCoordinates();
+    private static CreatorPoint<Double> creatorPoint = new CreatorPointDoubleCoordinates();
     private static ReadingData<Double> readingData = new ReadingData<>(new ReadingRandomData()::readDouble);
 
     public static void main(String[] args) {

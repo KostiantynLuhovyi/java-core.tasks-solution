@@ -15,7 +15,6 @@ import java.util.Arrays;
 
 public class Main {
 
-    private static FillingArray<Integer> fillArray = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
     private static CreatorArray<Integer> creatorArray = new CreatorArrayOfIntegerPrimitives();
     private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
 

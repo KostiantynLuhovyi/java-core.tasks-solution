@@ -5,7 +5,7 @@ import com.lugowoy.util.models.other.PointDoubleCoordinates;
 
 /** Created by Konstantin Lugowoy on 02.07.2017. */
 
-public class CreatePointDoubleCoordinates extends CreatorPoint<Double> {
+public class CreatorPointDoubleCoordinates extends CreatorPoint<Double> {
 
     @Override
     public Point<Double> create() {

@@ -2,7 +2,7 @@ package com.lugowoy.tasks.arrays.onedimensional.specifySetOfTrianglesWithVertice
 
 import com.lugowoy.util.factory.creating.arrays.CreatorArray;
 import com.lugowoy.util.factory.creating.arrays.CreatorArraysOfObjects;
-import com.lugowoy.util.factory.creating.points.CreatePointIntegerCoordinates;
+import com.lugowoy.util.factory.creating.points.CreatorPointIntegerCoordinates;
 import com.lugowoy.util.factory.creating.points.CreatorPoint;
 import com.lugowoy.util.models.arrays.Array;
 import com.lugowoy.util.models.other.Point;
@@ -18,7 +18,7 @@ import java.util.Arrays;
 public class Main {
 
     private static CreatorArray<Point<Integer>> creatorArray = new CreatorArraysOfObjects<>();
-    private static CreatorPoint<Integer> creatorPoint = new CreatePointIntegerCoordinates();
+    private static CreatorPoint<Integer> creatorPoint = new CreatorPointIntegerCoordinates();
     private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingRandomData()::readInt);
 
     public static void main(String[] args) {
