@@ -24,4 +24,5 @@ interface ReadableRandomData extends ReadableData {
     * Argument "bound" indicates the upper limit: 0 ... bound.
     * */
     int readInt(int bound);
+
 }

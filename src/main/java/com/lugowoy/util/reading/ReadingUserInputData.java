@@ -97,21 +97,20 @@ public class ReadingUserInputData implements ReadableUserInputData {
     }
 
     private double getCorrectDoubleNumberValue() {
-        double inputValue = 0;
+        double value;
 
-        String value = SCANNER.nextLine();
+        String inputValue = SCANNER.nextLine();
 
         try {
+            if (!inputValue.equalsIgnoreCase("stop")) {
 
-            if (!value.equalsIgnoreCase("stop")) {
-
-                if (((value.matches("\\d+?[.]\\d+?")) || (value.matches("-\\d+?[.]\\d+?")))
-                        || (((value.matches("\\d+?")) || (value.matches("-\\d+?"))))) {
-                    inputValue = Double.parseDouble(value);
+                if (((inputValue.matches("\\d+?[.]\\d+?")) || (inputValue.matches("-\\d+?[.]\\d+?")))
+                        || (((inputValue.matches("\\d+?")) || (inputValue.matches("-\\d+?"))))) {
+                    value = Double.parseDouble(inputValue);
                 } else {
                     System.out.println("Not correct input number value.");
                     System.out.println("Re-enter : ");
-                    inputValue = this.getCorrectDoubleNumberValue();
+                    value = this.getCorrectDoubleNumberValue();
                 }
             } else {
                 throw new StoppingEnterValueException();
@@ -119,10 +118,10 @@ public class ReadingUserInputData implements ReadableUserInputData {
         } catch (NumberFormatException ex) {
             System.out.println("Not correct input number value.");
             System.out.println("Re-enter : ");
-            inputValue = this.getCorrectDoubleNumberValue();
-        } catch (StoppingEnterValueException e) {
-            e.printStackTrace();
+            value = this.getCorrectDoubleNumberValue();
         }
-        return inputValue;
+        return value;
+
     }
+
 }

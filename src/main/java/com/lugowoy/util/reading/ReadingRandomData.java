@@ -51,4 +51,6 @@ public class ReadingRandomData implements ReadableRandomData {
     public double readDouble() {
         return RANDOM.nextDouble();
     }
+
+
 }

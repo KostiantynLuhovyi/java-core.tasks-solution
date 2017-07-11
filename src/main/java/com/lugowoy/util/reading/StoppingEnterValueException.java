@@ -10,7 +10,7 @@ package com.lugowoy.util.reading;
  * This class exception used to determine the correctness of the data input stop.
  * @since 1.0
  */
-public class StoppingEnterValueException extends Exception {
+public class StoppingEnterValueException extends RuntimeException {
 
     public StoppingEnterValueException() {
     }

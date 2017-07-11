@@ -1,6 +1,8 @@
 package com.lugowoy.util.filling.arrays;
 
 import com.lugowoy.util.reading.Reading;
+import com.lugowoy.util.reading.StoppingEnterValueException;
+
 import java.util.Arrays;
 
 import static java.util.Arrays.copyOf;
@@ -8,9 +10,6 @@ import static java.util.Arrays.copyOf;
 /**Created by Konstantin Lugowoy on 15-Feb-17.*/
 
 public class FillingArrayOfUserInput<T extends Number> extends FillingArray<T> {
-
-    public FillingArrayOfUserInput() {
-    }
 
     public FillingArrayOfUserInput(Reading<T> reading) {
         super(reading);
@@ -26,11 +25,17 @@ public class FillingArrayOfUserInput<T extends Number> extends FillingArray<T> {
                 if (arrayLength == tArray.length) {
                     tArray = this.increaseSizeOfTheArray(tArray);
                 }
-                tArray[i] = super.getReadingData().read();
-                arrayLength++;
+                try {
+                    tArray[i] = super.getReadingData().read();
+                    arrayLength++;
+                } catch (StoppingEnterValueException ex) {
+                    tArray = Arrays.copyOf(tArray, arrayLength);
+                    break;
+                }
             }
         } else {
-            throw new NullPointerException("The array must not be equal to null.");
+            System.out.println("Incorrect value for the array.");
+            System.out.println("The array must not be equal to null.");
         }
         return tArray;
     }

@@ -21,5 +21,5 @@ interface ReadableData extends Readable {
     /*
     * Abstract method reads the double value type, depending on the particular implementation.
     * */
-    double readDouble();
+    double readDouble() throws StoppingEnterValueException;
 }

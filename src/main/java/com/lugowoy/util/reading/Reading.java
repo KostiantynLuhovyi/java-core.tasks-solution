@@ -17,4 +17,5 @@ public interface Reading<T> {
      * @since 1.1
      */
     T reading();
+
 }

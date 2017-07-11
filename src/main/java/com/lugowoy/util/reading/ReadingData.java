@@ -43,4 +43,5 @@ public class ReadingData<T> {
     public Reading<T> getReading() {
         return reading;
     }
+
 }
