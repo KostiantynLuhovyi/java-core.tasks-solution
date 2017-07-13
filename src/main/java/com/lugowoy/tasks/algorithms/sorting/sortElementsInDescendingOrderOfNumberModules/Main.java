@@ -1,7 +1,6 @@
 package com.lugowoy.tasks.algorithms.sorting.sortElementsInDescendingOrderOfNumberModules;
 
 import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
-import com.lugowoy.util.filling.arrays.FillableArrayOfRandomNumber;
 import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
 import com.lugowoy.util.models.arrays.Array;
 import com.lugowoy.util.reading.ReadingRandomData;
