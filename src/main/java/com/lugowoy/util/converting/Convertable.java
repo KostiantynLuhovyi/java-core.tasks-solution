@@ -8,14 +8,18 @@ package com.lugowoy.util.converting;
  * @since 1.1
  * <p>
  * Interface "Convertable" declares the contract for the implementation of the convert.
+ * </p>
+ * @param <T> - Type of object encapsulating the data used to convert.
  */
 public interface Convertable<T> {
 
     /**
-     * Is necessary to implement this method to perform the convert.
-     *
-     * @param t The object encapsulates the field to perform the convert.
+     * <p>
+     * The method performs the implemented conversion using the data of the object transferred to the parameter.
+     * </p>
+     * @param t - The data of this object is used for conversion.
      * @since 1.1
      */
     void convert(T t);
+
 }
