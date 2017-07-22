@@ -1,52 +1,53 @@
 package com.lugowoy.util.reading;
 
 /**
- * Created by Konstantin on 27-Jan-17.
+ * Created by Konstantin Lugowoy on 27-Jan-17.
  *
- * @author Konstantin
+ * @author Konstantin Lugowoy
  * @version 1.1
- * @see com.lugowoy.util.reading.ReadableData
- * @see com.lugowoy.util.reading.ReadableRandomData
  * @since 1.1
  * <p>
- * This class implements the contract announced in the interface "ReadableRandomData"
- * and abstract contract passed by inheritance from interface "ReadableData".
+ * This class implements the contract declared by the interface ReadableRandomData.
+ * @see com.lugowoy.util.reading.Readable
+ * @see com.lugowoy.util.reading.ReadableData
+ * @see com.lugowoy.util.reading.ReadableRandomData
+ * The purpose of the functionality implemented by this class is to read and provide the generated pseudorandom numeric data.
+ * </p>
  */
 public class ReadingRandomData implements ReadableRandomData {
+
     /**
-     * The method generates a random number in the range 0 to bound.
-     * Override(implements) method with interface "ReadableRandomData".
-     *
-     * @param bound The upper limit in the generation of a random number of type integer.
-     * @return Randomly generated integer value of type integer.
+     * <p>
+     * A method that reads a concrete data of an integer type in the range from 0 to bound, inclusive.
+     * </p>
+     * @param bound - The maximum value up to which will be made the generation of pseudo-random numbers.
+     * @return The concrete value of the generated integer type.
      * @since 1.0
-     */
+     * */
     @Override
     public int readInt(int bound) {
         return RANDOM.nextInt(bound);
     }
 
     /**
-     * The method generates a random number.
-     * Override(implements) method with interface "ReadableData".
-     *
-     * @return Randomly generated integer value of type integer.
+     * <p>
+     * A method that reads a concrete data of an integer type.
+     * </p>
+     * @return An integer value in the range from -100 to 100.
      * @since 1.0
-     * When generating a random number is not thrown.
-     */
+     * */
     @Override
     public int readInt() {
         return RANDOM.nextInt(200) - 100;
     }
 
     /**
-     * The method generates a random number.
-     * Override(implements) method with interface "ReadableData".
-     *
-     * @return Randomly generated double value of type double.
+     * <p>
+     * A method that reads a concrete data of an real double type.
+     * </p>
+     * @return An real double value.
      * @since 1.0
-     * When generating a random number is not thrown.
-     */
+     * */
     @Override
     public double readDouble() {
         return RANDOM.nextDouble();

@@ -1,14 +1,14 @@
 package com.lugowoy.util.reading;
 
 /**
- * Created by Konstantin on 09-Dec-16.
+ * Created by Konstantin Lugowoy on 09-Dec-16.
  *
- * @author Konstantin
+ * @author Konstantin Lugowoy
  * @version 1.0
- * @see java.lang.Exception
- * <p>
- * This class exception used to determine the correctness of the data input stop.
  * @since 1.0
+ * <p>
+ * A class that performs the role of an exception, in order to guide the timely stopping of user input.
+ * </p>
  */
 public class StoppingEnterValueException extends RuntimeException {
 

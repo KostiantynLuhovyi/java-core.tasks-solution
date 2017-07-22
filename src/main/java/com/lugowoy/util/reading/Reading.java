@@ -1,21 +1,26 @@
 package com.lugowoy.util.reading;
 
 /**
- * @author Konstantin
+ * Created by Konstantin Lugowoy 11.11.2016.
+ *
+ * @author Konstantin Lugowoy
  * @version 1.1
  * @since 1.1
  * <p>
- * Functional interface "Reading" provides the functionality to implement read input data.
+ * Provides functionality for reading data.
+ * </p>
+ * @param <T> - Type of read data.
  */
 @FunctionalInterface
 public interface Reading<T> {
 
     /**
-     * This method for readout.
-     *
-     * @return Parametrized type initialized with the classified functional interface object.
-     * @since 1.1
-     */
+     * <p>
+     * The method (function) provides all possible implementation of reading concrete data.
+     * </p>
+     * @return Read data of a concrete type.
+     * @since 1.0
+     * */
     T reading();
 
 }

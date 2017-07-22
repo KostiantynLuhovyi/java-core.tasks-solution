@@ -1,25 +1,37 @@
 package com.lugowoy.util.reading;
 
 /**
- * Created by Konstantin on 26-Jan-17.
+ * Created by Konstantin Lugowoy on 26-Jan-17.
  *
- * @author Konstantin
+ * @author Konstantin Lugowoy
  * @version 1.1
- * @see com.lugowoy.util.reading.Readable
  * @since 1.1
  * <p>
- * "ReadableData" interface is the inheritor "Readable" interface and declares the contract (abstract method)
- * to implement the functionality of reading the user input and random number generation.
+ * This interface is the inheritor to the marker-interface Readable.
+ * @see com.lugowoy.util.reading.Readable
+ * The interface declares a contract to read concrete data.
+ * Abstract methods declared in the interface are designed to work with numbers,
+ * for the reason that data of these types are the most common with further expansion and implementation of the functionality.
+ * </p>
  */
 interface ReadableData extends Readable {
 
-    /*
-    * Abstract method reads the integer value type, depending on the particular implementation.
-    * */
+    /**
+     * <p>
+     * A method that reads concrete data of an integer type.
+     * </p>
+     * @return The concrete value of the integer type.
+     * @since 1.0
+     * */
     int readInt();
 
-    /*
-    * Abstract method reads the double value type, depending on the particular implementation.
-    * */
-    double readDouble() throws StoppingEnterValueException;
+    /**
+     * <p>
+     * A method that reads concrete data of a real double type.
+     * </p>
+     * @return The concrete value of the real double type.
+     * @since 1.0
+     * */
+    double readDouble();
+
 }

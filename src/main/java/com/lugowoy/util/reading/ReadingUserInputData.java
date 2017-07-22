@@ -1,24 +1,38 @@
 package com.lugowoy.util.reading;
 
+import java.util.Scanner;
+
 /**
- * Created by Konstantin on 27-Jan-17.
+ * Created by Konstantin Lugowoy on 27-Jan-17.
  *
- * @author Konstantin
+ * @author Konstantin Lugowoy
  * @version 1.1
+ * @since 1.2
+ * <p>
+ * This class implements the contract declared in the ReadableUserInputData interface.
+ * @see com.lugowoy.util.reading.Readable
  * @see com.lugowoy.util.reading.ReadableData
  * @see com.lugowoy.util.reading.ReadableUserInputData
- * @since 1.1
- * <p>
- * This class implements the contract announced in the interface "ReadableUserInputData"
- * and abstract contract passed by inheritance from interface "ReadableData".
+ * The purpose of the functional implemented by this class is to read the data entered by the user.
+ * At this stage of development, user input is made to the console,
+ * but in the future it is likely that the hierarchy that implements the user input reading functionality will be extended.
+ * </p>
  */
 public class ReadingUserInputData implements ReadableUserInputData {
 
     /**
-     * This method read user input in the console.
-     * Override(implements) method with interface "ReadableUserInputData".
+     * A static context attribute that reads data from the console.
      *
-     * @return User input string.
+     * @see java.util.Scanner
+     */
+    private static final Scanner SCANNER = new Scanner(System.in);
+
+    /**
+     * <p>
+     * Reading a string entered by the user into the console.
+     * </p>
+     *
+     * @return The string entered by the user in the console.
      * @since 1.0
      */
     public String readLine() {
@@ -26,11 +40,11 @@ public class ReadingUserInputData implements ReadableUserInputData {
     }
 
     /**
-     * This method read user input in the console.
-     * Override(implements) method with interface "ReadableData".
-     *
-     * @return User input integer number.
-     * @since 1.0
+     * <p>
+     * Read the integer value entered by the user in the console.
+     * </p>
+     * @return The integer value entered by the user in the console.
+     * @since 1.1
      */
     @Override
     public int readInt() {
@@ -39,86 +53,75 @@ public class ReadingUserInputData implements ReadableUserInputData {
     }
 
     /*
-    * Method to determine the correctness of input integer value
+    * The method that performs the necessary checks on the correctness of the entered data and returns the correct result.
     * */
     private int getCorrectIntNumberValue() {
-        /*Local variable save and return correct value*/
-        int inputValue = 0;
-        /*Local variable String value stores the value read from the console, the class instance Scanner.*/
-        String value = SCANNER.nextLine();
-        /*
-        * The entered number can exceed the limit of integer type int values, and in this case the method parseInt();
-        * the instance class "Integer", throw NumberFormatException.
-        * For this reason, the code waits and catches an exception.
-        * */
-        try {
-            if (!value.equalsIgnoreCase("stop")) {
-            /*
-            * Regular expressions check entered variable value that the number of signed or unsigned.
-            * */
-                if ((value.matches("\\d+?")) || (value.matches("-\\d+?"))) {
-                /*
-                * If verify = "true", the variable inputValue correct and correct.
-                * */
-                    inputValue = Integer.parseInt(value);
-                } else {
-                /*If verify = "false", it prints a message and with the help of recursion require re-enter.*/
-                    System.out.println("Entered an incorrect value.");
-                    System.out.println("From -2147483648 to 2147483648.");
-                    System.out.println("Re-enter the number : ");
-                    inputValue = this.getCorrectIntNumberValue();
-                }
+        int inputValue; //Variable for save and return correct value.
+
+        String value = SCANNER.nextLine();//The variable takes on a value that the user entered into the console.
+
+        //Verification that the user entered string is not equal to "stop".
+        if (!value.equalsIgnoreCase("stop")) {
+            //Checking with regular expressions that the entered string is indeed a number with or without a sign.
+            if ((value.matches("\\d+?")) || (value.matches("-\\d+?"))) {
+                //If the checks were successful, then allocating the string representation of the integer number is assigned
+                // to the variable that returns this value from the method.
+                inputValue = Integer.parseInt(value);
             } else {
-                throw new StoppingEnterValueException();
+                //If during the scan of the entered line it is determined that this is not an integer number,
+                // then a corresponding message is displayed about incorrect data entry and by recursion please repeat the input.
+                System.out.println("Entered an incorrect value.");
+                System.out.println("From -2147483648 to 2147483648.");
+                System.out.println("Re-enter the number : ");
+                inputValue = this.getCorrectIntNumberValue();
             }
-        } catch (NumberFormatException ex) {
-            /*If catch NumberFormatException exception,
-            it prints a message and with the help of recursion require re-enter.*/
-            System.out.println("Entered an incorrect value.");
-            System.out.println("From -2147483648 to 2147483648.");
-            System.out.println("Re-enter the number : ");
-            inputValue = this.getCorrectIntNumberValue();
-        } catch (StoppingEnterValueException e) {
-            e.printStackTrace();
+        } else {
+            //If the input string was equal to the value "stop", then throw an exception StoppingEnterValueException;
+            throw new StoppingEnterValueException();
         }
         return inputValue;
+
     }
 
     /**
-     * This method read user input in the console.
-     * Override(implements) method with interface "ReadableData".
-     *
-     * @return User input double value.
-     * @since 1.0
+     * <p>
+     * Read the real double value entered by the user in the console.
+     * </p>
+     * @return The real double value entered by the user in the console.
+     * @since 1.1
      */
     @Override
     public double readDouble() {
+        /*See private method getCorrectDoubleNumberValue();*/
         return this.getCorrectDoubleNumberValue();
     }
 
+    /*
+    * The method that performs the necessary checks on the correctness of the entered data and returns the correct result.
+    * */
     private double getCorrectDoubleNumberValue() {
-        double value;
+        double value;//Variable for save and return correct value.
 
-        String inputValue = SCANNER.nextLine();
+        String inputValue = SCANNER.nextLine();//The variable takes on a value that the user entered into the console.
 
-        try {
-            if (!inputValue.equalsIgnoreCase("stop")) {
-
-                if (((inputValue.matches("\\d+?[.]\\d+?")) || (inputValue.matches("-\\d+?[.]\\d+?")))
-                        || (((inputValue.matches("\\d+?")) || (inputValue.matches("-\\d+?"))))) {
-                    value = Double.parseDouble(inputValue);
-                } else {
-                    System.out.println("Not correct input number value.");
-                    System.out.println("Re-enter : ");
-                    value = this.getCorrectDoubleNumberValue();
-                }
+        //Verification that the user entered string is not equal to "stop".
+        if (!inputValue.equalsIgnoreCase("stop")) {
+            //Checking with regular expressions that the entered string is indeed a number with or without a sign.
+            if (((inputValue.matches("\\d+?[.]\\d+?")) || (inputValue.matches("-\\d+?[.]\\d+?")))
+                    || (((inputValue.matches("\\d+?")) || (inputValue.matches("-\\d+?"))))) {
+                //If the checks were successful, then allocating the string representation of the real double number is assigned
+                // to the variable that returns this value from the method.
+                value = Double.parseDouble(inputValue);
             } else {
-                throw new StoppingEnterValueException();
+                //If during the scan of the entered line it is determined that this is not an real double number,
+                // then a corresponding message is displayed about incorrect data entry and by recursion please repeat the input.
+                System.out.println("Not correct input number value.");
+                System.out.println("Re-enter : ");
+                value = this.getCorrectDoubleNumberValue();
             }
-        } catch (NumberFormatException ex) {
-            System.out.println("Not correct input number value.");
-            System.out.println("Re-enter : ");
-            value = this.getCorrectDoubleNumberValue();
+        } else {
+            //If the input string was equal to the value "stop", then throw an exception StoppingEnterValueException;
+            throw new StoppingEnterValueException();
         }
         return value;
 

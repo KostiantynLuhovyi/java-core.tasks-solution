@@ -1,24 +1,30 @@
 package com.lugowoy.util.reading;
 
 /**
- * Created by Konstantin on 27-Jan-17.
+ * Created by Konstantin Lugowoy on 27-Jan-17.
  *
- * @author Konstantin
+ * @author Konstantin Lugowoy
  * @version 1.1
  * @since 1.1
  * <p>
- * This class encapsulates a decision on how to take the implementation of the data reading.
+ * This class is a container that encapsulates in itself the implementation
+ * of a function that performs the provision of data in accordance with the implementation passed to it.
+ * Used as a container when implementing a pattern Command.
+ * </p>
+ * @param <T> - The type of data that has been read and will be provided.
  */
 public class ReadingData<T> {
 
     /**
-     * Functional interface to implements specify functional
-     */
+     * <p>
+     * The attribute of the functional interface that will contain and grant the function to the function passed to it.
+     * @see com.lugowoy.util.reading.Reading
+     * </p>
+     * */
     private Reading<T> reading;
 
     /**
      * Initialize field {@link ReadingData#reading}
-     *
      * @see com.lugowoy.util.reading.ReadingData
      */
     public ReadingData(Reading<T> reading) {
@@ -26,9 +32,10 @@ public class ReadingData<T> {
     }
 
     /**
-     * This method delegation realization functional to functional interface "Reading".
-     *
-     * @return Parameterize type initialized with the classified functional interface object.
+     * <p>
+     * The method delegates execution to the function that it encapsulates.
+     * </p>
+     * @return The result of the function that encapsulates.
      * @since 1.1
      */
     public T read() {
@@ -36,9 +43,10 @@ public class ReadingData<T> {
     }
 
     /**
+     * <p>
      * Getter for the field {@link ReadingData#reading}
-     *
-     * @return Object functional interface Reading.
+     * </p>
+     * @return The function that encapsulates.
      */
     public Reading<T> getReading() {
         return reading;
