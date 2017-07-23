@@ -6,6 +6,7 @@ package com.lugowoy.util.reading;
  * @author Konstantin Lugowoy
  * @version 1.0
  * @since 1.0
+ *
  * <p>
  * A class that performs the role of an exception, in order to guide the timely stopping of user input.
  * </p>

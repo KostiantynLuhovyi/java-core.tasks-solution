@@ -17,8 +17,8 @@ public class ReadingUserInputSizeOfTheArray {
     /**
      * <p>
      * A class attribute that performs the functionality of reading user input.
-     * @see com.lugowoy.util.reading.ReadingUserInputData
      * </p>
+     * @see com.lugowoy.util.reading.ReadingUserInputData
      * */
     private static ReadingUserInputData readingUserInputData = new ReadingUserInputData();
 
@@ -26,6 +26,7 @@ public class ReadingUserInputSizeOfTheArray {
      * <p>
      * A method that performs reading of data entered by the user about the dimension of the array.
      * </p>
+     *
      * @return Dimension of the array.
      * @since 1.0
      * */
@@ -49,7 +50,8 @@ public class ReadingUserInputSizeOfTheArray {
      * <p>
      * A method that performs reading of data entered by the user about the dimension of the array.
      * </p>
-     * @param msg - Message displayed to the user before entering data.
+     *
+     * @param msg Message displayed to the user before entering data.
      * @return Dimension of the array.
      * @since 1.0
      * */
@@ -73,8 +75,9 @@ public class ReadingUserInputSizeOfTheArray {
      * <p>
      * A method that performs reading of data entered by the user about the dimension of the array.
      * </p>
-     * @param msg - Message displayed to the user before entering data.
-     * @param incorrectMsg  - Message displayed to the user in case of incorrectly entered data.
+     *
+     * @param msg Message displayed to the user before entering data.
+     * @param incorrectMsg Message displayed to the user in case of incorrectly entered data.
      * @return Dimension of the array.
      * @since 1.0
      * */

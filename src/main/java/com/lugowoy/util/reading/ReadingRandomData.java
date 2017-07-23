@@ -6,12 +6,13 @@ package com.lugowoy.util.reading;
  * @author Konstantin Lugowoy
  * @version 1.1
  * @since 1.1
- * <p>
- * This class implements the contract declared by the interface ReadableRandomData.
+ *
  * @see com.lugowoy.util.reading.Readable
  * @see com.lugowoy.util.reading.ReadableData
  * @see com.lugowoy.util.reading.ReadableRandomData
- * The purpose of the functionality implemented by this class is to read and provide the generated pseudorandom numeric data.
+ * <p>
+ * This class implements the contract declared by the interface ReadableRandomData.
+ * The purpose of the functionality implemented by this class is to read and provide the generated pseudo-random numeric data.
  * </p>
  */
 public class ReadingRandomData implements ReadableRandomData {
@@ -20,7 +21,8 @@ public class ReadingRandomData implements ReadableRandomData {
      * <p>
      * A method that reads a concrete data of an integer type in the range from 0 to bound, inclusive.
      * </p>
-     * @param bound - The maximum value up to which will be made the generation of pseudo-random numbers.
+     *
+     * @param bound The maximum value up to which will be made the generation of pseudo-random numbers.
      * @return The concrete value of the generated integer type.
      * @since 1.0
      * */
@@ -33,6 +35,7 @@ public class ReadingRandomData implements ReadableRandomData {
      * <p>
      * A method that reads a concrete data of an integer type.
      * </p>
+     *
      * @return An integer value in the range from -100 to 100.
      * @since 1.0
      * */
@@ -45,6 +48,7 @@ public class ReadingRandomData implements ReadableRandomData {
      * <p>
      * A method that reads a concrete data of an real double type.
      * </p>
+     *
      * @return An real double value.
      * @since 1.0
      * */

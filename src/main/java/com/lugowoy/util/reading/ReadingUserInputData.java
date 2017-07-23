@@ -8,11 +8,12 @@ import java.util.Scanner;
  * @author Konstantin Lugowoy
  * @version 1.1
  * @since 1.2
- * <p>
- * This class implements the contract declared in the ReadableUserInputData interface.
+ *
  * @see com.lugowoy.util.reading.Readable
  * @see com.lugowoy.util.reading.ReadableData
  * @see com.lugowoy.util.reading.ReadableUserInputData
+ * <p>
+ * This class implements the contract declared in the ReadableUserInputData interface.
  * The purpose of the functional implemented by this class is to read the data entered by the user.
  * At this stage of development, user input is made to the console,
  * but in the future it is likely that the hierarchy that implements the user input reading functionality will be extended.
@@ -21,8 +22,9 @@ import java.util.Scanner;
 public class ReadingUserInputData implements ReadableUserInputData {
 
     /**
+     * <p>
      * A static context attribute that reads data from the console.
-     *
+     * </p>
      * @see java.util.Scanner
      */
     private static final Scanner SCANNER = new Scanner(System.in);
@@ -43,6 +45,7 @@ public class ReadingUserInputData implements ReadableUserInputData {
      * <p>
      * Read the integer value entered by the user in the console.
      * </p>
+     *
      * @return The integer value entered by the user in the console.
      * @since 1.1
      */
@@ -87,6 +90,7 @@ public class ReadingUserInputData implements ReadableUserInputData {
      * <p>
      * Read the real double value entered by the user in the console.
      * </p>
+     *
      * @return The real double value entered by the user in the console.
      * @since 1.1
      */
