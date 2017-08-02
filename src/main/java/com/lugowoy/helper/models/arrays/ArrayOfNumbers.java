@@ -13,7 +13,7 @@ public abstract class ArrayOfNumbers<T extends Number> extends Array<T> implemen
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
+    public Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
 

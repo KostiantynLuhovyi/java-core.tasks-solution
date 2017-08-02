@@ -52,11 +52,13 @@ public abstract class Point<T extends Number> extends Model {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
-        Point point = (Point) super.clone();
-        point.coordinateX = this.coordinateX;
-        point.coordinateY = this.coordinateY;
+    public Point<T> clone() throws CloneNotSupportedException {
+        Point<T> point = (Point<T>) super.clone();
+        point.setCoordinateX(this.coordinateX);
+        point.setCoordinateY(this.coordinateY);
+
         return point;
+
     }
 
     @Override

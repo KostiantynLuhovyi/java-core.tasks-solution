@@ -20,6 +20,15 @@ public class ArrayOfDoubleCoordinatesPoints extends ArrayOfPoints<Double> {
     }
 
     @Override
+    public ArrayOfDoubleCoordinatesPoints clone() throws CloneNotSupportedException {
+        ArrayOfDoubleCoordinatesPoints arrayOfDoubleCoordinatesPoints = (ArrayOfDoubleCoordinatesPoints) super.clone();
+        arrayOfDoubleCoordinatesPoints.setArray(this.getArray());
+
+        return arrayOfDoubleCoordinatesPoints;
+
+    }
+
+    @Override
     public Point<Double>[] getArray() {
         return super.getArray();
     }

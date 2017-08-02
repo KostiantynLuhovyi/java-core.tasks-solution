@@ -14,10 +14,12 @@ public class ArrayOfIntegerNumbers extends ArrayOfNumbers<Integer> {
         super(array);
     }
 
-    protected Object clone() throws CloneNotSupportedException {
+    public ArrayOfIntegerNumbers clone() throws CloneNotSupportedException {
         ArrayOfIntegerNumbers arrayOfIntegerNumbers = (ArrayOfIntegerNumbers) super.clone();
         arrayOfIntegerNumbers.setArray(this.getArray());
+
         return arrayOfIntegerNumbers;
+
     }
 
     @Override

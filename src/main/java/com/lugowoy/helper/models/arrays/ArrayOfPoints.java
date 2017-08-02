@@ -15,6 +15,11 @@ public abstract class ArrayOfPoints<T extends Number> extends Array<Point<T>> {
     }
 
     @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    @Override
     public Point<T>[] getArray() {
         return super.getArray();
     }

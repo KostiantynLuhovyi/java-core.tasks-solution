@@ -15,10 +15,12 @@ public class ArrayOfDoubleNumbers extends ArrayOfNumbers<Double> {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
+    public ArrayOfDoubleNumbers clone() throws CloneNotSupportedException {
         ArrayOfDoubleNumbers arrayOfDoubleNumbers = (ArrayOfDoubleNumbers) super.clone();
         arrayOfDoubleNumbers.setArray(this.getArray());
+
         return arrayOfDoubleNumbers;
+
     }
 
     @Override

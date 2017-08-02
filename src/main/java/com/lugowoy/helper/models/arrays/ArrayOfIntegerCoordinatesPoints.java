@@ -20,6 +20,15 @@ public class ArrayOfIntegerCoordinatesPoints extends ArrayOfPoints<Integer> {
     }
 
     @Override
+    public ArrayOfIntegerCoordinatesPoints clone() throws CloneNotSupportedException {
+        ArrayOfIntegerCoordinatesPoints arrayOfIntegerCoordinatesPoints = (ArrayOfIntegerCoordinatesPoints) super.clone();
+        arrayOfIntegerCoordinatesPoints.setArray(this.getArray());
+
+        return arrayOfIntegerCoordinatesPoints;
+
+    }
+
+    @Override
     public Point<Integer>[] getArray() {
         return super.getArray();
     }
