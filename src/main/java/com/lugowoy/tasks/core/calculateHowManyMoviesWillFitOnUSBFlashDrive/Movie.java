@@ -49,7 +49,8 @@ public class Movie implements Cloneable, Serializable {
     @Override
     protected Movie clone() throws CloneNotSupportedException {
         Movie movie = (Movie) super.clone();
-        movie.setNameMovie(this.nameMovie);
+        movie.setNameMovie(this.getNameMovie());
+        movie.setSizeMovie(this.getSizeMovie());
         return movie;
     }
 

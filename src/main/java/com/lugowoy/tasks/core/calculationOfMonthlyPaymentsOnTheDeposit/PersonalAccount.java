@@ -3,11 +3,8 @@ package com.lugowoy.tasks.core.calculationOfMonthlyPaymentsOnTheDeposit;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * Created by Konstantin on 11-Feb-17.
- *
- * @author Konstantin Lugowoy
- */
+/** Created by Konstantin Lugowoy on 11-Feb-17. */
+
 public class PersonalAccount implements Serializable {
 
     private int id;
@@ -81,4 +78,5 @@ public class PersonalAccount implements Serializable {
     public void setBankingServices(List<BankingService> bankingServices) {
         this.bankingServices = bankingServices;
     }
+
 }

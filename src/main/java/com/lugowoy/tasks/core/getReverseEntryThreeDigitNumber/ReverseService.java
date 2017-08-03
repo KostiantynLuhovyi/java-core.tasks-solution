@@ -17,6 +17,8 @@ public class ReverseService implements Reversible {
         thousandthDigit = number;
 
         number = 100 * oneDigit + 10 * decimalDigit + thousandthDigit;
+
         return number;
     }
+
 }

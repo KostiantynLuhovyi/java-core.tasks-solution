@@ -1,10 +1,7 @@
 package com.lugowoy.tasks.core.calculationOfMonthlyPaymentsOnTheDeposit;
 
-/**
- * Created by Konstantin on 10-Feb-17.
- *
- * @author Konstantin Lugowoy
- */
+/** Created by Konstantin Lugowoy on 10-Feb-17. */
+
 public class User {
 
     private Bank bank;
@@ -71,4 +68,5 @@ public class User {
     public void setSecondName(String secondName) {
         this.secondName = secondName;
     }
+
 }

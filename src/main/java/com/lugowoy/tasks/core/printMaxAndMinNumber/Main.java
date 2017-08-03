@@ -1,10 +1,10 @@
 package com.lugowoy.tasks.core.printMaxAndMinNumber;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.reading.ReadingRandomData;
-import com.lugowoy.util.reading.ReadingUserInputSizeOfTheArray;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 import java.util.Arrays;
 
@@ -14,46 +14,44 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int sizeArray = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray();
+        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
 
-        Array<Integer> array = new CreatorArrayOfIntegerPrimitives().create(new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt).fillArray(new int[sizeArray]));
+        Array<Integer> array = new CreatorOfArrayModels<>(new FactoryOfIntegerArrayModels()).create(new FillingArrayIntegerRandomNumbers().fill(sizeArray));
 
         System.out.println("Original number : ");
-        Arrays.stream(array.getArrayOfIntegerPrimitives()).forEachOrdered(value -> System.out.print(value + " "));
+        Arrays.stream(array.getArray()).forEachOrdered(value -> System.out.print(value + " "));
         System.out.println();
 
         int indexMaxElement = getIndexMaxNumber(array);
         int indexMinElement = getIndexMinNumber(array);
 
-        System.out.println("Max element : " + array.getArrayOfIntegerPrimitives()[indexMaxElement]);
-        System.out.println("Min element : " + array.getArrayOfIntegerPrimitives()[indexMinElement]);
+        System.out.println("Max element : " + array.getArray()[indexMaxElement]);
+        System.out.println("Min element : " + array.getArray()[indexMinElement]);
 
     }
 
     private static int getIndexMaxNumber(Array<Integer> array) {
         int value = Integer.MIN_VALUE;
         int index = 0;
-        for (int i = 0; i < array.getArrayOfIntegerPrimitives().length; i++) {
-            if (array.getArrayOfIntegerPrimitives()[i] > value) {
-                value = array.getArrayOfIntegerPrimitives()[i];
+        for (int i = 0; i < array.getArray().length; i++) {
+            if (array.getArray()[i] > value) {
+                value = array.getArray()[i];
                 index = i;
             }
         }
         return index;
-
     }
 
     private static int getIndexMinNumber(Array<Integer> array) {
         int value = Integer.MAX_VALUE;
         int index = 0;
-        for (int i = 0; i < array.getArrayOfIntegerPrimitives().length; i++) {
-            if (array.getArrayOfIntegerPrimitives()[i] < value) {
-                value = array.getArrayOfIntegerPrimitives()[i];
+        for (int i = 0; i < array.getArray().length; i++) {
+            if (array.getArray()[i] < value) {
+                value = array.getArray()[i];
                 index = i;
             }
         }
         return index;
-
     }
 
 }

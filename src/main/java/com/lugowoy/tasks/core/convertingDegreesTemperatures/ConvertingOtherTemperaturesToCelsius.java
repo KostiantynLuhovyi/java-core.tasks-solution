@@ -1,19 +1,9 @@
 package com.lugowoy.tasks.core.convertingDegreesTemperatures;
 
-/**
- * Created by Konstantin Lugowoy on 17-Jan-17.
- *
- * @author Konstantin Lugowoy
- * @version 1.0
- * @see com.lugowoy.tasks.core.convertingDegreesTemperatures.Convertable
- * The class implements the functionality for the conversion temperature in the temperature scales other to temperature in Celsius.
- * @since 11.01.2017
- */
+/** Created by Konstantin Lugowoy on 17-Jan-17. */
+
 public class ConvertingOtherTemperaturesToCelsius implements Convertable<Temperature> {
 
-    /**
-    * The overridden method for converting temperatures in other temperature scale in Celsius temperature.
-    * */
     @Override
     public Temperature convert(Temperature temperature, TemperatureScale temperatureScale) {
         Temperature resultTemperature = new Temperature();
@@ -37,4 +27,5 @@ public class ConvertingOtherTemperaturesToCelsius implements Convertable<Tempera
         }
         return resultTemperature;
     }
+
 }

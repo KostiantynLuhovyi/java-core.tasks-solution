@@ -39,8 +39,10 @@ public class FlashDriveUSB implements Cloneable, Serializable {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
+    public FlashDriveUSB clone() throws CloneNotSupportedException {
+        FlashDriveUSB flashDriveUSB = (FlashDriveUSB) super.clone();
+        flashDriveUSB.setSizeFlashDriveUSB(this.getSizeFlashDriveUSB());
+        return flashDriveUSB;
     }
 
     public double getSizeFlashDriveUSB() {

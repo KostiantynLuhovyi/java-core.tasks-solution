@@ -1,10 +1,9 @@
 package com.lugowoy.tasks.core.convertUAHInOthersCurrencies;
 
-import com.lugowoy.util.converting.Convertable;
+import com.lugowoy.helper.converting.Convertable;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
-import java.math.RoundingMode;
 
 /**Created by Konstantin Lugowoy on 15-Dec-16.*/
 
@@ -69,4 +68,5 @@ public class ConvertUAHInOtherCurrencies implements Convertable<Account> {
     public void setAccount(Account account) {
         this.account = account;
     }
+
 }

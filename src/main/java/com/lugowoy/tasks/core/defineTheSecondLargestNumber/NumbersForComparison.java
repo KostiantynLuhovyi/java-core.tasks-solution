@@ -1,10 +1,7 @@
 package com.lugowoy.tasks.core.defineTheSecondLargestNumber;
 
 /**Created by Konstantin Lugowoy on 14.11.2016.*/
-/*
-* Class "NumberForComparison" is (encapsulates) an object whose attributes,
-* are the three numbers entered to find the second largest.
-* */
+
 class NumbersForComparison {
 
     private int firstNumber;
@@ -43,4 +40,5 @@ class NumbersForComparison {
     public void setThirdNumber(int thirdNumber) {
         this.thirdNumber = thirdNumber;
     }
+
 }

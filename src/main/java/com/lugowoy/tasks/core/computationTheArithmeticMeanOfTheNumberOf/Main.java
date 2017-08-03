@@ -1,29 +1,23 @@
 package com.lugowoy.tasks.core.computationTheArithmeticMeanOfTheNumberOf;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArray;
-import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
-import com.lugowoy.util.factory.creating.arrays.CreatorArraysOfObjects;
-import com.lugowoy.util.filling.Fillable;
-import com.lugowoy.util.filling.arrays.FillingArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.filling.arrays.FillingArrayOfUserInput;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingRandomData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.factory.creator.Creator;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfDoubleArrayModels;
+import com.lugowoy.helper.filling.FillingArrayDoubleRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 /**Created by Konstantin Lugowoy on 03-Dec-16.*/
 
 public class Main {
 
-    private static FillingArray<Double> fillArray = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readDouble);
-    private static CreatorArray<Double> creator = new CreatorArraysOfObjects<>();
+    private static Creator<Array<Double>> creator = new CreatorOfArrayModels<>(new FactoryOfDoubleArrayModels());
 
     public static void main(String[] args) {
 
-        Array<Double> array = creator.create(fillArray.fillArray(new Double[2]));
+        int sizeOfArray = DeterminatorSizeOfArray.determineSizeOfArray();
 
-        Double[] doubleNumbers = new Double[2];
+        Array<Double> array = ((CreatorOfArrayModels<Double>)creator).create(new FillingArrayDoubleRandomNumbers().fill(sizeOfArray));
 
         for (int i = 0; i < array.getArray().length; i++) {
             System.out.println(array.getArray()[i]);

@@ -1,13 +1,11 @@
 package com.lugowoy.tasks.core.calculateThePercentageOfStudentsWhoDidNotDoTheirHomework;
 
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 /** Created by Konstantin Lugowoy on 17.06.2017. */
 
 public class Main {
-
-    private static final ReadingData<Integer> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readInt);
 
     public static void main(String[] args) {
 
@@ -25,7 +23,7 @@ public class Main {
         int numberOfStudents;
         System.out.println(msg);
         while (true) {
-            numberOfStudents = READING_DATA.read();
+            numberOfStudents = new Reader(new ReadingDataUserInputInConsole()).readInt();
             if (numberOfStudents >= 0) {
                 break;
             } else {
@@ -34,7 +32,6 @@ public class Main {
             }
         }
         return numberOfStudents;
-
     }
 
 }

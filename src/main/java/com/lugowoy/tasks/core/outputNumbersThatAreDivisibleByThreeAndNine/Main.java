@@ -1,11 +1,10 @@
 package com.lugowoy.tasks.core.outputNumbersThatAreDivisibleByThreeAndNine;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.models.arrays.ArrayOfIntegerPrimitives;
-import com.lugowoy.util.reading.ReadingRandomData;
-import com.lugowoy.util.reading.ReadingUserInputSizeOfTheArray;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,33 +16,32 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int sizeArray = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray();
+        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
 
-        Array<Integer> array = new CreatorArrayOfIntegerPrimitives().create(new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt).fillArray(new int[sizeArray]));
+        Array<Integer> array = new CreatorOfArrayModels<Integer>(new FactoryOfIntegerArrayModels()).create(new FillingArrayIntegerRandomNumbers().fill(sizeArray));
 
         System.out.println("Numbers : ");
-        Arrays.stream(array.getArrayOfIntegerPrimitives()).forEachOrdered(value -> System.out.print(value + " "));
+        Arrays.stream(array.getArray()).forEachOrdered(value -> System.out.print(value + " "));
         System.out.println();
 
         System.out.println("Numbers that are divisible by 3 and by 9 : ");
         Array<Integer> resultNumbers = printNumbersThatAreDivisibleByThreeAndNine(array);
-        if (resultNumbers.getArrayOfIntegerPrimitives().length == 0) {
+        if (resultNumbers.getArray().length == 0) {
             System.out.print("There are no such numbers.");
         } else {
-            Arrays.stream(resultNumbers.getArrayOfIntegerPrimitives()).forEachOrdered(value -> System.out.print(value + " "));
+            Arrays.stream(resultNumbers.getArray()).forEachOrdered(value -> System.out.print(value + " "));
         }
-
 
     }
 
     private static Array<Integer> printNumbersThatAreDivisibleByThreeAndNine(Array<Integer> array) {
         List<Integer> integerList = new ArrayList<>();
-        Arrays.stream(array.getArrayOfIntegerPrimitives()).forEachOrdered(value -> {
+        Arrays.stream(array.getArray()).forEachOrdered(value -> {
             if ((value % 3 == 0) && (value % 9 == 0)) {
                 integerList.add(value);
             }
         });
-        return new ArrayOfIntegerPrimitives(Arrays.stream(integerList.toArray()).toArray(Integer[]::new));
+        return new CreatorOfArrayModels<>(new FactoryOfIntegerArrayModels()).create(integerList.toArray(new Integer[integerList.size()]));
     }
 
 }

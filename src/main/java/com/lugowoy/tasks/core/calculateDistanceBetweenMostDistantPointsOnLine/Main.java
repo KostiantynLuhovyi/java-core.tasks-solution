@@ -1,9 +1,7 @@
 package com.lugowoy.tasks.core.calculateDistanceBetweenMostDistantPointsOnLine;
 
-import com.lugowoy.util.calculating.CalculableOnTheTwoVariables;
-import com.lugowoy.util.filling.arrays.FillingArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfUserInput;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.calculating.CalculableOnTheTwoVariables;
+import com.lugowoy.helper.filling.FillingArrayDoubleUserInputNumbers;
 
 import java.util.Arrays;
 
@@ -11,12 +9,10 @@ import java.util.Arrays;
 
 public class Main {
 
-    private static FillingArray<Double> fillingArray = new FillingArrayOfUserInput<>(new ReadingUserInputData()::readDouble);
-
     public static void main(String[] args) {
 
         System.out.println("Enter numbers that are the coordinates of points on the line : ");
-        Line<Double> line = new Line<>(fillingArray.fillArray(new Double[2]));
+        Line<Double> line = new Line<>(new FillingArrayDoubleUserInputNumbers().fill(2));
 
         Determinable<Double> determinable = Determinable::determineMin;
         line.setValueMinPoint(determinable.determine(line.getPointsOnLine()));
@@ -30,7 +26,6 @@ public class Main {
         double distanceBetweenMaxAndMinPoint = calculatingDistanceBetweenTwoPointsOnLine.calculate(line.getValueMinPoint(), line.getValueMaxPoint());
 
         System.out.println("Distance between max and min point is equal : " + distanceBetweenMaxAndMinPoint);
-
 
     }
 

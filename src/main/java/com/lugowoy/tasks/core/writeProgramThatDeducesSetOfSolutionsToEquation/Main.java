@@ -1,26 +1,27 @@
 package com.lugowoy.tasks.core.writeProgramThatDeducesSetOfSolutionsToEquation;
 
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
-import static java.lang.Math.*;
+import static java.lang.Math.pow;
+import static java.lang.Math.sqrt;
 
 /** Created by Konstantin Lugowoy on 11.07.2017. */
 
 public class Main {
 
-    private static final ReadingData<Integer> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readInt);
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
         System.out.println("Enter integer number \'a\' : ");
-        int a = READING_DATA.read();
+        int a = reader.readInt();
 
         System.out.println("Enter integer number \'b\' : ");
-        int b = READING_DATA.read();
+        int b = reader.readInt();
 
         System.out.println("Enter integer number \'c\' : ");
-        int c = READING_DATA.read();
+        int c = reader.readInt();
 
         double discriminant = getDiscriminant(a, b, c);
         if (discriminant < 0) {

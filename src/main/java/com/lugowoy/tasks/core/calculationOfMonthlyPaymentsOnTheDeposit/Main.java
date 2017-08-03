@@ -1,18 +1,16 @@
 package com.lugowoy.tasks.core.calculationOfMonthlyPaymentsOnTheDeposit;
 
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-/**
- * Created by Konstantin on 10-Feb-17.
- *
- * @author Konstantin Lugowoy
- */
+/** Created by Konstantin Lugowoy on 10-Feb-17. */
+
 public class Main {
 
-    private static final ReadingUserInputData READING_DATA = new ReadingUserInputData();
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
@@ -30,20 +28,21 @@ public class Main {
         user.setPersonalAccount(personalAccount);
 
         System.out.println("Enter first name : ");
-        READING_DATA.readLine();
+        user.setFirstName(reader.readString());
 
         System.out.println("Enter second name : ");
-        READING_DATA.readLine();
+        user.setSecondName(reader.readString());
 
         System.out.println("Enter sum of the deposit : ");
-        deposit.setSumDeposit(new BigDecimal(READING_DATA.readDouble()));
+        deposit.setSumDeposit(new BigDecimal(reader.readDouble()));
 
         System.out.println("Enter percent of yearly : ");
-        deposit.setPercentYearly(new BigDecimal(READING_DATA.readDouble()));
+        deposit.setPercentYearly(new BigDecimal(reader.readDouble()));
 
         CalculateOfMonthlyPaymentsOnTheDeposit calculateOfMonthlyPaymentsOnTheDeposit = new CalculateOfMonthlyPaymentsOnTheDeposit();
 
         System.out.printf("The amount of payments for deposit percent for this month is equal : %f",
                 calculateOfMonthlyPaymentsOnTheDeposit.calculateOfMonthlyPaymentsOnTheDeposit(user));
     }
+
 }

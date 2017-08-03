@@ -12,7 +12,7 @@ public abstract class Creator<T> {
         this.factory = factory;
     }
 
-    abstract T create();
+    public abstract T create();
 
     public Factory<T> getFactory() {
         return factory;

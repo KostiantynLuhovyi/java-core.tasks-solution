@@ -5,4 +5,5 @@ package com.lugowoy.tasks.core.getReverseEntryThreeDigitNumber;
 public interface Reversible {
 
     int reverse(int number);
+
 }

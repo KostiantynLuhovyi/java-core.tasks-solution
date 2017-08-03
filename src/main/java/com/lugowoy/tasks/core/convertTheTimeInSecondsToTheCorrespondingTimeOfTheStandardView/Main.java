@@ -1,28 +1,24 @@
 package com.lugowoy.tasks.core.convertTheTimeInSecondsToTheCorrespondingTimeOfTheStandardView;
 
-import java.util.Scanner;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 /** Created by Konstantin Lugowoy on 06.06.2017. */
 
 public class Main {
 
-    private static final Scanner READING = new Scanner(System.in);
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
         long enteredTimeInTheSecond;
         System.out.println("Enter the time in seconds : ");
         while (true) {
-            if (READING.hasNextLong()) {
-                enteredTimeInTheSecond = READING.nextLong();
-                if (enteredTimeInTheSecond > 0) {
-                    break;
-                } else {
-                    System.out.println("Incorrect input. Re-enter : ");
-                }
+            enteredTimeInTheSecond = reader.readLong();
+            if (enteredTimeInTheSecond > 0) {
+                break;
             } else {
-                System.out.println("Incorrect input.");
-                System.exit(1);
+                    System.out.println("Incorrect input. Re-enter : ");
             }
         }
 

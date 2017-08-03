@@ -1,33 +1,28 @@
 package com.lugowoy.tasks.core.defineTheSecondLargestNumber;
 
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 /**Created by Konstantin Lugowoy on 14.11.2016.*/
 
 public class Main {
-    /*
-    * Class object "Readable" reads the user input data to the console.
-    * See package com.lugowoy.util.read.
-    * */
-    private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
+
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
-        /*
-        * Entering data and calculating the second-largest number.
-        * */
         NumbersForComparison numbersForComparison = new NumbersForComparison();
         System.out.println("Enter the first value : ");
-        numbersForComparison.setFirstNumber(readingData.read());
+        numbersForComparison.setFirstNumber(reader.readInt());
 
         System.out.println("Enter the second value : ");
-        numbersForComparison.setSecondNumber(readingData.read());
+        numbersForComparison.setSecondNumber(reader.readInt());
 
         System.out.println("Enter the third value : ");
-        numbersForComparison.setThirdNumber(readingData.read());
+        numbersForComparison.setThirdNumber(reader.readInt());
         ComputingSecondLargestNumber computingSecondLargestNumber = new ComputingSecondLargestNumber();
         computingSecondLargestNumber.getSecondLargestNumber(numbersForComparison);
 
     }
+
 }

@@ -1,13 +1,13 @@
 package com.lugowoy.tasks.core.determineHowMuchTimeIsLeftBeforeMidnight;
 
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 /** Created by Konstantin Lugowoy on 17.06.2017. */
 
 public class Main {
 
-    private static final ReadingData<Integer> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readInt);
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     private static final int SECONDS_IN_DAY = 86400;
 
@@ -29,7 +29,7 @@ public class Main {
         int numberOfSecondsSinceTheBeginningOfTheDay;
         System.out.println(msg);
         while (true) {
-            numberOfSecondsSinceTheBeginningOfTheDay = READING_DATA.read();
+            numberOfSecondsSinceTheBeginningOfTheDay = reader.readInt();
             if ((numberOfSecondsSinceTheBeginningOfTheDay >= 0) && (numberOfSecondsSinceTheBeginningOfTheDay <= SECONDS_IN_DAY)) {
                 break;
             } else {
@@ -38,7 +38,6 @@ public class Main {
             }
         }
         return numberOfSecondsSinceTheBeginningOfTheDay;
-
     }
 
 }

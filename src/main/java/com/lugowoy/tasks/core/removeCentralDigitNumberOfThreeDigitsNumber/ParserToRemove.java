@@ -17,4 +17,5 @@ public class ParserToRemove {
 
         number.setNumber(thousandDigit * 10 + oneDigit);
     }
+
 }

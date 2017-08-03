@@ -1,19 +1,17 @@
 package com.lugowoy.tasks.core.determineTheTimeForWhichTheMovieIsDownloaded;
 
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Random;
 
 /** Created by Konstantin Lugowoy on 16.06.2017. */
 
 public class Main {
 
-    private static final ReadingData<Double> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readDouble);
-
     private static final double BITS_IN_GB = 8590e+6;
+
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
@@ -36,7 +34,7 @@ public class Main {
         System.out.println("Enter size film in the Gb : ");
         double sizeFilm;
         while (true) {
-            sizeFilm = READING_DATA.read();
+            sizeFilm = reader.readDouble();
             if (sizeFilm > 0) {
                 break;
             } else {
@@ -45,14 +43,13 @@ public class Main {
             }
         }
         return sizeFilm;
-
     }
 
     private static double getSpeedInternetConnection() {
         System.out.println("Enter speed(bits/second) internet connection : ");
         double speedInternetConnection;
         while (true) {
-            speedInternetConnection = READING_DATA.read();
+            speedInternetConnection = reader.readDouble();
             if (speedInternetConnection > 0) {
                 break;
             } else {
@@ -61,7 +58,6 @@ public class Main {
             }
         }
         return speedInternetConnection;
-
     }
 
 }

@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 public class Account {
 
     private BigDecimal UAH;
-
     private BigDecimal USD;
     private BigDecimal EUR;
     private BigDecimal RUB;
@@ -46,4 +45,5 @@ public class Account {
     public void setRUB(BigDecimal RUB) {
         this.RUB = RUB;
     }
+
 }

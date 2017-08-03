@@ -1,8 +1,8 @@
 package com.lugowoy.tasks.core.convertUAHInOthersCurrencies;
 
-import com.lugowoy.util.converting.ConvertingData;
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.converting.ConvertingData;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 import java.math.BigDecimal;
 
@@ -10,13 +10,14 @@ import java.math.BigDecimal;
 
 public class Main {
 
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
+
     public static void main(String[] args) {
 
         Account account = new Account();
 
         System.out.println("Enter the amount in UAH : ");
-        ReadingData<Double> readingData = new ReadingData<>(new ReadingUserInputData()::readDouble);
-        account.setUAH(new BigDecimal(readingData.read()));
+        account.setUAH(new BigDecimal(reader.readDouble()));
 
         ConvertingData<Account> convertingData = new ConvertingData<>(new ConvertUAHInOtherCurrencies(29.11, 27.21, 2.20)::convert);
 
@@ -28,4 +29,5 @@ public class Main {
         System.out.println("In the RUB : " + account.getRUB());
 
     }
+
 }

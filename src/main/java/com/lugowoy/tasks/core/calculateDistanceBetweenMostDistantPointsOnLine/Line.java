@@ -51,11 +51,11 @@ public class Line<T> implements Serializable, Cloneable {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
-        Line line = (Line) super.clone();
-        line.pointsOnLine = this.pointsOnLine;
-        line.valueMinPoint = this.valueMinPoint;
-        line.valueMaxPoint = this.valueMaxPoint;
+    protected Line<T> clone() throws CloneNotSupportedException {
+        Line<T> line = (Line<T>) super.clone();
+        line.setValueMinPoint(this.getValueMinPoint());
+        line.setValueMaxPoint(this.getValueMaxPoint());
+        line.setPointsOnLine(this.getPointsOnLine());
         return line;
     }
 

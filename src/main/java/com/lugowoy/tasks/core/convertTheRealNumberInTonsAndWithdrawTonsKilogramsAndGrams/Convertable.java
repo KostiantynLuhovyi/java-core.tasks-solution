@@ -14,4 +14,5 @@ public interface Convertable {
 
         System.out.printf("Tons : %d, kilograms : %d, grams : %d", tons, (int)kilograms, grams);
     }
+
 }

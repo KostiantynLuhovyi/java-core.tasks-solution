@@ -2,11 +2,8 @@ package com.lugowoy.tasks.core.calculationOfMonthlyPaymentsOnTheDeposit;
 
 import java.math.BigDecimal;
 
-/**
- * Created by Konstantin on 10-Feb-17.
- *
- * @author Konstantin Lugowoy
- */
+/** Created by Konstantin Lugowoy on 10-Feb-17. */
+
 public class Deposit extends BankingService {
 
     private BigDecimal sumDeposit;
@@ -65,4 +62,5 @@ public class Deposit extends BankingService {
     public void setId(int id) {
         super.setId(id);
     }
+
 }

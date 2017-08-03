@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.core.findAllRootsOfQuadraticEquation;
 
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 /** Created by Konstantin Lugowoy on 09.07.2017. */
 
@@ -36,10 +36,9 @@ public class Main {
     }
 
     private static double getNumber() {
-        ReadingData<Double> readingData = new ReadingData<>(new ReadingUserInputData()::readDouble);
         double number;
         while (true) {
-            number = readingData.read();
+            number = new Reader(new ReadingDataUserInputInConsole()).readInt();
                 if (number > 0) {
                     break;
                 } else {
@@ -48,8 +47,6 @@ public class Main {
                 }
         }
         return number;
-
     }
-
 
 }

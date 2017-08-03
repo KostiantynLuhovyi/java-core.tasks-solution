@@ -16,4 +16,5 @@ public class ConvertingKilometersToMilesOfSea implements Convertable<Length> {
     public double convert(double kilometers) {
         return kilometers * MILES_OF_SEA_IN_THE_ONE_KILOMETERS;
     }
+
 }

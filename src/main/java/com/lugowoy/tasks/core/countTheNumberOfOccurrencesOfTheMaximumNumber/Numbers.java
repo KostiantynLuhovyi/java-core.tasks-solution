@@ -2,9 +2,6 @@ package com.lugowoy.tasks.core.countTheNumberOfOccurrencesOfTheMaximumNumber;
 
 /**Created by Konstantin Lugowoy on 14.11.2016.*/
 
-/*
-* Class "Numbers" is a set of attributes for the implementation of the counting and storage elements.
-* */
 class Numbers {
 
     private Integer[] numbers;
@@ -28,4 +25,5 @@ class Numbers {
     public void setNumbers(Integer[] numbers) {
         this.numbers = numbers;
     }
+
 }

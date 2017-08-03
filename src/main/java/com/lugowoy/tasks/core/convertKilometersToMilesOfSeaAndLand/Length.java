@@ -34,4 +34,5 @@ public class Length {
     public void setMilesOfLand(double milesOfLand) {
         this.milesOfLand = milesOfLand;
     }
+
 }

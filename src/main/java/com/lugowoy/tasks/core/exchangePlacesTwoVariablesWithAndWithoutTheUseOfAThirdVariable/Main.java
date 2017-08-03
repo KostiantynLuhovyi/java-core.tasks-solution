@@ -1,24 +1,24 @@
 package com.lugowoy.tasks.core.exchangePlacesTwoVariablesWithAndWithoutTheUseOfAThirdVariable;
 
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 /**Created by Konstantin Lugowoy on 18-Jan-17.*/
 
 public class Main {
 
-    private static final ReadingData<Integer> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readInt);
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
         Variables variableForExchangePlacesTwoVariablesWithThirdVariable = new Variables();
 
         System.out.println("Enter the value of the first variable : ");
-        int firstValue = READING_DATA.read();
+        int firstValue = reader.readInt();
         variableForExchangePlacesTwoVariablesWithThirdVariable.setFirstVariable(firstValue);
 
         System.out.println("Enter the value of the second variable : ");
-        int secondValue = READING_DATA.read();
+        int secondValue = reader.readInt();
         variableForExchangePlacesTwoVariablesWithThirdVariable.setSecondVariable(secondValue);
 
         Exchangeable<Variables> variablesExchangeableWithTheUseThirdVariable =
@@ -39,7 +39,6 @@ public class Main {
                 "firstVariable = %d;\n" +
                 "secondVariable = %d;\n", variableForExchangePlacesTwoVariablesWithThirdVariable.getFirstVariable(), variableForExchangePlacesTwoVariablesWithThirdVariable.getSecondVariable());
 
-
         Variables variableForExchangePlacesTwoVariablesWithoutThirdVariable = new Variables(firstValue, secondValue);
 
         Exchangeable<Variables> variablesExchangeTwoVariablesWithoutTheUseThirdVariable =
@@ -59,6 +58,6 @@ public class Main {
                 "firstVariable = %d;\n" +
                 "secondVariable = %d;", variableForExchangePlacesTwoVariablesWithThirdVariable.getFirstVariable(), variableForExchangePlacesTwoVariablesWithThirdVariable.getSecondVariable());
 
-
     }
+
 }

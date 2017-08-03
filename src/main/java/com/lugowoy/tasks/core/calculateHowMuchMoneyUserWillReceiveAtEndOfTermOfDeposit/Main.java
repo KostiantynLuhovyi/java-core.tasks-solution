@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.core.calculateHowMuchMoneyUserWillReceiveAtEndOfTermOfDeposit;
 
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 import java.math.BigDecimal;
 
@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 public class Main {
 
-    private static final ReadingData<Double> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readDouble);
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
@@ -29,7 +29,7 @@ public class Main {
         System.out.println("Enter deposit sum in UAH : ");
         double sum;
         while (true) {
-            sum = READING_DATA.read();
+            sum = reader.readDouble();
             if (sum > 0) {
                 break;
             } else {
@@ -38,14 +38,13 @@ public class Main {
             }
         }
         return sum;
-
     }
 
     private static double getRate() {
         System.out.println("Enter interest rate : ");
         double rate;
         while (true) {
-            rate = READING_DATA.read();
+            rate = reader.readDouble();
             if ((rate >= 0) && (rate <= 100)) {
                 break;
             } else {
@@ -54,14 +53,13 @@ public class Main {
             }
         }
         return rate;
-
     }
 
     private static int getTermOfDepositInMonths() {
         System.out.println("Enter term of deposit in month : ");
         int term;
         while (true) {
-            term = READING_DATA.read().intValue();
+            term = reader.readInt();
             if (term > 0) {
                 break;
             } else {
@@ -70,7 +68,6 @@ public class Main {
             }
         }
         return term;
-
     }
 
 }

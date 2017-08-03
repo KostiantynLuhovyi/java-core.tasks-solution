@@ -11,8 +11,6 @@ public class ParserIntegerNumber {
         int resultSingleDigitNumber = 0;
         digitNumber = " ".concat(digitNumber);
 
-        /*posDigit = getCorrectPosDigit(posDigit);*/
-
         if (((posDigit > 0) || (posDigit <= 4))) {
             for (int i = 1; i < digitNumber.length(); i++) {
                 if (i == posDigit) {
@@ -23,7 +21,6 @@ public class ParserIntegerNumber {
             throw new InputMismatchException(" \t \t Entered invalid index. Correct the index from 1 to 4.");
         }
         return resultSingleDigitNumber;
-
     }
 
     private static int getCorrectPosDigit(int posDigit) {

@@ -54,8 +54,9 @@ public class Laptop implements Cloneable, Serializable {
     @Override
     protected Laptop clone() throws CloneNotSupportedException {
         Laptop laptop = (Laptop) super.clone();
-        laptop.setBrandName(this.brandName);
-        laptop.setPrice(new BigDecimal(this.price.doubleValue()));
+        laptop.setIdLaptop(this.getIdLaptop());
+        laptop.setBrandName(this.getBrandName());
+        laptop.setPrice(new BigDecimal(this.getPrice().doubleValue()));
         return laptop;
     }
 
@@ -82,4 +83,5 @@ public class Laptop implements Cloneable, Serializable {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
+
 }

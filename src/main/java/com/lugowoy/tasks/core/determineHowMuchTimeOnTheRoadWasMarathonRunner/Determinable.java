@@ -18,4 +18,5 @@ public interface Determinable<T, V> {
 
         return new Time((int)hour, (int)minutes, (int)second);
     }
+
 }

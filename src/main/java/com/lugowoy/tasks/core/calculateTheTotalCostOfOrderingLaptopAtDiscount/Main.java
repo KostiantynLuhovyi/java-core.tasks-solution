@@ -1,8 +1,8 @@
 package com.lugowoy.tasks.core.calculateTheTotalCostOfOrderingLaptopAtDiscount;
 
-import com.lugowoy.util.calculating.CalculableOnTheThreeVariables;
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.calculating.CalculableOnTheThreeVariables;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 import java.math.BigDecimal;
 import java.util.Random;
@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class Main {
 
-    private static final ReadingData<Double> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readDouble);
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
@@ -36,7 +36,7 @@ public class Main {
         int numberOfLaptop;
         System.out.println("Enter the number of laptops : ");
         while (true) {
-            numberOfLaptop = new ReadingUserInputData().readInt();
+            numberOfLaptop = reader.readInt();
             if (numberOfLaptop > 0) {
                 break;
             } else {
@@ -45,14 +45,13 @@ public class Main {
             }
         }
         return numberOfLaptop;
-
     }
 
     private static BigDecimal getTotalDiscountOnTheLaptop() {
         BigDecimal discount;
         System.out.println("Enter the total discount on the laptop : ");
         while (true) {
-            double enterDiscount = READING_DATA.read();
+            double enterDiscount = reader.readDouble();
             if ((enterDiscount >= 0) && (enterDiscount <= 100)) {
                 discount = new BigDecimal(enterDiscount);
                 break;
@@ -62,14 +61,13 @@ public class Main {
             }
         }
         return discount;
-
     }
 
     private static BigDecimal getEnterPrice() {
         BigDecimal price;
         System.out.println("Enter price of the laptop : ");
         while (true) {
-            double enterPrice = READING_DATA.read();
+            double enterPrice = reader.readDouble();
             if (enterPrice > 0) {
                 price = new BigDecimal(enterPrice);
                 break;
@@ -79,6 +77,6 @@ public class Main {
             }
         }
         return price;
-
     }
+
 }

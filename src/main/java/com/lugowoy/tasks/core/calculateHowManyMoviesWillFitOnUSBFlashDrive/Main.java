@@ -1,13 +1,13 @@
 package com.lugowoy.tasks.core.calculateHowManyMoviesWillFitOnUSBFlashDrive;
 
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 /** Created by Konstantin Lugowoy on 16.06.2017. */
 
 public class Main {
 
-    private static final ReadingData<Double> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readDouble);
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
@@ -24,7 +24,7 @@ public class Main {
         double sizeFlashDriveUSB;
         System.out.println("Enter the size of the flash drive USB : ");
         while (true) {
-            sizeFlashDriveUSB = READING_DATA.read();
+            sizeFlashDriveUSB = reader.readDouble();
             if (sizeFlashDriveUSB > 0) {
                 break;
             } else {
@@ -39,7 +39,7 @@ public class Main {
         double sizeMovie;
         System.out.println("Enter the size (Mb) of the movie : ");
         while (true) {
-            sizeMovie = READING_DATA.read();
+            sizeMovie = reader.readDouble();
             if (sizeMovie > 0) {
                 break;
             } else {
@@ -48,7 +48,6 @@ public class Main {
             }
         }
         return sizeMovie;
-
     }
 
 }

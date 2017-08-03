@@ -30,4 +30,5 @@ public class Variables {
     public void setFirstVariable(int firstVariable) {
         this.firstVariable = firstVariable;
     }
+
 }

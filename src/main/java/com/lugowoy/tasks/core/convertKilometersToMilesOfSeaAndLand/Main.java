@@ -1,26 +1,26 @@
 package com.lugowoy.tasks.core.convertKilometersToMilesOfSeaAndLand;
 
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 /**Created by Konstantin Lugowoy on 31-Dec-16.*/
 
 public class Main {
 
-    public static void main(String[] args) {
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
-        ReadingData<Number> readingData = new ReadingData<>(new ReadingUserInputData()::readDouble);
+    public static void main(String[] args) {
 
         System.out.println("Enter the number of kilometers for conversion : ");
         Length length = new Length();
-        length.setKilometers((Double) readingData.read());
+        length.setKilometers(reader.readDouble());
 
         System.out.println("Convert entered number of kilometers, ");
         System.out.println("In nautical miles, enter : \"1\" .");
         System.out.println("In the statute miles, enter : \"2\" .");
         System.out.println("Nothing to convert, enter : \"3\" .");
 
-        int selection = (int) readingData.read();
+        int selection = reader.readInt();
 
         if ((selection > 0) && (selection <= 3)) {
             Convertable<Length> lengthConvertable;
@@ -45,4 +45,5 @@ public class Main {
         }
 
     }
+
 }

@@ -1,13 +1,13 @@
 package com.lugowoy.tasks.core.countHowManyFloppiesAreNeededToTransferTheMovieToAnotherComputer;
 
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 /** Created by Konstantin Lugowoy on 17.06.2017. */
 
 public class Main {
 
-    private static final ReadingData<Double> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readDouble);
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     private static final double SIZE_OF_FLOPPY_DISK_IN_MB = 1.44;
 
@@ -24,7 +24,7 @@ public class Main {
     private static double getSizeMovieInTheGb() {
         double sizeMovieInTheGb;
         System.out.println("Enter size movie in the gigabytes : ");
-        sizeMovieInTheGb = READING_DATA.read();
+        sizeMovieInTheGb = reader.readDouble();
         while (true) {
             if (sizeMovieInTheGb > 0) {
                 break;
@@ -34,7 +34,6 @@ public class Main {
             }
         }
         return sizeMovieInTheGb;
-
     }
 
 }

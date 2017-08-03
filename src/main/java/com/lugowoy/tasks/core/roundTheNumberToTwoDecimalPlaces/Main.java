@@ -1,13 +1,11 @@
 package com.lugowoy.tasks.core.roundTheNumberToTwoDecimalPlaces;
 
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 /** Created by Konstantin Lugowoy on 16.06.2017. */
 
 public class Main {
-
-    private static final ReadingData<Double> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readDouble);
 
     public static void main(String[] args) {
 
@@ -23,7 +21,7 @@ public class Main {
         double number;
         System.out.println("Enter real number : ");
         while (true) {
-            number = READING_DATA.read();
+            number = new Reader(new ReadingDataUserInputInConsole()).readDouble();
             if (number > 0) {
                 break;
             } else {

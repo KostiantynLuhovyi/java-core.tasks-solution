@@ -19,7 +19,6 @@ public interface Determinable<T> {
             System.out.println("Result : 0 .");
         }
         return minNumber;
-
     }
 
     static Double determineMax(Double[] doubles) {
@@ -32,7 +31,6 @@ public interface Determinable<T> {
             System.out.println("Result : 0 .");
         }
         return maxNumber;
-
     }
 
 }

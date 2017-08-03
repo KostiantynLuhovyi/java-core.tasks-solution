@@ -1,50 +1,29 @@
 package com.lugowoy.tasks.core.calculationThePercentageOfTheSum;
 
-import com.lugowoy.util.calculating.CalculableOnTheObject;
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.calculating.CalculableOnTheObject;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 import java.math.BigDecimal;
 
-/**
- * Created by Konstantin Lugowoy on 04-Jan-17.
- *
- * @author Konstantin Lugowoy
- * @version 1.1
- * @since 04.01.17
- * <p>
- * This class is required for startup.
- */
+/** Created by Konstantin Lugowoy on 04-Jan-17. */
+
 public class Main {
-    /*
-    * Instantiation class "ReadingData" an object that provides a function to read user input.
-    * */
-    private static final ReadingData<Double> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readDouble);
+
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
         System.out.println("Enter sum : ");
-        /*
-        * Read and assigned value of the sum.
-        * */
-        BigDecimal sum = new BigDecimal(READING_DATA.read());
+        BigDecimal sum = new BigDecimal(reader.readDouble());
 
         System.out.println("Enter part of the sum : ");
-        /*
-        * Read and assigned value of the part of the sum.
-        * */
-        BigDecimal partOfTheSum = new BigDecimal(READING_DATA.read());
+        BigDecimal partOfTheSum = new BigDecimal(reader.readDouble());
 
-        /*
-        * Instantiation object class "Variable". The constructor takes the value of the sum and part of the sum
-        * */
         Variable variable = new Variable(sum, partOfTheSum);
 
-        /*
-        * It shall be checked that the value of the sum is larger than part of the sum.
-        * */
         Comparable<Variable> variableComparable = variableToCompare -> {
-            int result = 0;
+            int result;
             if (variableToCompare.getSum().doubleValue() > variableToCompare.getPartOfSum().doubleValue()) {
                 result = 1;
             } else {
@@ -53,9 +32,6 @@ public class Main {
             return result;
         };
 
-        /*
-        * The value returned by checking the comparison value is correct, the percentage is calculated and displays the result.
-        * */
         if (variableComparable.compareTo(variable) == 1) {
             CalculableOnTheObject<Variable> variableCalculableOnTheObject = new CalculatingThePercentOfSum()::calculateThePercentageOfTheSum;
             variableCalculableOnTheObject.calculate(variable);
@@ -65,6 +41,6 @@ public class Main {
             System.out.println("It is impossible to calculateTheAreaOfTheCircle the percentage of the sum.");
         }
 
-
     }
+
 }

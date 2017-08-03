@@ -1,10 +1,12 @@
 package com.lugowoy.tasks.core.calculateDistanceFromPointToSingleCircleWithCenterAtGivenPoint;
 
-import com.lugowoy.util.calculating.CalculableOnTheTwoVariables;
-import com.lugowoy.util.factory.creating.points.CreatorPointDoubleCoordinates;
-import com.lugowoy.util.models.other.Point;
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.calculating.CalculableOnTheTwoVariables;
+import com.lugowoy.helper.factory.creator.Creator;
+import com.lugowoy.helper.factory.creator.CreatorOfPointModels;
+import com.lugowoy.helper.factory.models.points.FactoryOfPointsWithDoubleCoordinates;
+import com.lugowoy.helper.models.points.Point;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
@@ -32,18 +34,18 @@ public class Main {
     }
 
     private static Point<Double> getPoint(String pointName) {
-        ReadingData<Double> readingData = new ReadingData<>(new ReadingUserInputData()::readDouble);
+        Reader reader = new Reader(new ReadingDataUserInputInConsole());
+        Creator<Point<Double>> creator = new CreatorOfPointModels<>(new FactoryOfPointsWithDoubleCoordinates());
 
         System.out.println("Enter coordinates for the point " + pointName + " .");
-        Point<Double> point = new CreatorPointDoubleCoordinates().create();
+        Point<Double> point = creator.create();
 
         System.out.println("x : ");
-        point.setCoordinateX(readingData.read());
+        point.setCoordinateX(reader.readDouble());
         System.out.println("y : ");
-        point.setCoordinateY(readingData.read());
+        point.setCoordinateY(reader.readDouble());
 
         return point;
-
     }
 
     private static CalculableOnTheTwoVariables<Double, Point<Double>, Point<Double>> calculatingDistanceFromPointToSingleCircle = (firstPoint, secondPoint) ->

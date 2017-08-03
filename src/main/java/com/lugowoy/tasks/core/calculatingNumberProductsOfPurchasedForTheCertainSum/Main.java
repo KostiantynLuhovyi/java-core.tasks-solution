@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.core.calculatingNumberProductsOfPurchasedForTheCertainSum;
 
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 import java.math.BigDecimal;
 
@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 public class Main {
 
-    private static final ReadingData<Double> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readDouble);
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
@@ -17,10 +17,10 @@ public class Main {
         Product product = new Product();
 
         System.out.println("Enter available sum of money : ");
-        user.setAvailableSumOfMoney(new BigDecimal(READING_DATA.read()));
+        user.setAvailableSumOfMoney(new BigDecimal(reader.readDouble()));
 
         System.out.println("Enter price of product : ");
-        product.setPrice(new BigDecimal(READING_DATA.read()));
+        product.setPrice(new BigDecimal(reader.readDouble()));
 
         int numberOfProducts = user.getAvailableSumOfMoney().divide(product.getPrice(), BigDecimal.ROUND_DOWN).intValue();
 
@@ -31,4 +31,5 @@ public class Main {
         System.out.printf("Change of money : %f", user.getAvailableSumOfMoney());
 
     }
+
 }

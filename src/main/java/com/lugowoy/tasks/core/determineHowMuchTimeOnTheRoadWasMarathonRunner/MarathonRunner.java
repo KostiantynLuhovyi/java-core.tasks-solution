@@ -40,4 +40,5 @@ public class MarathonRunner {
     public Time getTime() {
         return time;
     }
+
 }

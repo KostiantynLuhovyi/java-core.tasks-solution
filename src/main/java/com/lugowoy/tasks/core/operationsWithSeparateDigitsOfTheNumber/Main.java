@@ -1,13 +1,13 @@
 package com.lugowoy.tasks.core.operationsWithSeparateDigitsOfTheNumber;
 
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 /**Created by Konstantin Lugowoy on 05-Feb-17.*/
 
 public class Main {
 
-    private static final ReadingData<Integer> INTEGER_READING_DATA = new ReadingData<>(new ReadingUserInputData()::readInt);
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
@@ -16,7 +16,7 @@ public class Main {
         System.out.println("Enter the four-digit number : ");
         int enteredNumber;
         do {
-            enteredNumber = INTEGER_READING_DATA.read();
+            enteredNumber = reader.readInt();
             String enteredNumberForVerification = Integer.toString(enteredNumber);
             if (enteredNumberForVerification.length() == 4) {
                 number = new Number(enteredNumber);

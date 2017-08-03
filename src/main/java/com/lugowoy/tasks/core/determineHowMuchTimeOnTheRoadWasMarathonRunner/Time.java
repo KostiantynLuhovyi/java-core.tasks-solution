@@ -69,4 +69,5 @@ public class Time {
     public void setTime(Calendar time) {
         this.time = time;
     }
+
 }
