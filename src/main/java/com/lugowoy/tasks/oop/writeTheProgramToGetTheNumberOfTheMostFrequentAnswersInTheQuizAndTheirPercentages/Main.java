@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnswersInTheQuizAndTheirPercentages;
 
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 import com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnswersInTheQuizAndTheirPercentages.determine.Determinant;
 import com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnswersInTheQuizAndTheirPercentages.determine.DeterminantOfVotingWinners;
 import com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnswersInTheQuizAndTheirPercentages.determine.DeterminantPercentageOfAllVotingOptions;
@@ -13,8 +15,6 @@ import com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnswe
 import com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnswersInTheQuizAndTheirPercentages.voting.RandomVoting;
 import com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnswersInTheQuizAndTheirPercentages.voting.UserVoting;
 import com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnswersInTheQuizAndTheirPercentages.voting.Voting;
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
 
 /** Created by Konstantin Lugowoy on 07.04.2017. */
 
@@ -22,7 +22,7 @@ public class Main {
 
     private static final Factory<Quiz> QUIZ_FACTORY = new QuizFactory()::createModel;
 
-    private static final ReadingUserInputData INPUT_DATA = new ReadingUserInputData();
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
@@ -37,10 +37,12 @@ public class Main {
 
         int resultChoiceKnownWhetherTheNumberOfParticipantsInTheVote = choiceIsKnownWhetherTheNumberOfParticipantsInTheVote();
 
+        System.out.println();
+
         Voting<ValueForOptionJapanSymbols> voting;
         if (resultChoiceKnownWhetherTheNumberOfParticipantsInTheVote == 1) {
-            System.out.println("Meaningful vote.");
-            voting = new UserVoting<>(new ReadingData<>(INPUT_DATA::readLine));
+            System.out.println("Start voting.\n");
+            voting = new UserVoting<>();
             voting.vote(quiz);
         } else if (resultChoiceKnownWhetherTheNumberOfParticipantsInTheVote == 2) {
 
@@ -48,7 +50,7 @@ public class Main {
 
             int resultChoiceVotingOption = choiceVotingOption();
             if (resultChoiceVotingOption == 1) {
-                voting = new UserVoting<>(new ReadingData<>(INPUT_DATA::readLine));
+                voting = new UserVoting<>();
                 ((UserVoting) voting).vote(quiz, Quiz.getNumberOfParticipantsInVoting());
             } else if (resultChoiceVotingOption == 2) {
                 voting = new RandomVoting<>(Quiz.getNumberOfParticipantsInVoting(), ValueForOptionJapanSymbols.class);
@@ -61,7 +63,7 @@ public class Main {
         System.out.println();
         System.out.println("Options won the vote : ");
         for (Option option : ((DeterminantOfVotingWinners)determinant).determine(quiz)) {
-            System.out.println(option);
+            System.out.println(Option.class + " - choice : " + option.getCountChoice() + "; symbol : " + option.getValueForOption());
         }
         System.out.println();
 
@@ -78,11 +80,11 @@ public class Main {
     }
 
     private static int inputAndGetQuantityParticipants() {
-        int resultQuantity = 0;
+        int resultQuantity;
         System.out.println("Enter the number of voters : ");
-        System.out.println("The quantity must not exceed 50 participants.");
+        System.out.println("The number must not exceed 50 participants.");
         while (true) {
-            int quantityParticipants = INPUT_DATA.readInt();
+            int quantityParticipants = reader.readInt();
             if ((quantityParticipants > 0) && (quantityParticipants <= 50)) {
                 resultQuantity = quantityParticipants;
                 break;
@@ -95,12 +97,12 @@ public class Main {
 
     private static int choiceVotingOption() {
         System.out.println("You want to spend meaningful or random vote ?");
-        int resultSelectionVotingOption = 0;
+        int resultSelectionVotingOption;
         while (true) {
             System.out.println("Make a choice : ");
             System.out.println("Meaningful vote - press '1' ;\n" +
                                "Random vote - press '2' .");
-            resultSelectionVotingOption = INPUT_DATA.readInt();
+            resultSelectionVotingOption = reader.readInt();
             if ((resultSelectionVotingOption > 0) && (resultSelectionVotingOption < 3)) {
                 break;
             } else {
@@ -112,12 +114,12 @@ public class Main {
     }
 
     private static int choiceIsKnownWhetherTheNumberOfParticipantsInTheVote() {
-        int resultChoiceQuantityOfVote = 0;
+        int resultChoiceQuantityOfVote;
         System.out.println("You know the number of participants in vote : ");
         while (true) {
             System.out.println("No - press '1' ;\n" +
                                "Yes - press '2' .");
-            resultChoiceQuantityOfVote = INPUT_DATA.readInt();
+            resultChoiceQuantityOfVote = reader.readInt();
             if ((resultChoiceQuantityOfVote > 0) && (resultChoiceQuantityOfVote < 3)) {
                 break;
             } else {

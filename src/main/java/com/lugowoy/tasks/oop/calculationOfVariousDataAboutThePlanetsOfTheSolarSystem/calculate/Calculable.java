@@ -8,4 +8,5 @@ import java.util.Collection;
 public interface Calculable<T, V> {
 
     T calculate(Collection<V> collection);
+
 }

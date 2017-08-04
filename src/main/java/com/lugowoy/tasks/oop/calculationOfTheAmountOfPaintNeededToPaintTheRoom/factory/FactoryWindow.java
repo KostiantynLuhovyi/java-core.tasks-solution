@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.factory;
 
+import com.lugowoy.helper.reading.Reader;
 import com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.models.Window;
-import com.lugowoy.util.reading.Reading;
 
 import java.math.BigDecimal;
 
@@ -9,20 +9,20 @@ import java.math.BigDecimal;
 
 public class FactoryWindow extends FactoryModel<Double> {
 
-    public FactoryWindow(Reading<Double> reading) {
-        super(reading);
+    public FactoryWindow(Reader reader) {
+        super(reader);
     }
 
     public Window createWindow() {
         System.out.println("Enter the width of the window : ");
-        BigDecimal widthWindow = new BigDecimal(super.getReadingData().reading());
+        BigDecimal widthWindow = new BigDecimal(super.getReader().readDouble());
 
         System.out.println("Enter the height of the window : ");
-        BigDecimal heightWindow = new BigDecimal(super.getReadingData().reading());
+        BigDecimal heightWindow = new BigDecimal(super.getReader().readDouble());
 
         System.out.println();
 
         return new Window(widthWindow, heightWindow);
-
     }
+
 }

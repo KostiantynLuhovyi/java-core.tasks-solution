@@ -42,4 +42,5 @@ public abstract class Voting<T extends Enum> {
     public void setValueForOption(Class<T> valueForOption) {
         this.valueForOption = valueForOption;
     }
+
 }

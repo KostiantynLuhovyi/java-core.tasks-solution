@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom;
 
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 import com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.calculation.area.*;
 import com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.calculation.expense.CalculableExpensePaintForTheRoom;
 import com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.calculation.expense.CalculatorExpensePaintForTheRoom;
@@ -7,8 +9,6 @@ import com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.d
 import com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.determine.DeterminantExpensesOfThePaintPerSquareMeterOfConcreteSurface;
 import com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.factory.*;
 import com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.models.*;
-import com.lugowoy.util.reading.ReadingUserInputData;
-import com.lugowoy.util.reading.StoppingEnterValueException;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -18,17 +18,17 @@ import java.util.List;
 
 public class Main {
 
-    private static final ReadingUserInputData READING_DATA = new ReadingUserInputData();
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
-    private static final Factory<Window> FACTORY_WINDOW = new FactoryWindow(READING_DATA::readDouble)::createWindow;
-    private static final Factory<Door> FACTORY_DOOR = new FactoryDoor(READING_DATA::readDouble)::createDoor;
-    private static final Factory<Room> FACTORY_ROOM = new FactoryRoom(READING_DATA::readDouble)::createRoom;
-    private static final Factory<Paint> FACTORY_PAINT = new FactoryPaint(READING_DATA::readDouble)::createPaint;
+    private static final Factory<Window> FACTORY_WINDOW = new FactoryWindow(reader)::createWindow;
+    private static final Factory<Door> FACTORY_DOOR = new FactoryDoor(reader)::createDoor;
+    private static final Factory<Room> FACTORY_ROOM = new FactoryRoom(reader)::createRoom;
+    private static final Factory<Paint> FACTORY_PAINT = new FactoryPaint(reader)::createPaint;
 
     private static Determinable<BigDecimal, TypeOfSurface, TypeOfPaint> determineExpenseOfThePaintPerSquareMeterOfConcreteSurface
             = DeterminantExpensesOfThePaintPerSquareMeterOfConcreteSurface::determineExpenseOfThePaintPerSquareMeterOfConcreteSurface;
 
-    public static void main(String[] args) throws StoppingEnterValueException {
+    public static void main(String[] args) {
 
         System.out.println("Fill in the data for the room.");
         Room room = FACTORY_ROOM.create();
@@ -41,7 +41,7 @@ public class Main {
         room.setTypeOfSurface(chooseWallSurfaceInTheRoom());
 
         System.out.println("Enter the number of windows in the room : ");
-        int numberWindowInTheRoom = READING_DATA.readInt();
+        int numberWindowInTheRoom = reader.readInt();
         System.out.println();
 
         room.setWindowListInTheFlat(getListOfWindowsInTheRoom(numberWindowInTheRoom));
@@ -57,7 +57,7 @@ public class Main {
         System.out.println();
 
         System.out.println("Enter the number of door int the room : ");
-        int numberDoorInTheRoom = READING_DATA.readInt();
+        int numberDoorInTheRoom = reader.readInt();
         System.out.println();
 
         room.setDoorListInTheFlat(getListOfDoorInTheRoom(numberDoorInTheRoom));
@@ -119,7 +119,7 @@ public class Main {
         return doorArrayList;
     }
 
-    private static TypeOfSurface chooseWallSurfaceInTheRoom() throws StoppingEnterValueException {
+    private static TypeOfSurface chooseWallSurfaceInTheRoom() {
         TypeOfSurface resultTypeOfSurface = null;
         System.out.println("Choose a wall surface in the room : ");
         System.out.println("METAL : 1; \n" +
@@ -128,7 +128,7 @@ public class Main {
                            "PLASTER : 4; \n" +
                            "GYPSUM PLASTERBOARD : 5;");
 
-        int chooseResult = READING_DATA.readInt();
+        int chooseResult = reader.readInt();
         if ((chooseResult >= 1) && (chooseResult <= 5)) {
             resultTypeOfSurface = determinationOfTheResultTheWallSurface(chooseResult);
             System.out.println("You choosed : " + resultTypeOfSurface.toString());

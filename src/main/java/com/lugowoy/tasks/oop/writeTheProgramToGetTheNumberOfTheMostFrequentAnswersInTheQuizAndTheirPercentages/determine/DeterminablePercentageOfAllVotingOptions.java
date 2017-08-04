@@ -5,4 +5,5 @@ package com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnsw
 public interface DeterminablePercentageOfAllVotingOptions<T> extends Determinable {
 
     void determinePercentageOfAllVotingOptions(T t);
+
 }

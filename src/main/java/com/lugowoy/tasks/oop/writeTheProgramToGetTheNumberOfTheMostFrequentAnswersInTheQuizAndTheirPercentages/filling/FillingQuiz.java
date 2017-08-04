@@ -23,7 +23,7 @@ public class FillingQuiz<T extends Enum> implements Fillable<T> {
 
             optionList.add(option);
         }
-
         quiz.setOptionList(optionList);
     }
+
 }

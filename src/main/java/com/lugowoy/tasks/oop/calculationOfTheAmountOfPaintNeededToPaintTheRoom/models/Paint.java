@@ -94,4 +94,5 @@ public class Paint {
     public void setExpenseOfThePaintPerSquareMeter(BigDecimal expenseOfThePaintPerSquareMeter) {
         this.expenseOfThePaintPerSquareMeter = expenseOfThePaintPerSquareMeter;
     }
+
 }

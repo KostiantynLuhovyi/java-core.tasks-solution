@@ -17,9 +17,7 @@ public class DetermineSuitabilityOfComponent {
         int resultSuitabilityOfComponent = 0;
         int resultNotSuitabilityOfComponent = 0;
 
-        Iterator<Component> componentIterator = batchOfComponents.getComponentsCollection().iterator();
-        while (componentIterator.hasNext()) {
-            Component component = componentIterator.next();
+        for (Component component : batchOfComponents.getComponentsCollection()) {
             if ((component.getSize() > (this.firstInterval - this.secondInterval))
                     && (component.getSize() < (this.firstInterval + this.secondInterval))) {
                 resultSuitabilityOfComponent++;
@@ -37,4 +35,5 @@ public class DetermineSuitabilityOfComponent {
     public int getSecondInterval() {
         return secondInterval;
     }
+
 }

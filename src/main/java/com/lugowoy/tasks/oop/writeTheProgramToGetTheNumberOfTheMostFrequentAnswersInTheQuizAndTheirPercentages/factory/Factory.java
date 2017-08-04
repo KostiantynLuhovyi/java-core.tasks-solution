@@ -6,4 +6,5 @@ package com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnsw
 public interface Factory<T> {
 
     T create();
+
 }

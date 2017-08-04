@@ -13,7 +13,6 @@ public class ReadingDataUserInputInConsole extends ReadingDataUserInput {
 
     private static final Scanner SCANNER = new Scanner(System.in);
 
-
     @Override
     public byte readByte() {
         return this.getCorrectByteNumberValue(ReadableCorrect::isByteNumber);
@@ -22,7 +21,6 @@ public class ReadingDataUserInputInConsole extends ReadingDataUserInput {
     private byte getCorrectByteNumberValue(ReadableCorrect readableCorrect) {
         byte resultByteInputValue;
 
-        System.out.println("Enter the number : ");
         String inputValue = SCANNER.nextLine();
 
         if (readableCorrect.isCorrect(inputValue)) {
@@ -43,7 +41,6 @@ public class ReadingDataUserInputInConsole extends ReadingDataUserInput {
     private short getCorrectShortNumberValue(ReadableCorrect readableCorrect) {
         short resultShortInputValue;
 
-        System.out.println("Enter the number : ");
         String inputValue = SCANNER.nextLine();
 
         if (readableCorrect.isCorrect(inputValue)) {
@@ -67,7 +64,6 @@ public class ReadingDataUserInputInConsole extends ReadingDataUserInput {
     private int getCorrectIntNumberValue(ReadableCorrect readableCorrect) {
         int resultIntInputValue; //Variable for save and return correct inputValue.
 
-        System.out.println("Enter the integer number : ");
         String inputValue = SCANNER.nextLine();//The variable takes on a inputValue that the user entered into the console.
 
         //Checking with regular expressions that the entered string is indeed a number with or without a sign.
@@ -93,7 +89,6 @@ public class ReadingDataUserInputInConsole extends ReadingDataUserInput {
     private long getCorrectLongNumberValue(ReadableCorrect readableCorrect) {
         long resultLongInputValue;
 
-        System.out.println("Enter the number : ");
         String inputValue = SCANNER.nextLine();
 
         if (readableCorrect.isCorrect(inputValue)) {
@@ -114,7 +109,6 @@ public class ReadingDataUserInputInConsole extends ReadingDataUserInput {
     private float getCorrectFloatNumberValue(ReadableCorrect readableCorrect) {
         float resultFloatInputValue;
 
-        System.out.println("Enter the number : ");
         String inputValue = SCANNER.nextLine();
 
         if (readableCorrect.isCorrect(inputValue)) {
@@ -138,7 +132,6 @@ public class ReadingDataUserInputInConsole extends ReadingDataUserInput {
     private double getCorrectDoubleNumberValue(ReadableCorrect readableCorrect) {
         double resultDoubleInputValue;//Variable for save and return correct resultDoubleInputValue.
 
-        System.out.println("Enter the real number : ");
         String inputValue = SCANNER.nextLine();//The variable takes on a resultDoubleInputValue that the user entered into the console.
 
         //Checking with regular expressions that the entered string is indeed a number with or without a sign.
@@ -159,7 +152,6 @@ public class ReadingDataUserInputInConsole extends ReadingDataUserInput {
     @Override
     public String readString() {
         String value = "";
-        System.out.println("Enter string value : ");
         if (SCANNER.hasNextLine()) {
             value = SCANNER.nextLine();
         }

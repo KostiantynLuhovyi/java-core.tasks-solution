@@ -62,5 +62,4 @@ public class DeterminantExpensesOfThePaintPerSquareMeterOfConcreteSurface {
         return expense;
     }
 
-
 }

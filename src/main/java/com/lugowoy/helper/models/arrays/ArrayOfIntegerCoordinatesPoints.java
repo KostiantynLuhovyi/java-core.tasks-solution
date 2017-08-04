@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class ArrayOfIntegerCoordinatesPoints extends ArrayOfPoints<Integer> {
 
     private ArrayOfIntegerCoordinatesPoints() {
-        super.setArray(Arrays.stream(new PointOfIntegerCoordinates[DEFAULT_ARRAY_SIZE])
+        super.setArray(Arrays.stream(new PointOfIntegerCoordinates[DEFAULT_SIZE_ARRAY])
                              .map(pointOfIntegerCoordinates -> PointOfIntegerCoordinates.getInstancePointOfIntegerCoordinates())
                              .toArray(PointOfIntegerCoordinates[]::new));
     }
@@ -25,7 +25,6 @@ public class ArrayOfIntegerCoordinatesPoints extends ArrayOfPoints<Integer> {
         arrayOfIntegerCoordinatesPoints.setArray(this.getArray());
 
         return arrayOfIntegerCoordinatesPoints;
-
     }
 
     @Override

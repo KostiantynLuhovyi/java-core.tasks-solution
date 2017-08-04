@@ -18,4 +18,5 @@ public class IncorrectInputValueOfOption extends IllegalArgumentException {
     public IncorrectInputValueOfOption(Throwable cause) {
         super(cause);
     }
+
 }

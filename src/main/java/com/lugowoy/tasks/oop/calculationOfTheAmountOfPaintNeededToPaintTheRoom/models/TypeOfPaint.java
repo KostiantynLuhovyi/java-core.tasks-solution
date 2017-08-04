@@ -69,4 +69,5 @@ public enum TypeOfPaint {
     public void setExpenseForTheGypsumPlasterboardSurface(double expenseForTheGypsumPlasterboardSurface) {
         this.expenseForTheGypsumPlasterboardSurface = expenseForTheGypsumPlasterboardSurface;
     }
+
 }

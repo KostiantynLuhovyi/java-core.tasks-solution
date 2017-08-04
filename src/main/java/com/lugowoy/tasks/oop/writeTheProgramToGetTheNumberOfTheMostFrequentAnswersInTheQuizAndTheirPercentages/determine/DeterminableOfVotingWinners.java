@@ -9,4 +9,5 @@ import java.util.Collection;
 public interface DeterminableOfVotingWinners<T extends Collection, V> extends Determinable {
 
     T determine(V v);
+
 }

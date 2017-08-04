@@ -11,4 +11,5 @@ import java.math.BigDecimal;
 public interface CalculableExpensePaintForTheRoom extends CalculableExpense {
 
     BigDecimal calculateExpensePaintForTheRoom(Room room, Paint paint);
+
 }

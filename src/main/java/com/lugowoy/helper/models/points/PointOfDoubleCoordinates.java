@@ -16,6 +16,16 @@ public class PointOfDoubleCoordinates extends Point<Double> {
         super.setCoordinateY(DEFAULT_VALUE_DOUBLE_COORDINATES);
     }
 
+    @Override
+    public PointOfDoubleCoordinates clone() throws CloneNotSupportedException {
+        Point<Double> point = (PointOfDoubleCoordinates) super.clone();
+        point.setCoordinateX(this.getCoordinateX());
+        point.setCoordinateY(this.getCoordinateY());
+
+        return (PointOfDoubleCoordinates) point;
+    }
+
+
     public static PointOfDoubleCoordinates getInstancePointOfDoubleCoordinates() {
         return new PointOfDoubleCoordinates();
     }

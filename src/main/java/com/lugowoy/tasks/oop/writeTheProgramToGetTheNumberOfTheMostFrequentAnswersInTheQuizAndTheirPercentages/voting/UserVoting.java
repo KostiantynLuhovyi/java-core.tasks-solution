@@ -1,25 +1,32 @@
 package com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnswersInTheQuizAndTheirPercentages.voting;
 
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 import com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnswersInTheQuizAndTheirPercentages.model.Option;
 import com.lugowoy.tasks.oop.writeTheProgramToGetTheNumberOfTheMostFrequentAnswersInTheQuizAndTheirPercentages.model.Quiz;
-import com.lugowoy.util.reading.ReadingData;
 
 /** Created by Konstantin Lugowoy on 07.04.2017. */
 
 public class UserVoting<T extends Enum> extends Voting<T> {
 
-    private ReadingData<String> readingData;
+    private Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
-    public UserVoting(ReadingData<String> readingData) {
-        this.readingData = readingData;
+    public UserVoting() {
     }
 
     public void vote(Quiz quiz) {
+        int countVote = 0;
+
         String resultInputData;
+
         while (true) {
             outputOptionsForVoting(quiz);
             System.out.println("To end the voting, enter 'stop'.");
-            resultInputData = this.readingData.read();
+            resultInputData = this.reader.readString();
+
+            Quiz.setNumberOfParticipantsInVoting(countVote);
+            countVote++;
+
             if (!resultInputData.equalsIgnoreCase("stop")) {
                 try {
                     accrualOfVotesForParticularOption(quiz, resultInputData);
@@ -39,7 +46,7 @@ public class UserVoting<T extends Enum> extends Voting<T> {
             while (true) {
                 try {
                     outputOptionsForVoting(quiz);
-                    resultInputData = this.readingData.read();
+                    resultInputData = this.reader.readString();
                     accrualOfVotesForParticularOption(quiz, resultInputData);
                     break;
                 } catch (IllegalArgumentException ex) {

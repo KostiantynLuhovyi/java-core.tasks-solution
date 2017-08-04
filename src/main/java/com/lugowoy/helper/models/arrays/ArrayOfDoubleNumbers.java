@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class ArrayOfDoubleNumbers extends ArrayOfNumbers<Double> {
 
     private ArrayOfDoubleNumbers() {
-        super.setArray(Arrays.stream(new Double[DEFAULT_ARRAY_SIZE]).mapToDouble(value -> 0).boxed().toArray(Double[]::new));
+        super.setArray(Arrays.stream(new Double[DEFAULT_SIZE_ARRAY]).mapToDouble(value -> 0).boxed().toArray(Double[]::new));
     }
 
     private ArrayOfDoubleNumbers(Double[] array) {
@@ -20,7 +20,6 @@ public class ArrayOfDoubleNumbers extends ArrayOfNumbers<Double> {
         arrayOfDoubleNumbers.setArray(this.getArray());
 
         return arrayOfDoubleNumbers;
-
     }
 
     @Override

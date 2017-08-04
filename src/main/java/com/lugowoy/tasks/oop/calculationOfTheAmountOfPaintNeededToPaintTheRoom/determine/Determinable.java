@@ -6,4 +6,5 @@ package com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.
 public interface Determinable<T, V, Z> {
 
     T determine(V v, Z z);
+
 }

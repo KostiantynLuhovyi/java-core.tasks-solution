@@ -20,12 +20,11 @@ public class DeterminerCurrencyProfitabilityOfBanksList implements DeterminableB
         Bank resultBank = null;
 
         double profitabilityValueRate = 0;
-        double valueForComparisonOfRate = 0;
+        double valueForComparisonOfRate;
 
         if (banksList.size() != 0) {
             for (Bank bank : banksList) {
                 if ((bank != null) && (bank.getCurrencyList() != null) && (bank.getCurrencyList().size() > 0)) {
-                    /*profitabilityValueRate = valueForComparisonOfRate;*/
                     for (Currency currency : bank.getCurrencyList()) {
 
                         if ((currency != null) && (currency.getCurrencyRateList() != null) && (currency.getCurrencyRateList().size() > 0)) {
@@ -179,12 +178,10 @@ public class DeterminerCurrencyProfitabilityOfBanksList implements DeterminableB
                     }
                 }
             }));
-            if (resultBanksList.size() == 0) {
-                System.out.println("No banks on the balance of which there is a sufficient amount for the exchange of.");
-            }
         } else {
             System.out.println("The list of banks is empty or not created");
         }
         return resultBanksList;
     }
+
 }

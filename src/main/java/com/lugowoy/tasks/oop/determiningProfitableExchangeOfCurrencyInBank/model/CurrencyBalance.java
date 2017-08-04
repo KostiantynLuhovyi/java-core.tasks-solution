@@ -67,4 +67,5 @@ public class CurrencyBalance {
     public void setCurrencyBalance(BigDecimal currencyBalance) {
         this.currencyBalance = currencyBalance;
     }
+
 }

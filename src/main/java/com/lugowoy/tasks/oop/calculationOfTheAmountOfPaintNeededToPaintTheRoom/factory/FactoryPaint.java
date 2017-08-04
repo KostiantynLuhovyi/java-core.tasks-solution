@@ -1,10 +1,8 @@
 package com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.factory;
 
+import com.lugowoy.helper.reading.Reader;
 import com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.models.Paint;
 import com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.models.TypeOfPaint;
-import com.lugowoy.util.reading.Reading;
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
 
 import java.awt.*;
 import java.math.BigDecimal;
@@ -13,8 +11,8 @@ import java.math.BigDecimal;
 
 public class FactoryPaint extends FactoryModel<Double> {
 
-    public FactoryPaint(Reading<Double> reading) {
-        super(reading);
+    public FactoryPaint(Reader reader) {
+        super(reader);
     }
 
     public Paint createPaint() {
@@ -24,9 +22,7 @@ public class FactoryPaint extends FactoryModel<Double> {
         BigDecimal pricePerLiter = this.inputOfThePricePerLiterOfPaint();
 
         paint.setPricePerLiter(pricePerLiter);
-
         paint.setColorPaint(this.chooseColorOfPaint());
-
         paint.setTypeOfPaint(this.chooseTypeOfPaint());
 
         return paint;
@@ -34,7 +30,7 @@ public class FactoryPaint extends FactoryModel<Double> {
 
     private BigDecimal inputOfThePricePerLiterOfPaint() {
         System.out.println("Enter the price per liter of paint : ");
-        return new BigDecimal(super.getReadingData().reading());
+        return new BigDecimal(super.getReader().readDouble());
     }
 
     private Color chooseColorOfPaint() {
@@ -43,8 +39,7 @@ public class FactoryPaint extends FactoryModel<Double> {
         System.out.println("Black : 1; \n" + "Blue : 2; \n" + "Cyan : 3; \n" + "Gray : 4; \n" + "Green : 5; \n"
                          + "Magenta : 6; \n" + "Orange : 7; \n" + "Pink : 8; \n" + "Red : 9; \n" + "White : 10;");
 
-        ReadingData<Integer> reading = new ReadingData<>(new ReadingUserInputData()::readInt);
-        int choose = reading.read();
+        int choose = super.getReader().readInt();
 
         if ((choose >= 1) && (choose <= 10)) {
             switch (choose) {
@@ -72,8 +67,7 @@ public class FactoryPaint extends FactoryModel<Double> {
         System.out.println("Waterbased : 1; \n" + "Enamel : 2; \n" + "Oil : 3; \n" + "Silicone : 4; \n"
                          + "Plastic : 5; \n" + "Acrylic : 6; \n" + "Latex : 7; \n" + "Alkyd : 8;");
 
-        ReadingData<Integer> reading = new ReadingData<>(new ReadingUserInputData()::readInt);
-        int choose = reading.read();
+        int choose = super.getReader().readInt();
 
         if ((choose >= 1) && (choose <= 8)) {
             switch (choose) {
@@ -92,4 +86,5 @@ public class FactoryPaint extends FactoryModel<Double> {
         }
         return resultTypeOfPaint;
     }
+
 }

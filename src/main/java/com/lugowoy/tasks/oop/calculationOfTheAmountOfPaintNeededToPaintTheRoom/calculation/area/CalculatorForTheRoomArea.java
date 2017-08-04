@@ -17,4 +17,5 @@ public class CalculatorForTheRoomArea extends CalculatorForTheObjectArea<Room> {
 
         room.setTotalAreaRoom(areaTwoWallsDefiningTheWidthOfTheRoom.add(areaTwoWallsDefiningTheLengthOfThRoom));
     }
+
 }

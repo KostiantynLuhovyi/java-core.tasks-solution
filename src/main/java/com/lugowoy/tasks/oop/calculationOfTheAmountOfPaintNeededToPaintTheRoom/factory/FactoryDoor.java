@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.factory;
 
+import com.lugowoy.helper.reading.Reader;
 import com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.models.Door;
-import com.lugowoy.util.reading.Reading;
 
 import java.math.BigDecimal;
 
@@ -9,27 +9,24 @@ import java.math.BigDecimal;
 
 public class FactoryDoor extends FactoryModel<Double> {
 
-    public FactoryDoor(Reading<Double> reading) {
-        super(reading);
+    public FactoryDoor(Reader reader) {
+        super(reader);
     }
 
     public Door createDoor() {
         BigDecimal widthDoor = setWidthOfDoor();
-
         BigDecimal heightDoor = setHeightOfDoor();
-
-        System.out.println();
-
         return new Door(widthDoor, heightDoor);
     }
 
     private BigDecimal setHeightOfDoor() {
         System.out.println("Enter the height of the door : ");
-        return new BigDecimal(super.getReadingData().reading());
+        return new BigDecimal(super.getReader().readDouble());
     }
 
     private BigDecimal setWidthOfDoor() {
         System.out.println("Enter the width of the door : ");
-        return new BigDecimal(super.getReadingData().reading());
+        return new BigDecimal(super.getReader().readDouble());
     }
+
 }

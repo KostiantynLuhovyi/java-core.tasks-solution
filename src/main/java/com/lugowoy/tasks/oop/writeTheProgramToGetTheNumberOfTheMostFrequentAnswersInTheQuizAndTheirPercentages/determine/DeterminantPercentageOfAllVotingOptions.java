@@ -13,10 +13,10 @@ public class DeterminantPercentageOfAllVotingOptions extends Determinant impleme
     public void determinePercentageOfAllVotingOptions(Quiz quiz) {
         for (Option option : quiz.getOptionList()) {
             if (option.getCountChoice() != 0) {
-                option.setPercentageOfOption(
-                        new BigDecimal(option.getCountChoice()).divide(new BigDecimal(Quiz.getNumberOfParticipantsInVoting()), 2, BigDecimal.ROUND_DOWN)
-                                                               .multiply(new BigDecimal(100)).doubleValue());
+                option.setPercentageOfOption(new BigDecimal(option.getCountChoice()).divide(new BigDecimal(Quiz.getNumberOfParticipantsInVoting()), 2, BigDecimal.ROUND_HALF_DOWN)
+                        .multiply(new BigDecimal(100)).doubleValue());
             }
         }
     }
+
 }

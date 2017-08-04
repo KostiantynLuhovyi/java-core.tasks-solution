@@ -1,19 +1,19 @@
 package com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.factory;
 
-import com.lugowoy.util.reading.Reading;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.reading.Reader;
 
 /**Created by Konstantin Lugowoy on 21-Feb-17.*/
 
 public abstract class FactoryModel<T> {
 
-    private Reading<T> reading;
+    private Reader reader;
 
-    public FactoryModel(Reading<T> reading) {
-        this.reading = reading;
+    public FactoryModel(Reader reader) {
+        this.reader = reader;
     }
 
-    public Reading<T> getReadingData() {
-        return this.reading;
+    public Reader getReader() {
+        return reader;
     }
+
 }

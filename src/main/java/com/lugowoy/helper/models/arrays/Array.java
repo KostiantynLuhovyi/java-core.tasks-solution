@@ -22,10 +22,7 @@ import java.util.Arrays;
  */
 public abstract class Array<T> extends Model implements Serializable, Cloneable {
 
-    /**
-     * <p></p>
-     * */
-    public static final int DEFAULT_ARRAY_SIZE = 5;
+    public static final int DEFAULT_SIZE_ARRAY = 5;
 
     /**
      * <p></p>

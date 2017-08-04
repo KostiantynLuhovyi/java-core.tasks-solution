@@ -83,4 +83,5 @@ public class Option implements Comparable<Option> {
     public void setPercentageOfOption(double percentageOfOption) {
         this.percentageOfOption = percentageOfOption;
     }
+
 }

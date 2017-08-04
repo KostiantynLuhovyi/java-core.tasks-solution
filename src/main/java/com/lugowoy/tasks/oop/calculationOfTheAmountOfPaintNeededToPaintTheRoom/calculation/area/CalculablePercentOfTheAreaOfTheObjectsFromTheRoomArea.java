@@ -9,4 +9,5 @@ import java.math.BigDecimal;
 public interface CalculablePercentOfTheAreaOfTheObjectsFromTheRoomArea {
 
     BigDecimal calculatePercentage(Room room);
+
 }

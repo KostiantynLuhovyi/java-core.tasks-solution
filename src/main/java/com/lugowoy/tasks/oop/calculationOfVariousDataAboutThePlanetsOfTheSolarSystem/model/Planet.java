@@ -73,4 +73,5 @@ public class Planet {
             return dataOfPlanet;
         }
     }
+
 }

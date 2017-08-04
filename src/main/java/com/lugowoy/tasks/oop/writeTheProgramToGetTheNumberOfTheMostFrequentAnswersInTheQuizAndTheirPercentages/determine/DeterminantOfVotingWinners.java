@@ -25,7 +25,7 @@ public class DeterminantOfVotingWinners extends Determinant implements Determina
                 }
             }
         }
-
         return collectionOptionOfVotingWinners;
     }
+
 }

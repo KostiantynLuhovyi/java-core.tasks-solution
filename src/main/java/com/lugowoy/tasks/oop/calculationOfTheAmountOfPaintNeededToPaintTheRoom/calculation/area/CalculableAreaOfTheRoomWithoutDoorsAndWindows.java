@@ -15,4 +15,5 @@ public interface CalculableAreaOfTheRoomWithoutDoorsAndWindows extends Calculabl
     default BigDecimal calculate(Room room) {
         return room.getTotalAreaRoom().subtract(room.getTotalAreaOfTheDoorsInTheRoom()).subtract(room.getTotalAreaOfTheWindowsInTheRoom());
     }
+
 }

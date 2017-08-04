@@ -15,4 +15,5 @@ public class CalculatorPercentOfTheAreaOfTheWindowsFromTheRoomArea
                         .multiply(new BigDecimal(room.getTotalAreaOfTheWindowsInTheRoom().doubleValue())
                         .divide(new BigDecimal(100), 2, BigDecimal.ROUND_DOWN)).doubleValue());
     }
+
 }

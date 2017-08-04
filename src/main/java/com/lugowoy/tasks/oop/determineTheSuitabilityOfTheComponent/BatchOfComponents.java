@@ -30,4 +30,5 @@ public class BatchOfComponents {
     public Collection<Component> getComponentsCollection() {
         return componentsCollection;
     }
+
 }

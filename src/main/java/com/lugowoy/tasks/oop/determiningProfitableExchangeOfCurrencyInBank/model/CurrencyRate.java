@@ -116,5 +116,6 @@ public class CurrencyRate {
             this.maxRate = maxRate;
         }
     }
+
 }
 

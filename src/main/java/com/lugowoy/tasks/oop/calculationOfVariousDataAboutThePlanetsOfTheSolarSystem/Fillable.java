@@ -8,4 +8,5 @@ import java.util.Collection;
 public interface Fillable<T> {
 
     void fill(Collection<T> tCollection);
+
 }

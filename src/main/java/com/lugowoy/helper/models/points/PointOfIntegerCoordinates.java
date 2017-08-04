@@ -15,6 +15,15 @@ public class PointOfIntegerCoordinates extends Point<Integer> {
         super.setCoordinateY(DEFAULT_VALUE_INTEGER_COORDINATES);
     }
 
+    @Override
+    public PointOfIntegerCoordinates clone() throws CloneNotSupportedException {
+        Point<Integer> point = (PointOfIntegerCoordinates) super.clone();
+        point.setCoordinateX(this.getCoordinateX());
+        point.setCoordinateY(this.getCoordinateY());
+
+        return (PointOfIntegerCoordinates) point;
+    }
+
     public static PointOfIntegerCoordinates getInstancePointOfIntegerCoordinates() {
         return new PointOfIntegerCoordinates();
     }

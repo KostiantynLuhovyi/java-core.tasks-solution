@@ -14,4 +14,5 @@ public class CalculateArithmeticMeanOfTheMassesOfAllPlanets {
     public static BigDecimal calculateArithmeticMeanOfTheMassesOfAllPlanets(Collection<Planet> collection) {
         return CalculateMassAllPlanets.calculateMassAllPlanets(collection).divide(new BigDecimal(PLANETS_IN_THE_SOLAR_SYSTEM), 2, BigDecimal.ROUND_DOWN);
     }
+
 }

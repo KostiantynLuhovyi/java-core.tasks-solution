@@ -14,7 +14,7 @@ public class CreatorOfArrayModels<T> extends CreatorOfModels<Array<T>> implement
     }
 
     @Override
-    Array<T> create() {
+    public Array<T> create() {
         return super.getFactory().create();
     }
 

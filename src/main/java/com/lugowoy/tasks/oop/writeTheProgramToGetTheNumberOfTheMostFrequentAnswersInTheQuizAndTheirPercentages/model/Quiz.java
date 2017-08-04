@@ -54,4 +54,5 @@ public class Quiz {
     public void setOptionList(List<Option> optionList) {
         this.optionList = optionList;
     }
+
 }

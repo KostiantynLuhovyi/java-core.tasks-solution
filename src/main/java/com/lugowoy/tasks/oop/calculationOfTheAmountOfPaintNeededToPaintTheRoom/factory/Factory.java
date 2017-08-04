@@ -6,4 +6,5 @@ package com.lugowoy.tasks.oop.calculationOfTheAmountOfPaintNeededToPaintTheRoom.
 public interface Factory<T> {
 
     T create();
+
 }

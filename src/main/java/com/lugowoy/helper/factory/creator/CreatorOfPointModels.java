@@ -13,7 +13,7 @@ public class CreatorOfPointModels<T extends Number> extends CreatorOfModels<Poin
     }
 
     @Override
-    Point<T> create() {
+    public Point<T> create() {
         return super.getFactory().create();
     }
 

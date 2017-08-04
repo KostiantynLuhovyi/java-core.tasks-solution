@@ -81,4 +81,5 @@ public class Bank {
     public void setCurrencyBalanceList(List<CurrencyBalance> currencyBalanceList) {
         this.currencyBalanceList = currencyBalanceList;
     }
+
 }

@@ -71,4 +71,5 @@ public class Window {
     public void setAreaWindow(BigDecimal areaWindow) {
         this.areaWindow = areaWindow;
     }
+
 }

@@ -36,4 +36,5 @@ public class CalculatorForTheWindowsArea extends CalculatorForTheObjectArea<Wind
         }
         return totalAreaOfTheWindowsInTheRoom;
     }
+
 }

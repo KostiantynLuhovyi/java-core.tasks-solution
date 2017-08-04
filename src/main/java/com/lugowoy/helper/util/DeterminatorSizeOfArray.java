@@ -17,11 +17,10 @@ public class DeterminatorSizeOfArray {
             if (sizeArray > 0) {
                 break;
             } else {
-                System.out.println("Incorrect size of the array. Re-enter size : ");
+                System.out.println("Incorrect size of the array. Re-enter : ");
             }
         }
         return sizeArray;
-
     }
 
     public static int determineSizeOfArray(int boundSizeOfArray) {
@@ -32,11 +31,10 @@ public class DeterminatorSizeOfArray {
             if ((sizeArray > 0) && (sizeArray <= boundSizeOfArray)) {
                 break;
             } else {
-                System.out.println("Incorrect size of the array. Re-enter size : ");
+                System.out.println("Incorrect size of the array. Re-enter : ");
             }
         }
         return sizeArray;
-
     }
 
     public static int determineSizeOfArray(int minBoundSizeOfArray, int maxBoundSizeOfArray) {
@@ -47,11 +45,10 @@ public class DeterminatorSizeOfArray {
             if ((sizeArray > minBoundSizeOfArray) && (sizeArray <= maxBoundSizeOfArray)) {
                 break;
             } else {
-                System.out.println("Incorrect size of the array. Re-enter size : ");
+                System.out.println("Incorrect size of the array. Re-enter : ");
             }
         }
         return sizeArray;
-
     }
 
 }

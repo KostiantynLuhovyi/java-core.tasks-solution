@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class ArrayOfIntegerNumbers extends ArrayOfNumbers<Integer> {
 
     private ArrayOfIntegerNumbers() {
-        super.setArray(Arrays.stream(new Integer[DEFAULT_ARRAY_SIZE]).mapToInt(value -> 0).boxed().toArray(Integer[]::new));
+        super.setArray(Arrays.stream(new Integer[DEFAULT_SIZE_ARRAY]).mapToInt(value -> 0).boxed().toArray(Integer[]::new));
     }
 
     private ArrayOfIntegerNumbers(Integer[] array) {
@@ -19,7 +19,6 @@ public class ArrayOfIntegerNumbers extends ArrayOfNumbers<Integer> {
         arrayOfIntegerNumbers.setArray(this.getArray());
 
         return arrayOfIntegerNumbers;
-
     }
 
     @Override

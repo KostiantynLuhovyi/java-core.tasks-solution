@@ -17,4 +17,5 @@ public class SolarSystem {
     public void setPlanetList(List<Planet> planetList) {
         this.planetList = planetList;
     }
+
 }

@@ -14,4 +14,5 @@ public interface CalculableCurrencyRate {
     static BigDecimal calculateCurrencyRate(CurrencyRate.Rate rate) {
         return new BigDecimal((Math.random() * (rate.getMaxRate() - rate.getMinRate())) + rate.getMinRate()).setScale(2, BigDecimal.ROUND_DOWN);
     }
+
 }

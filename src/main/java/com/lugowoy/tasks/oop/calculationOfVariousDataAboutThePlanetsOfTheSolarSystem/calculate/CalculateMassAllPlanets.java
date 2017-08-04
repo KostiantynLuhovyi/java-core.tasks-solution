@@ -18,4 +18,5 @@ public class CalculateMassAllPlanets {
         }
         return resultCalculate;
     }
+
 }

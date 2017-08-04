@@ -16,16 +16,6 @@ import static com.lugowoy.tasks.oop.calculationOfVariousDataAboutThePlanetsOfThe
 
 public class Main {
 
-    private static final Fillable<Planet> FILLABLE = planets -> {
-        for (int i = 0; i < PLANETS_IN_THE_SOLAR_SYSTEM; i++) {
-            Planet planet = new Planet();
-            Planet.DataOfPlanet dataOfPlanet = Planet.DataOfPlanet.getDataOfPlanet(i);
-            planet.setNamePlanet(dataOfPlanet.name());
-            planet.setMassPlanet(new BigDecimal(dataOfPlanet.getMass()));
-            planets.add(planet);
-        }
-    };
-
     public static void main(String[] args) {
 
         List<Planet> planetsList = new ArrayList<>(PLANETS_IN_THE_SOLAR_SYSTEM);
@@ -49,9 +39,18 @@ public class Main {
         System.out.println();
 
         System.out.println("The mass of each planet in percentages, if we take as 100% the total mass of all the planets.");
-        planetsList.forEach(planet -> {
-            System.out.println(planet.getNamePlanet() + " = " + new BigDecimal(100).multiply(planet.getMassPlanet().divide(sumMassAllPlanetsInTheSolarSystem, 5, BigDecimal.ROUND_HALF_DOWN)));
-        });
+        planetsList.forEach(planet -> System.out.println(planet.getNamePlanet() + " = " + new BigDecimal(100).multiply(planet.getMassPlanet().divide(sumMassAllPlanetsInTheSolarSystem, 5, BigDecimal.ROUND_HALF_DOWN))));
 
     }
+
+    private static final Fillable<Planet> FILLABLE = planets -> {
+        for (int i = 0; i < PLANETS_IN_THE_SOLAR_SYSTEM; i++) {
+            Planet planet = new Planet();
+            Planet.DataOfPlanet dataOfPlanet = Planet.DataOfPlanet.getDataOfPlanet(i);
+            planet.setNamePlanet(dataOfPlanet.name());
+            planet.setMassPlanet(new BigDecimal(dataOfPlanet.getMass()));
+            planets.add(planet);
+        }
+    };
+
 }

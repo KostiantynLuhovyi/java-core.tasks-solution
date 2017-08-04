@@ -196,4 +196,5 @@ public class Room {
     public void setTypeOfSurface(TypeOfSurface typeOfSurface) {
         this.typeOfSurface = typeOfSurface;
     }
+
 }

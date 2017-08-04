@@ -71,4 +71,5 @@ public class Door {
     public void setAreaDoor(BigDecimal areaDoor) {
         this.areaDoor = areaDoor;
     }
+
 }

@@ -12,4 +12,5 @@ public interface CalculableTotalAreaOfTheObjectInTheRoom<T> {
     BigDecimal calculateTotalAreaOfTheObjectInTheRoom(Room room);
 
     BigDecimal calculateTotalAreaOfTheObjectInTheRoom(List<T> tList);
+
 }

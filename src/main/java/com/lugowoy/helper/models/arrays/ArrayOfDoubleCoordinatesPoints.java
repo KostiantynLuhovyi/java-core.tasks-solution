@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class ArrayOfDoubleCoordinatesPoints extends ArrayOfPoints<Double> {
 
     private ArrayOfDoubleCoordinatesPoints() {
-        super.setArray(Arrays.stream(new PointOfDoubleCoordinates[DEFAULT_ARRAY_SIZE])
+        super.setArray(Arrays.stream(new PointOfDoubleCoordinates[DEFAULT_SIZE_ARRAY])
                              .map(pointOfDoubleCoordinates -> PointOfDoubleCoordinates.getInstancePointOfDoubleCoordinates())
                              .toArray(PointOfDoubleCoordinates[]::new));
     }
@@ -25,7 +25,6 @@ public class ArrayOfDoubleCoordinatesPoints extends ArrayOfPoints<Double> {
         arrayOfDoubleCoordinatesPoints.setArray(this.getArray());
 
         return arrayOfDoubleCoordinatesPoints;
-
     }
 
     @Override

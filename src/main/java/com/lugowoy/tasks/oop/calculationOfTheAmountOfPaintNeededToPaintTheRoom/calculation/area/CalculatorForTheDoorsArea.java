@@ -36,5 +36,4 @@ public class CalculatorForTheDoorsArea extends CalculatorForTheObjectArea<Door> 
         return totalAreaOfTheDoorsInTheRoom;
     }
 
-
 }

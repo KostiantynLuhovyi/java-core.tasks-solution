@@ -64,5 +64,4 @@ public class Currency {
         this.currencyRateList = currencyRateList;
     }
 
-
 }
