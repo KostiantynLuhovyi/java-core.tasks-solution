@@ -5,4 +5,5 @@ package com.lugowoy.tasks.arrays.onedimensional.outputToDisplayTheNumberForParti
 public interface Displayable {
 
     void displaying(Numbers numbers);
+
 }

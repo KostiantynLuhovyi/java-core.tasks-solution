@@ -29,4 +29,5 @@ public interface Determinable<T, V> {
             System.out.println("The snail descended from the tree or the snail rose higher than the height of the tree.");
         }
     }
+
 }

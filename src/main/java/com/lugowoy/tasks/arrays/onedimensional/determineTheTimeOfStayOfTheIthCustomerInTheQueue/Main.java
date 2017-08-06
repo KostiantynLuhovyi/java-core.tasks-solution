@@ -1,6 +1,7 @@
 package com.lugowoy.tasks.arrays.onedimensional.determineTheTimeOfStayOfTheIthCustomerInTheQueue;
 
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -9,27 +10,27 @@ import java.util.Arrays;
 
 public class Main {
 
-    private static final ReadingUserInputData READING = new ReadingUserInputData();
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
-        System.out.println("Enter quantity customer in the queue : ");
-        int quantityCustomersInTheQueue = READING.readInt();
+        System.out.println("Enter number customer in the queue : ");
+        int numberOfCustomersInTheQueue = reader.readInt();
 
         Queue<Customer> customerQueue = new Queue<>();
 
-        fillCustomerQueue(customerQueue, quantityCustomersInTheQueue);
+        fillCustomerQueue(customerQueue, numberOfCustomersInTheQueue);
 
         System.out.println("Result queue : ");
         Arrays.stream(customerQueue.getQueue()).forEachOrdered(System.out::println);
         System.out.println();
 
         System.out.println("Enter time of service for the customer : ");
-        Queue.setTimeService(new BigDecimal(READING.readDouble()));
+        Queue.setTimeService(new BigDecimal(reader.readDouble()));
 
         Determinable<Customer, BigDecimal> determinable = Determinable::determineTimeOfStayCustomerInTheQueue;
 
-        BigDecimal resultTime = determinable.determine(customerQueue, quantityCustomersInTheQueue);
+        BigDecimal resultTime = determinable.determine(customerQueue, numberOfCustomersInTheQueue);
 
         System.out.printf("Result time : %f", resultTime.setScale(2, BigDecimal.ROUND_DOWN).doubleValue());
 

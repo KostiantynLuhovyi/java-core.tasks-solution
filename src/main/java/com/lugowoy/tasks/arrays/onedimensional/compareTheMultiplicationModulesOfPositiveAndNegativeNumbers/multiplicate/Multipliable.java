@@ -6,4 +6,5 @@ package com.lugowoy.tasks.arrays.onedimensional.compareTheMultiplicationModulesO
 public interface Multipliable<T, V> {
 
     T multiplication(V v);
+
 }

@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.arrays.onedimensional.openTheLockOnTheDoorByLookingThroughThePlayingDice;
 
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 /** Created by Konstantin Lugowoy on 27.03.2017. */
 
@@ -11,12 +11,13 @@ public class Main {
 
     private static final Openable OPENABLE = Openable::openDoorLock;
 
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
+
     public static void main(String[] args) {
         DoorLock doorLock = new DoorLock();
         System.out.println(doorLock);
 
         String resume;
-        ReadingData<String> reading = new ReadingData<>(new ReadingUserInputData()::readLine);
         do {
             FILLABLE.filling(doorLock);
             System.out.println(doorLock);
@@ -27,7 +28,7 @@ public class Main {
                 System.out.println("Door not open. Do you want to repeat, press \'r\'.");
                 System.out.println("If you do not want to repeat, press \'f\'.");
                 System.out.println("Enter : ");
-                resume = reading.read();
+                resume = reader.readString();
 
                 if (resume.equals("f")) break;
             }
@@ -35,4 +36,5 @@ public class Main {
         } while (resume.equals("r"));
 
     }
+
 }

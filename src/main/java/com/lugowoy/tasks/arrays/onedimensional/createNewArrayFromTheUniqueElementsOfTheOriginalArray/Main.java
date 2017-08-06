@@ -1,7 +1,10 @@
 package com.lugowoy.tasks.arrays.onedimensional.createNewArrayFromTheUniqueElementsOfTheOriginalArray;
 
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingRandomData;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 import java.util.Arrays;
 
@@ -9,23 +12,21 @@ import java.util.Arrays;
 
 public class Main {
 
-    private static final ReadingData<Integer> READING_DATA = new ReadingData<>(new ReadingRandomData()::readInt);
-
     public static void main(String[] args) {
 
-        Array<Integer> array = new Array<>(Arrays.stream(new Integer[30])
-                                                 .mapToInt(value -> value = READING_DATA.read())
-                                                 .boxed()
-                                                 .toArray(Integer[]::new));
+        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
+
+        Array<Integer> array = new CreatorOfArrayModels<>(
+                                        new FactoryOfIntegerArrayModels()).create(
+                                                new FillingArrayIntegerRandomNumbers().fill(sizeArray, -10, 10));
 
         System.out.println("Original array : ");
         Arrays.stream(array.getArray()).forEachOrdered(integer -> System.out.print(integer + " "));
         System.out.println();
 
-        DeterminableUniqueness<Array<Integer>, Integer> determinableUniqueness = DeterminableUniqueness::determineTheUniqueElementsOfTheOriginalArray;
+        DeterminableUniqueness determinableUniqueness = DeterminableUniqueness::determineTheUniqueElementsOfTheOriginalArray;
 
-        Creator<Array<Integer>, Integer> creator = new CreatorArray<>(determinableUniqueness);
-        Array<Integer> newArrayFromTheUniqueElements = creator.create(array);
+        Array<Integer> newArrayFromTheUniqueElements = determinableUniqueness.determineUniqueness(array);
 
         System.out.println("New array from the unique elements : ");
         Arrays.stream(newArrayFromTheUniqueElements.getArray()).forEachOrdered(integer -> System.out.print(integer + " "));

@@ -27,4 +27,5 @@ public class PlayingDice {
     public int getValue() {
         return value;
     }
+
 }

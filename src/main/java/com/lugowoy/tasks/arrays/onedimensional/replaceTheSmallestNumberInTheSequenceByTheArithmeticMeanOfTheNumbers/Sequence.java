@@ -20,4 +20,5 @@ public class Sequence<T> {
     public void setSequence(T[] sequence) {
         this.sequence = sequence;
     }
+
 }

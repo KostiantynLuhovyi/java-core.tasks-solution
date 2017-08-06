@@ -9,19 +9,11 @@ public interface GeneratorDataRandomDouble extends GeneratorDataRandom {
     }
 
     static double generateDouble(double bound) {
-        if (bound <= Double.MAX_VALUE) {
-            return (0 + (RANDOM.nextDouble() * (bound - 0)));
-        } else {
-            throw new IllegalArgumentException();
-        }
+        return (0 + (RANDOM.nextDouble() * (bound - 0)));
     }
 
     static double generateDouble(double minBound, double maxBound) {
-        if ((minBound >= Double.MIN_VALUE) && (maxBound <= Double.MAX_VALUE)) {
-            return (minBound + (RANDOM.nextDouble() * (maxBound - minBound)));
-        } else {
-            throw new IllegalArgumentException();
-        }
+        return (minBound + (RANDOM.nextDouble() * (maxBound - minBound)));
     }
 
 }

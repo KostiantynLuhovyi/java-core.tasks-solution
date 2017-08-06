@@ -30,4 +30,5 @@ public class Main {
                                  .filter(applicant -> applicant.getRating() == 1 || applicant.getRating() == 2)
                                  .count());
     }
+
 }

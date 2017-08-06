@@ -1,8 +1,8 @@
 package com.lugowoy.tasks.arrays.onedimensional.divideTheOriginalArrayInToAnEvenAndOddArray;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArray;
-import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
-import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.models.arrays.Array;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -17,8 +17,6 @@ public interface Selectable<T> {
     T select(T t, int statusNumbers);
 
     static Array<Integer> selectableArray(Array<Integer> array, int statusNumbers) {
-        CreatorArray<Integer> creator = new CreatorArrayOfIntegerPrimitives();
-
         ArrayList<Integer> integerList = new ArrayList<>(0);
         if (Objects.nonNull(array)) {
             if (statusNumbers == STATUS_EVEN_NUMBERS) {
@@ -39,8 +37,7 @@ public interface Selectable<T> {
                 }
             }
         }
-        return creator.create(integerList.stream().toArray(Integer[]::new));
-
+        return new CreatorOfArrayModels<>(new FactoryOfIntegerArrayModels()).create(integerList.toArray(new Integer[integerList.size()]));
     }
 
 }

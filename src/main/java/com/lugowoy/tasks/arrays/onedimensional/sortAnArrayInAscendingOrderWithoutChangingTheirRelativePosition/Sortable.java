@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.arrays.onedimensional.sortAnArrayInAscendingOrderWithoutChangingTheirRelativePosition;
 
+import com.lugowoy.helper.models.arrays.Array;
+
 /** Created by Konstantin Lugowoy on 14.05.2017. */
 
 @FunctionalInterface

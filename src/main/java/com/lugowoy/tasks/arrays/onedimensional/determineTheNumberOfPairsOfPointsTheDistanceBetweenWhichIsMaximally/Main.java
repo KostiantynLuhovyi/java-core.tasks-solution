@@ -29,4 +29,5 @@ public class Main {
             pointsArray[i] = new Point((Math.random() * 40) + 1, (Math.random() * 40) + 1);
         }
     }
+
 }

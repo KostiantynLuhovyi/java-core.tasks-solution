@@ -1,9 +1,10 @@
 package com.lugowoy.tasks.arrays.onedimensional.specifySetOfTrianglesWithVerticesAtGivenPointsThatIntersectWithCircle;
 
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.models.other.Point;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.models.points.Point;
 
-import static java.lang.Math.*;
+import static java.lang.Math.pow;
+import static java.lang.Math.sqrt;
 
 /** Created by Konstantin Lugowoy on 03.07.2017. */
 

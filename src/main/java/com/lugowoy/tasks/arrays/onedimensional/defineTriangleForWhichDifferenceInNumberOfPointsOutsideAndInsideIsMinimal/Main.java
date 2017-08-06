@@ -1,12 +1,17 @@
 package com.lugowoy.tasks.arrays.onedimensional.defineTriangleForWhichDifferenceInNumberOfPointsOutsideAndInsideIsMinimal;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfDoublePrimitives;
-import com.lugowoy.util.factory.creating.arrays.CreatorArraysOfObjects;
-import com.lugowoy.util.factory.creating.points.CreatorPointDoubleCoordinates;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.models.other.Point;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.creator.CreatorOfModels;
+import com.lugowoy.helper.factory.creator.CreatorOfPointModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfDoubleArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfDoubleCoordinatesPointsOfArrayModels;
+import com.lugowoy.helper.factory.models.points.FactoryOfPointsWithDoubleCoordinates;
+import com.lugowoy.helper.filling.FillingArrayDoubleRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.models.points.Point;
+import com.lugowoy.helper.models.points.PointOfDoubleCoordinates;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,11 +21,15 @@ import java.util.List;
 
 public class Main {
 
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
+
     public static void main(String[] args) {
 
         int sizeArray = getSizeArray();
 
-        Array<Double> array = new CreatorArrayOfDoublePrimitives().create(new FillingArrayOfRandomNumber().fillArray(new double[sizeArray], -50, 50));
+        Array<Double> array = new CreatorOfArrayModels<>(
+                                    new FactoryOfDoubleArrayModels()).create(
+                                            new FillingArrayDoubleRandomNumbers().fill(sizeArray, -50.0, 50.0));
 
         System.out.println("Coordinates : ");
         System.out.println(array);
@@ -40,11 +49,11 @@ public class Main {
 
     }
 
-     public static int getSizeArray() {
+     private static int getSizeArray() {
         System.out.println("Enter the size of the array : ");
         int sizeArray;
         while (true) {
-            sizeArray = new ReadingUserInputData().readInt();
+            sizeArray = reader.readInt();
             if (sizeArray % 2 == 0) {
                 break;
             } else {
@@ -53,27 +62,25 @@ public class Main {
             }
         }
         return sizeArray;
-
     }
 
      private static Point<Double> fillPointCoordinates(double xCoor, double yCoor) {
-        return new CreatorPointDoubleCoordinates().create(xCoor, yCoor);
+        return new CreatorOfPointModels<>(new FactoryOfPointsWithDoubleCoordinates()).create(xCoor, yCoor);
      }
 
-    @SuppressWarnings("unchecked")
+
     private static Array<Point<Double>> createAndFillArrayOfPoints(Array<Double> arrayOfCoordinates) {
-        List<Point<Double>> pointList = new ArrayList<>();
+        List<Point<Double>> pointsList = new ArrayList<>();
         int countForCreate = 0;
         for (int i = 0; i < arrayOfCoordinates.getArray().length; i++) {
             if (countForCreate == 1) {
-                pointList.add(fillPointCoordinates(arrayOfCoordinates.getArray()[i - 1], arrayOfCoordinates.getArray()[i]));
+                pointsList.add(fillPointCoordinates(arrayOfCoordinates.getArray()[i - 1], arrayOfCoordinates.getArray()[i]));
                 countForCreate--;
             } else {
                 countForCreate++;
             }
         }
-        return new CreatorArraysOfObjects<Point<Integer>>().create(pointList.stream().toArray(Point[]::new));
-
+        return new CreatorOfArrayModels<>(new FactoryOfDoubleCoordinatesPointsOfArrayModels()).create(pointsList.stream().toArray(PointOfDoubleCoordinates[]::new));
     }
 
 }

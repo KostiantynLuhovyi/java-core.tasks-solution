@@ -9,19 +9,11 @@ public interface GeneratorDataRandomInteger extends GeneratorDataRandom {
     }
 
     static int generateInt(int bound) {
-        if (bound < Integer.MAX_VALUE) {
-            return RANDOM.nextInt(bound);
-        } else {
-            throw new IllegalArgumentException();
-        }
+        return RANDOM.nextInt(bound);
     }
 
     static int generateInt(int minBound, int maxBound) {
-        if ((minBound > Integer.MIN_VALUE) && (maxBound < Integer.MAX_VALUE)) {
-            return (minBound + (RANDOM.nextInt((maxBound - minBound) + 1)));
-        } else {
-            throw new IllegalArgumentException();
-        }
+        return (minBound + (RANDOM.nextInt((maxBound - minBound) + 1)));
     }
 
 }

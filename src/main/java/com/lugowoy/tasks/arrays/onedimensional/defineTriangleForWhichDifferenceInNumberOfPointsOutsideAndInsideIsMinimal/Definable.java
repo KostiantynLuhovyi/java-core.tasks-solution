@@ -1,8 +1,10 @@
 package com.lugowoy.tasks.arrays.onedimensional.defineTriangleForWhichDifferenceInNumberOfPointsOutsideAndInsideIsMinimal;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArraysOfObjects;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.models.other.Point;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfDoubleCoordinatesPointsOfArrayModels;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.models.points.Point;
+import com.lugowoy.helper.models.points.PointOfDoubleCoordinates;
 
 import java.util.Objects;
 
@@ -11,11 +13,12 @@ import java.util.Objects;
 @FunctionalInterface
 public interface Definable<T> {
 
+    CheckInsidablePoint checkInsidablePoint = CheckInsidablePoint::isInsideTrianglePoints;
+
     T define(T t);
 
     static Array<Point<Double>> defineTriangle(Array<Point<Double>> pointArray) {
-        Array<Point<Double>> resultPointOfTriangle = new CreatorArraysOfObjects<Point<Double>>().create(new Point[3]);
-        CheckInsidablePoint checkInsidablePoint = CheckInsidablePoint::isInsideTrianglePoints;
+        Array<Point<Double>> resultPointOfTriangle = new CreatorOfArrayModels<>(new FactoryOfDoubleCoordinatesPointsOfArrayModels()).create(new PointOfDoubleCoordinates[3]);
         if (Objects.nonNull(pointArray)) {
             if ((Objects.nonNull(pointArray.getArray())) && (pointArray.getArray().length > 0)) {
                 int lengthArray = pointArray.getArray().length;
@@ -55,10 +58,7 @@ public interface Definable<T> {
         } else {
             System.out.println("The array is not valid for any operations or calculations.");
         }
-
         return resultPointOfTriangle;
-
     }
-
 
 }

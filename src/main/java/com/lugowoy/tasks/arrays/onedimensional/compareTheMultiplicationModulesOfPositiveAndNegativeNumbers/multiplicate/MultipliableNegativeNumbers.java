@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.arrays.onedimensional.compareTheMultiplicationModulesOfPositiveAndNegativeNumbers.multiplicate;
 
-import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.helper.models.arrays.Array;
 
 import java.util.Objects;
 
@@ -23,7 +23,6 @@ public class MultipliableNegativeNumbers {
         } else {
             System.out.println("The array is not valid for any operations or calculations.");
         }
-
         return resultMultiplication;
     }
 

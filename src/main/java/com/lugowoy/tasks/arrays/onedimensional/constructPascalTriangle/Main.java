@@ -15,7 +15,6 @@ public class Main {
     }
 
     private static void showPascalTriangle(int[][] emptyTriangleArray) {
-
         emptyTriangleArray[0] = new int[1];
         emptyTriangleArray[1] = new int[2];
         emptyTriangleArray[1][0] = emptyTriangleArray[1][1] = 1;

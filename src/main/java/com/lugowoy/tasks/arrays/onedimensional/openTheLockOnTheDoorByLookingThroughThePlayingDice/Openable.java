@@ -15,7 +15,7 @@ public interface Openable {
                 openingResult = true;
             }
         }
-
         return openingResult;
     }
+
 }

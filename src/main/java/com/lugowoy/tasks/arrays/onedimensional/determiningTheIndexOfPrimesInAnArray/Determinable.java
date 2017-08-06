@@ -22,7 +22,6 @@ public interface Determinable<T extends Number> {
             isPrimeNumber = false;
         }
         return isPrimeNumber;
-
     }
 
 }

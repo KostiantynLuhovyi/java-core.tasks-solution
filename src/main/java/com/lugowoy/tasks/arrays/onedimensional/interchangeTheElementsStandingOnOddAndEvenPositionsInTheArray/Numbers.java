@@ -4,7 +4,7 @@ package com.lugowoy.tasks.arrays.onedimensional.interchangeTheElementsStandingOn
 
 public class Numbers {
 
-    int[] numbers;
+    private int[] numbers;
 
     public int[] getNumbers() {
         return numbers;
@@ -13,4 +13,5 @@ public class Numbers {
     public void setNumbers(int[] numbers) {
         this.numbers = numbers;
     }
+
 }

@@ -39,4 +39,5 @@ public class Tree {
     public void setSnail(Snail snail) {
         this.snail = snail;
     }
+
 }

@@ -1,8 +1,8 @@
 package com.lugowoy.tasks.arrays.onedimensional.findIndicesOfMostRemoteAndLeastDistantPoints;
 
-import com.lugowoy.util.calculating.CalculableOnTheTwoVariables;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.models.other.Point;
+import com.lugowoy.helper.calculating.CalculableOnTheTwoVariables;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.models.points.Point;
 
 import java.util.Objects;
 
@@ -20,7 +20,7 @@ public interface Findable<T> {
 
     static void findIndicesOfMaxDistanceBetweenPoints(Array<Point<Double>> pointArray) {
         int firstIndex = -1, secondIndex = -1;
-        double tmpMax = -1;
+        double tmpMax;
         if (Objects.nonNull(pointArray)) {
             if ((Objects.nonNull(pointArray.getArray()) && (pointArray.getArray().length > 0))) {
                 double distanceResult = CALCULATING_DISTANCE_BETWEEN_TWO_POINTS.calculate(pointArray.getArray()[0], pointArray.getArray()[1]);

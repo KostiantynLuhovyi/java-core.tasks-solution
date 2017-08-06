@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.arrays.onedimensional.determineTheNumberOfElementsThatAreIdenticalInTwoSequences;
 
-import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.helper.models.arrays.Array;
 
 /** Created by Konstantin Lugowoy on 30.05.2017. */
 
@@ -20,7 +20,6 @@ public interface Determinable<T> {
             }
         }
         return resultNumberOfIdenticalElements;
-
     }
 
 }

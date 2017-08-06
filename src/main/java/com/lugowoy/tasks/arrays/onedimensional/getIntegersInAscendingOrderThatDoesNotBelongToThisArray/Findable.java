@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.arrays.onedimensional.getIntegersInAscendingOrderThatDoesNotBelongToThisArray;
 
-import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.helper.models.arrays.Array;
 
 import java.util.Arrays;
 import java.util.Collections;

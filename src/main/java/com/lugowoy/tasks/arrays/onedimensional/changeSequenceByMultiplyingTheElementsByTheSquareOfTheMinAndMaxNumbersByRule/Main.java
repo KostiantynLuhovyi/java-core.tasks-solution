@@ -1,27 +1,27 @@
 package com.lugowoy.tasks.arrays.onedimensional.changeSequenceByMultiplyingTheElementsByTheSquareOfTheMinAndMaxNumbersByRule;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArray;
-import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
-import com.lugowoy.util.filling.arrays.FillingArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.reading.ReadingRandomData;
-import com.lugowoy.util.reading.ReadingUserInputSizeOfTheArray;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
+
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY;
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY;
 
 /** Created by Konstantin Lugowoy on 25.03.2017. */
 
 public class Main {
 
-    private static FillingArray<Integer> fillArray = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
-    private static CreatorArray<Integer> creator = new CreatorArrayOfIntegerPrimitives();
-
     private static final Changeable<Array<Integer>, Integer> CHANGEABLE = Changeable::changeSequenceByMultiplyingTheElementsByTheSquareOfTheMinAndMaxNumberByRule;
 
     public static void main(String[] args) {
 
-        int sizeArray = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray();
+        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
 
-        Array<Integer> array = creator.create(fillArray.fillArray(new Integer[sizeArray]));
+        Array<Integer> array = new CreatorOfArrayModels<>(
+                                    new FactoryOfIntegerArrayModels()).create(
+                new FillingArrayIntegerRandomNumbers().fill(sizeArray, DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY, DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY));
 
         System.out.println("Original sequence : " + array);
         System.out.println();
@@ -43,7 +43,6 @@ public class Main {
         System.out.println("Square max number in the array is " + squareMaxNumberInTheSequence + " .");
 
         return squareMaxNumberInTheSequence;
-
     }
 
     private static int getSquareMinNumberInTheSequence(Array<Integer> array, Findable<Integer> findable) {
@@ -51,7 +50,6 @@ public class Main {
         System.out.println("Square min number in the array is " + squareMinNumberInTheSequence + " .");
 
         return squareMinNumberInTheSequence;
-
     }
 
 }

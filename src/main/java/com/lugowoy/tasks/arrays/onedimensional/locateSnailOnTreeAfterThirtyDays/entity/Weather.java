@@ -16,4 +16,5 @@ public class Weather {
     public void setCloudiness(boolean cloudiness) {
         this.cloudiness = cloudiness;
     }
+
 }

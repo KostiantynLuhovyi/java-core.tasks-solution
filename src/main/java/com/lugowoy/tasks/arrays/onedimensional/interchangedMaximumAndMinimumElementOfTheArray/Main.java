@@ -85,8 +85,9 @@ public class Main {
                     indexMinElement = index;
                 }
             }
-
             return this;
         }
+
     }
+
 }

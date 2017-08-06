@@ -16,4 +16,5 @@ public class SequenceOfIntegers {
     public void setSequenceOfIntegers(int[] sequenceOfIntegers) {
         this.sequenceOfIntegers = sequenceOfIntegers;
     }
+
 }

@@ -1,27 +1,26 @@
 package com.lugowoy.tasks.arrays.onedimensional.cyclicallyShiftElementsOfArrayElementsKtoRightOrLeft;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArray;
-import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
-import com.lugowoy.util.filling.arrays.FillingArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
-import com.lugowoy.util.reading.ReadingUserInputSizeOfTheArray;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 /** Created by Konstantin Lugowoy on 19.06.2017. */
 
 public class Main {
 
-    private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
-    private static FillingArray<Integer> fillingArray = new FillingArrayOfRandomNumber<>();
-    private static CreatorArray<Integer> creatorArray = new CreatorArrayOfIntegerPrimitives();
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
-        int sizeArray = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray();
+        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
 
-        Array<Integer> array = creatorArray.create(fillingArray.fillArray(new int[sizeArray], 100));
+        Array<Integer> array = new CreatorOfArrayModels<>(
+                                    new FactoryOfIntegerArrayModels()).create(
+                                            new FillingArrayIntegerRandomNumbers().fill(sizeArray, 100));
 
         System.out.println("Original " + array);
 
@@ -41,19 +40,18 @@ public class Main {
         System.out.println("Enter integer number : ");
         int numberK;
         while (true) {
-            numberK = readingData.read();
-            if (numberK == 0) {
+            numberK = reader.readInt();
+            if ((numberK >= sizeArray) || (numberK > -sizeArray)) {
+                break;
+            } else if (numberK == 0) {
                 System.out.println("The number must not be zero.");
                 System.out.println("Re-enter : ");
-            } else if ((numberK <= (sizeArray - 2)) && (numberK >= (-sizeArray + 2))) {
-                break;
             } else {
                 System.out.println("The number does not match the condition.");
                 System.out.println("Re-enter : ");
             }
         }
         return numberK;
-
     }
 
 }

@@ -25,7 +25,7 @@ public interface Determinable {
         } else {
             System.out.println("Argument passed an array of points of incorrect size.");
         }
-
         return pairOfPoints;
     }
+
 }

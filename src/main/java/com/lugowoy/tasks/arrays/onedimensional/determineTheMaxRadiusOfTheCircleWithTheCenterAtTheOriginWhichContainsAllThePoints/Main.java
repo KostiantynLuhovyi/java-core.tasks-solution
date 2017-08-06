@@ -1,28 +1,30 @@
 package com.lugowoy.tasks.arrays.onedimensional.determineTheMaxRadiusOfTheCircleWithTheCenterAtTheOriginWhichContainsAllThePoints;
 
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingRandomData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.generating.GeneratorDataRandomInteger;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.util.DefaultNumber;
 
 import java.util.Arrays;
+
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY;
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY;
 
 /** Created by Konstantin Lugowoy on 14.05.2017. */
 
 public class Main {
 
-    private static ReadingData<Integer> readingData;
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
         ArrayOfCoordinatesOfThePointsOfThePlane arrayOfCoordinates = new ArrayOfCoordinatesOfThePointsOfThePlane();
 
         System.out.println("Enter the number of points to define : ");
-        readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
-        int numberOfPoints = readingData.read();
+        int numberOfPoints = reader.readInt();
 
-        readingData = new ReadingData<>(new ReadingRandomData()::readInt);
         arrayOfCoordinates.setCoordinatesOfPoints(Arrays.stream(new Integer[numberOfPoints * 2])
-                                                        .mapToInt(value -> value = readingData.read())
+                                                        .mapToInt(value -> value = GeneratorDataRandomInteger.generateInt(DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY, DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY))
                                                         .toArray());
 
         System.out.println("Coordinates of points : ");

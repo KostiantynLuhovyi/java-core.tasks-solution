@@ -7,12 +7,13 @@ public class PointOfIntegerCoordinates extends Point<Integer> {
     private static final int DEFAULT_VALUE_INTEGER_COORDINATES = 0;
 
     private PointOfIntegerCoordinates() {
+        super();
+        super.setCoordinateX(DEFAULT_VALUE_INTEGER_COORDINATES);
+        super.setCoordinateY(DEFAULT_VALUE_INTEGER_COORDINATES);
     }
 
     private PointOfIntegerCoordinates(Integer coordinateX, Integer coordinateY) {
         super(coordinateX, coordinateY);
-        super.setCoordinateX(DEFAULT_VALUE_INTEGER_COORDINATES);
-        super.setCoordinateY(DEFAULT_VALUE_INTEGER_COORDINATES);
     }
 
     @Override

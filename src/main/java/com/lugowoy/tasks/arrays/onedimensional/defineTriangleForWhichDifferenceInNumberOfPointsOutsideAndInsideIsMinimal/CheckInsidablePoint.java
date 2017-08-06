@@ -1,7 +1,8 @@
 package com.lugowoy.tasks.arrays.onedimensional.defineTriangleForWhichDifferenceInNumberOfPointsOutsideAndInsideIsMinimal;
 
-import com.lugowoy.util.calculating.CalculableOnTheThreeVariables;
-import com.lugowoy.util.models.other.Point;
+
+import com.lugowoy.helper.calculating.CalculableOnTheThreeVariables;
+import com.lugowoy.helper.models.points.Point;
 
 /** Created by Konstantin Lugowoy on 08.07.2017. */
 
@@ -31,7 +32,6 @@ public interface CheckInsidablePoint {
             return 0;
 
         return areaTriangle == firstAreaToCheck + secondAreaToCheck + thirdAreaToCheck ? 1 : -1;
-
     }
 
 }

@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.arrays.onedimensional.changeSequenceByMultiplyingTheElementsByTheSquareOfTheMinAndMaxNumbersByRule;
 
-import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.helper.models.arrays.Array;
 
 import java.util.Objects;
 
@@ -31,7 +31,6 @@ public interface Findable<T> {
         resultFindMinNumber = array.getArray()[indexMinNumber];
 
         return resultFindMinNumber;
-
     }
 
     static Integer findMaxNumber(Array<Integer> array) {
@@ -55,7 +54,6 @@ public interface Findable<T> {
         resultFindMaxNumber = array.getArray()[indexMaxNumber];
 
         return resultFindMaxNumber;
-
     }
 
 }

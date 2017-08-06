@@ -6,4 +6,5 @@ package com.lugowoy.tasks.arrays.onedimensional.compressTheArrayByThrowingEveryS
 public interface Compressible<T> {
 
     void compress(T t);
+
 }

@@ -1,35 +1,41 @@
 package com.lugowoy.tasks.arrays.onedimensional.countOfPositiveAndNegativeAndZeroElementsInTheArray;
 
-import com.lugowoy.util.filling.arrays.FillableArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.reading.ReadingRandomData;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 import java.util.Arrays;
+
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY;
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY;
 
 /**Created by Konstantin Lugowoy on 13-Feb-17.*/
 
 public class Main {
 
-    private static final FillableArray<Integer> FILLING_ARRAY = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
-
     public static void main(String[] args) {
 
-        Integer[] integers = FILLING_ARRAY.fillArray(new Integer[20]);
+        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
 
-        Numbers numbers = new Numbers(Arrays.stream(integers).mapToInt(Integer::intValue).toArray());
+        Array<Integer> array = new CreatorOfArrayModels<>(
+                                    new FactoryOfIntegerArrayModels()).create(
+                                            new FillingArrayIntegerRandomNumbers().fill(sizeArray, DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY, DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY));
 
         System.out.println("Numbers : ");
-        Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
+        Arrays.stream(array.getArray()).forEachOrdered(value -> System.out.print(value + " "));
 
         System.out.println();
 
-        Counting counting = Counting::countNegativeNumber;
-        System.out.println("Negative number : " + counting.count(numbers));
+        Counting<Integer> counting = Counting::countNegativeNumber;
+        System.out.println("Negative number : " + counting.count(array));
 
         counting = Counting::countZero;
-        System.out.println("Zero : " + counting.count(numbers));
+        System.out.println("Zero : " + counting.count(array));
 
         counting = Counting::countPositiveNumber;
-        System.out.println("Positive number : " + counting.count(numbers));
+        System.out.println("Positive number : " + counting.count(array));
     }
+
 }

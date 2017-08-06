@@ -10,4 +10,5 @@ public interface Distanceable {
     static double getDistanceOfPairOfThePoints(Point thisPoint, Point thatPoint) {
         return Math.hypot(thisPoint.getX() - thatPoint.getX(), thisPoint.getY() - thatPoint.getY());
     }
+
 }

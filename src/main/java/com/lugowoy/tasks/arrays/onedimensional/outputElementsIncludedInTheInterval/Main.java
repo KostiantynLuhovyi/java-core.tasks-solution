@@ -1,36 +1,35 @@
 package com.lugowoy.tasks.arrays.onedimensional.outputElementsIncludedInTheInterval;
 
-import com.lugowoy.util.filling.arrays.FillingArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingRandomData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 import java.util.Arrays;
+
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY;
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY;
 
 /** Created by Konstantin Lugowoy on 06.03.2017. */
 
 public class Main {
 
-    private static FillingArray<Integer> fillArray = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
-    private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
-        System.out.println("Enter a value for the size of the array : ");
-        int sizeArray = readingData.read();
+        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
 
-        Integer[] integers = fillArray.fillArray(new Integer[sizeArray]);
+        Integer[] integers = new FillingArrayIntegerRandomNumbers().fill(sizeArray, DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY, DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY);
 
         System.out.println("Original sequence : ");
         Arrays.stream(integers).forEachOrdered(integer -> System.out.print(integer + " "));
         System.out.println();
 
-        ReadingData<Integer> reading = new ReadingData<>(new ReadingUserInputData()::readInt);
         System.out.println("Enter the value of the start of the segment : ");
-        int startOfInterval = reading.read();
+        int startOfInterval = reader.readInt();
         System.out.println("Enter the value of the finish of the segment : ");
-        int finishOfInterval = reading.read();
+        int finishOfInterval = reader.readInt();
 
         System.out.println("Elements entering the sequence of numbers from a segment : ");
         Arrays.stream(integers).forEachOrdered(integer -> {
@@ -40,4 +39,5 @@ public class Main {
         });
 
     }
+
 }

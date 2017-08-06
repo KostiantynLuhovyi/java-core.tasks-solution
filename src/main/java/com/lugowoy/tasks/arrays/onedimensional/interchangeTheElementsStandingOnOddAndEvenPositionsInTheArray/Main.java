@@ -1,21 +1,22 @@
 package com.lugowoy.tasks.arrays.onedimensional.interchangeTheElementsStandingOnOddAndEvenPositionsInTheArray;
 
-import com.lugowoy.util.filling.arrays.FillableArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.reading.ReadingRandomData;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
 
 import java.util.Arrays;
+
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY;
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY;
 
 /** Created by Konstantin Lugowoy on 22-Feb-17. */
 
 public class Main {
 
-    private static final FillableArray<Integer> INTEGER_FILLABLE_ARRAY = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
-
     public static void main(String[] args) {
 
         Numbers numbers = new Numbers();
-        numbers.setNumbers(Arrays.stream(INTEGER_FILLABLE_ARRAY.fillArray(new Integer[20])).mapToInt(Integer::intValue).toArray());
+        numbers.setNumbers(Arrays.stream(new FillingArrayIntegerRandomNumbers().fill(20, DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY, DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY))
+                                 .mapToInt(Integer::intValue)
+                                 .toArray());
 
         System.out.println("Original array : ");
         Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
@@ -23,8 +24,9 @@ public class Main {
 
         INTERCHANGEABLE.interchange(numbers);
 
-        System.out.println("ArrayOfObjects after exchange of places of elements of even and odd positions : ");
+        System.out.println("Array after exchange of places of elements of even and odd positions : ");
         Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
+        
     }
 
     private static final Interchangeable INTERCHANGEABLE = numbers -> {

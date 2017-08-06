@@ -1,7 +1,8 @@
 package com.lugowoy.tasks.arrays.onedimensional.defineRingWithTheCenterAtTheOriginWhichContainsAllThePoints;
 
-import com.lugowoy.util.reading.ReadingRandomData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.generating.GeneratorDataRandomDouble;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 import java.util.Arrays;
 
@@ -9,19 +10,17 @@ import java.util.Arrays;
 
 public class Main {
 
-    private static final ReadingUserInputData READING_DATA = new ReadingUserInputData();
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
         ArrayOfCoordinates<Double> arrayOfCoordinates = new ArrayOfCoordinates<>();
 
         System.out.println("Enter the number of points for the task : ");
-        int numberQuantityPoints = READING_DATA.readInt();
+        int numberOfPoints = reader.readInt();
 
-
-        ReadingRandomData randomData = new ReadingRandomData();
-        arrayOfCoordinates.setArrayOfCoordinates(Arrays.stream(new Double[numberQuantityPoints * 2])
-                                                       .mapToDouble(value -> value = randomData.readDouble())
+        arrayOfCoordinates.setArrayOfCoordinates(Arrays.stream(new Double[numberOfPoints * 2])
+                                                       .mapToDouble(value -> value = GeneratorDataRandomDouble.generateDouble())
                                                        .boxed()
                                                        .toArray(Double[]::new));
 

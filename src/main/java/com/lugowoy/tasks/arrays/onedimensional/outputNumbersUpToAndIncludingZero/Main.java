@@ -18,6 +18,7 @@ public class Main {
 
         System.out.println("Result : ");
         outputNumbersUpToAndIncludingZero(numbers);
+
     }
 
     private static void outputNumbersUpToAndIncludingZero(Numbers numbers) {
@@ -28,4 +29,5 @@ public class Main {
             }
         }
     }
+
 }

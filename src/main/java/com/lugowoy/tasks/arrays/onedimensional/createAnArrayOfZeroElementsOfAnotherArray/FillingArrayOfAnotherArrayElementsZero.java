@@ -6,4 +6,5 @@ package com.lugowoy.tasks.arrays.onedimensional.createAnArrayOfZeroElementsOfAno
 public interface FillingArrayOfAnotherArrayElementsZero<T> {
 
     T[] fillArrayOfAnotherArrayElementsZero(T[] originalArray);
+
 }

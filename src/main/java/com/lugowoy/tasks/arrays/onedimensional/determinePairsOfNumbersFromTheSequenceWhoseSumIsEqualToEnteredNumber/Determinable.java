@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.arrays.onedimensional.determinePairsOfNumbersFromTheSequenceWhoseSumIsEqualToEnteredNumber;
 
-import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.helper.models.arrays.Array;
 
 /** Created by Konstantin Lugowoy on 19.03.2017. */
 

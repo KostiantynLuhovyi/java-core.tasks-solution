@@ -32,4 +32,5 @@ public class DoorLock {
     public void setPlayingDices(PlayingDice[] playingDices) {
         this.playingDices = playingDices;
     }
+
 }

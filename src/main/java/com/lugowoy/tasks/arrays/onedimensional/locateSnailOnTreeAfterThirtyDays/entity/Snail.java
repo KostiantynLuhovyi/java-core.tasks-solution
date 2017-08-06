@@ -20,4 +20,5 @@ public class Snail {
     public void setLocation(int location) {
         this.location = location;
     }
+
 }

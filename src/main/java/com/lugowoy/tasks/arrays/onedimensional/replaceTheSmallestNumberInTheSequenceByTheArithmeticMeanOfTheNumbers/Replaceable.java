@@ -16,7 +16,6 @@ public interface Replaceable<T> {
                 indexOfValueForReplace = i;
             }
         }
-
         sequence.getSequence()[indexOfValueForReplace] = numberForReplace;
     }
 

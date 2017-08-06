@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.arrays.onedimensional.determineTheMostRepeatedElementInAnArray;
 
-import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.helper.models.arrays.Array;
 
 /** Created by Konstantin Lugowoy on 22.03.2017. */
 
@@ -8,4 +8,5 @@ import com.lugowoy.util.models.arrays.Array;
 public interface Determinable<T> {
 
     void determine(Array<T> array);
+
 }

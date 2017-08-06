@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.arrays.onedimensional.sortAnArrayConsistingOfZerosOnesAndTwos;
 
-import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.helper.models.arrays.Array;
 
 import java.util.Objects;
 
@@ -13,19 +13,19 @@ public interface Sortable<T> {
 
     static void sortArray(Array<Integer> array) {
         if (Objects.nonNull(array)) {
-            if ((Objects.nonNull(array.getArrayOfIntegerPrimitives())) && (array.getArrayOfIntegerPrimitives().length > 0)) {
+            if ((Objects.nonNull(array.getArray())) && (array.getArray().length > 0)) {
                 int index = 0;
 
-                for (int i = 0; i < array.getArrayOfIntegerPrimitives().length; i++) {
-                    if (array.getArrayOfIntegerPrimitives()[i] == 0) {
+                for (int i = 0; i < array.getArray().length; i++) {
+                    if (array.getArray()[i] == 0) {
 
                         swapElements(array, index, i);
                         ++index;
                     }
                 }
 
-                for (int i = index; i < array.getArrayOfIntegerPrimitives().length; i++) {
-                    if (array.getArrayOfIntegerPrimitives()[i] == 1) {
+                for (int i = index; i < array.getArray().length; i++) {
+                    if (array.getArray()[i] == 1) {
 
                         swapElements(array, index, i);
                         ++index;
@@ -36,9 +36,9 @@ public interface Sortable<T> {
     }
 
     static void swapElements(Array<Integer> array, int concreteIndex, int iteratorIndex) {
-        int temp = array.getArrayOfIntegerPrimitives()[iteratorIndex];
-        array.getArrayOfIntegerPrimitives()[iteratorIndex] = array.getArrayOfIntegerPrimitives()[concreteIndex];
-        array.getArrayOfIntegerPrimitives()[concreteIndex] = temp;
+        int temp = array.getArray()[iteratorIndex];
+        array.getArray()[iteratorIndex] = array.getArray()[concreteIndex];
+        array.getArray()[concreteIndex] = temp;
     }
 
 }

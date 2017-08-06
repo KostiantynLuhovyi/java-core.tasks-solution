@@ -6,4 +6,5 @@ package com.lugowoy.tasks.arrays.onedimensional.calculateTheSumOfTheMaxAndMinEle
 public interface Findable <T> {
 
     T find(T[] t);
+
 }

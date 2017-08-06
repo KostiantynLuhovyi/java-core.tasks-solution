@@ -1,25 +1,26 @@
 package com.lugowoy.tasks.arrays.onedimensional.countOfPositiveAndNegativeAndZeroElementsInTheArray;
 
+import com.lugowoy.helper.models.arrays.Array;
+
 import java.util.Arrays;
 
-/**
- * Created by Konstantin Lugowoy on 13-Feb-17.
- */
+/** Created by Konstantin Lugowoy on 13-Feb-17. */
 
 @FunctionalInterface
-public interface Counting {
+public interface Counting<T extends Number> {
 
-    int count(Numbers numbers);
+    int count(Array<T> array);
 
-    static int countNegativeNumber(Numbers numbers) {
-        return (int) Arrays.stream(numbers.getNumbers()).filter(value -> value < 0).count();
+    static int countNegativeNumber(Array<Integer> array) {
+        return Math.toIntExact(Arrays.stream(array.getArray()).filter(value -> value < 0).count());
     }
 
-    static int countPositiveNumber(Numbers numbers) {
-        return (int) Arrays.stream(numbers.getNumbers()).filter(value -> value > 0).count();
+    static int countPositiveNumber(Array<Integer> array) {
+        return Math.toIntExact(Arrays.stream(array.getArray()).filter(value -> value > 0).count());
     }
 
-    static int countZero(Numbers numbers) {
-        return (int) Arrays.stream(numbers.getNumbers()).filter(value -> value == 0).count();
+    static int countZero(Array<Integer> array) {
+        return Math.toIntExact(Arrays.stream(array.getArray()).filter(value -> value == 0).count());
     }
+
 }

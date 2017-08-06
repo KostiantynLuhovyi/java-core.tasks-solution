@@ -1,11 +1,10 @@
 package com.lugowoy.tasks.arrays.onedimensional.findSegmentOfArrayIsPolindrome;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArray;
-import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
-import com.lugowoy.util.filling.arrays.FillingArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.reading.ReadingUserInputSizeOfTheArray;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -16,14 +15,15 @@ import static java.util.Arrays.copyOfRange;
 
 public class Main {
 
-    private static FillingArray<Integer> fillingArray = new FillingArrayOfRandomNumber<>();
-    private static CreatorArray<Integer> creatorArray = new CreatorArrayOfIntegerPrimitives();
+    private static final int BOUND = 50;
 
     public static void main(String[] args) {
 
-        int sizeArray = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray();
+        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
 
-        Array<Integer> array = creatorArray.create(fillingArray.fillArray(new int[sizeArray], 50));
+        Array<Integer> array = new CreatorOfArrayModels<>(
+                                    new FactoryOfIntegerArrayModels()).create(
+                                            new FillingArrayIntegerRandomNumbers().fill(sizeArray, BOUND));
 
         System.out.println("Original " + array);
 

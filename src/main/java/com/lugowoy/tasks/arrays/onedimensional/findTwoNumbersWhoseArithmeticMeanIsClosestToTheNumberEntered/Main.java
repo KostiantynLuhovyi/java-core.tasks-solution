@@ -1,33 +1,32 @@
 package com.lugowoy.tasks.arrays.onedimensional.findTwoNumbersWhoseArithmeticMeanIsClosestToTheNumberEntered;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArray;
-import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfDoublePrimitives;
-import com.lugowoy.util.filling.arrays.FillingArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.reading.ReadingRandomData;
-import com.lugowoy.util.reading.ReadingUserInputData;
-import com.lugowoy.util.reading.ReadingUserInputSizeOfTheArray;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfDoubleArrayModels;
+import com.lugowoy.helper.filling.FillingArrayDoubleRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 /** Created by Konstantin Lugowoy on 12.04.2017. */
 
 public class Main {
 
-    private static FillingArray<Double> fillArray = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readDouble);
-    private static CreatorArray<Double> creator = new CreatorArrayOfDoublePrimitives();
+    private static final double BOUND = 200.0;
 
     public static void main(String[] args) {
 
-        int sizeArray = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray();
+        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
 
-        Array<Double> array = creator.create(fillArray.fillArray(new double[sizeArray], 0, 200));
-
+        Array<Double> array = new CreatorOfArrayModels<>(
+                                    new FactoryOfDoubleArrayModels()).create(
+                                            new FillingArrayDoubleRandomNumbers().fill(sizeArray, BOUND));
 
         System.out.println("Original array : " + array);
         System.out.println();
 
         System.out.println("Enter real number : ");
-        double enterNumber = new ReadingUserInputData().readDouble();
+        double enterNumber = new Reader(new ReadingDataUserInputInConsole()).readDouble();
 
         Findable<Double, Array<Double>> findable = Findable::findTwoNumbersWhoseArithmeticMeanIsClosestToTheNumber;
         findable.find(enterNumber, array);

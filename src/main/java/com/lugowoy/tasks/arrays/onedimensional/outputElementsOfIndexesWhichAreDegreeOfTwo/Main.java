@@ -1,21 +1,22 @@
 package com.lugowoy.tasks.arrays.onedimensional.outputElementsOfIndexesWhichAreDegreeOfTwo;
 
-import com.lugowoy.util.filling.arrays.FillableArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.reading.ReadingRandomData;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 import java.util.Arrays;
+
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY;
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY;
 
 /** Created by Konstantin Lugowoy on 01.03.2017. */
 
 public class Main {
 
-    private static final FillableArray<Integer> FILLABLE_ARRAY
-            = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
-
     public static void main(String[] args) {
 
-        Integer[] integersArray = FILLABLE_ARRAY.fillArray(new Integer[50]);
+        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
+
+        Integer[] integersArray = new FillingArrayIntegerRandomNumbers().fill(sizeArray, DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY, DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY);
 
         System.out.println("Original : ");
         Arrays.stream(integersArray).forEachOrdered(integer -> System.out.print(integer + " "));
@@ -31,4 +32,5 @@ public class Main {
             if (i > 1 && i % 2 == 0) System.out.println("Index : " + i + " = " + "value : " + integers[i]);
         }
     }
+
 }

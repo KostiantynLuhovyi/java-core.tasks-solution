@@ -1,24 +1,24 @@
 package com.lugowoy.tasks.arrays.onedimensional.findLengthOfLongestSawtoothSequenceOfSuccessiveNumbers;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArray;
-import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
-import com.lugowoy.util.filling.arrays.FillingArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.reading.ReadingUserInputSizeOfTheArray;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 /** Created by Konstantin Lugowoy on 27.06.2017. */
 
 public class Main {
 
-    private static FillingArray<Integer> fillingArray = new FillingArrayOfRandomNumber<>();
-    private static CreatorArray<Integer> creatorArray = new CreatorArrayOfIntegerPrimitives();
+    private static final int BOUND = 100;
 
     public static void main(String[] args) {
 
-        int sizeArray = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray();
+        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
 
-        Array<Integer> array = creatorArray.create(fillingArray.fillArray(new int[sizeArray], 100));
+        Array<Integer> array = new CreatorOfArrayModels<>(
+                                    new FactoryOfIntegerArrayModels()).create(
+                                            new FillingArrayIntegerRandomNumbers().fill(sizeArray, BOUND));
 
         System.out.println("Original " + array);
 
@@ -30,9 +30,9 @@ public class Main {
         int lengthSaw = 0, maxLengthSaw = 0;
         boolean isPrev = false;
 
-        for (int i = 1; i < array.getArrayOfIntegerPrimitives().length - 1; i++) {
-            if ((array.getArrayOfIntegerPrimitives()[i - 1] < array.getArrayOfIntegerPrimitives()[i])
-                    && (array.getArrayOfIntegerPrimitives()[i] > array.getArrayOfIntegerPrimitives()[i + 1])) {
+        for (int i = 1; i < array.getArray().length - 1; i++) {
+            if ((array.getArray()[i - 1] < array.getArray()[i])
+                    && (array.getArray()[i] > array.getArray()[i + 1])) {
                 if (isPrev) {
                     lengthSaw += 2;
                 } else {
@@ -46,7 +46,6 @@ public class Main {
             }
         }
         return Math.max(maxLengthSaw, lengthSaw);
-
     }
 
 }

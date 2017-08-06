@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.arrays.onedimensional.determineTheNumberOfDifferentElementsInOneDimensionalArray;
 
-import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.helper.models.arrays.Array;
 
 import java.util.Objects;
 
@@ -23,7 +23,6 @@ public interface Determinable<T extends Number> {
                 }
             }
         }
-
         return resultCountOfDifferentElements;
     }
 
@@ -46,7 +45,6 @@ public interface Determinable<T extends Number> {
         if (!(countUnique > 1)) {
             isUnique = true;
         }
-
         return isUnique;
     }
 

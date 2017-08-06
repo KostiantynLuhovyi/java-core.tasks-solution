@@ -1,7 +1,8 @@
 package com.lugowoy.tasks.arrays.onedimensional.createAnOrderedArrayFromTheElementsOfTwoOtherOrderedArrays;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
-import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.models.arrays.Array;
 
 import java.util.Objects;
 
@@ -19,22 +20,22 @@ public interface Mergeable<T> {
             if (((Objects.nonNull(firstArray.getArray())) && (firstArray.getArray().length > 0))
                     && ((Objects.nonNull(secondArray.getArray())) && (secondArray.getArray().length > 0))) {
 
-                resultArray = new CreatorArrayOfIntegerPrimitives().create(new int[firstArray.getArray().length + secondArray.getArray().length]);
+                resultArray = new CreatorOfArrayModels<>(new FactoryOfIntegerArrayModels()).create(firstArray.getArray().length + secondArray.getArray().length);
 
                 int indexFirstArray = 0, indexSecondArray = 0;
 
-                for (int i = 0; i < resultArray.getArrayOfIntegerPrimitives().length; i++) {
-                    if ((indexFirstArray < firstArray.getArrayOfIntegerPrimitives().length)
-                            && (indexSecondArray < secondArray.getArrayOfIntegerPrimitives().length)) {
-                        if (firstArray.getArrayOfIntegerPrimitives()[indexFirstArray] > secondArray.getArrayOfIntegerPrimitives()[indexSecondArray]) {
-                            resultArray.getArrayOfIntegerPrimitives()[i] = secondArray.getArrayOfIntegerPrimitives()[indexSecondArray++];
+                for (int i = 0; i < resultArray.getArray().length; i++) {
+                    if ((indexFirstArray < firstArray.getArray().length)
+                            && (indexSecondArray < secondArray.getArray().length)) {
+                        if (firstArray.getArray()[indexFirstArray] > secondArray.getArray()[indexSecondArray]) {
+                            resultArray.getArray()[i] = secondArray.getArray()[indexSecondArray++];
                         } else {
-                            resultArray.getArrayOfIntegerPrimitives()[i] = firstArray.getArrayOfIntegerPrimitives()[indexFirstArray++];
+                            resultArray.getArray()[i] = firstArray.getArray()[indexFirstArray++];
                         }
-                    } else if (indexSecondArray < secondArray.getArrayOfIntegerPrimitives().length) {
-                        resultArray.getArrayOfIntegerPrimitives()[i] = secondArray.getArrayOfIntegerPrimitives()[indexSecondArray++];
+                    } else if (indexSecondArray < secondArray.getArray().length) {
+                        resultArray.getArray()[i] = secondArray.getArray()[indexSecondArray++];
                     } else {
-                        resultArray.getArrayOfIntegerPrimitives()[i] = firstArray.getArrayOfIntegerPrimitives()[indexFirstArray++];
+                        resultArray.getArray()[i] = firstArray.getArray()[indexFirstArray++];
                     }
                 }
             } else {
@@ -43,7 +44,6 @@ public interface Mergeable<T> {
         } else {
             System.out.println("The array is not valid for any operations or calculations.");
         }
-
         return resultArray;
     }
 

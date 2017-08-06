@@ -1,7 +1,8 @@
 package com.lugowoy.tasks.arrays.onedimensional.determineWhetherItIsPossibleToSelectContiguousElementsInOneOfArraysByCondition;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
-import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.models.arrays.Array;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -16,22 +17,21 @@ public interface Determine<T> {
 
     static List<Array<Integer>> determineWhetherItIsPossibleToSelectContiguousElements(Array<Integer> firstArray, Array<Integer> secondArray) {
         List<Array<Integer>> resultList = new LinkedList<>();
-        int n = 0, k = firstArray.getArrayOfIntegerPrimitives().length;
+        int n = 0, k = firstArray.getArray().length;
 
         while (n + 1 < k) {
-            for (int i = 0; i < secondArray.getArrayOfIntegerPrimitives().length - (k - 1 - n); i++) {
-                Array<Integer> tempResultArray = new CreatorArrayOfIntegerPrimitives().create(Arrays.copyOfRange(firstArray.getArrayOfIntegerPrimitives(), n, k));
-                if (Arrays.equals(tempResultArray.getArrayOfIntegerPrimitives(), Arrays.copyOfRange(secondArray.getArrayOfIntegerPrimitives(), i, k - n + i))){
+            for (int i = 0; i < secondArray.getArray().length - (k - 1 - n); i++) {
+                Array<Integer> tempResultArray = new CreatorOfArrayModels<>(new FactoryOfIntegerArrayModels()).create(Arrays.copyOfRange(firstArray.getArray(), n, k));
+                if (Arrays.equals(tempResultArray.getArray(), Arrays.copyOfRange(secondArray.getArray(), i, k - n + i))){
                     resultList.add(tempResultArray);
                 }
             }
             if (n  + 1 == --k) {
                 n++;
-                k = firstArray.getArrayOfIntegerPrimitives().length;
+                k = firstArray.getArray().length;
             }
         }
         return resultList;
-
     }
 
 }

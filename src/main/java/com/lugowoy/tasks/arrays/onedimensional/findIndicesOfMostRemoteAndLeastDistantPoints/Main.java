@@ -1,14 +1,14 @@
 package com.lugowoy.tasks.arrays.onedimensional.findIndicesOfMostRemoteAndLeastDistantPoints;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArray;
-import com.lugowoy.util.factory.creating.arrays.CreatorArraysOfObjects;
-import com.lugowoy.util.factory.creating.points.CreatorPointDoubleCoordinates;
-import com.lugowoy.util.factory.creating.points.CreatorPoint;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.models.other.Point;
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingRandomData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.creator.CreatorOfPointModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfDoubleCoordinatesPointsOfArrayModels;
+import com.lugowoy.helper.factory.models.points.FactoryOfPointsWithDoubleCoordinates;
+import com.lugowoy.helper.generating.GeneratorDataRandomDouble;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.models.points.Point;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 import java.util.Arrays;
 
@@ -16,17 +16,14 @@ import java.util.Arrays;
 
 public class Main {
 
-    private static CreatorArray<Point<Double>> creatorArray = new CreatorArraysOfObjects<>();
-    private static CreatorPoint<Double> creatorPoint = new CreatorPointDoubleCoordinates();
-    private static ReadingData<Double> readingData = new ReadingData<>(new ReadingRandomData()::readDouble);
-
     public static void main(String[] args) {
 
-        int numberQuantityPointOfPlane = getNumberQuantityPointsOfPlane();
+        int numberPointOfPlane = getNumberQuantityPointsOfPlane();
 
-        Array<Point<Double>> pointsArray = creatorArray.create(new Point[numberQuantityPointOfPlane]);
+        Array<Point<Double>> pointsArray = new CreatorOfArrayModels<>(
+                                                new FactoryOfDoubleCoordinatesPointsOfArrayModels()).create(numberPointOfPlane);
 
-        fillArrayPoints(pointsArray, readingData, creatorPoint);
+        fillArrayPoints(pointsArray);
 
         System.out.println("\nPoints : ");
         Arrays.stream(pointsArray.getArray()).forEachOrdered(System.out::println);
@@ -43,28 +40,27 @@ public class Main {
     }
 
     private static int getNumberQuantityPointsOfPlane() {
-        System.out.println("Enter the number quantity points of the plane : ");
+        System.out.println("Enter the number points of the plane : ");
         int numberQuantityPointOfPlane;
-        ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
         while (true) {
-            numberQuantityPointOfPlane = readingData.read();
+            numberQuantityPointOfPlane = new Reader(new ReadingDataUserInputInConsole()).readInt();
             if ((numberQuantityPointOfPlane > 0) && (numberQuantityPointOfPlane % 2 == 0)) {
                 break;
             } else {
-                System.out.println("The number quantity points of the plane a must be positive and even number.");
+                System.out.println("The number points of the plane a must be positive and even number.");
                 System.out.println("Re-enter : ");
             }
         }
         return numberQuantityPointOfPlane;
-
     }
 
-    private static void fillArrayPoints(Array<Point<Double>> pointArray, ReadingData<Double> readingData, CreatorPoint<Double> creatorPoint) {
+    private static void fillArrayPoints(Array<Point<Double>> pointArray) {
         for (int i = 0; i < pointArray.getArray().length; i++) {
-            double coorX = readingData.read(), coorY = readingData.read();
-            pointArray.getArray()[i] = creatorPoint.create(coorX, coorY);
+            double coorX = GeneratorDataRandomDouble.generateDouble();
+            double coorY = GeneratorDataRandomDouble.generateDouble();
+            pointArray.getArray()[i] = new CreatorOfPointModels<>(
+                                            new FactoryOfPointsWithDoubleCoordinates()).create(coorX, coorY);
         }
-
     }
 
 }

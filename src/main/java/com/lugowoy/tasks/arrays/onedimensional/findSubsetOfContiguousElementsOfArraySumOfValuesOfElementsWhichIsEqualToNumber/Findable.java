@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.arrays.onedimensional.findSubsetOfContiguousElementsOfArraySumOfValuesOfElementsWhichIsEqualToNumber;
 
-import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.helper.models.arrays.Array;
 
 import java.util.Arrays;
 
@@ -29,7 +29,6 @@ public interface Findable<T, V> {
             }
         }
         return resultArray;
-
     }
 
 }

@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.arrays.onedimensional.countingTheNumberOfPeopleWhoseAgeIsInGivenInterval;
 
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 import java.util.Random;
 
@@ -11,48 +11,62 @@ public class Main {
 
     private static final Random RANDOM_AGE = new Random();
 
-    private static final ReadingData<Integer> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readInt);
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
-        ArrayOfHumans humans;
+        ArrayOfHumans humans = getArrayOfHumans();
 
-        System.out.println("Enter the quantity number of people to count : ");
-        while(true) {
-            int quantityNumber = READING_DATA.read();
-            if (quantityNumber > 0) {
-                humans = createArrayOfHumans(quantityNumber);
-                break;
-            } else {
-                System.out.println("The number of people for counting is less than or equal to zero. Re-enter : ");
-            }
-        }
+        int startAgeInterval = getStartAgeInterval();
 
-        System.out.println("Enter start age interval : ");
-        int startAgeInterval;
-        while(true) {
-            startAgeInterval = READING_DATA.read();
-            if ((startAgeInterval >= 0 ) && (startAgeInterval <= 140)) {
-                break;
-            } else {
-                System.out.println("Not correct value of start age interval. Re-enter : ");
-            }
-        }
+        int finishAgeInterval = getFinishAgeInterval();
 
+        Counting counting = Counting::countingTheNumberOfPeopleWithAgeInGivenInterval;
+        counting.counting(humans, startAgeInterval, finishAgeInterval);
+
+    }
+
+    public static int getFinishAgeInterval() {
         System.out.println("Enter finish age interval : ");
         int finishAgeInterval;
         while(true) {
-            finishAgeInterval = READING_DATA.read();
+            finishAgeInterval = reader.readInt();
             if ((finishAgeInterval > 0) && (finishAgeInterval <= 150)) {
                 break;
             } else {
                 System.out.println("Not correct value of finish age interval. Re-enter : ");
             }
         }
+        return finishAgeInterval;
+    }
 
-        Counting counting = Counting::countingTheNumberOfPeopleWithAgeInGivenInterval;
-        counting.counting(humans, startAgeInterval, finishAgeInterval);
+    public static int getStartAgeInterval() {
+        System.out.println("Enter start age interval : ");
+        int startAgeInterval;
+        while(true) {
+            startAgeInterval = reader.readInt();
+            if ((startAgeInterval >= 0 ) && (startAgeInterval <= 140)) {
+                break;
+            } else {
+                System.out.println("Not correct value of start age interval. Re-enter : ");
+            }
+        }
+        return startAgeInterval;
+    }
 
+    public static ArrayOfHumans getArrayOfHumans() {
+        ArrayOfHumans humans;
+        System.out.println("Enter the number of people to count : ");
+        while(true) {
+            int numberOfPeople = reader.readInt();
+            if (numberOfPeople > 0) {
+                humans = createArrayOfHumans(numberOfPeople);
+                break;
+            } else {
+                System.out.println("The number of people for counting is less than or equal to zero. Re-enter : ");
+            }
+        }
+        return humans;
     }
 
     private static ArrayOfHumans createArrayOfHumans(int quantityHumans) {
@@ -64,4 +78,5 @@ public class Main {
         }
         return arrayOfHumans;
     }
+
 }

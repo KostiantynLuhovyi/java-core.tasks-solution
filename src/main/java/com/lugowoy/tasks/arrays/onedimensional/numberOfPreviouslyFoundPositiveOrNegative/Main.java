@@ -1,21 +1,24 @@
 package com.lugowoy.tasks.arrays.onedimensional.numberOfPreviouslyFoundPositiveOrNegative;
 
-import com.lugowoy.util.filling.arrays.FillableArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.reading.ReadingRandomData;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 import java.util.Arrays;
+
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY;
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY;
 
 /**Created by Konstantin Lugowoy on 12-Feb-17.*/
 
 public class Main {
 
-    private static final FillableArray<Integer> FILLING_ARRAY = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
-
     public static void main(String[] args) {
 
+        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
+
         SequenceOfIntegers sequence = new SequenceOfIntegers();
-        sequence.setSequenceOfIntegers(Arrays.stream(FILLING_ARRAY.fillArray(new Integer[20])).mapToInt(Integer::intValue).toArray());
+        sequence.setSequenceOfIntegers(Arrays.stream(new FillingArrayIntegerRandomNumbers().fill(
+                sizeArray, DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY, DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY)).mapToInt(Integer::intValue).toArray());
 
         System.out.println("The sequence of integers to determine a sign of the number is the first in the sequence : ");
         Arrays.stream(sequence.getSequenceOfIntegers()).forEach(value -> System.out.print(value + " "));
@@ -31,5 +34,7 @@ public class Main {
         } else {
             System.out.println("The first element of the sequence is equal : 0.");
         }
+
     }
+
 }

@@ -1,13 +1,10 @@
 package com.lugowoy.tasks.arrays.onedimensional.convertTheSecondSequenceAccordingToTheRuleDefinedByTheFirstSequence;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArray;
-import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
-import com.lugowoy.util.filling.arrays.FillingArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingRandomData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 import java.util.Arrays;
 
@@ -15,32 +12,39 @@ import java.util.Arrays;
 
 public class Main {
 
-    private static CreatorArray<Integer> creatorArray = new CreatorArrayOfIntegerPrimitives();
-    private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
+    private static final int MIN_BOUND = -20;
+    private static final int MAX_BOUND = 20;
 
     private static final Convertable<Integer> CONVERTABLE = Convertable::convertSecondSequenceAccordingToTheRuleDefinedByTheFirstSequence;
 
     public static void main(String[] args) {
 
-        System.out.println("Enter a value for the size of the first array : ");
-        int sizeFirstArray = readingData.read();
-        Array<Integer> firstArray = creatorArray.create(new int[sizeFirstArray]);
-        System.out.println("Original first sequence : ");
-        Arrays.stream(firstArray.getArrayOfIntegerPrimitives()).forEachOrdered(integer -> System.out.print(integer + " "));
+        Array<Integer> firstArray = getIntegerArray();
+        System.out.println("A : ");
+        showArray(firstArray);
         System.out.println();
 
-        System.out.println("Enter a value for the size of the first array : ");
-        int sizeSecondArray = readingData.read();
-        Array<Integer> secondArray = creatorArray.create(new int[sizeSecondArray]);
-        System.out.println("Original second sequence : ");
-        Arrays.stream(secondArray.getArrayOfIntegerPrimitives()).forEachOrdered(integer -> System.out.print(integer + " "));
+        Array<Integer> secondArray = getIntegerArray();
+        System.out.println("B : ");
+        showArray(secondArray);
         System.out.println();
 
-        CONVERTABLE.convert(firstArray, firstArray);
+        CONVERTABLE.convert(firstArray, secondArray);
 
         System.out.println("Result second sequence after converting : ");
-        Arrays.stream(secondArray.getArrayOfIntegerPrimitives()).forEachOrdered(integer -> System.out.print(integer + " "));
+        Arrays.stream(secondArray.getArray()).forEachOrdered(integer -> System.out.print(integer + " "));
         System.out.println();
 
     }
+
+    private static Array<Integer> getIntegerArray() {
+        return new CreatorOfArrayModels<>(new FactoryOfIntegerArrayModels()).create(
+                                                new FillingArrayIntegerRandomNumbers().fill(DeterminatorSizeOfArray.determineSizeOfArray(), MIN_BOUND, MAX_BOUND));
+    }
+
+    private static void showArray(Array<Integer> array) {
+        Arrays.stream(array.getArray()).forEachOrdered(integer -> System.out.print(integer + " "));
+        System.out.println();
+    }
+
 }

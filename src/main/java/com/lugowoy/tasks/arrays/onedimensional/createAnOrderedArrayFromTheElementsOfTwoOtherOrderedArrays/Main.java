@@ -1,12 +1,10 @@
 package com.lugowoy.tasks.arrays.onedimensional.createAnOrderedArrayFromTheElementsOfTwoOtherOrderedArrays;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArray;
-import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
-import com.lugowoy.util.filling.arrays.FillingArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.reading.ReadingRandomData;
-import com.lugowoy.util.reading.ReadingUserInputSizeOfTheArray;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 import java.util.Arrays;
 
@@ -14,20 +12,24 @@ import java.util.Arrays;
 
 public class Main {
 
-    private static FillingArray<Integer> fillArray = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
-    private static CreatorArray<Integer> creator = new CreatorArrayOfIntegerPrimitives();
+    private static final int MIN_BOUND = -10;
+    private static final int MAX_BOUND = 10;
 
     public static void main(String[] args) {
 
-        int sizeArrays = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray();
+        int sizeArrays = DeterminatorSizeOfArray.determineSizeOfArray();
 
-        Array<Integer> firstArray = creator.create(fillArray.fillArray(new int[sizeArrays]));
+        Array<Integer> firstArray = new CreatorOfArrayModels<>(
+                                        new FactoryOfIntegerArrayModels()).create(
+                                                new FillingArrayIntegerRandomNumbers().fill(sizeArrays, MIN_BOUND, MAX_BOUND));
 
-        Arrays.sort(firstArray.getArrayOfIntegerPrimitives());
+        Arrays.sort(firstArray.getArray());
 
-        Array<Integer> secondArray = creator.create(fillArray.fillArray(new int[sizeArrays]));
+        Array<Integer> secondArray = new CreatorOfArrayModels<>(
+                                         new FactoryOfIntegerArrayModels()).create(
+                                                 new FillingArrayIntegerRandomNumbers().fill(sizeArrays, MIN_BOUND, MAX_BOUND));
 
-        Arrays.sort(secondArray.getArrayOfIntegerPrimitives());
+        Arrays.sort(secondArray.getArray());
 
         System.out.println("Original first array : " + firstArray);
         System.out.println();

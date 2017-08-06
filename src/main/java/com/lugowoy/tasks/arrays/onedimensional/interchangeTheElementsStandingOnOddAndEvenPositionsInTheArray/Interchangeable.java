@@ -7,4 +7,5 @@ package com.lugowoy.tasks.arrays.onedimensional.interchangeTheElementsStandingOn
 public interface Interchangeable {
 
     void interchange(Numbers numbers);
+
 }

@@ -24,4 +24,5 @@ public class Applicant {
     public void setRating(int rating) {
         this.rating = rating;
     }
+
 }

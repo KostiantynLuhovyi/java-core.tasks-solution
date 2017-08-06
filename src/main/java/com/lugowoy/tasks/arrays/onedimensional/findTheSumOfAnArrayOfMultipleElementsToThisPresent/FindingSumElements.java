@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.arrays.onedimensional.findTheSumOfAnArrayOfMultipleElementsToThisPresent;
 
-import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.helper.models.arrays.Array;
 
 /**Created by Konstantin Lugowoy on 12-Feb-17.*/
 
@@ -8,4 +8,5 @@ import com.lugowoy.util.models.arrays.Array;
 public interface FindingSumElements {
 
     int getSumElements(Array<Integer> array, int k);
+
 }

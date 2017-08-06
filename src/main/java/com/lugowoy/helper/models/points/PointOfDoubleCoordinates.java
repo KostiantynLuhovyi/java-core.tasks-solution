@@ -8,12 +8,12 @@ public class PointOfDoubleCoordinates extends Point<Double> {
 
     private PointOfDoubleCoordinates() {
         super();
+        super.setCoordinateX(DEFAULT_VALUE_DOUBLE_COORDINATES);
+        super.setCoordinateY(DEFAULT_VALUE_DOUBLE_COORDINATES);
     }
 
     private PointOfDoubleCoordinates(Double coordinateX, Double coordinateY) {
         super(coordinateX, coordinateY);
-        super.setCoordinateX(DEFAULT_VALUE_DOUBLE_COORDINATES);
-        super.setCoordinateY(DEFAULT_VALUE_DOUBLE_COORDINATES);
     }
 
     @Override

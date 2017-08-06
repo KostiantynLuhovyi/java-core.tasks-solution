@@ -39,4 +39,5 @@ public class WeatherArray {
     public void setWeathers(Weather[] weathers) {
         this.weathers = weathers;
     }
+
 }

@@ -1,39 +1,38 @@
 package com.lugowoy.tasks.arrays.onedimensional.determineTheNumberOfTheArrayInWhichTheRemainderOfTheDivisionIsEqualToCertainNumber;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArray;
-import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
-import com.lugowoy.util.filling.arrays.FillingArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingRandomData;
-import com.lugowoy.util.reading.ReadingUserInputData;
-import com.lugowoy.util.reading.ReadingUserInputSizeOfTheArray;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.models.arrays.ArrayOfIntegerNumbers;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 /**Created by Konstantin Lugowoy on 14-Feb-17.*/
 
 public class Main {
 
-    private static FillingArray<Integer> fillArray = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
-    private static CreatorArray<Integer> creator = new CreatorArrayOfIntegerPrimitives();
-    private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
-        int sizeArray = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray();
+        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
 
-        Array<Integer> array = creator.create(fillArray.fillArray(new int[sizeArray], -200, 300));
+        Array<Integer> array = new CreatorOfArrayModels<>(
+                                    new FactoryOfIntegerArrayModels()).create(
+                                            new FillingArrayIntegerRandomNumbers().fill(sizeArray, -200, 300));
 
         System.out.println("Original array : " + array);
         System.out.println();
 
         System.out.println("Enter number to the modulo : ");
-        int numberToModulo = readingData.read();
+        int numberToModulo = reader.readInt();
 
         System.out.println("Enter result to the modulo : ");
-        int resultModulo = readingData.read();
+        int resultModulo = reader.readInt();
 
-        DETERMINABLE.determinate(array.getArrayOfIntegerPrimitives(), numberToModulo, resultModulo);
+        DETERMINABLE.determinate(((ArrayOfIntegerNumbers)array).getArrayOfIntegerPrimitiveNumbers(), numberToModulo, resultModulo);
     }
 
     private static final Determinable DETERMINABLE = (numbers, numberToModulo, resultModulo) -> {

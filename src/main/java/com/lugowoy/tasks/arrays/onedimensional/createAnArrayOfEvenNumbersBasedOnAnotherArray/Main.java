@@ -1,39 +1,44 @@
 package com.lugowoy.tasks.arrays.onedimensional.createAnArrayOfEvenNumbersBasedOnAnotherArray;
 
-import com.lugowoy.util.filling.arrays.FillableArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.reading.ReadingRandomData;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY;
 
 /**Created by Konstantin Lugowoy on 13-Feb-17.*/
 
 public class Main {
 
-    private static final FillableArray<Integer> FILLING_ARRAY = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
-
     public static void main(String[] args) {
 
-        Numbers<Integer> numbers = new Numbers<>();
+        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
 
-        numbers.setNumbers(FILLING_ARRAY.fillArray(new Integer[20]));
+        Array<Integer> array = new CreatorOfArrayModels<>(
+                                    new FactoryOfIntegerArrayModels()).create(
+                                            new FillingArrayIntegerRandomNumbers().fill(sizeArray, DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY));
 
         System.out.println("Original array numbers.");
-        Arrays.stream(numbers.getNumbers()).forEachOrdered(integer -> System.out.print(integer + " "));
+        Arrays.stream(array.getArray()).forEachOrdered(integer -> System.out.print(integer + " "));
 
-        Integer[] evenNumbers = getEvenNumbersArray(numbers);
+        Array<Integer> evenNumbersArray = new CreatorOfArrayModels<>(
+                                                new FactoryOfIntegerArrayModels()).create(getEvenNumbersArray(array));
 
         System.out.println();
         System.out.println("Even numbers of original array.");
-        Arrays.stream(evenNumbers).forEachOrdered(integer -> System.out.print(integer + " "));
+        Arrays.stream(evenNumbersArray.getArray()).forEachOrdered(integer -> System.out.print(integer + " "));
 
     }
 
-    private static Integer[] getEvenNumbersArray(Numbers<Integer> numbers) {
+    private static Integer[] getEvenNumbersArray(Array<Integer> array) {
         ArrayList<Integer> integers = new ArrayList<>();
-        for (int i = 0; i < numbers.getNumbers().length; i++) {
-            if (numbers.getNumbers()[i] % 2 == 0) integers.add(numbers.getNumbers()[i]);
+        for (int i = 0; i < array.getArray().length; i++) {
+            if (array.getArray()[i] % 2 == 0) integers.add(array.getArray()[i]);
         }
         return Arrays.stream(integers.stream()
                                      .mapToInt(Integer::intValue)

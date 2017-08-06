@@ -27,7 +27,6 @@ public interface Determinable {
             }
         }
         return result;
-
     }
 
 }

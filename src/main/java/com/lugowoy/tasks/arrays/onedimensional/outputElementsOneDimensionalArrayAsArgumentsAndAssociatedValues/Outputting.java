@@ -6,4 +6,5 @@ package com.lugowoy.tasks.arrays.onedimensional.outputElementsOneDimensionalArra
 public interface Outputting <T, V extends Number> {
 
     void output(AssociativeArray<T, V> associativeArray);
+
 }

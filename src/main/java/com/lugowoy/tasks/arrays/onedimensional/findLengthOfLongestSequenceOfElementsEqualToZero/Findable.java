@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.arrays.onedimensional.findLengthOfLongestSequenceOfElementsEqualToZero;
 
-import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.helper.models.arrays.Array;
 
 /** Created by Konstantin Lugowoy on 18.06.2017. */
 
@@ -22,7 +22,6 @@ public interface Findable<T, V> {
 
          }
          return resultCount;
-
      }
 
 }

@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.arrays.onedimensional.determineWhetherTheElementsOfTheSecondSequenceInTheFirstSequence;
 
-import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.helper.models.arrays.Array;
 
 import java.util.Objects;
 
@@ -25,7 +25,6 @@ public interface Determinable<T> {
             }
         }
         return result;
-
     }
 
 }

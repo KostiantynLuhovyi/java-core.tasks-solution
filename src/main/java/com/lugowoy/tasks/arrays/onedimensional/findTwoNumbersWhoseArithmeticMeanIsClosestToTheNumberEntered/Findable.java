@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.arrays.onedimensional.findTwoNumbersWhoseArithmeticMeanIsClosestToTheNumberEntered;
 
-import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.helper.models.arrays.Array;
 
 /** Created by Konstantin Lugowoy on 12.04.2017. */
 

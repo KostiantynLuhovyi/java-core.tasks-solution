@@ -1,27 +1,27 @@
 package com.lugowoy.tasks.arrays.onedimensional.calculateTheSumOfTheMaxAndMinElementOfThisParticularSequence;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArray;
-import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
-import com.lugowoy.util.filling.arrays.FillingArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.reading.ReadingRandomData;
-import com.lugowoy.util.reading.ReadingUserInputSizeOfTheArray;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 import java.util.Objects;
+
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY;
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY;
 
 /** Created by Konstantin Lugowoy on 01.03.2017. */
 
 public class Main {
 
-    private static FillingArray<Integer> fillArray = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
-    private static CreatorArray<Integer> creator = new CreatorArrayOfIntegerPrimitives();
-
     public static void main(String[] args) {
 
-        int sizeArray = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray();
+        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
 
-        Array<Integer> array = creator.create(fillArray.fillArray(new Integer[sizeArray]));
+        Array<Integer> array = new CreatorOfArrayModels<>(
+                                    new FactoryOfIntegerArrayModels()).create(
+                                            new FillingArrayIntegerRandomNumbers().fill(sizeArray, DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY, DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY));
 
         System.out.println("Original : " + array);
         System.out.println();
@@ -37,6 +37,7 @@ public class Main {
         System.out.println();
 
         System.out.println("Result summation : " + (maxElement + minElement));
+
     }
 
     private static int findMax(Integer[] array) {
@@ -50,7 +51,6 @@ public class Main {
         } else {
             System.out.println("The array is not valid for any operations or calculations.");
         }
-
         return result;
     }
 
@@ -65,7 +65,6 @@ public class Main {
         } else {
             System.out.println("The array is not valid for any operations or calculations.");
         }
-
         return result;
     }
 

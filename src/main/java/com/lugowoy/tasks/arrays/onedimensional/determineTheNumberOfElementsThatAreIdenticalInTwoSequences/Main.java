@@ -1,28 +1,28 @@
 package com.lugowoy.tasks.arrays.onedimensional.determineTheNumberOfElementsThatAreIdenticalInTwoSequences;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArray;
-import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
-import com.lugowoy.util.filling.arrays.FillingArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.reading.ReadingRandomData;
-import com.lugowoy.util.reading.ReadingUserInputSizeOfTheArray;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 /** Created by Konstantin Lugowoy on 30.05.2017. */
 
 public class Main {
 
-    private static FillingArray<Integer> fillArray = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
-    private static CreatorArray<Integer> creator = new CreatorArrayOfIntegerPrimitives();
+    private static final CreatorOfArrayModels<Integer> CREATOR = new CreatorOfArrayModels<>(new FactoryOfIntegerArrayModels());
+    private static final int BOUND = 50;
 
     public static void main(String[] args) {
 
-        int sizeToFirstArray = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray("Enter a value for the size of the first array : ");
+        System.out.println("First array.");
+        int sizeToFirstArray = DeterminatorSizeOfArray.determineSizeOfArray();
 
-        int sizeToSecondArray = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray("Enter a value for the size of the second array : ");
+        System.out.println("Second array.");
+        int sizeToSecondArray = DeterminatorSizeOfArray.determineSizeOfArray();
 
-        Array<Integer> firstArray = creator.create(fillArray.fillArray(new int[sizeToFirstArray]));
-        Array<Integer> secondArray = creator.create(fillArray.fillArray(new int[sizeToSecondArray]));
+        Array<Integer> firstArray = CREATOR.create(new FillingArrayIntegerRandomNumbers().fill(sizeToFirstArray, BOUND));
+        Array<Integer> secondArray = CREATOR.create(new FillingArrayIntegerRandomNumbers().fill(sizeToSecondArray, BOUND));
 
         System.out.println("Elements of the first array : " + firstArray);
         System.out.println();

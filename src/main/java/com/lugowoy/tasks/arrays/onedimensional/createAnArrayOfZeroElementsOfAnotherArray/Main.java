@@ -1,12 +1,10 @@
 package com.lugowoy.tasks.arrays.onedimensional.createAnArrayOfZeroElementsOfAnotherArray;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArray;
-import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
-import com.lugowoy.util.filling.arrays.FillingArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.reading.ReadingRandomData;
-import com.lugowoy.util.reading.ReadingUserInputSizeOfTheArray;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,47 +14,18 @@ import java.util.Objects;
 
 public class Main {
 
-    private static FillingArray<Integer> fillArray = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
-    private static CreatorArray<Integer> creator = new CreatorArrayOfIntegerPrimitives();
-
     public static void main(String[] args) {
 
-        int sizeArray = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray();
+        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
 
-        Array<Integer> originalIntegerArray = creator.create(fillArray.fillArray(new int[sizeArray], 50));
+        Array<Integer> originalIntegerArray = new CreatorOfArrayModels<>(
+                                                    new FactoryOfIntegerArrayModels()).create(
+                                                            new FillingArrayIntegerRandomNumbers().fill(sizeArray, -10, 10));
 
         System.out.println("Elements of of the original array : " + originalIntegerArray);
         System.out.println();
 
-        Array<Integer> integerArrayIndexZero = creator.create();
-
-        FillingArrayOfAnotherArrayElementsZero<Integer> fillingArrayOfAnotherArrayElementsZero = originalArray -> {
-            ArrayList<Integer> integers = new ArrayList<>();
-            Integer[] resultArray;
-            if (Objects.nonNull(originalArray)) {
-                for (int i = 0; i < originalArray.length; i++) {
-                    if (originalArray[i] == 0) {
-                        integers.add(i);
-                    }
-                }
-            } else {
-                System.out.println("The array is not valid for any operations or calculations.");
-            }
-
-            if (integers.isEmpty()) {
-                resultArray = new Integer[0];
-            } else {
-                resultArray = Arrays.stream(
-                                        integers
-                                                .stream()
-                                                .mapToInt(Integer::intValue)
-                                                .toArray())
-                                    .boxed()
-                                    .toArray(Integer[]::new);
-
-            }
-            return resultArray;
-        };
+        Array<Integer> integerArrayIndexZero = new CreatorOfArrayModels<>(new FactoryOfIntegerArrayModels()).create();
 
         integerArrayIndexZero.setArray(fillingArrayOfAnotherArrayElementsZero.fillArrayOfAnotherArrayElementsZero(originalIntegerArray.getArray()));
 
@@ -68,6 +37,35 @@ public class Main {
         } else {
             System.out.println("It does not contain zero elements.");
         }
+
     }
+
+    private static FillingArrayOfAnotherArrayElementsZero<Integer> fillingArrayOfAnotherArrayElementsZero = originalArray -> {
+        ArrayList<Integer> integers = new ArrayList<>();
+        Integer[] resultArray;
+        if (Objects.nonNull(originalArray)) {
+            for (int i = 0; i < originalArray.length; i++) {
+                if (originalArray[i] == 0) {
+                    integers.add(i);
+                }
+            }
+        } else {
+            System.out.println("The array is not valid for any operations or calculations.");
+        }
+
+        if (integers.isEmpty()) {
+            resultArray = new Integer[0];
+        } else {
+            resultArray = Arrays.stream(
+                    integers
+                            .stream()
+                            .mapToInt(Integer::intValue)
+                            .toArray())
+                    .boxed()
+                    .toArray(Integer[]::new);
+
+        }
+        return resultArray;
+    };
 
 }

@@ -23,4 +23,5 @@ public interface Determinable<T, V> {
         }
         return resultTime;
     }
+
 }

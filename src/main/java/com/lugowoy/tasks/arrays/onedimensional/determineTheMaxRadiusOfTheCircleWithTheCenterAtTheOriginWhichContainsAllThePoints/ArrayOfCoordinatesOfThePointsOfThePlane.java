@@ -16,4 +16,5 @@ public class ArrayOfCoordinatesOfThePointsOfThePlane {
     public void setCoordinatesOfPoints(int[] coordinatesOfPoints) {
         this.coordinatesOfPoints = coordinatesOfPoints;
     }
+
 }

@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.arrays.onedimensional.calculateTheSumOfArrayElementsLocatedBetweenTheMinAndMaxElementsInclusive;
 
-import com.lugowoy.util.models.arrays.Array;
+import com.lugowoy.helper.models.arrays.Array;
 
 /** Created by Konstantin Lugowoy on 27.03.2017. */
 
@@ -25,7 +25,6 @@ public interface Determinable {
             } else {
                 System.out.println("The array is not valid for any operations or calculations.");
             }
-
         return indexMinElement;
     }
 
@@ -45,7 +44,6 @@ public interface Determinable {
         } else {
             System.out.println("The array is not valid for any operations or calculations.");
         }
-
         return indexMaxElement;
     }
 

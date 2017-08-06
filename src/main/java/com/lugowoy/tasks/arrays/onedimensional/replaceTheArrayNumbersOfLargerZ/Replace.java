@@ -6,4 +6,5 @@ package com.lugowoy.tasks.arrays.onedimensional.replaceTheArrayNumbersOfLargerZ;
 public interface Replace<T, V> {
 
     void replace(T numbersSequence, V v);
+
 }

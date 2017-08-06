@@ -6,4 +6,5 @@ package com.lugowoy.tasks.arrays.onedimensional.determineTheNumberOfTheArrayInWh
 public interface Determinable {
 
     void determinate(int[] numbers, int numberToModulo, int resultModulo);
+
 }

@@ -1,28 +1,33 @@
 package com.lugowoy.tasks.arrays.onedimensional.replaceTheArrayNumbersOfLargerZ;
 
-import com.lugowoy.util.filling.arrays.FillableArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingRandomData;
-import com.lugowoy.util.reading.ReadingUserInputData;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.util.DefaultNumber;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 import java.util.Arrays;
+
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY;
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY;
 
 /**Created by Konstantin Lugowoy on 13-Feb-17.*/
 
 public class Main {
 
-    private static final FillableArray<Integer> FILLING_ARRAY = new FillingArrayOfRandomNumber<>(new ReadingRandomData()::readInt);
-    private static final ReadingData<Integer> READING_DATA = new ReadingData<>(new ReadingUserInputData()::readInt);
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
-        Numbers numbersSequence = new Numbers();
+        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
 
-        numbersSequence.setNumbers(Arrays.stream(FILLING_ARRAY.fillArray(new Integer[20])).mapToInt(Integer::intValue).toArray());
+        Numbers numbersSequence = new Numbers();
+        numbersSequence.setNumbers(Arrays.stream(new FillingArrayIntegerRandomNumbers().fill(sizeArray, DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY, DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY))
+                                         .mapToInt(Integer::intValue)
+                                         .toArray());
 
         System.out.println("Enter number of replace : ");
-        int numberToReplace = READING_DATA.read();
+        int numberToReplace = reader.readInt();
 
         System.out.println("Original array : ");
         Arrays.stream(numbersSequence.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
@@ -46,4 +51,5 @@ public class Main {
         Arrays.stream(numbersSequence.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
 
     }
+
 }

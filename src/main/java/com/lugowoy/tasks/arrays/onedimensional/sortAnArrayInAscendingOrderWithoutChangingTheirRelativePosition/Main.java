@@ -1,21 +1,27 @@
 package com.lugowoy.tasks.arrays.onedimensional.sortAnArrayInAscendingOrderWithoutChangingTheirRelativePosition;
 
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
+
 import java.util.Arrays;
-import java.util.Random;
+
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY;
+import static com.lugowoy.helper.util.DefaultNumber.DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY;
 
 /** Created by Konstantin Lugowoy on 14.05.2017. */
 
 public class Main {
 
-    private static final Random RANDOM = new Random();
-
     public static void main(String[] args) {
 
-        Array<Integer> array = new Array<>();
-        array.setArray(Arrays.stream(new Integer[20])
-                             .mapToInt(value -> value = RANDOM.nextInt())
-                             .boxed()
-                             .toArray(Integer[]::new));
+        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
+
+        Array<Integer> array = new CreatorOfArrayModels<>(
+                                    new FactoryOfIntegerArrayModels()).create(
+                                            new FillingArrayIntegerRandomNumbers().fill(sizeArray, DEFAULT_MIN_INTEGER_ELEMENT_IN_ARRAY, DEFAULT_MAX_INTEGER_ELEMENT_IN_ARRAY));
 
         System.out.println("Original array : ");
         Arrays.stream(array.getArray()).forEachOrdered(integer -> System.out.print(integer + " "));
@@ -26,5 +32,7 @@ public class Main {
         System.out.println();
         System.out.println("After sorting : ");
         Arrays.stream(array.getArray()).forEachOrdered(integer -> System.out.print(integer + " "));
+
     }
+
 }

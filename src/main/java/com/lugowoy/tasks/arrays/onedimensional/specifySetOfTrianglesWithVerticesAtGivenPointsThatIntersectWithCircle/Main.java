@@ -1,15 +1,13 @@
 package com.lugowoy.tasks.arrays.onedimensional.specifySetOfTrianglesWithVerticesAtGivenPointsThatIntersectWithCircle;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArray;
-import com.lugowoy.util.factory.creating.arrays.CreatorArraysOfObjects;
-import com.lugowoy.util.factory.creating.points.CreatorPointIntegerCoordinates;
-import com.lugowoy.util.factory.creating.points.CreatorPoint;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.models.other.Point;
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingRandomData;
-import com.lugowoy.util.reading.ReadingUserInputData;
-import com.lugowoy.util.reading.ReadingUserInputSizeOfTheArray;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.creator.CreatorOfPointModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerCoordinatesPointsOfArrayModels;
+import com.lugowoy.helper.factory.models.points.FactoryOfPointsWithIntegerCoordinates;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.models.points.Point;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 import java.util.Arrays;
 
@@ -17,17 +15,15 @@ import java.util.Arrays;
 
 public class Main {
 
-    private static CreatorArray<Point<Integer>> creatorArray = new CreatorArraysOfObjects<>();
-    private static CreatorPoint<Integer> creatorPoint = new CreatorPointIntegerCoordinates();
-    private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingRandomData()::readInt);
+    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
 
     public static void main(String[] args) {
 
-        int quantityOfPoints = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray("Enter the number of points on the plane : ");
+        int numberOfPoints = getNumberOfPoints();
 
-        Array<Point<Integer>> pointsArray = creatorArray.create(new Point[quantityOfPoints]);
+        Array<Point<Integer>> pointsArray = new CreatorOfArrayModels<>(new FactoryOfIntegerCoordinatesPointsOfArrayModels()).create(numberOfPoints);
 
-        fillPointsArray(pointsArray, creatorPoint, readingData);
+        fillPointsArray(pointsArray);
 
         System.out.println();
         System.out.println("Points : ");
@@ -43,11 +39,25 @@ public class Main {
 
     }
 
+    private static int getNumberOfPoints() {
+        System.out.println("Enter number of points : ");
+        int numberOfPoints;
+        while (true) {
+            numberOfPoints = reader.readInt();
+            if (numberOfPoints > 0) {
+                break;
+            } else {
+                System.out.println("Incorrect enter data. Re-enter a positive number : ");
+            }
+        }
+        return numberOfPoints;
+    }
+
     private static double getRadius() {
         System.out.println("Enter the radius of the circle : ");
         double radius;
         while (true) {
-            radius = new ReadingUserInputData().readInt();
+            radius = reader.readInt();
             if (radius > 50) {
                 break;
             } else {
@@ -56,12 +66,12 @@ public class Main {
             }
         }
         return radius;
-
     }
 
-    private static void fillPointsArray(Array<Point<Integer>> pointsArray, CreatorPoint<Integer> creatorPoint, ReadingData<Integer> readingData) {
+    private static void fillPointsArray(Array<Point<Integer>> pointsArray) {
         for (int i = 0; i < pointsArray.getArray().length; i++) {
-            pointsArray.getArray()[i] = creatorPoint.create(readingData.read(), readingData.read());
+            System.out.println("Enter coordinate X and Y : ");
+            pointsArray.getArray()[i] = new CreatorOfPointModels<>(new FactoryOfPointsWithIntegerCoordinates()).create(reader.readInt(), reader.readInt());
         }
 
     }

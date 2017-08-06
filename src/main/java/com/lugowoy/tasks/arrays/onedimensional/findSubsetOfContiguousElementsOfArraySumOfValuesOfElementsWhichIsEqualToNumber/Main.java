@@ -1,13 +1,12 @@
 package com.lugowoy.tasks.arrays.onedimensional.findSubsetOfContiguousElementsOfArraySumOfValuesOfElementsWhichIsEqualToNumber;
 
-import com.lugowoy.util.factory.creating.arrays.CreatorArray;
-import com.lugowoy.util.factory.creating.arrays.CreatorArrayOfIntegerPrimitives;
-import com.lugowoy.util.filling.arrays.FillingArray;
-import com.lugowoy.util.filling.arrays.FillingArrayOfRandomNumber;
-import com.lugowoy.util.models.arrays.Array;
-import com.lugowoy.util.reading.ReadingData;
-import com.lugowoy.util.reading.ReadingUserInputData;
-import com.lugowoy.util.reading.ReadingUserInputSizeOfTheArray;
+import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
+import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
+import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.reading.Reader;
+import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.util.DeterminatorSizeOfArray;
 
 import java.util.Objects;
 
@@ -15,15 +14,15 @@ import java.util.Objects;
 
 public class Main {
 
-    private static ReadingData<Integer> readingData = new ReadingData<>(new ReadingUserInputData()::readInt);
-    private static FillingArray<Integer> fillingArray = new FillingArrayOfRandomNumber<>();
-    private static CreatorArray<Integer> creatorArray = new CreatorArrayOfIntegerPrimitives();
+    private static final int BOUND = 10;
 
     public static void main(String[] args) {
 
-        int sizeArray = ReadingUserInputSizeOfTheArray.enterUserInputForSizeOfTheArray();
+        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
 
-        Array<Integer> array = creatorArray.create(fillingArray.fillArray(new int[sizeArray], 0, 10));
+        Array<Integer> array = new CreatorOfArrayModels<>(
+                                    new FactoryOfIntegerArrayModels()).create(
+                                            new FillingArrayIntegerRandomNumbers().fill(sizeArray, BOUND));
 
         System.out.println("Original " + array);
         System.out.println();
@@ -36,7 +35,7 @@ public class Main {
 
         if (resultIntegers != null) {
 
-            Array<Integer> resultArray = creatorArray.create(findable.find(array, number));
+            Array<Integer> resultArray = new CreatorOfArrayModels<>(new FactoryOfIntegerArrayModels()).create(findable.find(array, number));
 
             if (Objects.nonNull(resultArray)) {
                 if (resultArray.getArray() != null) {
@@ -51,15 +50,13 @@ public class Main {
             System.out.println("Result array is null.");
         }
 
-
-
     }
 
     private static int getNumber() {
         System.out.println("Enter number : ");
         int number;
         while (true) {
-            number = readingData.read();
+            number = new Reader(new ReadingDataUserInputInConsole()).readInt();
             if ((number >= 0) && (number <= 200)) {
                 break;
             } else {
@@ -68,7 +65,6 @@ public class Main {
             }
         }
         return number;
-
     }
 
 }
