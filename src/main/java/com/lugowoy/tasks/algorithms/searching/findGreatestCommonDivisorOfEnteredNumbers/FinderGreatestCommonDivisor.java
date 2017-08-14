@@ -10,19 +10,19 @@ public class FinderGreatestCommonDivisor implements FindableGreatestCommonDiviso
 
     @Override
     public int findGreatestCommonDivisorOfEnteredNumbers(int firstNumber, int secondNumber) {
-        return this.findMostCommonDivisorForTwoNumbers(firstNumber, secondNumber);
+        return this.findGreatestCommonDivisorForTwoNumbers(firstNumber, secondNumber);
     }
 
     @Override
     public int findGreatestCommonDivisorOfEnteredNumbers(Array<Integer> numbers) {
         int result = numbers.getArray()[0];
         for (int i = 1; i < numbers.getArray().length; i++) {
-            result = this.findMostCommonDivisorForTwoNumbers(result, numbers.getArray()[i]);
+            result = this.findGreatestCommonDivisorForTwoNumbers(result, numbers.getArray()[i]);
         }
         return result;
     }
 
-    private int findMostCommonDivisorForTwoNumbers(int firstNumber, int secondNumber) {
+    private int findGreatestCommonDivisorForTwoNumbers(int firstNumber, int secondNumber) {
         int result = 0;
 
         int moduleFirstNumber = abs(firstNumber);
