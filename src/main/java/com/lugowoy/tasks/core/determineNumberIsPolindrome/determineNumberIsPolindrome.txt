@@ -1,0 +1,1 @@
+Determine that the number of palindromes, whose values in the forward and reverse order are the same.
