@@ -4,8 +4,7 @@ package com.lugowoy.helper.converting;
  * Created by Konstantin on 29-Jan-17.
  *
  * @author Konstantin Lugowoy
- * @version 1.0
- * @since 29.01.2017
+ *
  * <p>
  * Functional interface declares a function to perform the convert.
  * </p>
@@ -19,7 +18,6 @@ public interface Converting<T> {
      * The method (function) that performs the conversion.
      * </p>
      * @param t - The data of this object is used for conversion.
-     * @since 1.1
      * */
     void convert(T t);
 
