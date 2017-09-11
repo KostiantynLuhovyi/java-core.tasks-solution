@@ -20,7 +20,7 @@ public class Main {
         System.out.println("Enter max bound value : ");
         int maxBound = enterMaxBound();
 
-        Determinator determinator = Determinator::detrmineWhetherNumberBelongstoRangeOfNumbers;
+        Determinator determinator = Determinator::detrmineWhetherNumberBelongsToRangeOfNumbers;
         if (determinator.determine(number, minBound, maxBound)) {
             System.out.println("The number is in this range of numbers.");
         } else {
