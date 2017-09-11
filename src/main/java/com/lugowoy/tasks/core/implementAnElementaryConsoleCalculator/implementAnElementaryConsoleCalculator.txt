@@ -1,0 +1,7 @@
+Implement a calculator. We input 2 any real numbers in the variables a and b. You need to display the menu with the items:
+1) a + b ;
+2) a - b ;
+3) a * b ;
+4) a / b ;
+5) a % b ;
+If you select the appropriate menu item, the result of the calculation is output (there should be a check of division by 0!)
