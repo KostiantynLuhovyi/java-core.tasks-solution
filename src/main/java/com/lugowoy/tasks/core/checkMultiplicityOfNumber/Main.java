@@ -3,6 +3,8 @@ package com.lugowoy.tasks.core.checkMultiplicityOfNumber;
 import com.lugowoy.helper.reading.Reader;
 import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
+import static java.lang.Math.*;
+
 /** Created by Konstantin Lugowoy on 12.09.2017. */
 
 public class Main {
@@ -43,7 +45,7 @@ public class Main {
 
     private static boolean checkMultiplicityOfNumbers(int xNumber, int yNumber) {
         boolean checkResult = false;
-        if (xNumber % yNumber == 0) {
+        if (abs(xNumber) % abs(yNumber) == 0) {
             checkResult = true;
         }
         return checkResult;
