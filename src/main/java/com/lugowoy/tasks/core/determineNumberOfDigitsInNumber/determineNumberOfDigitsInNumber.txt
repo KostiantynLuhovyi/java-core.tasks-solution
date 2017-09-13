@@ -1,0 +1,1 @@
+Enter an integer (no more than 4 digits!). Determine the number of digits in it.
