@@ -20,7 +20,6 @@ public interface ReadableCorrect {
             }
         }
         return result;
-
     }
 
     static boolean isShortNumber(String numberValue) {
@@ -31,7 +30,6 @@ public interface ReadableCorrect {
             }
         }
         return result;
-
     }
 
     static boolean isIntegerNumber(String numberValue) {
@@ -42,7 +40,6 @@ public interface ReadableCorrect {
             }
         }
         return result;
-
     }
 
     static boolean isLongNumber(String numberValue) {
@@ -53,31 +50,28 @@ public interface ReadableCorrect {
             }
         }
         return result;
-
     }
 
     static boolean isFloatNumber(String numberValue) {
         boolean result = false;
         if (((numberValue.matches(REGEX_POSITIVE_REAL_NUMBER)) || (numberValue.matches(REGEX_NEGATIVE_REAL_NUMBER)))
                 || ((numberValue.matches(REGEX_POSITIVE_INTEGER_NUMBER)) || (numberValue.matches(REGEX_NEGATIVE_INTEGER_NUMBER)))) {
-            if ((Float.parseFloat(numberValue) >= Float.MIN_VALUE) && (Float.parseFloat(numberValue) <= Float.MAX_VALUE)) {
+            if ((Float.parseFloat(numberValue) >= Float.MIN_VALUE) || (Float.parseFloat(numberValue) <= Float.MAX_VALUE)) {
                 result = true;
             }
         }
         return result;
-
     }
 
     static boolean isDoubleNumber(String numberValue) {
         boolean result = false;
         if (((numberValue.matches(REGEX_POSITIVE_REAL_NUMBER)) || (numberValue.matches(REGEX_NEGATIVE_REAL_NUMBER)))
                 || ((numberValue.matches(REGEX_POSITIVE_INTEGER_NUMBER)) || (numberValue.matches(REGEX_NEGATIVE_INTEGER_NUMBER)))) {
-            if ((Double.parseDouble(numberValue) >= Double.MIN_VALUE) && (Double.parseDouble(numberValue) <= Double.MAX_VALUE)) {
+            if ((Double.parseDouble(numberValue) >= Double.MIN_VALUE) || (Double.parseDouble(numberValue) <= Double.MAX_VALUE)) {
                 result = true;
             }
         }
         return result;
-
     }
 
 }
