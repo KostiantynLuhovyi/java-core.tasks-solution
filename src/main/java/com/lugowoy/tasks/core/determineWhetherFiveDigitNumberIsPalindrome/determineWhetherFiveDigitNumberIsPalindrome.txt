@@ -1,0 +1,2 @@
+Enter a five-digit number from the keyboard and determine if it is a palindrome.
+(ie, it reads the same in both directions, for example, 12321 is a palindrome, and 12345 is not a palindrome).
