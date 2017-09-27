@@ -1,0 +1,1 @@
+Find the maximum value among the 4 variables using the ternary operator.
