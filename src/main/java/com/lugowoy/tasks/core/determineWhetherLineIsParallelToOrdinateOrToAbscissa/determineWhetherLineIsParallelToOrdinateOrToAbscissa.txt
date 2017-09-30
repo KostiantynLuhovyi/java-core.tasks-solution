@@ -1,0 +1,2 @@
+Determine whether a particular straight line of the ordinate axis is parallel or the abscissa axis.
+The straight line is given by two points.
