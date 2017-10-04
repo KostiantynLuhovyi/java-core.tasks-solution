@@ -1,0 +1,2 @@
+The program for calculating the ideal weight for growth.
+Enter the height and weight, output a message about how much you need to gain or lose kg (ideal weight = height - 110).
