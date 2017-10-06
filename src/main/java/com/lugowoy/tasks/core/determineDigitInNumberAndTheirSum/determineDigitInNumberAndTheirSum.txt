@@ -1,0 +1,1 @@
+An integer of any length is entered from the keyboard. Determine the number of digits in it and their sum.
