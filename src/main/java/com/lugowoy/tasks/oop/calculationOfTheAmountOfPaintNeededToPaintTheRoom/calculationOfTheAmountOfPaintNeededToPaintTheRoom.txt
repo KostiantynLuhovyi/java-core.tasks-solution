@@ -1,4 +1,0 @@
-Enter the length, width and height of the room.
-Calculate how much paint will go to painting the walls of this room,
-if there are N liters of paint per 1 m2 of wall and M% of the wall surface is occupied by windows and doors.
-Also, calculate the total cost of paint, taking into account that one liter of paint costs R UAH.
