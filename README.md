@@ -1,4 +1,4 @@
-#solution_tasks-java-core_topics
+# solution_tasks-java-core_topics  
 **In this repository are located solutions to tasks written in the Java programming language on the core programming topics.**  
 
 The hierarchy (nesting) of packets is based on the classical packet structure, which is used in BAT Maven.  
