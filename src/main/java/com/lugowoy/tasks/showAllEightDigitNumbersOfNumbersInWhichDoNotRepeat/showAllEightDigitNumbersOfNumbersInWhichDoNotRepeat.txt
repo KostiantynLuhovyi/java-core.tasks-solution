@@ -1,0 +1,2 @@
+Display on the screen all eight-digit numbers, the numbers in which do not repeat.
+These numbers must be divisible by 12345 without any residue. Show the total number of numbers found.
