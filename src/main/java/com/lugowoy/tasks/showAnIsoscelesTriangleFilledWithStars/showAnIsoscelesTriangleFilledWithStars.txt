@@ -1,0 +1,2 @@
+Show an isosceles triangle on the screen (the user enters the height).
+Then do the same, but that the figure inside was empty (only the outline remains).
