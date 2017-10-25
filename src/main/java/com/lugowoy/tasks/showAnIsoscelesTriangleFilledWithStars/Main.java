@@ -63,7 +63,7 @@ public class Main {
             if ((param >= 5) && (param <= 30)) {
                 break;
             } else {
-                System.out.println("Incorrect value of parameter. Must be integer number from 10 to 40.");
+                System.out.println("Incorrect value of parameter. Must be integer number from 5 to 30.");
                 System.out.println("Re-enter : ");
             }
         }

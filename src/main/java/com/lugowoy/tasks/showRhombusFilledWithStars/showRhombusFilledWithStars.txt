@@ -1,0 +1,2 @@
+Write a program that displays a rhombus (the lengths of diagonals of a rhombus are the same in value, but can be equal to any number).
+Then do the same, but that the figure inside was empty (only the outline remains).
