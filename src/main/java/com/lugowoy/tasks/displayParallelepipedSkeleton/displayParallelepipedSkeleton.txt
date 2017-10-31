@@ -1,0 +1,1 @@
+Display the frame of a parallelepiped with the dimension AxBxC.
