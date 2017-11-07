@@ -1,0 +1,1 @@
+Construction of a complex number to the integer degree.
