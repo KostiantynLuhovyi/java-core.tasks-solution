@@ -1,0 +1,2 @@
+Write a solution of a trigonometric equation of the form :
+a*cos(x) + b*sin(x) = c
