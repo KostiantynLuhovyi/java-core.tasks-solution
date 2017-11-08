@@ -1,0 +1,4 @@
+The elastic ball is thrown at an angle to the horizon at some initial velocity.
+When the ball falls on a flat horizontal surface, there is an elastic beating, so that the horizontal component of the speed of the ball does not change,
+and the vertical component changes to the opposite one.
+It is necessary to write a program that calculates the position (coordinates) of the ball at any time.
