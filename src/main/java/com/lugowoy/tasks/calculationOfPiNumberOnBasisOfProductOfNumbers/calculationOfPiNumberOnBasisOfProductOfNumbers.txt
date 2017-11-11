@@ -1,0 +1,1 @@
+Calculating the number Pi on the basis of the product of numbers.
