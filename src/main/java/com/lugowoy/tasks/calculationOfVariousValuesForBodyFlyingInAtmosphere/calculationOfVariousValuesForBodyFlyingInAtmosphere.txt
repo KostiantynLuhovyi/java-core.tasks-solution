@@ -1,0 +1,6 @@
+Calculate the trajectory of the motion of a body thrown at an angle to the horizon, provided that the body,
+in addition to the force of gravity, also acts on the strength of air resistance.
+Assume that in the atmosphere, depending on the height above the surface,
+the force of air resistance is different: in the first lower layer it is proportional to the square of the velocity of the body (and is directed against the velocity vector),
+in the second central layer, the air resistance force is proportional to the speed of the body, and in the third,
+the upper layer of the atmosphere, the force of air resistance is absent.
