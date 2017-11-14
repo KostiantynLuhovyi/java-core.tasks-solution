@@ -1,0 +1,1 @@
+Calculating the value and derivative of a polynomial based on the elements of the array.
