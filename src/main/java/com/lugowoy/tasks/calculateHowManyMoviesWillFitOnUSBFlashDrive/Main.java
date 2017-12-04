@@ -7,14 +7,16 @@ import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 public class Main {
 
-    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = new Reader(new ReadingDataUserInputInConsole());
+
+    private static final String NAME_MOVIE = "Terminator";
 
     public static void main(String[] args) {
 
         FlashDriveUSB driveUSB = new FlashDriveUSB();
         driveUSB.setSizeFlashDriveUSB(getSizeFlashDriveUSB());
 
-        Movie movie = new Movie("Terminator", getSizeMovie());
+        Movie movie = new Movie(NAME_MOVIE, getSizeMovie());
 
         System.out.println("Number movie on the flash drive USB : " + (int)(driveUSB.getSizeFlashDriveUSB() * 1024 / movie.getSizeMovie()));
 
@@ -24,7 +26,7 @@ public class Main {
         double sizeFlashDriveUSB;
         System.out.println("Enter the size of the flash drive USB : ");
         while (true) {
-            sizeFlashDriveUSB = reader.readDouble();
+            sizeFlashDriveUSB = READER.readDouble();
             if (sizeFlashDriveUSB > 0) {
                 break;
             } else {
@@ -39,7 +41,7 @@ public class Main {
         double sizeMovie;
         System.out.println("Enter the size (Mb) of the movie : ");
         while (true) {
-            sizeMovie = reader.readDouble();
+            sizeMovie = READER.readDouble();
             if (sizeMovie > 0) {
                 break;
             } else {

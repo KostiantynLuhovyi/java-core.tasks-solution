@@ -2,10 +2,13 @@ package com.lugowoy.tasks.calculateDistanceBetweenMostDistantPointsOnLine;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Objects;
 
 /** Created by Konstantin Lugowoy on 10.07.2017. */
 
 public class Line<T> implements Serializable, Cloneable {
+
+    private  static final int MIN_NUMBER_POINTS_ON_LINE = 3;
 
     private T[] pointsOnLine;
 
@@ -16,7 +19,11 @@ public class Line<T> implements Serializable, Cloneable {
     }
 
     public Line(T[] pointsOnLine) {
-        this.pointsOnLine = pointsOnLine;
+        if (checkPointsOnLine(pointsOnLine)) {
+            this.pointsOnLine = Arrays.copyOf(pointsOnLine, pointsOnLine.length);
+        } else {
+            System.out.println("The array of arguments passed is equal to null or does not correspond to the correct size.");
+        }
     }
 
     @Override
@@ -50,6 +57,7 @@ public class Line<T> implements Serializable, Cloneable {
                 ']';
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     protected Line<T> clone() throws CloneNotSupportedException {
         Line<T> line = (Line<T>) super.clone();
@@ -60,11 +68,15 @@ public class Line<T> implements Serializable, Cloneable {
     }
 
     public T[] getPointsOnLine() {
-        return pointsOnLine;
+        return Arrays.copyOf(pointsOnLine, pointsOnLine.length);
     }
 
     public void setPointsOnLine(T[] pointsOnLine) {
-        this.pointsOnLine = pointsOnLine;
+        if (checkPointsOnLine(pointsOnLine)) {
+            this.pointsOnLine = Arrays.copyOf(pointsOnLine, pointsOnLine.length);
+        } else {
+            throw new IllegalArgumentException("The array of arguments passed is equal to null or does not correspond to the correct size.");
+        }
     }
 
     public T getValueMinPoint() {
@@ -81,6 +93,16 @@ public class Line<T> implements Serializable, Cloneable {
 
     public void setValueMaxPoint(T valueMaxPoint) {
         this.valueMaxPoint = valueMaxPoint;
+    }
+
+    private static <T> boolean checkPointsOnLine(T[] pointsOnLine) {
+        boolean resultOfCheck = false;
+        if (Objects.nonNull(pointsOnLine)) {
+            if (pointsOnLine.length >= MIN_NUMBER_POINTS_ON_LINE) {
+                resultOfCheck = true;
+            }
+        }
+        return resultOfCheck;
     }
 
 }

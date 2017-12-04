@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.calculateTheTotalCostOfOrderingLaptopAtDiscount;
 
-import com.lugowoy.helper.calculating.CalculableOnTheThreeVariables;
+import com.lugowoy.helper.calculating.CalculationUsingThreeParameters;
 import com.lugowoy.helper.reading.Reader;
 import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
@@ -25,11 +25,11 @@ public class Main {
 
     }
 
-    private static CalculableOnTheThreeVariables<BigDecimal, Laptop, Integer, BigDecimal> calculating = (laptop, numberOfLaptop, discount) -> {
+    private static CalculationUsingThreeParameters<BigDecimal, Laptop, Integer, BigDecimal> calculating = (laptop, numberOfLaptop, discount) -> {
 
         BigDecimal sumPriceOfLaptop = new BigDecimal(laptop.getPrice().multiply(new BigDecimal(numberOfLaptop)).doubleValue());
 
-        return new BigDecimal(sumPriceOfLaptop.subtract(sumPriceOfLaptop.multiply(discount).divide(new BigDecimal(100))).doubleValue());
+        return new BigDecimal(sumPriceOfLaptop.subtract(sumPriceOfLaptop.multiply(discount).divide(new BigDecimal(100), 2)).doubleValue());
     };
 
     private static int getNumberOfLaptop() {

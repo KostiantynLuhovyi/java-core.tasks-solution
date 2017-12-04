@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.calculateTheRootOfLinearEquation;
 
-import com.lugowoy.helper.calculating.CalculableOnTheObject;
+import com.lugowoy.helper.calculating.CalculationUsingOneParameter;
 import com.lugowoy.helper.reading.Reader;
 import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
@@ -12,7 +12,7 @@ public class Main {
 
         LinearEquation equation = new LinearEquation();
 
-        CalculableOnTheObject<LinearEquation> linearEquationCalculableOnTheObject = new CalculateLinearEquation()::getRootOfTheLinearEquation;
+        CalculationUsingOneParameter<LinearEquation, LinearEquation> linearEquationCalculableOnTheObject = new CalculateLinearEquation()::getRootOfTheLinearEquation;
 
         System.out.println("Calculate root in the linear equation : ax + b = 0");
 

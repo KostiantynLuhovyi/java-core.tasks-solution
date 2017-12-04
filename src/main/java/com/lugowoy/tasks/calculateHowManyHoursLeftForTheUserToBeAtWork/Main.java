@@ -7,16 +7,16 @@ import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 public class Main {
 
-    private static final int WORKING_HOURS = 28800;
+    private static final Reader READER = new Reader(new ReadingDataUserInputInConsole());
 
-    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
+    private static final int WORKING_HOURS = 28800;
 
     public static void main(String[] args) {
 
         System.out.println("Enter the elapsed time from the beginning of the workday in seconds : ");
         long timeElapsedFromTheBeginningOfTeWorkdayInSeconds;
         while (true) {
-                timeElapsedFromTheBeginningOfTeWorkdayInSeconds = reader.readLong();
+                timeElapsedFromTheBeginningOfTeWorkdayInSeconds = READER.readLong();
                 if (timeElapsedFromTheBeginningOfTeWorkdayInSeconds > 0) {
                     break;
                 } else {

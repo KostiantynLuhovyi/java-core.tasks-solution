@@ -18,7 +18,7 @@ public class Main {
         System.out.println("Enter weight : ");
         BigDecimal weight = new BigDecimal(READER.readDouble());
 
-        CalculatorIdealWeigth.calculate(weight, growth);
+        CalculatorIdealWeight.calculate(weight, growth);
 
 
     }

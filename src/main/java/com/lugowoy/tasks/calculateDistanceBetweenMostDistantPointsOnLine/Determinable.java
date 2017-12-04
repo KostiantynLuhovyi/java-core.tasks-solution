@@ -5,32 +5,39 @@ import java.util.Optional;
 
 /** Created by Konstantin Lugowoy on 10.07.2017. */
 
+@FunctionalInterface
 public interface Determinable<T> {
 
     T determine(T[] t);
 
     static Double determineMin(Double[] doubles) {
         Optional<Double> optional = Arrays.stream(doubles).min(Double::compareTo);
-        double minNumber = 0;
+        double minNumber;
         if (optional.isPresent()) {
             minNumber = optional.get();
         } else {
-            System.out.println("Have not a min number.");
-            System.out.println("Result : 0 .");
+            throw new NotDetermineValueException("Can not determine the minimal value.");
         }
         return minNumber;
     }
 
     static Double determineMax(Double[] doubles) {
         Optional<Double> optional = Arrays.stream(doubles).max(Double::compareTo);
-        double maxNumber = 0;
+        double maxNumber;
         if (optional.isPresent()) {
             maxNumber = optional.get();
         } else {
-            System.out.println("Have not a max number.");
-            System.out.println("Result : 0 .");
+            throw new NotDetermineValueException("Can not determine the maximum value.");
         }
         return maxNumber;
+    }
+
+    class NotDetermineValueException extends RuntimeException {
+
+        NotDetermineValueException(String message) {
+            super(message);
+        }
+
     }
 
 }

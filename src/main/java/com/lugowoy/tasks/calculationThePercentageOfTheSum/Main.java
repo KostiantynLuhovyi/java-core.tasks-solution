@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.calculationThePercentageOfTheSum;
 
-import com.lugowoy.helper.calculating.CalculableOnTheObject;
+import com.lugowoy.helper.calculating.CalculationUsingOneParameter;
 import com.lugowoy.helper.reading.Reader;
 import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
@@ -33,7 +33,7 @@ public class Main {
         };
 
         if (variableComparable.compareTo(variable) == 1) {
-            CalculableOnTheObject<Variable> variableCalculableOnTheObject = new CalculatingThePercentOfSum()::calculateThePercentageOfTheSum;
+            CalculationUsingOneParameter<Variable, Variable> variableCalculableOnTheObject = new CalculatingThePercentOfSum()::calculateThePercentageOfTheSum;
             variableCalculableOnTheObject.calculate(variable);
 
             System.out.printf("Result calculation the percent of the sum of equal : %s", variable.getPercent().setScale(2, BigDecimal.ROUND_HALF_DOWN).stripTrailingZeros().toPlainString());

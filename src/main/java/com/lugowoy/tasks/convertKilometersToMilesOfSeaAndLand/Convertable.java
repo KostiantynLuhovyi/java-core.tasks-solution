@@ -7,4 +7,5 @@ public interface Convertable <T> {
     T convert(T t);
 
     double convert(double kilometers);
+
 }

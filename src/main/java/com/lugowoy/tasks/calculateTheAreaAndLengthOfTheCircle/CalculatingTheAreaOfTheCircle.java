@@ -5,9 +5,9 @@ import static java.lang.Math.pow;
 
 /** Created by Konstantin Lugowoy on 15-Dec-16. */
 
-public class CalculateTheAreaOfTheCircle {
+public interface CalculatingTheAreaOfTheCircle {
 
-    public Circle calculateTheAreaOfTheCircle(Circle circle) {
+    static Circle calculateTheAreaOfTheCircle(Circle circle) {
         circle.setArea(PI * pow(circle.getRadius(), 2));
         return circle;
     }

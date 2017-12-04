@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 /** Created by Konstantin Lugowoy on 04.10.2017. */
 
-public class CalculatorIdealWeigth {
+public class CalculatorIdealWeight {
 
     private static final BigDecimal COEFFICIENT_FOR_IDEAL_WEIGHT = new BigDecimal(110.0);
 

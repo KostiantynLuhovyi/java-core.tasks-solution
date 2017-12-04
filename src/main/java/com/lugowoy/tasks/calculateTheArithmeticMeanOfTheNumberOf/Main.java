@@ -6,10 +6,12 @@ import com.lugowoy.helper.filling.FillingArrayDoubleUserInputNumbers;
 
 public class Main {
 
+    private static final int LENGTH_ARRAY = 10;
+
     public static void main(String[] args) {
 
         Numbers numbers = new Numbers();
-        numbers.setNumbers(new FillingArrayDoubleUserInputNumbers().fill(10));
+        numbers.setNumbers(new FillingArrayDoubleUserInputNumbers().fill(LENGTH_ARRAY));
 
         System.out.println();
         System.out.println("You entered the numbers : ");
@@ -19,8 +21,8 @@ public class Main {
 
         System.out.println();
 
-        CalculableArithmeticMeanNumber calculableArithmeticMeanNumber = new CalculateArithmeticMeanNumbers();
-        numbers.setResultArithmeticMeanNumbers(calculableArithmeticMeanNumber.calculateArithmeticMeanNumber(numbers.getNumbers()));
+        CalculatingArithmeticMeanNumber calculating = CalculatingArithmeticMeanNumber::calculateArithmeticMeanNumber;
+        numbers.setResultArithmeticMeanNumbers(calculating.calculate(numbers.getNumbers()));
 
         System.out.printf("The arithmetic mean of the entered real numbers equals %f", numbers.getResultArithmeticMeanNumbers());
 

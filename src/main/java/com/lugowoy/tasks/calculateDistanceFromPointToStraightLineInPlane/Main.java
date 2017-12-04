@@ -11,27 +11,33 @@ import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 public class Main {
 
-    private static Creator<Point<Double>> creator = new CreatorOfPointModels<>(new FactoryOfPointsWithDoubleCoordinates());
     private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
+
+    private static final Creator<Point<Double>> CREATOR = new CreatorOfPointModels<>(new FactoryOfPointsWithDoubleCoordinates());
+
+    private static final String POINT_M = "M";
+    private static final String POINT_A = "A";
 
     public static void main(String[] args) {
 
-        Point<Double> pointM = getPoint("M");
-        Point<Double> pointA = getPoint("A");
+        Point<Double> pointM = getPoint(POINT_M);
+        Point<Double> pointA = getPoint(POINT_A);
 
-        Point<Double> pointO = creator.create();
+        Point<Double> pointO = CREATOR.create();
 
-        double distanceFromPointToLine = 0;
         if (isDifferent(pointO, pointA)) {
-            distanceFromPointToLine = getDistanceFromPointToLine(pointM, pointA, pointO);
+            System.out.printf("Distance from point M(%.2f, %.2f) to line OA is equal : %.2f .",
+                                                                 pointM.getCoordinateX(), pointM.getCoordinateY(),
+                                                                    getDistanceFromPointToLine(pointM, pointA, pointO));
+        } else {
+            System.out.println("The coordinates of point O are equal to the coordinates of point A. " +
+                                                                       "For this reason, calculations are impossible.");
         }
-
-        System.out.printf("Distance from point M(%.2f, %.2f) to line is equal : %.2f .", pointM.getCoordinateX(), pointM.getCoordinateY(), distanceFromPointToLine);
 
     }
 
     private static Point<Double> getPoint(String pointName) {
-        Point<Double> point = creator.create();
+        Point<Double> point = CREATOR.create();
 
         System.out.println("Enter coordinates for point " + pointName + " : ");
         System.out.println("x : ");
@@ -43,7 +49,8 @@ public class Main {
     }
 
     private static boolean isDifferent(Point firstPoint, Point secondPoint) {
-        return !firstPoint.equals(secondPoint);
+        return !(firstPoint.getCoordinateX().equals(secondPoint.getCoordinateX())
+                && firstPoint.getCoordinateY().equals(secondPoint.getCoordinateY()));
     }
 
     private static double getDistanceFromPointToLine(Point<Double> pointM, Point<Double> pointA, Point<Double> pointO) {
