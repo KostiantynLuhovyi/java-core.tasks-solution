@@ -1,17 +1,17 @@
-# solution_tasks-java-core_topics  
+# java-core.tasks-solution  
 **In this repository are located solutions to tasks written in the Java programming language on the core programming topics.**  
 
 The hierarchy (nesting) of packets is based on the classical packet structure, which is used in BAT Maven.  
 
-The name of the packages in which the classes are located to solve the problem is the approximate condition of the task.  
+The name of the packages in which the classes are located to solve the task is the approximate condition of the task.  
 
 A complete description of the task you can see in the package with the solution of the problem in a file with the same name and file extension .txt  .  
 
 Many of functional solutions are implemented in the java-helper.jar library classes. 
 A detailed description of the functional contained in the library "java-helper.jar" and used for solving tasks can be found 
-in the repository by the link: https://github.com/LugowoyKonstantin/java-helper_for-solution-tasks
+in the repository by the link: https://github.com/LugowoyKonstantin/java-helper.tasks-solution
 
-----
+ --  
 If you have any questions about this repository or the solution of the tasks in it, you can contact the following contacts:
 
 **email:** _kostya.lugowoy@gmail.com_  
@@ -31,7 +31,7 @@ If you have any questions about this repository or the solution of the tasks in 
 * calculateDistanceFromPointToSingleCircleWithCenterAtGivenPoint  
     * _Write a program that enters the coordinates M (x, y) and C (x, y) of points on the plane,
        and prints the result of the distance from the point M (x, y) to the unit circle centered at point C (x, y)._  
-* calculateDistanceFromPointToStraightLineInPlane
+* calculateDistanceFromPointToStraightLineInPlane  
     * _Write a program that inputs the real coordinates (x, y) and (a, b) of two points onto a plane,
        and calculate the distance from the point M (x, y) to the straight line OA,
        where O is the start origin of coordinates, and the point A is different from 0._  
