@@ -12,9 +12,17 @@ public class Movie implements Cloneable, Serializable {
     public Movie() {
     }
 
-    public Movie(String nameMovie, double sizeMovie) {
-        this.nameMovie = nameMovie;
-        this.sizeMovie = sizeMovie;
+    public Movie(String nameMovie, double sizeMovie) throws IllegalArgumentException {
+        try {
+            if (checkNameOfMovie(nameMovie)) {
+                this.nameMovie = nameMovie;
+                if (checkSizeMovie(sizeMovie)) {
+                    this.sizeMovie = sizeMovie;
+                }
+            }
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
+        }
     }
 
     @Override
@@ -59,15 +67,43 @@ public class Movie implements Cloneable, Serializable {
     }
 
     public void setNameMovie(String nameMovie) {
-        this.nameMovie = nameMovie;
+        try {
+            if (checkNameOfMovie(nameMovie)) {
+                this.nameMovie = nameMovie;
+            }
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
+        }
     }
 
     public double getSizeMovie() {
         return sizeMovie;
     }
 
-    public void setSizeMovie(double sizeMovie) {
-        this.sizeMovie = sizeMovie;
+    public void setSizeMovie(double sizeMovie) throws IllegalArgumentException {
+        try {
+            if (checkSizeMovie(sizeMovie)) {
+                this.sizeMovie = sizeMovie;
+            }
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+
+    private boolean checkNameOfMovie(String nameMovie) throws IllegalArgumentException {
+        if ((nameMovie != null) && (!nameMovie.equals(""))) {
+            return true;
+        } else {
+            throw new IllegalArgumentException("The name of the movie passed by the argument is null or an empty string.");
+        }
+    }
+
+    private boolean checkSizeMovie(double sizeMovie) {
+        if (sizeMovie > 0) {
+            return true;
+        } else {
+            throw new IllegalArgumentException("The size of the movie passed by the argument is less than or equal to 0.");
+        }
     }
 
 }

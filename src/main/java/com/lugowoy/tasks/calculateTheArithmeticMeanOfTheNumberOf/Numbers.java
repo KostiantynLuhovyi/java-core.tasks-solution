@@ -1,32 +1,38 @@
 package com.lugowoy.tasks.calculateTheArithmeticMeanOfTheNumberOf;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 /** Created by Konstantin Lugowoy on 03-Dec-16. */
 
-public class Numbers {
+public class Numbers implements Serializable, Cloneable {
 
-    private Double[] numbers;
-
-    private double resultArithmeticMeanNumbers;
+    private double[] numbers;
 
     public Numbers() {
     }
 
-    public Double[] getNumbers() {
+    public Numbers(double[] numbers) {
+        try {
+            if (checkArrayNonNull(numbers)) {
+                this.numbers = numbers;
+            }
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+
+    public double[] getNumbers() {
         return Arrays.copyOf(this.numbers, this.numbers.length);
     }
 
-    public void setNumbers(Double[] numbers) {
-        this.numbers = Arrays.copyOf(numbers, numbers.length);
+    private boolean checkArrayNonNull(double[] doubles) throws IllegalArgumentException {
+        if (doubles != null) {
+            return true;
+        } else {
+            throw new IllegalArgumentException(new NullPointerException("The array passed by argument is equal to null."));
+        }
     }
 
-    public double getResultArithmeticMeanNumbers() {
-        return resultArithmeticMeanNumbers;
-    }
-
-    public void setResultArithmeticMeanNumbers(double resultArithmeticMeanNumbers) {
-        this.resultArithmeticMeanNumbers = resultArithmeticMeanNumbers;
-    }
 
 }

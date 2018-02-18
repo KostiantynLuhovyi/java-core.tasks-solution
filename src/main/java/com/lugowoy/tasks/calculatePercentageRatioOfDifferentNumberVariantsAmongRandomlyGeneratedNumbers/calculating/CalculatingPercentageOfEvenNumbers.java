@@ -2,8 +2,7 @@ package com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmong
 
 import com.lugowoy.helper.models.arrays.Array;
 
-import static com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating.CalculatingPercentage.*;
-import static java.lang.Math.*;
+import static java.lang.Math.abs;
 
 /** Created by Konstantin Lugowoy on 23.10.2017. */
 
@@ -18,7 +17,7 @@ public interface CalculatingPercentageOfEvenNumbers<T extends Number> extends Ca
                 amountOfEvenNumbers++;
             }
         }
-        return calculatePercentage(amountOfEvenNumbers, array.getArray().length);
+        return CalculatingPercentage.calculatePercentage(amountOfEvenNumbers, array.getArray().length);
     }
 
 }

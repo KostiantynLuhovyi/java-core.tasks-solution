@@ -8,7 +8,15 @@ import static java.lang.Math.pow;
 public interface CalculatingTheAreaOfTheCircle {
 
     static Circle calculateTheAreaOfTheCircle(Circle circle) {
-        circle.setArea(PI * pow(circle.getRadius(), 2));
+        if (circle != null) {
+            try {
+                circle.setArea(PI * pow(circle.getRadius(), 2));
+            } catch (IllegalArgumentException ex) {
+                System.err.println(ex.getMessage());
+            }
+        } else {
+            throw new NullPointerException("The object of Circle class passed by argument is equal to null.");
+        }
         return circle;
     }
 

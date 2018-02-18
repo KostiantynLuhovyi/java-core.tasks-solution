@@ -7,7 +7,15 @@ import static java.lang.Math.PI;
 public interface CalculatingTheLengthOfTheCircle {
 
     static Circle calculateTheLengthOfTheCircle(Circle circle) {
-        circle.setLength(2 * PI * circle.getRadius());
+        if (circle != null) {
+            try {
+                circle.setLength(2 * PI * circle.getRadius());
+            } catch (IllegalArgumentException ex) {
+                System.err.println(ex.getMessage());
+            }
+        } else {
+            throw new NullPointerException("The object of Circle class passed by argument is equal to null.");
+        }
         return circle;
     }
 

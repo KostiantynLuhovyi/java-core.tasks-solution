@@ -1,38 +1,41 @@
 package com.lugowoy.tasks.calculateHowMuchMoneyUserWillReceiveAtEndOfTermOfDeposit;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /** Created by Konstantin Lugowoy on 17.06.2017. */
 
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
     private static final int SCALE = 2;
 
     public static void main(String[] args) {
 
-        BigDecimal depositSumInUAH = new BigDecimal(getSum());
-        BigDecimal rate = new BigDecimal(getRate());
+        BigDecimal depositSumInUAH = new BigDecimal(enterDepositSum());
+        BigDecimal rate = new BigDecimal(enterRate());
 
-        int termOfDepositInMonth = getTermOfDepositInMonths();
+        int termOfDepositInMonth = enterTermOfDepositInMonths();
 
-        rate = getAmountRateOfAllMonthOfDeposit(rate, termOfDepositInMonth);
+        BigDecimal rateOfAllMonths = calculateAmountRateOfDepositOfAllMonths(rate, termOfDepositInMonth);
 
-        BigDecimal resultSum = new BigDecimal(depositSumInUAH.doubleValue() * rate.doubleValue() + depositSumInUAH.doubleValue());
+        BigDecimal resultSum = new BigDecimal(depositSumInUAH.doubleValue() * rateOfAllMonths.doubleValue()
+                                                                                        + depositSumInUAH.doubleValue());
 
-        System.out.println("Result sum deposit after " + termOfDepositInMonth + " month is equal " + resultSum.setScale(SCALE, BigDecimal.ROUND_DOWN));
+        System.out.println("Result sum deposit after " + termOfDepositInMonth
+                                                    + " month is equal " + resultSum.setScale(SCALE, RoundingMode.DOWN));
 
     }
 
-    private static BigDecimal getAmountRateOfAllMonthOfDeposit(BigDecimal rate, int termOfDepositInMonth) {
+    private static BigDecimal calculateAmountRateOfDepositOfAllMonths(BigDecimal rate, int termOfDepositInMonth) {
         return new BigDecimal((rate.doubleValue() / 100.0) / 12 * termOfDepositInMonth);
     }
 
-    private static double getSum() {
+    private static double enterDepositSum() {
         System.out.println("Enter deposit sum in UAH : ");
         double sum;
         while (true) {
@@ -47,7 +50,7 @@ public class Main {
         return sum;
     }
 
-    private static double getRate() {
+    private static double enterRate() {
         System.out.println("Enter interest rate : ");
         double rate;
         while (true) {
@@ -62,7 +65,7 @@ public class Main {
         return rate;
     }
 
-    private static int getTermOfDepositInMonths() {
+    private static int enterTermOfDepositInMonths() {
         System.out.println("Enter term of deposit in month : ");
         int term;
         while (true) {

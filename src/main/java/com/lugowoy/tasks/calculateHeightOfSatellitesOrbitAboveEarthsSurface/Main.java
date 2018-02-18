@@ -1,13 +1,13 @@
 package com.lugowoy.tasks.calculateHeightOfSatellitesOrbitAboveEarthsSurface;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 /** Created by Konstantin Lugowoy on 07.11.2017. */
 
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
     private static final double G = 6.672E-11;
     private static final double EARTH_MASS = 5.96e24;
@@ -19,7 +19,8 @@ public class Main {
         double orbitalPeriod = READER.readDouble();
         orbitalPeriod *= 3600;
 
-        double heightOfSatellitesOrbitInMeters = Math.pow(G * EARTH_MASS * orbitalPeriod * orbitalPeriod / 4 / Math.PI / Math.PI, (double) 1 / 3) - EARTH_RADIUS;
+        double heightOfSatellitesOrbitInMeters = Math.pow(G * EARTH_MASS * orbitalPeriod
+                                                 * orbitalPeriod / 4 / Math.PI / Math.PI, (double) 1 / 3) - EARTH_RADIUS;
 
         double heightOfSatellitesOrbitInKilometers = (double)(Math.round(heightOfSatellitesOrbitInMeters)) / 1000;
 

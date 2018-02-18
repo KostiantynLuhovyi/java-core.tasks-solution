@@ -1,19 +1,16 @@
 package com.lugowoy.tasks.calculateDistanceFromPointToStraightLineInPlane;
 
-import com.lugowoy.helper.factory.creator.Creator;
-import com.lugowoy.helper.factory.creator.CreatorOfPointModels;
-import com.lugowoy.helper.factory.models.points.FactoryOfPointsWithDoubleCoordinates;
+import com.lugowoy.helper.factory.FactoryPoint;
+import com.lugowoy.helper.factory.creator.CreatorPoint;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.points.Point;
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 /** Created by Konstantin Lugowoy on 11.07.2017. */
 
 public class Main {
 
-    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
-
-    private static final Creator<Point<Double>> CREATOR = new CreatorOfPointModels<>(new FactoryOfPointsWithDoubleCoordinates());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
     private static final String POINT_M = "M";
     private static final String POINT_A = "A";
@@ -23,29 +20,17 @@ public class Main {
         Point<Double> pointM = getPoint(POINT_M);
         Point<Double> pointA = getPoint(POINT_A);
 
-        Point<Double> pointO = CREATOR.create();
+        Point<Double> pointO = FactoryPoint.getFactoryPoint(new CreatorPoint<Double>()).create();
 
         if (isDifferent(pointO, pointA)) {
             System.out.printf("Distance from point M(%.2f, %.2f) to line OA is equal : %.2f .",
                                                                  pointM.getCoordinateX(), pointM.getCoordinateY(),
-                                                                    getDistanceFromPointToLine(pointM, pointA, pointO));
+                                                                 getDistanceFromPointToLine(pointM, pointA, pointO));
         } else {
-            System.out.println("The coordinates of point O are equal to the coordinates of point A. " +
+            System.err.println("The coordinates of point O are equal to the coordinates of point A. " +
                                                                        "For this reason, calculations are impossible.");
         }
 
-    }
-
-    private static Point<Double> getPoint(String pointName) {
-        Point<Double> point = CREATOR.create();
-
-        System.out.println("Enter coordinates for point " + pointName + " : ");
-        System.out.println("x : ");
-        point.setCoordinateX(reader.readDouble());
-        System.out.println("y : ");
-        point.setCoordinateY(reader.readDouble());
-
-        return point;
     }
 
     private static boolean isDifferent(Point firstPoint, Point secondPoint) {
@@ -63,6 +48,29 @@ public class Main {
         distanceFromPointToLine = (A * pointM.getCoordinateX() + B * pointM.getCoordinateY() + C) / Math.sqrt(A * A + B * B);
 
         return distanceFromPointToLine;
+    }
+
+    private static Point<Double> getPoint(String pointName) {
+        Point<Double> point = FactoryPoint.getFactoryPoint(new CreatorPoint<Double>()).create();
+        try {
+            enterCoordinatesOfPoint(pointName, point);
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return point;
+    }
+
+    private static void enterCoordinatesOfPoint(String pointName, Point<Double> point) throws IllegalArgumentException {
+        System.out.println("Enter coordinates for point " + pointName + " : ");
+        if (point != null) {
+            System.out.println("x : ");
+            point.setCoordinateX(READER.readDouble());
+            System.out.println("y : ");
+            point.setCoordinateY(READER.readDouble());
+        } else {
+            throw new IllegalArgumentException(
+                    new NullPointerException("The object of Point class passed by argument is equal to null."));
+        }
     }
 
 }

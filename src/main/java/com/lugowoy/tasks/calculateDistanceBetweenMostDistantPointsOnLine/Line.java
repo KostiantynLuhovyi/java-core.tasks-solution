@@ -2,27 +2,29 @@ package com.lugowoy.tasks.calculateDistanceBetweenMostDistantPointsOnLine;
 
 import java.io.Serializable;
 import java.util.Arrays;
-import java.util.Objects;
 
 /** Created by Konstantin Lugowoy on 10.07.2017. */
 
-public class Line<T> implements Serializable, Cloneable {
+public class Line<T extends Number> implements Serializable, Cloneable {
 
-    private  static final int MIN_NUMBER_POINTS_ON_LINE = 3;
+    private static final int MIN_NUMBER_POINTS_ON_LINE = 3;
 
     private T[] pointsOnLine;
 
-    private T valueMinPoint;
-    private T valueMaxPoint;
+    private T minValueOfPoint;
+    private T maxValueOfPoint;
 
     public Line() {
     }
 
-    public Line(T[] pointsOnLine) {
-        if (checkPointsOnLine(pointsOnLine)) {
-            this.pointsOnLine = Arrays.copyOf(pointsOnLine, pointsOnLine.length);
-        } else {
-            System.out.println("The array of arguments passed is equal to null or does not correspond to the correct size.");
+    public Line(T[] pointsOnLine) throws IllegalArgumentException {
+        try {
+            if (checkPointsOnLineNonNull(pointsOnLine)
+                  && checkNumbersOfPointsOnLineGreatestOrEqualMinNumberPoints(pointsOnLine)) {
+                    this.pointsOnLine = Arrays.copyOf(pointsOnLine, pointsOnLine.length);
+            }
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
         }
     }
 
@@ -43,8 +45,8 @@ public class Line<T> implements Serializable, Cloneable {
     @Override
     public int hashCode() {
         int result = Arrays.hashCode(pointsOnLine);
-        result = 31 * result + (valueMaxPoint != null ? valueMaxPoint.hashCode() : 0);
-        result = 31 * result + (valueMinPoint != null ? valueMinPoint.hashCode() : 0);
+        result = 31 * result + (maxValueOfPoint != null ? maxValueOfPoint.hashCode() : 0);
+        result = 31 * result + (minValueOfPoint != null ? minValueOfPoint.hashCode() : 0);
         return result;
     }
 
@@ -52,8 +54,8 @@ public class Line<T> implements Serializable, Cloneable {
     public String toString() {
         return "Line[" +
                 "pointsOnLine=" + Arrays.toString(pointsOnLine) +
-                ", valueMaxPoint=" + valueMaxPoint +
-                ", valueMinPoint=" + valueMinPoint +
+                ", maxValueOfPoint=" + maxValueOfPoint +
+                ", minValueOfPoint=" + minValueOfPoint +
                 ']';
     }
 
@@ -72,35 +74,58 @@ public class Line<T> implements Serializable, Cloneable {
     }
 
     public void setPointsOnLine(T[] pointsOnLine) {
-        if (checkPointsOnLine(pointsOnLine)) {
-            this.pointsOnLine = Arrays.copyOf(pointsOnLine, pointsOnLine.length);
-        } else {
-            throw new IllegalArgumentException("The array of arguments passed is equal to null or does not correspond to the correct size.");
+        try {
+            if (checkPointsOnLineNonNull(pointsOnLine)
+                  && checkNumbersOfPointsOnLineGreatestOrEqualMinNumberPoints(pointsOnLine)) {
+                    this.pointsOnLine = Arrays.copyOf(pointsOnLine, pointsOnLine.length);
+            }
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
         }
     }
 
     public T getValueMinPoint() {
-        return valueMinPoint;
+        return minValueOfPoint;
     }
 
-    public void setValueMinPoint(T valueMinPoint) {
-        this.valueMinPoint = valueMinPoint;
+    public void setValueMinPoint(T valueMinPoint) throws IllegalArgumentException {
+        if (valueMinPoint != null) {
+            this.minValueOfPoint = valueMinPoint;
+        } else {
+            throw new IllegalArgumentException(
+                    new NullPointerException("The min value of Point on the line passed by argument is equal to null."));
+        }
     }
 
     public T getValueMaxPoint() {
-        return valueMaxPoint;
+        return maxValueOfPoint;
     }
 
-    public void setValueMaxPoint(T valueMaxPoint) {
-        this.valueMaxPoint = valueMaxPoint;
+    public void setValueMaxPoint(T valueMaxPoint) throws IllegalArgumentException {
+        if (valueMaxPoint != null) {
+            this.maxValueOfPoint = valueMaxPoint;
+        } else {
+            throw new IllegalArgumentException(
+                    new NullPointerException("The max value of Point on the line passed by argument is equal to null."));
+        }
     }
 
-    private static <T> boolean checkPointsOnLine(T[] pointsOnLine) {
-        boolean resultOfCheck = false;
-        if (Objects.nonNull(pointsOnLine)) {
-            if (pointsOnLine.length >= MIN_NUMBER_POINTS_ON_LINE) {
-                resultOfCheck = true;
-            }
+    private static <T> boolean checkPointsOnLineNonNull(T[] pointsOnLine) throws IllegalArgumentException {
+        boolean resultOfCheck;
+        if (pointsOnLine != null) {
+            resultOfCheck = true;
+        } else {
+            throw new IllegalArgumentException("The array passed by argument is equal to null.");
+        }
+        return resultOfCheck;
+    }
+
+    private static <T> boolean checkNumbersOfPointsOnLineGreatestOrEqualMinNumberPoints(T[] pointsOnLine) throws IllegalArgumentException {
+        boolean resultOfCheck;
+        if (pointsOnLine.length >= MIN_NUMBER_POINTS_ON_LINE) {
+            resultOfCheck = true;
+        } else {
+            throw new IllegalArgumentException("The array passed by argument is not correspond to the correct size.");
         }
         return resultOfCheck;
     }

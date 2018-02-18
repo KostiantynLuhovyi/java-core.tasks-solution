@@ -2,8 +2,6 @@ package com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmong
 
 import com.lugowoy.helper.models.arrays.Array;
 
-import static com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating.CalculatingPercentage.calculatePercentage;
-
 /** Created by Konstantin Lugowoy on 23.10.2017. */
 
 public interface CalculatingPercentageOfNegativeNumbers<T extends Number> extends CalculatingPercentage<T> {
@@ -17,7 +15,7 @@ public interface CalculatingPercentageOfNegativeNumbers<T extends Number> extend
                 amountOfNegativeNumbers++;
             }
         }
-        return calculatePercentage(amountOfNegativeNumbers, array.getArray().length);
+        return CalculatingPercentage.calculatePercentage(amountOfNegativeNumbers, array.getArray().length);
     }
 
 }

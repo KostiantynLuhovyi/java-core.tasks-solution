@@ -12,7 +12,13 @@ public class FlashDriveUSB implements Cloneable, Serializable {
     }
 
     public FlashDriveUSB(double sizeFlashDriveUSB) {
-        this.sizeFlashDriveUSB = sizeFlashDriveUSB;
+        try {
+            if (checkSizeFlashDriveUSB(sizeFlashDriveUSB)) {
+                this.sizeFlashDriveUSB = sizeFlashDriveUSB;
+            }
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
+        }
     }
 
     @Override
@@ -50,7 +56,22 @@ public class FlashDriveUSB implements Cloneable, Serializable {
     }
 
     public void setSizeFlashDriveUSB(double sizeFlashDriveUSB) {
-        this.sizeFlashDriveUSB = sizeFlashDriveUSB;
+        try {
+            if (checkSizeFlashDriveUSB(sizeFlashDriveUSB)) {
+                this.sizeFlashDriveUSB = sizeFlashDriveUSB;
+            }
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+
+    private boolean checkSizeFlashDriveUSB(double sizeFlashDriveUSB) throws IllegalArgumentException {
+        if (sizeFlashDriveUSB > 0) {
+            return true;
+        } else {
+            throw new IllegalArgumentException("The size of the flash drive USB passed by the argument is less than " +
+                                                                                                      "or equal to 0.");
+        }
     }
 
 }

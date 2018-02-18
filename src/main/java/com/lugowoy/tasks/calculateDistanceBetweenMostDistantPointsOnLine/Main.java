@@ -1,7 +1,9 @@
 package com.lugowoy.tasks.calculateDistanceBetweenMostDistantPointsOnLine;
 
 import com.lugowoy.helper.calculating.CalculationUsingTwoParameters;
-import com.lugowoy.helper.filling.FillingArrayDoubleUserInputNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayReadDoubleNumbers;
+import com.lugowoy.helper.io.reading.ReadingConsole;
+import com.lugowoy.tasks.calculateDistanceBetweenMostDistantPointsOnLine.DeterminatorOfPoints.NotDetermineValueException;
 
 import java.util.Arrays;
 
@@ -13,22 +15,33 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Enter numbers that are the coordinates of points on the line : ");
-        Line<Double> line = new Line<>(new FillingArrayDoubleUserInputNumbers().fill(LENGTH_ARRAY));
+        System.out.println("Enter numbers that are the values of points on the line : ");
+        Line<Double> line = null;
+        try {
+            line = new Line<>(new FillingArrayReadDoubleNumbers(new ReadingConsole()).fill(LENGTH_ARRAY));
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
+        }
 
-        Determinable<Double> determinable = Determinable::determineMin;
-        line.setValueMinPoint(determinable.determine(line.getPointsOnLine()));
+        if (line != null) {
+            try {
+                DeterminatorOfPoints<Double> determinator = DeterminatorOfPoints::determineMinValueOfPointOnLine;
+                line.setValueMinPoint(determinator.determine(line));
 
-        determinable = Determinable::determineMax;
-        line.setValueMaxPoint(determinable.determine(line.getPointsOnLine()));
+                determinator = DeterminatorOfPoints::determineMaxValueOfPointOnLine;
+                line.setValueMaxPoint(determinator.determine(line));
+            } catch (NotDetermineValueException ex) {
+                System.err.println(ex.getMessage());
+            }
 
-        System.out.println("Value points on the line : ");
-        Arrays.stream(line.getPointsOnLine()).forEachOrdered(valuePoint -> System.out.print(valuePoint + " "));
+            System.out.println("Values of points on the line : ");
+            Arrays.stream(line.getPointsOnLine()).forEachOrdered(valuePoint -> System.out.print(valuePoint + " "));
 
-        double distanceBetweenMaxAndMinPoint
-                = calculatingDistanceBetweenTwoPointsOnLine.calculate(line.getValueMinPoint(), line.getValueMaxPoint());
+            double distanceBetweenMaxAndMinPoint
+                    = calculatingDistanceBetweenTwoPointsOnLine.calculate(line.getValueMinPoint(), line.getValueMaxPoint());
 
-        System.out.println("Distance between max and min point is equal : " + distanceBetweenMaxAndMinPoint);
+            System.out.println("Distance between max and min values of points is equal : " + distanceBetweenMaxAndMinPoint);
+        }
 
     }
 

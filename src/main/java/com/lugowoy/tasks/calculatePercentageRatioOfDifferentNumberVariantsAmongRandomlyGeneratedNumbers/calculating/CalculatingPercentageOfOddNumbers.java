@@ -2,8 +2,7 @@ package com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmong
 
 import com.lugowoy.helper.models.arrays.Array;
 
-import static com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating.CalculatingPercentage.calculatePercentage;
-import static java.lang.Math.*;
+import static java.lang.Math.abs;
 
 /** Created by Konstantin Lugowoy on 23.10.2017. */
 
@@ -18,7 +17,7 @@ public interface CalculatingPercentageOfOddNumbers<T extends Number> extends Cal
                 amountOfOddNumbers++;
             }
         }
-        return calculatePercentage(amountOfOddNumbers, array.getArray().length);
+        return CalculatingPercentage.calculatePercentage(amountOfOddNumbers, array.getArray().length);
     }
 
 }

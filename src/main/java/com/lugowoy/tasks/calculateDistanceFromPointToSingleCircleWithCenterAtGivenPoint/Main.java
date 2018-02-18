@@ -1,12 +1,11 @@
 package com.lugowoy.tasks.calculateDistanceFromPointToSingleCircleWithCenterAtGivenPoint;
 
 import com.lugowoy.helper.calculating.CalculationUsingTwoParameters;
-import com.lugowoy.helper.factory.creator.Creator;
-import com.lugowoy.helper.factory.creator.CreatorOfPointModels;
-import com.lugowoy.helper.factory.models.points.FactoryOfPointsWithDoubleCoordinates;
+import com.lugowoy.helper.factory.FactoryPoint;
+import com.lugowoy.helper.factory.creator.CreatorPoint;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.points.Point;
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
@@ -15,9 +14,9 @@ import static java.lang.Math.sqrt;
 
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
-    private static final Creator<Point<Double>> CREATOR = new CreatorOfPointModels<>(new FactoryOfPointsWithDoubleCoordinates());
+    private static final FactoryPoint<Double> FACTORY = FactoryPoint.getFactoryPoint(new CreatorPoint<>());
 
     private static final String POINT_M = "M";
     private static final String POINT_C = "C";
@@ -42,20 +41,31 @@ public class Main {
 
     }
 
+    private static CalculationUsingTwoParameters<Double, Point<Double>, Point<Double>> calculatingDistanceFromPointToSingleCircle
+            = (firstPoint, secondPoint) -> sqrt(pow(firstPoint.getCoordinateX() - (secondPoint.getCoordinateX() + 1.0), 2))
+                                                + pow(firstPoint.getCoordinateY() - (secondPoint.getCoordinateY() + 1.0), 2);
+
     private static Point<Double> getPoint(String pointName) {
-        System.out.println("Enter coordinates for the point " + pointName + " .");
-        Point<Double> point = CREATOR.create();
-
-        System.out.println("x : ");
-        point.setCoordinateX(READER.readDouble());
-        System.out.println("y : ");
-        point.setCoordinateY(READER.readDouble());
-
+        Point<Double> point = FACTORY.create();
+        try {
+            enterCoordinatesOfPoint(pointName, point);
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
+        }
         return point;
     }
 
-    private static CalculationUsingTwoParameters<Double, Point<Double>, Point<Double>> calculatingDistanceFromPointToSingleCircle
-                        = (firstPoint, secondPoint) -> sqrt(pow(firstPoint.getCoordinateX() - (secondPoint.getCoordinateX() + 1.0), 2))
-                                                            + pow(firstPoint.getCoordinateY() - (secondPoint.getCoordinateY() + 1.0), 2);
+    private static void enterCoordinatesOfPoint(String pointName, Point<Double> point) throws IllegalArgumentException {
+        if (point != null) {
+            System.out.println("Enter coordinates for the points " + pointName + " .");
+            System.out.println("x : ");
+            point.setCoordinateX(READER.readDouble());
+            System.out.println("y : ");
+            point.setCoordinateY(READER.readDouble());
+        } else {
+            throw new IllegalArgumentException(
+                    new NullPointerException("The object of Point class passed by argument is equal to null."));
+        }
+    }
 
 }
