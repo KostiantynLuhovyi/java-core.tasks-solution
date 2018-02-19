@@ -2,9 +2,9 @@ package com.lugowoy.tasks.calculateTheRootOfLinearEquation;
 
 /** Created by Konstantin Lugowoy on 14-Dec-16. */
 
-public class CalculateLinearEquation {
+public class CalculatingLinearEquation {
 
-    public LinearEquation getRootOfTheLinearEquation(LinearEquation equation) {
+    public LinearEquation calculateRootOfTheLinearEquation(LinearEquation equation) {
         if ((equation.getA() == 0) && (equation.getB() == 0)) {
             System.out.println("Linear equation have many solutions");
         } else if ((equation.getA() == 0) && (equation.getB() != 0)) {

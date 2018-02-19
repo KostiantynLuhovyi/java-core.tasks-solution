@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.calculateThePercentageOfStudentsWhoDidNotDoTheirHomework;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 /** Created by Konstantin Lugowoy on 17.06.2017. */
 
@@ -9,21 +9,25 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int numberOfStudentsWhoDidTheirHomework = getNumberOfStudents("Enter the number of students who did their homework :");
+        int numberOfStudentsWhoDidTheirHomework = enterNumberOfStudents("Enter the number of students who did their homework :");
 
-        int numberOfStudentsWhoDidNotDoTheirHomework = getNumberOfStudents("Enter the number of students who did not do their homework :");
+        int numberOfStudentsWhoDidNotDoTheirHomework = enterNumberOfStudents("Enter the number of students who did not do their homework :");
 
-        double percentageOfStudentsWhoDidNotDoTheirHomework = (double) (numberOfStudentsWhoDidTheirHomework + numberOfStudentsWhoDidNotDoTheirHomework) * numberOfStudentsWhoDidNotDoTheirHomework / 100;
+        double percentageOfStudentsWhoDidNotDoTheirHomework = (double) (numberOfStudentsWhoDidTheirHomework + numberOfStudentsWhoDidNotDoTheirHomework)
+                                                                        * numberOfStudentsWhoDidNotDoTheirHomework / 100;
 
-        System.out.printf("Percentage of students who did not do their homework : %.2f", percentageOfStudentsWhoDidNotDoTheirHomework);
+        System.out.printf("Percentage of students who did not do their homework : %.2f",
+                                                                          percentageOfStudentsWhoDidNotDoTheirHomework);
 
     }
 
-    private static int getNumberOfStudents(String msg) {
+    private static int enterNumberOfStudents(String msg) {
+        Reader reader = Reader.getReader(new ReadingConsole());
         int numberOfStudents;
+
         System.out.println(msg);
         while (true) {
-            numberOfStudents = new Reader(new ReadingDataUserInputInConsole()).readInt();
+            numberOfStudents = reader.readInt();
             if (numberOfStudents >= 0) {
                 break;
             } else {

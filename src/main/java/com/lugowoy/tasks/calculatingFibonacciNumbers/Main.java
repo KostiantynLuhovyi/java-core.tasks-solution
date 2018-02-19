@@ -1,19 +1,19 @@
 package com.lugowoy.tasks.calculatingFibonacciNumbers;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 /** Created by Konstantin Lugowoy on 02.09.2017. */
 
 public class Main {
 
-    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
     public static void main(String[] args) {
 
         CalculatorFibonacciNumbers calculator = new CalculatorCyclicalFibonacciNumbers();
 
-        int number = getNumberForCalculatingFibonacciNumbers();
+        int number = enterNumberForCalculatingFibonacciNumbers();
 
         System.out.println("Result : ");
         if (number > 0) {
@@ -24,11 +24,11 @@ public class Main {
 
     }
 
-    private static int getNumberForCalculatingFibonacciNumbers() {
+    private static int enterNumberForCalculatingFibonacciNumbers() {
         int inputNumber;
         System.out.println("Enter number for calculating Fibonacci numbers : ");
         while (true) {
-            inputNumber = reader.readInt();
+            inputNumber = READER.readInt();
             if ((inputNumber > Integer.MIN_VALUE) && (inputNumber < Integer.MAX_VALUE)) {
                 break;
             } else {

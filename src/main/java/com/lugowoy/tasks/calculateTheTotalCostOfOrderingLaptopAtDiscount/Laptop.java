@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 
 /** Created by Konstantin Lugowoy on 15.06.2017. */
 
-public class Laptop implements Cloneable, Serializable {
+public class Laptop implements Serializable, Cloneable {
 
     private long idLaptop;
 
@@ -17,9 +17,10 @@ public class Laptop implements Cloneable, Serializable {
     }
 
     public Laptop(long idLaptop, String brandName, BigDecimal price) {
-        this.idLaptop = idLaptop;
-        this.brandName = brandName;
-        this.price = price;
+        //Setters are used since they are declared with a modifier final.
+        this.setIdLaptop(idLaptop);
+        this.setBrandName(brandName);
+        this.setPrice(price);
     }
 
     @Override
@@ -64,24 +65,49 @@ public class Laptop implements Cloneable, Serializable {
         return idLaptop;
     }
 
-    public void setIdLaptop(long idLaptop) {
-        this.idLaptop = idLaptop;
+    public final void setIdLaptop(long idLaptop) {
+        try {
+            if (idLaptop > 0) {
+                this.idLaptop = idLaptop;
+            } else {
+                throw new IllegalArgumentException("The value of id laptop passed by argument is less than or equal to 0.");
+            }
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
+        }
+
     }
 
     public String getBrandName() {
         return brandName;
     }
 
-    public void setBrandName(String brandName) {
-        this.brandName = brandName;
+    public final void setBrandName(String brandName) {
+        try {
+            if (!brandName.equals("")) {
+                this.brandName = brandName;
+            } else {
+                throw new IllegalArgumentException("The value of brand name of laptop passed by argument is equal to empty string.");
+            }
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
+        }
     }
 
     public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
+    public final void setPrice(BigDecimal price) {
+        try {
+            if ((price != null) && (price.doubleValue() > 0)) {
+                this.price = price;
+            } else {
+                throw new IllegalArgumentException("The price passed by argument is incorrect.");
+            }
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
+        }
     }
 
 }

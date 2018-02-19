@@ -1,15 +1,16 @@
 package com.lugowoy.tasks.calculatingNumberProductsOfPurchasedForTheCertainSum;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**Created by Konstantin Lugowoy on 11-Feb-17.*/
 
 public class Main {
 
-    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
     public static void main(String[] args) {
 
@@ -17,12 +18,12 @@ public class Main {
         Product product = new Product();
 
         System.out.println("Enter available sum of money : ");
-        user.setAvailableSumOfMoney(new BigDecimal(reader.readDouble()));
+        user.setAvailableSumOfMoney(new BigDecimal(READER.readDouble()));
 
         System.out.println("Enter price of product : ");
-        product.setPrice(new BigDecimal(reader.readDouble()));
+        product.setPrice(new BigDecimal(READER.readDouble()));
 
-        int numberOfProducts = user.getAvailableSumOfMoney().divide(product.getPrice(), BigDecimal.ROUND_DOWN).intValue();
+        int numberOfProducts = user.getAvailableSumOfMoney().divide(product.getPrice(), RoundingMode.DOWN).intValue();
 
         user.setAvailableSumOfMoney(user.getAvailableSumOfMoney().subtract(product.getPrice().multiply(new BigDecimal(numberOfProducts))));
 

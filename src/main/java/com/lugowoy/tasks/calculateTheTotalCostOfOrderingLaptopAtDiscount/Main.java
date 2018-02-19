@@ -1,27 +1,34 @@
 package com.lugowoy.tasks.calculateTheTotalCostOfOrderingLaptopAtDiscount;
 
 import com.lugowoy.helper.calculating.CalculationUsingThreeParameters;
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Random;
 
 /** Created by Konstantin Lugowoy on 15.06.2017. */
 
 public class Main {
 
-    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
+
+    private static final int SCALE = 2;
+
+    private static final int BOUND_OF_ID_LAPTOP = 10;
+    private static final String BRAND_NAME_OF_LAPTOP = "Dell";
 
     public static void main(String[] args) {
 
-        Laptop laptop = new Laptop(new Random().nextInt(10), "Dell", getEnterPrice());
+        Laptop laptop = new Laptop(new Random().nextInt(BOUND_OF_ID_LAPTOP), BRAND_NAME_OF_LAPTOP, enterPrice());
 
-        Integer numberOfLaptop = getNumberOfLaptop();
+        Integer numberOfLaptop = enterNumberOfLaptop();
 
-        BigDecimal discount = getTotalDiscountOnTheLaptop();
+        BigDecimal discount = enterTotalDiscountOnTheLaptop();
 
-        System.out.println("The total cost of the order : " + calculating.calculate(laptop, numberOfLaptop, discount).doubleValue());
+        System.out.println("The total cost of the order : "
+                                               + calculating.calculate(laptop, numberOfLaptop, discount).doubleValue());
 
     }
 
@@ -29,14 +36,14 @@ public class Main {
 
         BigDecimal sumPriceOfLaptop = new BigDecimal(laptop.getPrice().multiply(new BigDecimal(numberOfLaptop)).doubleValue());
 
-        return new BigDecimal(sumPriceOfLaptop.subtract(sumPriceOfLaptop.multiply(discount).divide(new BigDecimal(100), 2)).doubleValue());
+        return new BigDecimal(sumPriceOfLaptop.subtract(sumPriceOfLaptop.multiply(discount).divide(new BigDecimal(100), SCALE, RoundingMode.DOWN)).doubleValue());
     };
 
-    private static int getNumberOfLaptop() {
+    private static int enterNumberOfLaptop() {
         int numberOfLaptop;
         System.out.println("Enter the number of laptops : ");
         while (true) {
-            numberOfLaptop = reader.readInt();
+            numberOfLaptop = READER.readInt();
             if (numberOfLaptop > 0) {
                 break;
             } else {
@@ -47,11 +54,11 @@ public class Main {
         return numberOfLaptop;
     }
 
-    private static BigDecimal getTotalDiscountOnTheLaptop() {
+    private static BigDecimal enterTotalDiscountOnTheLaptop() {
         BigDecimal discount;
         System.out.println("Enter the total discount on the laptop : ");
         while (true) {
-            double enterDiscount = reader.readDouble();
+            double enterDiscount = READER.readDouble();
             if ((enterDiscount >= 0) && (enterDiscount <= 100)) {
                 discount = new BigDecimal(enterDiscount);
                 break;
@@ -63,11 +70,11 @@ public class Main {
         return discount;
     }
 
-    private static BigDecimal getEnterPrice() {
+    private static BigDecimal enterPrice() {
         BigDecimal price;
         System.out.println("Enter price of the laptop : ");
         while (true) {
-            double enterPrice = reader.readDouble();
+            double enterPrice = READER.readDouble();
             if (enterPrice > 0) {
                 price = new BigDecimal(enterPrice);
                 break;
