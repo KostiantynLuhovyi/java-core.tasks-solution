@@ -1,11 +1,12 @@
 package com.lugowoy.tasks.calculationOfMonthlyPaymentsOnTheDeposit;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 
 /** Created by Konstantin Lugowoy on 10-Feb-17. */
 
-public class Bank {
+public class Bank implements Serializable, Cloneable {
 
     private List<BankingService> bankingServices;
 
@@ -13,6 +14,45 @@ public class Bank {
     private Set<PersonalAccount> accounts;
 
     public Bank() {
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Bank)) return false;
+
+        Bank bank = (Bank) o;
+
+        if (getBankingServices() != null ? !getBankingServices().equals(bank.getBankingServices()) : bank.getBankingServices() != null)
+            return false;
+        if (getUsers() != null ? !getUsers().equals(bank.getUsers()) : bank.getUsers() != null) return false;
+        return getAccounts() != null ? getAccounts().equals(bank.getAccounts()) : bank.getAccounts() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getBankingServices() != null ? getBankingServices().hashCode() : 0;
+        result = 31 * result + (getUsers() != null ? getUsers().hashCode() : 0);
+        result = 31 * result + (getAccounts() != null ? getAccounts().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Bank[" +
+                "bankingServices=" + bankingServices +
+                ", users=" + users +
+                ", accounts=" + accounts +
+                ']';
+    }
+
+    @Override
+    public Bank clone() throws CloneNotSupportedException {
+        Bank bank = (Bank) super.clone();
+        bank.setBankingServices(this.getBankingServices());
+        bank.setUsers(this.getUsers());
+        bank.setAccounts(this.getAccounts());
+        return bank;
     }
 
     public List<BankingService> getBankingServices() {

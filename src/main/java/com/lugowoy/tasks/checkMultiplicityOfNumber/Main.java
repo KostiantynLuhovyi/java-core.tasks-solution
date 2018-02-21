@@ -1,15 +1,15 @@
 package com.lugowoy.tasks.checkMultiplicityOfNumber;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
-import static java.lang.Math.*;
+import static java.lang.Math.abs;
 
 /** Created by Konstantin Lugowoy on 12.09.2017. */
 
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
     public static void main(String[] args) {
 
@@ -31,7 +31,7 @@ public class Main {
         long number;
         while (true) {
             number = READER.readInt();
-            if ((number >= Integer.MIN_VALUE) && (number <= Integer.MAX_VALUE)) {
+            if ((number >= Integer.MIN_VALUE + 1) && (number <= Integer.MAX_VALUE - 1)) {
                 break;
             } else {
                 System.out.println("The value of the number is less than or greater than the allowable value.");

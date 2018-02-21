@@ -13,9 +13,11 @@ public class CalculatorIdealWeight {
             System.out.println("Your weight is perfect.");
         } else {
             if (growth.subtract(COEFFICIENT_FOR_IDEAL_WEIGHT).doubleValue() > weight.doubleValue()) {
-                System.out.println("You need to get better by " + growth.subtract(COEFFICIENT_FOR_IDEAL_WEIGHT).subtract(weight) + " kg.");
+                System.out.println("You need to get better by "
+                                             + growth.subtract(COEFFICIENT_FOR_IDEAL_WEIGHT).subtract(weight) + " kg.");
             } else if (growth.subtract(COEFFICIENT_FOR_IDEAL_WEIGHT).doubleValue() < weight.doubleValue()) {
-                System.out.println("You need to lose weight on " + weight.subtract(growth.subtract(COEFFICIENT_FOR_IDEAL_WEIGHT)) + " kg.");
+                System.out.println("You need to lose weight on "
+                                             + weight.subtract(growth.subtract(COEFFICIENT_FOR_IDEAL_WEIGHT)) + " kg.");
             }
         }
     }

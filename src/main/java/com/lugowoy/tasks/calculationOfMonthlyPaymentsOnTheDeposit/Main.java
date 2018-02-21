@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.calculationOfMonthlyPaymentsOnTheDeposit;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Main {
 
-    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
     public static void main(String[] args) {
 
@@ -28,21 +28,22 @@ public class Main {
         user.setPersonalAccount(personalAccount);
 
         System.out.println("Enter first name : ");
-        user.setFirstName(reader.readString());
+        user.setFirstName(READER.readString());
 
         System.out.println("Enter second name : ");
-        user.setSecondName(reader.readString());
+        user.setSecondName(READER.readString());
 
         System.out.println("Enter sum of the deposit : ");
-        deposit.setSumDeposit(new BigDecimal(reader.readDouble()));
+        deposit.setSumDeposit(new BigDecimal(READER.readDouble()));
 
         System.out.println("Enter percent of yearly : ");
-        deposit.setPercentYearly(new BigDecimal(reader.readDouble()));
+        deposit.setPercentYearly(new BigDecimal(READER.readDouble()));
 
-        CalculateOfMonthlyPaymentsOnTheDeposit calculateOfMonthlyPaymentsOnTheDeposit = new CalculateOfMonthlyPaymentsOnTheDeposit();
+        CalculateOfMonthlyPaymentsOnTheDeposit calculateOfMonthlyPaymentsOnTheDeposit =
+                                                                           new CalculateOfMonthlyPaymentsOnTheDeposit();
 
         System.out.printf("The amount of payments for deposit percent for this month is equal : %f",
-                calculateOfMonthlyPaymentsOnTheDeposit.calculateOfMonthlyPaymentsOnTheDeposit(user));
+                                   calculateOfMonthlyPaymentsOnTheDeposit.calculateOfMonthlyPaymentsOnTheDeposit(user));
     }
 
 }

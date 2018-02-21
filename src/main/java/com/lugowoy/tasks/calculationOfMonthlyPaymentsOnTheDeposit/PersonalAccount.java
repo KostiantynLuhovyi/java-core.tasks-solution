@@ -5,7 +5,7 @@ import java.util.List;
 
 /** Created by Konstantin Lugowoy on 11-Feb-17. */
 
-public class PersonalAccount implements Serializable {
+public class PersonalAccount implements Serializable, Cloneable {
 
     private int id;
 
@@ -20,31 +20,43 @@ public class PersonalAccount implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof PersonalAccount)) return false;
 
         PersonalAccount that = (PersonalAccount) o;
 
-        if (id != that.id) return false;
-        if (user != null ? !user.equals(that.user) : that.user != null) return false;
-        if (bank != null ? !bank.equals(that.bank) : that.bank != null) return false;
-        return bankingServices != null ? bankingServices.equals(that.bankingServices) : that.bankingServices == null;
-
+        if (getId() != that.getId()) return false;
+        if (getUser() != null ? !getUser().equals(that.getUser()) : that.getUser() != null) return false;
+        if (getBank() != null ? !getBank().equals(that.getBank()) : that.getBank() != null) return false;
+        return getBankingServices() != null ? getBankingServices().equals(that.getBankingServices()) : that.getBankingServices() == null;
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (user != null ? user.hashCode() : 0);
-        result = 31 * result + (bank != null ? bank.hashCode() : 0);
-        result = 31 * result + (bankingServices != null ? bankingServices.hashCode() : 0);
+        int result = getId();
+        result = 31 * result + (getUser() != null ? getUser().hashCode() : 0);
+        result = 31 * result + (getBank() != null ? getBank().hashCode() : 0);
+        result = 31 * result + (getBankingServices() != null ? getBankingServices().hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
-        return "PersonalAccount{" +
+        return "PersonalAccount[" +
                 "id=" + id +
-                '}';
+                ", user=" + user +
+                ", bank=" + bank +
+                ", bankingServices=" + bankingServices +
+                ']';
+    }
+
+    @Override
+    public PersonalAccount clone() throws CloneNotSupportedException {
+        PersonalAccount personalAccount = (PersonalAccount) super.clone();
+        personalAccount.setId(this.getId());
+        personalAccount.setBank(this.getBank());
+        personalAccount.setUser(this.getUser());
+        personalAccount.setBankingServices(this.getBankingServices());
+        return personalAccount;
     }
 
     public int getId() {

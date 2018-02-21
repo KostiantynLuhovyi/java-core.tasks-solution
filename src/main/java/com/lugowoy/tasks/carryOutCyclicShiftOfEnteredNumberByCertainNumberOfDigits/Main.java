@@ -1,13 +1,13 @@
 package com.lugowoy.tasks.carryOutCyclicShiftOfEnteredNumberByCertainNumberOfDigits;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 /** Created by Konstantin Lugowoy on 31.10.2017. */
 
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
     public static void main(String[] args) {
 
@@ -17,14 +17,14 @@ public class Main {
         System.out.println("Enter the number of digits to shift : ");
         int numberOfDigitToShift = READER.readInt();
 
-        String reverseDigit = "";
+        StringBuilder reverseDigit = new StringBuilder();
         for (int i = 0; i < numberOfDigitToShift; i++) {
             int tmpNumber = number % 10;
-            reverseDigit = tmpNumber + reverseDigit;
+            reverseDigit.insert(0, tmpNumber);
             number /= 10;
         }
 
-        int result = Integer.parseInt(reverseDigit + number);
+        int result = Integer.parseInt(reverseDigit.toString() + number);
 
         System.out.println("Result : " + result);
 

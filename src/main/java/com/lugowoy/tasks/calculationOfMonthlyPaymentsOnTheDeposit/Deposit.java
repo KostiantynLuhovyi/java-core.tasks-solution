@@ -21,20 +21,39 @@ public class Deposit extends BankingService {
 
     @Override
     public boolean equals(Object o) {
-        return super.equals(o);
+        if (this == o) return true;
+        if (!(o instanceof Deposit)) return false;
+        if (!super.equals(o)) return false;
+
+        Deposit deposit = (Deposit) o;
+
+        if (getSumDeposit() != null ? !getSumDeposit().equals(deposit.getSumDeposit()) : deposit.getSumDeposit() != null)
+            return false;
+        return getPercentYearly() != null ? getPercentYearly().equals(deposit.getPercentYearly()) : deposit.getPercentYearly() == null;
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        int result = super.hashCode();
+        result = 31 * result + (getSumDeposit() != null ? getSumDeposit().hashCode() : 0);
+        result = 31 * result + (getPercentYearly() != null ? getPercentYearly().hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
-        return "Deposit{" + super.toString() +
+        return "Deposit[" + super.toString() + ", " +
                 "sumDeposit=" + sumDeposit +
                 ", percentYearly=" + percentYearly +
-                "} ";
+                ']';
+    }
+
+    @Override
+    public Deposit clone() throws CloneNotSupportedException {
+        Deposit deposit = (Deposit) super.clone();
+        deposit.setSumDeposit(this.getSumDeposit());
+        deposit.setPercentYearly(this.getPercentYearly());
+        return deposit;
     }
 
     public BigDecimal getSumDeposit() {
@@ -51,16 +70,6 @@ public class Deposit extends BankingService {
 
     public void setPercentYearly(BigDecimal percentYearly) {
         this.percentYearly = percentYearly;
-    }
-
-    @Override
-    public int getId() {
-        return super.getId();
-    }
-
-    @Override
-    public void setId(int id) {
-        super.setId(id);
     }
 
 }

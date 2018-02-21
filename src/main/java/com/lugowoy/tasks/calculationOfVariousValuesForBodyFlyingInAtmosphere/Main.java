@@ -1,13 +1,13 @@
 package com.lugowoy.tasks.calculationOfVariousValuesForBodyFlyingInAtmosphere;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 /** Created by Konstantin Lugowoy on 14.11.2017. */
 
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
     private static final double g = 9.832;
 
@@ -34,7 +34,7 @@ public class Main {
         System.out.println("Enter the time interval value (sec) : ");
         double timeInterval = READER.readDouble();
 
-        double bodyCoorX = 0, bodyCoorY = 0;
+        double bodyCoordinateX = 0, bodyCoordinateY = 0;
 
         double horizontalProjectionOfSpeed, verticalProjectionOfSpeed;
 
@@ -51,20 +51,20 @@ public class Main {
 
         for (int i = 1; true; i++) {
 
-            bodyCoorY += verticalProjectionOfSpeed * timeInterval;
-            if (bodyCoorY < 0) {
+            bodyCoordinateY += verticalProjectionOfSpeed * timeInterval;
+            if (bodyCoordinateY < 0) {
                 timeFlyingBody = Math.round((i - 1) * timeInterval * 100) / 100.0;
-                distanceFlyingBody = Math.round(bodyCoorX * 100) / 100.0;
+                distanceFlyingBody = Math.round(bodyCoordinateX * 100) / 100.0;
                 heightFlyingBody = Math.round(heightFlyingBody * 100) / 100.0;
                 break;
             }
 
-            bodyCoorX += horizontalProjectionOfSpeed * timeInterval;
-            if (bodyCoorY > heightFlyingBody) {
-                heightFlyingBody = bodyCoorY;
+            bodyCoordinateX += horizontalProjectionOfSpeed * timeInterval;
+            if (bodyCoordinateY > heightFlyingBody) {
+                heightFlyingBody = bodyCoordinateY;
             }
 
-            zoneNumberIndicator = bodyCoorY < firstAirspaceLevel ? 1 : bodyCoorY < secondAirspaceLevel ? 2 : 3;
+            zoneNumberIndicator = bodyCoordinateY < firstAirspaceLevel ? 1 : bodyCoordinateY < secondAirspaceLevel ? 2 : 3;
 
             switch (zoneNumberIndicator) {
                 case 1 :

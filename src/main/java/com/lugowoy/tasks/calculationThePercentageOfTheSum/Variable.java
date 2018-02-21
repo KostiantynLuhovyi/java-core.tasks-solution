@@ -1,10 +1,11 @@
 package com.lugowoy.tasks.calculationThePercentageOfTheSum;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /** Created by Konstantin Lugowoy on 30-Jan-17. */
 
-public class Variable {
+public class Variable implements Serializable, Cloneable {
 
     private BigDecimal sum;
     private BigDecimal percent;
@@ -17,6 +18,45 @@ public class Variable {
     public Variable(BigDecimal sum, BigDecimal partOfSum) {
         this.sum = sum;
         this.partOfSum = partOfSum;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Variable)) return false;
+
+        Variable variable = (Variable) o;
+
+        if (getSum() != null ? !getSum().equals(variable.getSum()) : variable.getSum() != null) return false;
+        if (getPercent() != null ? !getPercent().equals(variable.getPercent()) : variable.getPercent() != null)
+            return false;
+        return getPartOfSum() != null ? getPartOfSum().equals(variable.getPartOfSum()) : variable.getPartOfSum() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getSum() != null ? getSum().hashCode() : 0;
+        result = 31 * result + (getPercent() != null ? getPercent().hashCode() : 0);
+        result = 31 * result + (getPartOfSum() != null ? getPartOfSum().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Variable[" +
+                "sum=" + sum +
+                ", percent=" + percent +
+                ", partOfSum=" + partOfSum +
+                ']';
+    }
+
+    @Override
+    public Variable clone() throws CloneNotSupportedException {
+        Variable variable = (Variable) super.clone();
+        variable.setSum(this.getSum());
+        variable.setPartOfSum(this.getPartOfSum());
+        variable.setPercent(this.getPercent());
+        return variable;
     }
 
     public BigDecimal getSum() {
