@@ -6,7 +6,7 @@ import static java.lang.Math.PI;
 
 public interface CalculatingTheLengthOfTheCircle {
 
-    static Circle calculateTheLengthOfTheCircle(Circle circle) {
+    static Circle calculateTheLengthOfTheCircle(Circle circle) throws IllegalArgumentException {
         if (circle != null) {
             try {
                 circle.setLength(2 * PI * circle.getRadius());
@@ -14,7 +14,8 @@ public interface CalculatingTheLengthOfTheCircle {
                 System.err.println(ex.getMessage());
             }
         } else {
-            throw new NullPointerException("The object of Circle class passed by argument is equal to null.");
+            throw new IllegalArgumentException(
+                    new NullPointerException("The object of Circle class passed by argument is equal to null."));
         }
         return circle;
     }

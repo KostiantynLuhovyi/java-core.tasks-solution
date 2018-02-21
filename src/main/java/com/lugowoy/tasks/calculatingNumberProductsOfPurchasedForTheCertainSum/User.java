@@ -6,15 +6,11 @@ import java.util.Objects;
 
 /**Created by Konstantin Lugowoy on 11-Feb-17.*/
 
-public class User implements Serializable, Cloneable {
+public final class User implements Serializable, Cloneable {
 
     private BigDecimal availableSumOfMoney;
 
     public User() {
-    }
-
-    public BigDecimal getAvailableSumOfMoney() {
-        return availableSumOfMoney;
     }
 
     @Override
@@ -42,6 +38,10 @@ public class User implements Serializable, Cloneable {
         User user = (User) super.clone();
         user.setAvailableSumOfMoney(this.getAvailableSumOfMoney());
         return user;
+    }
+
+    public BigDecimal getAvailableSumOfMoney() {
+        return availableSumOfMoney;
     }
 
     public void setAvailableSumOfMoney(BigDecimal availableSumOfMoney) {

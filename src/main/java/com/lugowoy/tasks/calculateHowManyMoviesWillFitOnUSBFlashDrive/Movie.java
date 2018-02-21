@@ -4,25 +4,15 @@ import java.io.Serializable;
 
 /** Created by Konstantin Lugowoy on 16.06.2017. */
 
-public class Movie implements Cloneable, Serializable {
+public final class Movie implements Serializable, Cloneable {
 
     private String nameMovie;
     private double sizeMovie;
 
-    public Movie() {
-    }
-
     public Movie(String nameMovie, double sizeMovie) throws IllegalArgumentException {
-        try {
-            if (checkNameOfMovie(nameMovie)) {
-                this.nameMovie = nameMovie;
-                if (checkSizeMovie(sizeMovie)) {
-                    this.sizeMovie = sizeMovie;
-                }
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
-        }
+        //The setters are used in the constructor, since the class is declared with the modifier final.
+        this.setNameMovie(nameMovie);
+        this.setSizeMovie(sizeMovie);
     }
 
     @Override

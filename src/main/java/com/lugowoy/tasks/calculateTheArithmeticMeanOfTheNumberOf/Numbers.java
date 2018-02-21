@@ -5,14 +5,20 @@ import java.util.Arrays;
 
 /** Created by Konstantin Lugowoy on 03-Dec-16. */
 
-public class Numbers implements Serializable, Cloneable {
+public final class Numbers implements Serializable, Cloneable {
 
     private double[] numbers;
 
-    public Numbers() {
+    public Numbers(double[] numbers) {
+        //The setters are used in the constructor, since the class is declared with the modifier final.
+        this.setNumbers(numbers);
     }
 
-    public Numbers(double[] numbers) {
+    public double[] getNumbers() {
+        return Arrays.copyOf(this.numbers, this.numbers.length);
+    }
+
+    public void setNumbers(double[] numbers) {
         try {
             if (checkArrayNonNull(numbers)) {
                 this.numbers = numbers;
@@ -20,10 +26,6 @@ public class Numbers implements Serializable, Cloneable {
         } catch (IllegalArgumentException ex) {
             System.err.println(ex.getMessage());
         }
-    }
-
-    public double[] getNumbers() {
-        return Arrays.copyOf(this.numbers, this.numbers.length);
     }
 
     private boolean checkArrayNonNull(double[] doubles) throws IllegalArgumentException {

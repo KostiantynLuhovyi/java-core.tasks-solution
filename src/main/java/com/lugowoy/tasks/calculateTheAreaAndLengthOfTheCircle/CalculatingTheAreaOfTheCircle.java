@@ -7,7 +7,7 @@ import static java.lang.Math.pow;
 
 public interface CalculatingTheAreaOfTheCircle {
 
-    static Circle calculateTheAreaOfTheCircle(Circle circle) {
+    static Circle calculateTheAreaOfTheCircle(Circle circle) throws IllegalArgumentException {
         if (circle != null) {
             try {
                 circle.setArea(PI * pow(circle.getRadius(), 2));
@@ -15,7 +15,8 @@ public interface CalculatingTheAreaOfTheCircle {
                 System.err.println(ex.getMessage());
             }
         } else {
-            throw new NullPointerException("The object of Circle class passed by argument is equal to null.");
+            throw new IllegalArgumentException(
+                    new NullPointerException("The object of Circle class passed by argument is equal to null."));
         }
         return circle;
     }

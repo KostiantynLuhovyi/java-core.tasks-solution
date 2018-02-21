@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 /** Created by Konstantin Lugowoy on 10.07.2017. */
 
-public class Line<T extends Number> implements Serializable, Cloneable {
+public final class Line<T extends Number> implements Serializable, Cloneable {
 
     private static final int MIN_NUMBER_POINTS_ON_LINE = 3;
 
@@ -14,18 +14,9 @@ public class Line<T extends Number> implements Serializable, Cloneable {
     private T minValueOfPoint;
     private T maxValueOfPoint;
 
-    public Line() {
-    }
-
     public Line(T[] pointsOnLine) throws IllegalArgumentException {
-        try {
-            if (checkPointsOnLineNonNull(pointsOnLine)
-                  && checkNumbersOfPointsOnLineGreatestOrEqualMinNumberPoints(pointsOnLine)) {
-                    this.pointsOnLine = Arrays.copyOf(pointsOnLine, pointsOnLine.length);
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
-        }
+        //The setters are used in the constructor, since the class is declared with the modifier final.йй
+        this.setPointsOnLine(pointsOnLine);
     }
 
     @Override

@@ -6,7 +6,7 @@ import java.util.Objects;
 
 /**Created by Konstantin Lugowoy on 11-Feb-17.*/
 
-public class Product implements Serializable, Cloneable {
+public final class Product implements Serializable, Cloneable {
 
     private BigDecimal price;
 

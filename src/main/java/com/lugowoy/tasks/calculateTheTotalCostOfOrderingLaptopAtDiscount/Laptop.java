@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 
 /** Created by Konstantin Lugowoy on 15.06.2017. */
 
-public class Laptop implements Serializable, Cloneable {
+public final class Laptop implements Serializable, Cloneable {
 
     private long idLaptop;
 
@@ -13,11 +13,8 @@ public class Laptop implements Serializable, Cloneable {
 
     private BigDecimal price;
 
-    public Laptop() {
-    }
-
     public Laptop(long idLaptop, String brandName, BigDecimal price) {
-        //Setters are used since they are declared with a modifier final.
+        //The setters are used in the constructor, since the class is declared with the modifier final.
         this.setIdLaptop(idLaptop);
         this.setBrandName(brandName);
         this.setPrice(price);
@@ -65,7 +62,7 @@ public class Laptop implements Serializable, Cloneable {
         return idLaptop;
     }
 
-    public final void setIdLaptop(long idLaptop) {
+    public void setIdLaptop(long idLaptop) {
         try {
             if (idLaptop > 0) {
                 this.idLaptop = idLaptop;
@@ -82,7 +79,7 @@ public class Laptop implements Serializable, Cloneable {
         return brandName;
     }
 
-    public final void setBrandName(String brandName) {
+    public void setBrandName(String brandName) {
         try {
             if (!brandName.equals("")) {
                 this.brandName = brandName;
@@ -98,7 +95,7 @@ public class Laptop implements Serializable, Cloneable {
         return price;
     }
 
-    public final void setPrice(BigDecimal price) {
+    public void setPrice(BigDecimal price) {
         try {
             if ((price != null) && (price.doubleValue() > 0)) {
                 this.price = price;

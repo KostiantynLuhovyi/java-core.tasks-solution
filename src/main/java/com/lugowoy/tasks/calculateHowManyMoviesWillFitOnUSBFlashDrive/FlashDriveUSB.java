@@ -4,21 +4,13 @@ import java.io.Serializable;
 
 /** Created by Konstantin Lugowoy on 16.06.2017. */
 
-public class FlashDriveUSB implements Cloneable, Serializable {
+public final class FlashDriveUSB implements Serializable, Cloneable {
 
     private double sizeFlashDriveUSB;
 
-    public FlashDriveUSB() {
-    }
-
     public FlashDriveUSB(double sizeFlashDriveUSB) {
-        try {
-            if (checkSizeFlashDriveUSB(sizeFlashDriveUSB)) {
-                this.sizeFlashDriveUSB = sizeFlashDriveUSB;
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
-        }
+        //The setters are used in the constructor, since the class is declared with the modifier final.
+        this.setSizeFlashDriveUSB(sizeFlashDriveUSB);
     }
 
     @Override
