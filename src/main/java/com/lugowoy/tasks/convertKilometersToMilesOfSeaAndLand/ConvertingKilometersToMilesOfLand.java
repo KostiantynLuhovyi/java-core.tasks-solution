@@ -2,7 +2,7 @@ package com.lugowoy.tasks.convertKilometersToMilesOfSeaAndLand;
 
 /**Created by Konstantin Lugowoy on 31-Dec-16.*/
 
-public class ConvertingKilometersToMilesOfLand implements Convertable<Length> {
+public class ConvertingKilometersToMilesOfLand implements Converting<Length> {
 
     private static final double MILES_OF_LAND_IN_THE_ONE_KILOMETERS = 0.621371;
 

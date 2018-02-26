@@ -2,7 +2,7 @@ package com.lugowoy.tasks.convertingDegreesTemperatures;
 
 /** Created by Konstantin Lugowoy on 11-Jan-17. */
 
-public class ConvertingCelsiusTemperaturesToOther implements Convertable<Temperature> {
+public class ConvertingCelsiusTemperaturesToOther implements Converting<Temperature> {
 
     @Override
     public Temperature convert(final Temperature temperature, final TemperatureScale temperatureScale) {

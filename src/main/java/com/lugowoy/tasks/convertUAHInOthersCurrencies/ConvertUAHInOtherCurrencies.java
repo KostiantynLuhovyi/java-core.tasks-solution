@@ -1,13 +1,14 @@
 package com.lugowoy.tasks.convertUAHInOthersCurrencies;
 
-import com.lugowoy.helper.converting.Convertable;
+import com.lugowoy.helper.converting.Converting;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.math.RoundingMode;
 
 /**Created by Konstantin Lugowoy on 15-Dec-16.*/
 
-public class ConvertUAHInOtherCurrencies implements Convertable<Account> {
+public class ConvertUAHInOtherCurrencies implements Converting<Account> {
 
     private BigDecimal EUR_EXCHANGE_RATE;
     private BigDecimal RUB_EXCHANGE_RATE;
@@ -32,8 +33,8 @@ public class ConvertUAHInOtherCurrencies implements Convertable<Account> {
 
     @Override
     public void convert(Account account) {
-        account.setEUR(account.getUAH().divide(EUR_EXCHANGE_RATE, 2, BigDecimal.ROUND_HALF_DOWN));
-        account.setUSD(account.getUAH().divide(USD_EXCHANGE_RATE, 2, BigDecimal.ROUND_HALF_DOWN));
+        account.setEUR(account.getUAH().divide(EUR_EXCHANGE_RATE, 2, RoundingMode.HALF_DOWN));
+        account.setUSD(account.getUAH().divide(USD_EXCHANGE_RATE, 2, RoundingMode.HALF_DOWN));
         account.setRUB(account.getUAH().multiply(RUB_EXCHANGE_RATE, new MathContext(BigDecimal.ROUND_HALF_DOWN)));
     }
 

@@ -1,8 +1,8 @@
 package com.lugowoy.tasks.convertUAHInOthersCurrencies;
 
-import com.lugowoy.helper.converting.ConvertingData;
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.converting.Converter;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 import java.math.BigDecimal;
 
@@ -10,7 +10,11 @@ import java.math.BigDecimal;
 
 public class Main {
 
-    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader reader = Reader.getReader(new ReadingConsole());
+
+    private static final double EUR_EXCHANGE_RATE = 29.11;
+    private static final double USD_EXCHANGE_RATE = 27.21;
+    private static final double RUB_EXCHANGE_RATE = 2.20;
 
     public static void main(String[] args) {
 
@@ -19,9 +23,11 @@ public class Main {
         System.out.println("Enter the amount in UAH : ");
         account.setUAH(new BigDecimal(reader.readDouble()));
 
-        ConvertingData<Account> convertingData = new ConvertingData<>(new ConvertUAHInOtherCurrencies(29.11, 27.21, 2.20)::convert);
+        Converter<Account> converter = new Converter<>(new ConvertUAHInOtherCurrencies(EUR_EXCHANGE_RATE,
+                                                                                       USD_EXCHANGE_RATE,
+                                                                                       RUB_EXCHANGE_RATE));
 
-        convertingData.convert(account);
+        converter.convert(account);
 
         System.out.println("In the UAH : " + account.getUAH());
         System.out.println("In the USD : " + account.getUSD());

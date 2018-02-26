@@ -1,13 +1,13 @@
 package com.lugowoy.tasks.convertingDegreesTemperatures;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 /** Created by Konstantin Lugowoy on 11-Jan-17. */
 
 public class Main {
 
-    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
     public static void main(String[] args) {
 
@@ -15,28 +15,28 @@ public class Main {
         temperature.setScale(setSelectionOfTemperatureScaleForInputTemperature());
 
         System.out.println("Enter the temperature value :");
-        temperature.setDegreesTemperatures(reader.readDouble());
+        temperature.setDegreesTemperatures(READER.readDouble());
 
         if (temperature.getScale().equals(TemperatureScale.Celsius)) {
             choiceAndConvertCelsiusToOtherTemperatureScale(temperature);
         } else {
-            Convertable<Temperature> convertable = new ConvertingOtherTemperaturesToCelsius();
+            Converting<Temperature> converting = new ConvertingOtherTemperaturesToCelsius();
             switch (temperature.getScale()) {
-                case Fahrenheit:
+                case  Fahrenheit:
                     System.out.printf("%f degrees Fahrenheit is equal to %f degrees Celsius.", temperature.getDegreesTemperatures(),
-                            convertable.convert(temperature, TemperatureScale.Fahrenheit).getDegreesTemperatures());
+                            converting.convert(temperature, TemperatureScale.Fahrenheit).getDegreesTemperatures());
                     break;
                 case Kelvin:
                     System.out.printf("%f degrees Kelvin is equal to %f degrees Celsius.", temperature.getDegreesTemperatures(),
-                            convertable.convert(temperature, TemperatureScale.Kelvin).getDegreesTemperatures());
+                            converting.convert(temperature, TemperatureScale.Kelvin).getDegreesTemperatures());
                     break;
                 case Reaumur:
                     System.out.printf("%f degrees Reaumur is equal to %f degrees Celsius.", temperature.getDegreesTemperatures(),
-                            convertable.convert(temperature, TemperatureScale.Reaumur).getDegreesTemperatures());
+                            converting.convert(temperature, TemperatureScale.Reaumur).getDegreesTemperatures());
                     break;
                 case Delisle:
                     System.out.printf("%f degrees Delisle is equal to %f degrees Celsius.", temperature.getDegreesTemperatures(),
-                            convertable.convert(temperature, TemperatureScale.Delisle).getDegreesTemperatures());
+                            converting.convert(temperature, TemperatureScale.Delisle).getDegreesTemperatures());
                     break;
             }
         }
@@ -49,34 +49,34 @@ public class Main {
         System.out.println(TemperatureScale.Reaumur + " - \"3\" ;");
         System.out.println(TemperatureScale.Delisle + " - \"4\" ;");
 
-        int choice = reader.readInt();
+        int choice = READER.readInt();
 
         while (true) {
             if ((choice > 0) && (choice < 5)) {
-                Convertable<Temperature> temperatureScaleConvertable = new ConvertingCelsiusTemperaturesToOther();
+                Converting<Temperature> temperatureScaleConverting = new ConvertingCelsiusTemperaturesToOther();
                 switch (choice) {
                     case 1:
                         System.out.printf("%f degrees Celsius is equal to %f degrees Fahrenheit.", temperature.getDegreesTemperatures(),
-                                temperatureScaleConvertable.convert(temperature, TemperatureScale.Fahrenheit).getDegreesTemperatures());
+                                temperatureScaleConverting.convert(temperature, TemperatureScale.Fahrenheit).getDegreesTemperatures());
                         break;
                     case 2:
                         System.out.printf("%f degrees Celsius is equal to %f degrees Kelvin.", temperature.getDegreesTemperatures(),
-                                temperatureScaleConvertable.convert(temperature, TemperatureScale.Kelvin).getDegreesTemperatures());
+                                temperatureScaleConverting.convert(temperature, TemperatureScale.Kelvin).getDegreesTemperatures());
                         break;
                     case 3:
                         System.out.printf("%f degrees Celsius is equal to %f degrees Reaumur.", temperature.getDegreesTemperatures(),
-                                temperatureScaleConvertable.convert(temperature, TemperatureScale.Reaumur).getDegreesTemperatures());
+                                temperatureScaleConverting.convert(temperature, TemperatureScale.Reaumur).getDegreesTemperatures());
                         break;
                     case 4:
                         System.out.printf("%f degrees Celsius is equal to %f degrees Delisle.", temperature.getDegreesTemperatures(),
-                                temperatureScaleConvertable.convert(temperature, TemperatureScale.Delisle).getDegreesTemperatures());
+                                temperatureScaleConverting.convert(temperature, TemperatureScale.Delisle).getDegreesTemperatures());
                         break;
 
                 }
                 break;
             } else {
                 System.out.println("Invalid selection. \n Re-enter : ");
-                choice = reader.readInt();
+                choice = READER.readInt();
             }
         }
     }
@@ -91,7 +91,7 @@ public class Main {
         System.out.println(TemperatureScale.Reaumur + " - \"4\" ;");
         System.out.println(TemperatureScale.Delisle + " - \"5\" ;");
         while (true) {
-            int choice = reader.readInt();
+            int choice = READER.readInt();
             if ((choice > 0) && (choice < 6)) {
                 switch (choice) {
                     case 1:
