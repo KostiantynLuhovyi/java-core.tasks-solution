@@ -1,13 +1,13 @@
 package com.lugowoy.tasks.determineWhetherNumberBelongsToRangeOfNumbers;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 /** Created by Konstantin Lugowoy on 11.09.2017. */
 
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
     public static void main(String[] args) {
 
@@ -20,7 +20,7 @@ public class Main {
         System.out.println("Enter max bound value : ");
         int maxBound = enterMaxBound();
 
-        Determinator determinator = Determinator::detrmineWhetherNumberBelongsToRangeOfNumbers;
+        Determinator determinator = Determinator::determineWhetherNumberBelongsToRangeOfNumbers;
         if (determinator.determine(number, minBound, maxBound)) {
             System.out.println("The number is in this range of numbers.");
         } else {

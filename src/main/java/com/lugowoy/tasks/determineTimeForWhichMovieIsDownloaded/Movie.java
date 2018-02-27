@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineTheTimeForWhichTheMovieIsDownloaded;
+package com.lugowoy.tasks.determineTimeForWhichMovieIsDownloaded;
 
 import java.io.Serializable;
 
@@ -54,7 +54,9 @@ public class Movie implements Cloneable, Serializable {
     @Override
     protected Movie clone() throws CloneNotSupportedException {
         Movie movie = (Movie) super.clone();
+        movie.setIdMovie(this.getIdMovie());
         movie.setNameMovie(this.nameMovie);
+        movie.setSizeMovieInGb(this.getSizeMovieInGb());
         return movie;
     }
 

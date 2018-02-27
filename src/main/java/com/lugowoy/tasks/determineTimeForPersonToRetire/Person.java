@@ -1,8 +1,10 @@
 package com.lugowoy.tasks.determineTimeForPersonToRetire;
 
+import java.io.Serializable;
+
 /** Created by Konstantin Lugowoy on 02.10.2017. */
 
-public class Person {
+public class Person implements Serializable, Cloneable {
 
     private int age;
     private Gender gender;
@@ -39,6 +41,14 @@ public class Person {
                 "age=" + age +
                 ", sex=" + gender +
                 ']';
+    }
+
+    @Override
+    public Person clone() throws CloneNotSupportedException {
+        Person person = (Person) super.clone();
+        person.setAge(this.getAge());
+        person.setGender(this.getGender());
+        return person;
     }
 
     public int getAge() {

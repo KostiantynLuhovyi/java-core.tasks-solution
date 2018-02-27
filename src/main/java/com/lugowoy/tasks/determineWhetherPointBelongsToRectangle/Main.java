@@ -1,44 +1,44 @@
 package com.lugowoy.tasks.determineWhetherPointBelongsToRectangle;
 
-import com.lugowoy.helper.factory.creator.CreatorOfPointModels;
-import com.lugowoy.helper.factory.models.points.FactoryOfPointsWithDoubleCoordinates;
+import com.lugowoy.helper.factory.FactoryPoint;
+import com.lugowoy.helper.factory.creator.CreatorPoint;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.points.Point;
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
 
 /** Created by Konstantin Lugowoy on 14.09.2017. */
 
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
-    private static final CreatorOfPointModels<Double> CREATOR = new CreatorOfPointModels<>(new FactoryOfPointsWithDoubleCoordinates());
+    private static final FactoryPoint<Double> FACTORY = FactoryPoint.getFactoryPoint(new CreatorPoint<>());
 
     public static void main(String[] args) {
 
         System.out.println("Enter coordinates of point the upper left.");
         System.out.println("Coordinates x :");
-        double xCoorUpperLeft = READER.readDouble();
+        double xCoordinateUpperLeft = READER.readDouble();
         System.out.println("Coordinates y :");
-        double yCoorUpperLeft = READER.readDouble();
+        double yCoordinateUpperLeft = READER.readDouble();
 
-        Point<Double> pointUpperLeft = CREATOR.create(xCoorUpperLeft, yCoorUpperLeft);
+        Point<Double> pointUpperLeft = FACTORY.create(xCoordinateUpperLeft, yCoordinateUpperLeft);
 
         System.out.println("Enter coordinates of point the lower right.");
         System.out.println("Coordinates x : ");
-        double xCoorLowerRight = READER.readDouble();
+        double xCoordinateLowerRight = READER.readDouble();
         System.out.println("Coordinates y : ");
-        double yCoorLowerRight = READER.readDouble();
+        double yCoordinateLowerRight = READER.readDouble();
 
-        Point<Double> pointLowerRight = CREATOR.create(xCoorLowerRight, yCoorLowerRight);
+        Point<Double> pointLowerRight = FACTORY.create(xCoordinateLowerRight, yCoordinateLowerRight);
 
         System.out.println("Enter the coordinates of the point to define.");
         System.out.println("Coordinates x :");
-        double xCoorPoint = READER.readDouble();
+        double xCoordinatePoint = READER.readDouble();
         System.out.println("Coordinates y :");
-        double yCoorPoint = READER.readDouble();
+        double yCoordinatePoint = READER.readDouble();
 
-        Point<Double> point = CREATOR.create(xCoorPoint, yCoorPoint);
+        Point<Double> point = FACTORY.create(xCoordinatePoint, yCoordinatePoint);
 
         Determinator determinator = Determinator::determineWhetherPointBelongsToRectangle;
         if (determinator.determine(point, pointUpperLeft, pointLowerRight)) {
@@ -48,7 +48,5 @@ public class Main {
         }
 
     }
-
-
 
 }

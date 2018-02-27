@@ -1,7 +1,7 @@
-package com.lugowoy.tasks.determineTheTimeForWhichTheMovieIsDownloaded;
+package com.lugowoy.tasks.determineTimeForWhichMovieIsDownloaded;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 import java.util.Random;
 
@@ -9,16 +9,19 @@ import java.util.Random;
 
 public class Main {
 
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
+
     private static final double BITS_IN_GB = 8590e+6;
 
-    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
+    private static final int BOUND = 10;
+    private static final String NAME_MOVIE = "Terminator";
 
     public static void main(String[] args) {
 
-        Movie movie = new Movie(new Random().nextInt(10), "Terminator", getSizeFilmInGb());
+        Movie movie = new Movie(new Random().nextInt(BOUND), NAME_MOVIE, enterSizeFilmInGb());
         System.out.println(movie);
 
-        double speedInternetConnection = getSpeedInternetConnection();
+        double speedInternetConnection = enterSpeedInternetConnection();
 
         long secondsForCalculationTimeOfDownloadMovie = (long) (movie.getSizeMovieInGb() / speedInternetConnection * BITS_IN_GB);
 
@@ -30,11 +33,11 @@ public class Main {
 
     }
 
-    private static double getSizeFilmInGb() {
+    private static double enterSizeFilmInGb() {
         System.out.println("Enter size film in the Gb : ");
         double sizeFilm;
         while (true) {
-            sizeFilm = reader.readDouble();
+            sizeFilm = READER.readDouble();
             if (sizeFilm > 0) {
                 break;
             } else {
@@ -45,11 +48,11 @@ public class Main {
         return sizeFilm;
     }
 
-    private static double getSpeedInternetConnection() {
+    private static double enterSpeedInternetConnection() {
         System.out.println("Enter speed(bits/second) internet connection : ");
         double speedInternetConnection;
         while (true) {
-            speedInternetConnection = reader.readDouble();
+            speedInternetConnection = READER.readDouble();
             if (speedInternetConnection > 0) {
                 break;
             } else {

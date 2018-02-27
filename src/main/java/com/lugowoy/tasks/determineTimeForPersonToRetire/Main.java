@@ -1,20 +1,20 @@
 package com.lugowoy.tasks.determineTimeForPersonToRetire;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 /** Created by Konstantin Lugowoy on 02.10.2017. */
 
 public class Main {
 
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
+
     private static final int AGE_MEN_FOR_RETIREMENT = 60;
     private static final int AGE_WOMAN_FOR_RETIREMENT = 55;
 
-    private static final Reader READER = new Reader(new ReadingDataUserInputInConsole());
-
     public static void main(String[] args) {
 
-        Person person = new Person(getValueOfAgePerson(), getValueOfGenderPerson());
+        Person person = new Person(enterValueOfAgePerson(), enterValueOfGenderPerson());
 
         if (person.getGender() == Gender.MEN) {
             checkManRetire(person);
@@ -50,7 +50,7 @@ public class Main {
         }
     }
 
-    private static Gender getValueOfGenderPerson() {
+    private static Gender enterValueOfGenderPerson() {
         System.out.println("Select a person's gender.");
         System.out.println("Man : 0 ;");
         System.out.println("Woman : 1 ;");
@@ -72,7 +72,7 @@ public class Main {
         return gender;
     }
 
-    private static int getValueOfAgePerson() {
+    private static int enterValueOfAgePerson() {
         System.out.println("Enter the person's age : ");
         int age = READER.readInt();
         if (age > 60) {
