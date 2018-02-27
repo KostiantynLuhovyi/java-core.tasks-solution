@@ -8,6 +8,9 @@ public class Ticket implements Serializable, Cloneable {
 
     private int number;
 
+    public Ticket() {
+    }
+
     public Ticket(int number) {
         this.number = number;
     }
@@ -30,7 +33,7 @@ public class Ticket implements Serializable, Cloneable {
     @Override
     protected Ticket clone() throws CloneNotSupportedException {
         Ticket ticket = (Ticket) super.clone();
-        ticket.number = this.number;
+        ticket.setNumber(this.getNumber());
         return ticket;
     }
 
@@ -45,4 +48,7 @@ public class Ticket implements Serializable, Cloneable {
         return number;
     }
 
+    public void setNumber(int number) {
+        this.number = number;
+    }
 }

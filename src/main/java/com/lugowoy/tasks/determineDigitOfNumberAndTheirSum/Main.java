@@ -1,25 +1,25 @@
-package com.lugowoy.tasks.determineDigitInNumberAndTheirSum;
+package com.lugowoy.tasks.determineDigitOfNumberAndTheirSum;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 /** Created by Konstantin Lugowoy on 06.10.2017. */
 
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
     public static void main(String[] args) {
 
         System.out.println("Enter number : ");
-        int number = getEnteredNumber();
+        int number = enterNumber();
 
-        Determinator<Integer> determinator = DeterminatorDigitInNumber::determineDigitInNumber;
+        Determinator<Integer> determinator = DeterminatorDigitOfNumber::determineDigitInNumber;
         determinator.determine(number);
 
     }
 
-    private static int getEnteredNumber() {
+    private static int enterNumber() {
         int number;
         while (true) {
             number = READER.readInt();

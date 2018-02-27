@@ -1,19 +1,19 @@
 package com.lugowoy.tasks.determineNumberOfDigitsInNumber;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 /** Created by Konstantin Lugowoy on 13.09.2017. */
 
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
     public static void main(String[] args) {
 
         int countDigitOfNumber = 0;
 
-        System.out.printf("Enter a number from 0 to 9999 : ");
+        System.out.println("Enter a number from 0 to 9999 : ");
         while (true) {
             int number = READER.readInt();
             if ((number >= 0) && (number <= 9999)) {

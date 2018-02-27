@@ -1,15 +1,16 @@
 package com.lugowoy.tasks.determineHowMuchTimeOnTheRoadWasMarathonRunner;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 /** Created by Konstantin Lugowoy on 23.03.2017. */
 
 public class Main {
 
-    private static final Determinable<Time, MarathonRunner> DETERMINABLE = Determinable::determineHowMuchTimeOnTheRoadWasMarathonRunner;
+    private static final Reader reader = Reader.getReader(new ReadingConsole());
 
-    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
+    private static final Determinator<Time, MarathonRunner> DETERMINATOR =
+                                                           Determinator::determineHowMuchTimeOnTheRoadWasMarathonRunner;
 
     public static void main(String[] args) {
 
@@ -23,7 +24,7 @@ public class Main {
 
         MarathonRunner marathonRunner = new MarathonRunner(distance, speed);
 
-        marathonRunner.setTime(DETERMINABLE.determine(marathonRunner));
+        marathonRunner.setTime(DETERMINATOR.determine(marathonRunner));
 
         System.out.println(marathonRunner.getTime());
 

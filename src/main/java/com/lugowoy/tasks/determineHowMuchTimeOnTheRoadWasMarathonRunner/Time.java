@@ -1,6 +1,7 @@
 package com.lugowoy.tasks.determineHowMuchTimeOnTheRoadWasMarathonRunner;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 /** Created by Konstantin Lugowoy on 23.03.2017. */
 
@@ -11,6 +12,9 @@ public class Time {
     private int second;
 
     private Calendar time;
+
+    public Time() {
+    }
 
     public Time(int hour, int minutes, int second) {
         this.time = Calendar.getInstance();
@@ -30,12 +34,37 @@ public class Time {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Time)) return false;
+        Time time1 = (Time) o;
+        return getHour() == time1.getHour() &&
+                getMinutes() == time1.getMinutes() &&
+                getSecond() == time1.getSecond() &&
+                Objects.equals(getTime(), time1.getTime());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getHour(), getMinutes(), getSecond(), getTime());
+    }
+
+    @Override
     public String toString() {
         return "Time[" +
                 "hour=" + hour +
                 ", minutes=" + minutes +
                 ", second=" + second +
                 ']';
+    }
+
+    @Override
+    public Time clone() throws CloneNotSupportedException {
+        Time time = (Time) super.clone();
+        time.setHour(this.getHour());
+        time.setMinutes(this.getMinutes());
+        time.setSecond(this.getSecond());
+        return time;
     }
 
     public int getHour() {

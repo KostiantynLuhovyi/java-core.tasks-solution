@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineDigitInNumberAndTheirSum;
+package com.lugowoy.tasks.determineDigitOfNumberAndTheirSum;
 
 /** Created by Konstantin Lugowoy on 06.10.2017. */
 

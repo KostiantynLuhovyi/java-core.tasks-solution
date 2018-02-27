@@ -1,19 +1,21 @@
 package com.lugowoy.tasks.determineHowMuchTimeIsLeftBeforeMidnight;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 /** Created by Konstantin Lugowoy on 17.06.2017. */
 
 public class Main {
 
-    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
+
+    private static final String MSG = "Enter number of seconds since the beginning of the day :";
 
     private static final int SECONDS_IN_DAY = 86400;
 
     public static void main(String[] args) {
 
-        int numberOfSecondsSinceTheBeginningOfTheDay = getNumberOfSecondsSinceTheBeginningOfTheDay("Enter number of seconds since the beginning of the day :");
+        int numberOfSecondsSinceTheBeginningOfTheDay = enterNumberOfSecondsSinceTheBeginningOfTheDay(MSG);
 
         int numberOfSecondsLeftInTheDay = SECONDS_IN_DAY - numberOfSecondsSinceTheBeginningOfTheDay;
 
@@ -21,15 +23,16 @@ public class Main {
         int minutesEndToTheDay = numberOfSecondsLeftInTheDay / 60 - hoursEndToTheDay * 60;
         int secondsEndToTheDay = numberOfSecondsLeftInTheDay - minutesEndToTheDay * 60 - hoursEndToTheDay * 3600;
 
-        System.out.printf("%d hours, %d minutes, %d seconds it remains until midnight.", hoursEndToTheDay, minutesEndToTheDay, secondsEndToTheDay);
+        System.out.printf("%d hours, %d minutes, %d seconds it remains until midnight.",
+                                                              hoursEndToTheDay, minutesEndToTheDay, secondsEndToTheDay);
 
     }
 
-    private static int getNumberOfSecondsSinceTheBeginningOfTheDay(String msg) {
+    private static int enterNumberOfSecondsSinceTheBeginningOfTheDay(String msg) {
         int numberOfSecondsSinceTheBeginningOfTheDay;
         System.out.println(msg);
         while (true) {
-            numberOfSecondsSinceTheBeginningOfTheDay = reader.readInt();
+            numberOfSecondsSinceTheBeginningOfTheDay = READER.readInt();
             if ((numberOfSecondsSinceTheBeginningOfTheDay >= 0) && (numberOfSecondsSinceTheBeginningOfTheDay <= SECONDS_IN_DAY)) {
                 break;
             } else {

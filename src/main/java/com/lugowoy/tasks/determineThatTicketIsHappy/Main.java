@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.determineThatTicketIsHappy;
 
-import com.lugowoy.helper.generating.GeneratorDataRandomInteger;
+import com.lugowoy.helper.other.GeneratorRandomNumber;
 
 import static com.lugowoy.tasks.determineThatTicketIsHappy.DeterminatorThatTicketIsHappy.MAX_VALUE_OF_NUMBER_TICKET;
 import static com.lugowoy.tasks.determineThatTicketIsHappy.DeterminatorThatTicketIsHappy.MIN_VALUE_OF_NUMBER_TICKET;
@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Ticket ticket = new Ticket(GeneratorDataRandomInteger.generateInt(MIN_VALUE_OF_NUMBER_TICKET, MAX_VALUE_OF_NUMBER_TICKET));
+        Ticket ticket = new Ticket(GeneratorRandomNumber.generateInt(MIN_VALUE_OF_NUMBER_TICKET, MAX_VALUE_OF_NUMBER_TICKET));
 
         DeterminatorThatTicketIsHappy determinator = DeterminatorThatTicketIsHappy::determineThatTicketIsHappyUsingArithmeticOperators;
 

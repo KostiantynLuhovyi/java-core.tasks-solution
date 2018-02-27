@@ -27,9 +27,9 @@ public interface Determinator {
                     l++;
                 } while (r != t);
                 t = r = p;
-                System.out.print("\nПериод десятичной дроби p = m/n для "
-                        + "первых двух целых положительных чисел n и m, "
-                        + "расположенных подряд: 0.");
+                System.out.println();
+                System.out.print("The period of the decimal fraction p = m / n " +
+                                  "for the first two consecutive positive integers n and m, is equal : 0.");
                 for (i = 0; i < l; i++) {
                     r = (r * 10) % q;
                 }

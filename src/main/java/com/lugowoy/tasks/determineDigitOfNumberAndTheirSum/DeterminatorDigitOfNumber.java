@@ -1,8 +1,8 @@
-package com.lugowoy.tasks.determineDigitInNumberAndTheirSum;
+package com.lugowoy.tasks.determineDigitOfNumberAndTheirSum;
 
 /** Created by Konstantin Lugowoy on 06.10.2017. */
 
-public class DeterminatorDigitInNumber {
+public class DeterminatorDigitOfNumber {
 
     public static void determineDigitInNumber(int number) {
         int countDigit = 0;

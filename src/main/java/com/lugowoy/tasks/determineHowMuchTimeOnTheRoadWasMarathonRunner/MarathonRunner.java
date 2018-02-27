@@ -1,8 +1,11 @@
 package com.lugowoy.tasks.determineHowMuchTimeOnTheRoadWasMarathonRunner;
 
+import java.io.Serializable;
+import java.util.Objects;
+
 /** Created by Konstantin Lugowoy on 23.03.2017. */
 
-public class MarathonRunner {
+public class MarathonRunner implements Serializable, Cloneable {
 
     private double distance;
     private double speed;
@@ -15,6 +18,39 @@ public class MarathonRunner {
     public MarathonRunner(double distance, double speed) {
         this.distance = distance;
         this.speed = speed;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MarathonRunner)) return false;
+        MarathonRunner that = (MarathonRunner) o;
+        return Double.compare(that.getDistance(), getDistance()) == 0 &&
+                Double.compare(that.getSpeed(), getSpeed()) == 0 &&
+                Objects.equals(getTime(), that.getTime());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getDistance(), getSpeed(), getTime());
+    }
+
+    @Override
+    public String toString() {
+        return "MarathonRunner[" +
+                "distance=" + distance +
+                ", speed=" + speed +
+                ", time=" + time +
+                ']';
+    }
+
+    @Override
+    public MarathonRunner clone() throws CloneNotSupportedException {
+        MarathonRunner marathonRunner = (MarathonRunner) super.clone();
+        marathonRunner.setDistance(this.getDistance());
+        marathonRunner.setSpeed(this.getSpeed());
+        marathonRunner.setTime(this.getTime());
+        return marathonRunner;
     }
 
     public double getDistance() {
