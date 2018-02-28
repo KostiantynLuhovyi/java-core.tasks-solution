@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.writeProgramThatDeducesSetOfSolutionsToEquation;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
@@ -10,20 +10,20 @@ import static java.lang.Math.sqrt;
 
 public class Main {
 
-    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
     public static void main(String[] args) {
 
         System.out.println("Enter integer number \'a\' : ");
-        int a = reader.readInt();
+        int a = READER.readInt();
 
         System.out.println("Enter integer number \'b\' : ");
-        int b = reader.readInt();
+        int b = READER.readInt();
 
         System.out.println("Enter integer number \'c\' : ");
-        int c = reader.readInt();
+        int c = READER.readInt();
 
-        double discriminant = getDiscriminant(a, b, c);
+        double discriminant = calculateDiscriminant(a, b, c);
         if (discriminant < 0) {
             System.out.println("The equation has no roots.");
         } else if (discriminant == 0) {
@@ -39,7 +39,7 @@ public class Main {
 
     }
 
-    private static double getDiscriminant(int a, int b, int c) {
+    private static double calculateDiscriminant(int a, int b, int c) {
         return pow(b, 2) - 4 * a * c;
     }
 

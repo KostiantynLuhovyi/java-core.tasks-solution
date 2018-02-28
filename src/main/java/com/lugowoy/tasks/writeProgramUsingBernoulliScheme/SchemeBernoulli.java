@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.writeProgramUsingBernoulliScheme;
 
-import com.lugowoy.helper.generating.GeneratorDataRandomDouble;
+import com.lugowoy.helper.other.GeneratorRandomNumber;
 
 /** Created by Konstantin Lugowoy on 16.11.2017. */
 
@@ -41,7 +41,7 @@ public class SchemeBernoulli {
     public void testing() {
         this.resultOfTest = new boolean[this.numberOfTests];
         for (int i = 0; i < numberOfTests; i++) {
-            this.resultOfTest[i] = GeneratorDataRandomDouble.generateDouble(MIN_BOUND, MAX_BOUND) <= this.valueOfSuccess;
+            this.resultOfTest[i] = GeneratorRandomNumber.generateDouble(MIN_BOUND, MAX_BOUND) <= this.valueOfSuccess;
         }
     }
 

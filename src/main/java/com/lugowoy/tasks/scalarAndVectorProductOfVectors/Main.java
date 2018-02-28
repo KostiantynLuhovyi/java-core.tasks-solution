@@ -1,8 +1,8 @@
 package com.lugowoy.tasks.scalarAndVectorProductOfVectors;
 
-import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
-import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
-import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.factory.FactoryArray;
+import com.lugowoy.helper.factory.creator.CreatorArrayNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
 import com.lugowoy.helper.models.arrays.Array;
 
 import java.util.Arrays;
@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 public class Main {
 
-    private static final CreatorOfArrayModels<Integer> CREATOR = new CreatorOfArrayModels<>(new FactoryOfIntegerArrayModels());
+    private static final FactoryArray<Integer> FACTORY = FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>());
 
     private static final int LENGTH_ARRAY = 5;
     private static final int MIN_BOUND = -5;
@@ -19,12 +19,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Array<Integer> firstArray = CREATOR.create(new FillingArrayIntegerRandomNumbers().fill(LENGTH_ARRAY, MIN_BOUND, MAX_BOUND));
+        Array<Integer> firstArray = FACTORY.create(new FillingArrayRandomIntegerNumbers().fill(LENGTH_ARRAY, MIN_BOUND, MAX_BOUND));
         System.out.println("First array : " + firstArray);
-        Array<Integer> secondArray = CREATOR.create(new FillingArrayIntegerRandomNumbers().fill(LENGTH_ARRAY, MIN_BOUND, MAX_BOUND));
+        Array<Integer> secondArray = FACTORY.create(new FillingArrayRandomIntegerNumbers().fill(LENGTH_ARRAY, MIN_BOUND, MAX_BOUND));
         System.out.println("Second array : " + secondArray);
 
-        Array<Integer> vectorProductOfVectors = CREATOR.create(LENGTH_ARRAY);
+        Array<Integer> vectorProductOfVectors = FACTORY.create(LENGTH_ARRAY);
 
         double resultScalarProductOfVectors = 0;
 

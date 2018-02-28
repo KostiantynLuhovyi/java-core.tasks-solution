@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.transposeOfSquareMatrixRepresentedAsTwoDimensionalArray;
 
-import com.lugowoy.helper.generating.GeneratorDataRandomInteger;
+import com.lugowoy.helper.other.GeneratorRandomNumber;
 
 /** Created by Konstantin Lugowoy on 14.11.2017. */
 
@@ -16,7 +16,7 @@ public class Main {
 
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
-                array[i][j] = GeneratorDataRandomInteger.generateInt(0, 10);
+                array[i][j] = GeneratorRandomNumber.generateInt(0, 10);
                 System.out.print(array[i][j] + (j != LENGTH_ARRAY - 1 ? " " : "\n"));
             }
         }

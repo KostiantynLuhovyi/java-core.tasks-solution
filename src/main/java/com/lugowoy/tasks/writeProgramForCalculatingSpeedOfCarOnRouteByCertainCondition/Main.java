@@ -1,13 +1,13 @@
 package com.lugowoy.tasks.writeProgramForCalculatingSpeedOfCarOnRouteByCertainCondition;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 /** Created by Konstantin Lugowoy on 07.11.2017. */
 
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
     public static void main(String[] args) {
 
@@ -25,7 +25,8 @@ public class Main {
 
         double timeTravelOnFirstRoadSection = calculateTimeTravelOnFirstRoadSection(distanceAtoB, speedAtoB);
 
-        double speedBtoC = calculateSpeedTravelOnSecondRoadSection(totalTravelTime, timeTravelOnFirstRoadSection, distanceAtoB, distanceBtoC);
+        double speedBtoC = calculateSpeedTravelOnSecondRoadSection(totalTravelTime, timeTravelOnFirstRoadSection,
+                                                                   distanceAtoB, distanceBtoC);
 
         if (speedBtoC != -1) {
             System.out.println("The speed value on the road section from point A to point B : " + speedBtoC);

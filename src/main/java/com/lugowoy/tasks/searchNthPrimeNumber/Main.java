@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.searchNthPrimeNumber;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 /**Created by Konstantin Lugowoy on 19.11.2016.*/
 
@@ -9,7 +9,7 @@ public class Main {
 
     private static final int MAX_ENTER_COUNTING_PRIME_NUMBER = 20001;
 
-    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader reader = Reader.getReader(new ReadingConsole());
 
     public static void main(String[] args) {
 

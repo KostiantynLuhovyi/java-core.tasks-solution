@@ -1,21 +1,21 @@
 package com.lugowoy.tasks.showRectangleConsistingOfStars;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 /** Created by Konstantin Lugowoy on 25.10.2017. */
 
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
     public static void main(String[] args) {
 
         System.out.println("Enter parameter M for rectangle : ");
-        int M = getParam();
+        int M = enterParam();
 
         System.out.println("Enter parameter N for rectangle : ");
-        int N = getParam();
+        int N = enterParam();
 
         System.out.println("Rectangle filled with stars : ");
         for (int i = 0; i < M; i++) {
@@ -40,7 +40,7 @@ public class Main {
 
     }
 
-    private static int getParam() {
+    private static int enterParam() {
         int param;
         while (true) {
             param = READER.readInt();
