@@ -1,8 +1,11 @@
 package com.lugowoy.tasks.identifyTwoIdenticalNumbers;
 
+import java.io.Serializable;
+import java.util.Objects;
+
 /**Created by Konstantin Lugowoy on 07.11.2016.*/
 
-final class NumbersForComparison {
+final class NumbersForComparison implements Serializable, Cloneable {
 
     private int firstNumber;
     private int secondNumber;
@@ -15,6 +18,39 @@ final class NumbersForComparison {
         this.firstNumber = firstNumber;
         this.secondNumber = secondNumber;
         this.thirdNumber = thirdNumber;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof NumbersForComparison)) return false;
+        NumbersForComparison that = (NumbersForComparison) o;
+        return getFirstNumber() == that.getFirstNumber() &&
+                getSecondNumber() == that.getSecondNumber() &&
+                getThirdNumber() == that.getThirdNumber();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFirstNumber(), getSecondNumber(), getThirdNumber());
+    }
+
+    @Override
+    public String toString() {
+        return "NumbersForComparison[" +
+                "firstNumber=" + firstNumber +
+                ", secondNumber=" + secondNumber +
+                ", thirdNumber=" + thirdNumber +
+                ']';
+    }
+
+    @Override
+    public NumbersForComparison clone() throws CloneNotSupportedException {
+        NumbersForComparison numbersForComparison = (NumbersForComparison) super.clone();
+        numbersForComparison.setFirstNumber(this.getFirstNumber());
+        numbersForComparison.setSecondNumber(this.getSecondNumber());
+        numbersForComparison.setThirdNumber(this.getThirdNumber());
+        return numbersForComparison;
     }
 
     int getFirstNumber() {

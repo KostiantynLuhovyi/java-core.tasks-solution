@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.implementAnElementaryConsoleCalculator;
+package com.lugowoy.tasks.implementElementaryConsoleCalculator;
 
 /** Created by Konstantin Lugowoy on 11.09.2017. */
 

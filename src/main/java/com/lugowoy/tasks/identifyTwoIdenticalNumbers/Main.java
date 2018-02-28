@@ -1,8 +1,8 @@
 package com.lugowoy.tasks.identifyTwoIdenticalNumbers;
 
-import com.lugowoy.helper.generating.GeneratorDataRandomInteger;
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
+import com.lugowoy.helper.other.GeneratorRandomNumber;
 
 import java.io.IOException;
 
@@ -10,15 +10,15 @@ import java.io.IOException;
 
 public class Main {
 
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
+
     private static final int USER_ENTER_NUMBERS = 1;
     private static final int RANDOM_ENTER_NUMBERS = 2;
     private static final int EXIT = 3;
 
     private static ComparingNumbers comparingNumbers = new ComparingNumbers();
 
-    private static Reader reader = new Reader(new ReadingDataUserInputInConsole());
-
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         NumbersForComparison numbersForComparison;
 
@@ -27,24 +27,24 @@ public class Main {
             System.out.println("Random enter three integers numbers(signed and unsigned), press - \"2\".");
             System.out.println("To exit, press - \"3\".");
             System.out.println("Make a choice : ");
-            int statusChoice = getCorrectStatusChoice();
+            int statusChoice = enterCorrectStatusChoice();
 
             switch (statusChoice) {
                 case USER_ENTER_NUMBERS:
                     numbersForComparison = new NumbersForComparison();
                     System.out.println("Enter the first value : ");
-                    numbersForComparison.setFirstNumber(reader.readInt());
+                    numbersForComparison.setFirstNumber(READER.readInt());
                     System.out.println("Enter the second value : ");
-                    numbersForComparison.setSecondNumber(reader.readInt());
+                    numbersForComparison.setSecondNumber(READER.readInt());
                     System.out.println("Enter the third value : ");
-                    numbersForComparison.setThirdNumber(reader.readInt());
+                    numbersForComparison.setThirdNumber(READER.readInt());
                     comparingNumbers.compareNumbers(numbersForComparison);
                     break;
                 case RANDOM_ENTER_NUMBERS:
                     numbersForComparison = new NumbersForComparison();
-                    numbersForComparison.setFirstNumber(GeneratorDataRandomInteger.generateInt());
-                    numbersForComparison.setSecondNumber(GeneratorDataRandomInteger.generateInt());
-                    numbersForComparison.setThirdNumber(GeneratorDataRandomInteger.generateInt());
+                    numbersForComparison.setFirstNumber(GeneratorRandomNumber.generateInt());
+                    numbersForComparison.setSecondNumber(GeneratorRandomNumber.generateInt());
+                    numbersForComparison.setThirdNumber(GeneratorRandomNumber.generateInt());
                     comparingNumbers.compareNumbers(numbersForComparison);
                     break;
                 case EXIT:
@@ -56,10 +56,10 @@ public class Main {
 
     }
 
-    private static int getCorrectStatusChoice() {
+    private static int enterCorrectStatusChoice() {
         int statusChoice = 0;
         String description = "Enter a number from 1 to 3\n";
-        String inputValue = reader.readString();
+        String inputValue = READER.readString();
         if (isDigit(inputValue)) {
             if (isCorrectRange(Integer.parseInt(inputValue))) {
                 statusChoice = Integer.parseInt(inputValue);

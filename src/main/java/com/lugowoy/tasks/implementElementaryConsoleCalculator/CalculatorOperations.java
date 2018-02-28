@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.implementAnElementaryConsoleCalculator;
+package com.lugowoy.tasks.implementElementaryConsoleCalculator;
 
 /** Created by Konstantin Lugowoy on 11.09.2017. */
 
@@ -8,7 +8,7 @@ public interface CalculatorOperations {
         return new RealNumber(firstNumber.getNumber() + secondNumber.getNumber());
     }
 
-    static RealNumber substraction(RealNumber firstNumber, RealNumber secondNumber) {
+    static RealNumber subtraction(RealNumber firstNumber, RealNumber secondNumber) {
         return new RealNumber(firstNumber.getNumber() - secondNumber.getNumber());
     }
 

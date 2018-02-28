@@ -1,13 +1,13 @@
-package com.lugowoy.tasks.implementAnElementaryConsoleCalculator;
+package com.lugowoy.tasks.implementElementaryConsoleCalculator;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 /** Created by Konstantin Lugowoy on 11.09.2017. */
 
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
     public static void main(String[] args) {
 
@@ -61,7 +61,7 @@ public class Main {
                     System.out.println("The addition operation is selected.");
                     break;
                 case 2 :
-                    calculator= CalculatorOperations::substraction;
+                    calculator= CalculatorOperations::subtraction;
                     System.out.println("The subtraction operation is selected.");
                     break;
                 case 3 :

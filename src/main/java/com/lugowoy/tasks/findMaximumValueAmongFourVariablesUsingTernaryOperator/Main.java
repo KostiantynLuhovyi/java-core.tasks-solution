@@ -1,8 +1,8 @@
 package com.lugowoy.tasks.findMaximumValueAmongFourVariablesUsingTernaryOperator;
 
-import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
-import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
-import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.factory.FactoryArray;
+import com.lugowoy.helper.factory.creator.CreatorArrayNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
 import com.lugowoy.helper.models.arrays.Array;
 
 /** Created by Konstantin Lugowoy on 27.09.2017. */
@@ -15,10 +15,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Array<Integer> array = new CreatorOfArrayModels<>(
-                new FactoryOfIntegerArrayModels()).create(
-                new FillingArrayIntegerRandomNumbers().fill(LENGTH_ARRAY, MIN_BOUND, MAX_BOUND));
-
+        Array<Integer> array =
+                FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(
+                        new FillingArrayRandomIntegerNumbers().fill(LENGTH_ARRAY, MIN_BOUND, MAX_BOUND));
 
         System.out.println(array.toString());
 
@@ -34,7 +33,7 @@ public class Main {
         int countCheckValue = 0;
         for (int i = 0; i < array.getArray().length; i++) {
             for (int j = 0; j < array.getArray().length; j++) {
-                checkValue = array.getArray()[i] >= array.getArray()[j] ? true : false;
+                checkValue = array.getArray()[i] >= array.getArray()[j];
                 if (checkValue) {
                     resultValue = array.getArray()[i];
                     countCheckValue++;

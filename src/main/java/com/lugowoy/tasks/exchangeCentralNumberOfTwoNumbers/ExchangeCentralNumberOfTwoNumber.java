@@ -1,8 +1,8 @@
-package com.lugowoy.tasks.exchangeAnCentralNumberOfTwoNumbers;
+package com.lugowoy.tasks.exchangeCentralNumberOfTwoNumbers;
 
 /** Created by Konstantin Lugowoy on 05-Feb-17. */
 
-public class ExchangeAnCentralNumberOfTwoNumber {
+public class ExchangeCentralNumberOfTwoNumber {
 
     public static void exchange(Number firstNumber, Number secondNumber) {
         int firstCenterOfNumber = getCenterOfNumber(firstNumber);

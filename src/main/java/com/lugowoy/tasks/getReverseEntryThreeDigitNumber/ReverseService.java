@@ -2,10 +2,9 @@ package com.lugowoy.tasks.getReverseEntryThreeDigitNumber;
 
 /**Created by Konstantin Lugowoy on 03-Feb-17.*/
 
-public class ReverseService implements Reversible {
+public class ReverseService {
 
-    @Override
-    public int reverse(int number) {
+    public static int reverse(int number) {
         int oneDigit, decimalDigit, thousandthDigit;
 
         oneDigit = number % 10;

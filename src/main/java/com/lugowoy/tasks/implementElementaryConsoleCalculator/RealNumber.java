@@ -1,10 +1,15 @@
-package com.lugowoy.tasks.implementAnElementaryConsoleCalculator;
+package com.lugowoy.tasks.implementElementaryConsoleCalculator;
+
+import java.io.Serializable;
 
 /** Created by Konstantin Lugowoy on 11.09.2017. */
 
-public class RealNumber {
+public class RealNumber implements Serializable, Cloneable {
 
     private double number;
+
+    public RealNumber() {
+    }
 
     public RealNumber(double number) {
         this.number = number;
@@ -32,7 +37,18 @@ public class RealNumber {
                 ']';
     }
 
+    @Override
+    public RealNumber clone() throws CloneNotSupportedException {
+        RealNumber realNumber = (RealNumber) super.clone();
+        realNumber.setNumber(this.getNumber());
+        return realNumber;
+    }
+
     public double getNumber() {
         return number;
+    }
+
+    public void setNumber(double number) {
+        this.number = number;
     }
 }

@@ -1,13 +1,13 @@
 package com.lugowoy.tasks.encodeAndDecodeTwoCharactersInSuitableIntegerVariable;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 
 /** Created by Konstantin Lugowoy on 08.11.2017. */
 
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
     public static void main(String[] args) {
 
