@@ -1,10 +1,11 @@
 package com.lugowoy.tasks.printMaxAndMinNumber;
 
-import com.lugowoy.helper.factory.creator.CreatorOfArrayModels;
-import com.lugowoy.helper.factory.models.array.FactoryOfIntegerArrayModels;
-import com.lugowoy.helper.filling.FillingArrayIntegerRandomNumbers;
+import com.lugowoy.helper.factory.FactoryArray;
+import com.lugowoy.helper.factory.creator.CreatorArrayNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.arrays.Array;
-import com.lugowoy.helper.other.DeterminatorSizeOfArray;
+import com.lugowoy.helper.other.ArrayLength;
 
 import java.util.Arrays;
 
@@ -14,9 +15,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int sizeArray = DeterminatorSizeOfArray.determineSizeOfArray();
+        int lengthArray = ArrayLength.getLengthArray(new ReadingConsole());
 
-        Array<Integer> array = new CreatorOfArrayModels<>(new FactoryOfIntegerArrayModels()).create(new FillingArrayIntegerRandomNumbers().fill(sizeArray));
+        Array<Integer> array =
+                             FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(
+                                                              new FillingArrayRandomIntegerNumbers().fill(lengthArray));
 
         System.out.println("Original number : ");
         Arrays.stream(array.getArray()).forEachOrdered(value -> System.out.print(value + " "));

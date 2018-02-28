@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.operationsWithSeparateDigitsOfTheNumber;
+package com.lugowoy.tasks.operationsWithSeparateDigitsOfNumber;
 
 import java.util.InputMismatchException;
 
@@ -11,7 +11,7 @@ public class ParserIntegerNumber {
         int resultSingleDigitNumber = 0;
         digitNumber = " ".concat(digitNumber);
 
-        if (((posDigit > 0) || (posDigit <= 4))) {
+        if (((posDigit > 0) && (posDigit <= 4))) {
             for (int i = 1; i < digitNumber.length(); i++) {
                 if (i == posDigit) {
                     resultSingleDigitNumber = Character.digit(digitNumber.charAt(i), Character.MAX_RADIX);
@@ -21,15 +21,6 @@ public class ParserIntegerNumber {
             throw new InputMismatchException(" \t \t Entered invalid index. Correct the index from 1 to 4.");
         }
         return resultSingleDigitNumber;
-    }
-
-    private static int getCorrectPosDigit(int posDigit) {
-        switch(posDigit) {
-            case 2: posDigit = 3; break;
-            case 3: posDigit = 4; break;
-            case 4: posDigit = 5; break;
-        }
-        return posDigit;
     }
 
 }

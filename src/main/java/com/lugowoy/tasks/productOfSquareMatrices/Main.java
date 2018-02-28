@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.productOfSquareMatrices;
 
-import com.lugowoy.helper.generating.GeneratorDataRandomInteger;
+import com.lugowoy.helper.other.GeneratorRandomNumber;
 
 /** Created by Konstantin Lugowoy on 14.11.2017. */
 
@@ -19,7 +19,7 @@ public class Main {
         System.out.println("First matrix : ");
         for (int i = 0; i < firstMatrix.length; i++) {
             for (int j = 0; j < firstMatrix[i].length; j++) {
-                firstMatrix[i][j] = GeneratorDataRandomInteger.generateInt(MIN_BOUND, MAX_BOUND);
+                firstMatrix[i][j] = GeneratorRandomNumber.generateInt(MIN_BOUND, MAX_BOUND);
                 System.out.print(firstMatrix[i][j] + (j != LENGTH_ARRAY - 1 ? "\t" : "\n"));
             }
         }
@@ -27,7 +27,7 @@ public class Main {
         System.out.println("Second matrix : ");
         for (int i = 0; i < secondMatrix.length; i++) {
             for (int j = 0; j < secondMatrix[i].length; j++) {
-                secondMatrix[i][j] = GeneratorDataRandomInteger.generateInt(MIN_BOUND, MAX_BOUND);
+                secondMatrix[i][j] = GeneratorRandomNumber.generateInt(MIN_BOUND, MAX_BOUND);
                 System.out.print(secondMatrix[i][j] + (j != LENGTH_ARRAY - 1 ? "\t" : "\n"));
             }
         }

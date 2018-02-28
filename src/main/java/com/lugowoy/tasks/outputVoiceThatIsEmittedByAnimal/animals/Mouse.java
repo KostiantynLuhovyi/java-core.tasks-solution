@@ -5,12 +5,17 @@ package com.lugowoy.tasks.outputVoiceThatIsEmittedByAnimal.animals;
 public class Mouse extends Animal {
 
     public Mouse() {
-        super();
+        super("Squeak, squeak !");
     }
 
     @Override
-    public String getVoice() {
-        return "Squeak, squeak !";
+    public String toString() {
+        return this.getClass() + super.toString();
+    }
+
+    @Override
+    public Mouse clone() throws CloneNotSupportedException {
+        return (Mouse) super.clone();
     }
 
 }

@@ -5,12 +5,17 @@ package com.lugowoy.tasks.outputVoiceThatIsEmittedByAnimal.animals;
 public class Bear extends Animal {
 
     public Bear() {
-        super();
+        super("Gr - Gr - Gr !");
     }
 
     @Override
-    public String getVoice() {
-        return "Gr - Gr - Gr !";
+    public String toString() {
+        return this.getClass() + super.toString();
+    }
+
+    @Override
+    public Bear clone() throws CloneNotSupportedException {
+        return (Bear) super.clone();
     }
 
 }

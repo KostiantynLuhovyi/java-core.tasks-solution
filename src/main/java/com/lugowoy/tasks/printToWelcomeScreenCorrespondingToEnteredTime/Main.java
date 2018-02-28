@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.printToWelcomeScreenCorrespondingToEnteredTime;
 
-import com.lugowoy.helper.reading.Reader;
-import com.lugowoy.helper.reading.ReadingDataUserInputInConsole;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.tasks.checkCorrectnessOfEnteredTimeData.Checker;
 import com.lugowoy.tasks.checkCorrectnessOfEnteredTimeData.CheckerHours;
 import com.lugowoy.tasks.checkCorrectnessOfEnteredTimeData.CheckerMinutes;
@@ -11,7 +11,7 @@ import com.lugowoy.tasks.checkCorrectnessOfEnteredTimeData.CheckerSeconds;
 
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingDataUserInputInConsole());
+    private static final Reader READER = Reader.getReader(new ReadingConsole());
 
     public static void main(String[] args) {
 
