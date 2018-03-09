@@ -16,12 +16,12 @@ public class Main {
         System.out.println("Enter the elapsed time from the beginning of the workday in seconds : ");
         long timeElapsedFromTheBeginningOfTeWorkdayInSeconds;
         while (true) {
-                timeElapsedFromTheBeginningOfTeWorkdayInSeconds = READER.readLong();
-                if (timeElapsedFromTheBeginningOfTeWorkdayInSeconds > 0) {
-                    break;
-                } else {
-                    System.out.println("Incorrect input. Re-enter : ");
-                }
+            timeElapsedFromTheBeginningOfTeWorkdayInSeconds = READER.readLong();
+            if (timeElapsedFromTheBeginningOfTeWorkdayInSeconds > 0) {
+                break;
+            } else {
+                System.out.println("Incorrect input. Re-enter : ");
+            }
         }
 
         int resultHowManyHoursLeftAtWork = (int) ((WORKING_HOURS - timeElapsedFromTheBeginningOfTeWorkdayInSeconds) / 3600);

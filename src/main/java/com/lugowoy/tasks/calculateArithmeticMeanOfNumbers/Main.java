@@ -10,11 +10,13 @@ import java.util.Arrays;
 
 public class Main {
 
-    private static final int LENGTH_ARRAY = 10;
+    private static final int LENGTH_ARRAY = 3;
 
     public static void main(String[] args) {
 
-        Numbers numbers = new Numbers(Arrays.stream(FillerArrayNumbers.getFillerArrayNumbers(new FillingArrayReadDoubleNumbers(new ReadingConsole())).fill(LENGTH_ARRAY))
+        System.out.println("Enter numbers to calculate arithmetic mean number : ");
+        Numbers numbers = new Numbers(Arrays.stream(FillerArrayNumbers.getFillerArrayNumbers(new FillingArrayReadDoubleNumbers(
+                                                                                                    new ReadingConsole())).fill(LENGTH_ARRAY))
                                             .mapToDouble(Double::doubleValue)
                                             .toArray());
 

@@ -8,6 +8,9 @@ public final class FlashDriveUSB implements Serializable, Cloneable {
 
     private double sizeFlashDriveUSB;
 
+    public FlashDriveUSB() {
+    }
+
     public FlashDriveUSB(double sizeFlashDriveUSB) {
         //The setters are used in the constructor, since the class is declared with the modifier final.
         this.setSizeFlashDriveUSB(sizeFlashDriveUSB);
@@ -37,9 +40,14 @@ public final class FlashDriveUSB implements Serializable, Cloneable {
     }
 
     @Override
-    public FlashDriveUSB clone() throws CloneNotSupportedException {
-        FlashDriveUSB flashDriveUSB = (FlashDriveUSB) super.clone();
-        flashDriveUSB.setSizeFlashDriveUSB(this.getSizeFlashDriveUSB());
+    public FlashDriveUSB clone() {
+        FlashDriveUSB flashDriveUSB = new FlashDriveUSB();
+        try {
+            flashDriveUSB = (FlashDriveUSB) super.clone();
+            flashDriveUSB.setSizeFlashDriveUSB(this.getSizeFlashDriveUSB());
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return flashDriveUSB;
     }
 

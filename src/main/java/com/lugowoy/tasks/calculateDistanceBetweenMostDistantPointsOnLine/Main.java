@@ -11,38 +11,30 @@ import java.util.Arrays;
 
 public class Main {
 
-    private static final int LENGTH_ARRAY = 2;
+    private static final int LENGTH_ARRAY = 3;
 
     public static void main(String[] args) {
 
         System.out.println("Enter numbers that are the values of points on the line : ");
-        Line<Double> line = null;
+        Line<Double> line = new Line<>(new FillingArrayReadDoubleNumbers(new ReadingConsole()).fill(LENGTH_ARRAY));
+
         try {
-            line = new Line<>(new FillingArrayReadDoubleNumbers(new ReadingConsole()).fill(LENGTH_ARRAY));
-        } catch (IllegalArgumentException ex) {
+            DeterminatorOfPoints<Double> determinator = DeterminatorOfPoints::determineMinValueOfPointOnLine;
+            line.setValueMinPoint(determinator.determine(line));
+
+            determinator = DeterminatorOfPoints::determineMaxValueOfPointOnLine;
+            line.setValueMaxPoint(determinator.determine(line));
+        } catch (NotDetermineValueException ex) {
             System.err.println(ex.getMessage());
         }
 
-        if (line != null) {
-            try {
-                DeterminatorOfPoints<Double> determinator = DeterminatorOfPoints::determineMinValueOfPointOnLine;
-                line.setValueMinPoint(determinator.determine(line));
+        System.out.println("Values of points on the line : ");
+        Arrays.stream(line.getPointsOnLine()).forEachOrdered(valuePoint -> System.out.print(valuePoint + " "));
 
-                determinator = DeterminatorOfPoints::determineMaxValueOfPointOnLine;
-                line.setValueMaxPoint(determinator.determine(line));
-            } catch (NotDetermineValueException ex) {
-                System.err.println(ex.getMessage());
-            }
+        double distanceBetweenMaxAndMinPoint
+                = calculatingDistanceBetweenTwoPointsOnLine.calculate(line.getValueMinPoint(), line.getValueMaxPoint());
 
-            System.out.println("Values of points on the line : ");
-            Arrays.stream(line.getPointsOnLine()).forEachOrdered(valuePoint -> System.out.print(valuePoint + " "));
-
-            double distanceBetweenMaxAndMinPoint
-                    = calculatingDistanceBetweenTwoPointsOnLine.calculate(line.getValueMinPoint(), line.getValueMaxPoint());
-
-            System.out.println("Distance between max and min values of points is equal : " + distanceBetweenMaxAndMinPoint);
-        }
-
+        System.out.println("Distance between max and min values of points is equal : " + distanceBetweenMaxAndMinPoint);
     }
 
     private static CalculationUsingTwoParameters<Double, Double, Double> calculatingDistanceBetweenTwoPointsOnLine

@@ -17,7 +17,8 @@ public class Main {
 
         int numberOfFloppyNeedsToTransferMovie = (int) (sizeMovieInTheGb * 1024 / SIZE_OF_FLOPPY_DISK_IN_MB);
 
-        System.out.printf("To transfer a movie to another computer, you need %d floppy disk.", numberOfFloppyNeedsToTransferMovie);
+        System.out.printf("To transfer a movie to another computer, you need %d floppy disk.",
+                                                                                    numberOfFloppyNeedsToTransferMovie);
 
     }
 

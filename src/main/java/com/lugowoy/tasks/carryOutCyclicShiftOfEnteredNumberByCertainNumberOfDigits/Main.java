@@ -24,6 +24,8 @@ public class Main {
             number /= 10;
         }
 
+        System.out.println(number);
+
         int result = Integer.parseInt(reverseDigit.toString() + number);
 
         System.out.println("Result : " + result);

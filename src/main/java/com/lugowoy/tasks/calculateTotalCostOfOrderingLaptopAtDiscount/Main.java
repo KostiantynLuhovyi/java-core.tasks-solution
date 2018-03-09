@@ -32,11 +32,14 @@ public class Main {
 
     }
 
-    private static CalculationUsingThreeParameters<BigDecimal, Laptop, Integer, BigDecimal> calculating = (laptop, numberOfLaptop, discount) -> {
+    private static CalculationUsingThreeParameters<BigDecimal, Laptop, Integer, BigDecimal> calculating =
+                                                                                 (laptop, numberOfLaptop, discount) -> {
 
         BigDecimal sumPriceOfLaptop = new BigDecimal(laptop.getPrice().multiply(new BigDecimal(numberOfLaptop)).doubleValue());
 
-        return new BigDecimal(sumPriceOfLaptop.subtract(sumPriceOfLaptop.multiply(discount).divide(new BigDecimal(100), SCALE, RoundingMode.DOWN)).doubleValue());
+        return new BigDecimal(sumPriceOfLaptop.subtract(sumPriceOfLaptop.multiply(discount)
+                                                                        .divide(new BigDecimal(100), SCALE, RoundingMode.DOWN))
+                                                                        .doubleValue());
     };
 
     private static int enterNumberOfLaptop() {

@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.calculationOfMonthlyPaymentsOnDeposit;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
@@ -47,11 +49,16 @@ public class Bank implements Serializable, Cloneable {
     }
 
     @Override
-    public Bank clone() throws CloneNotSupportedException {
-        Bank bank = (Bank) super.clone();
-        bank.setBankingServices(this.getBankingServices());
-        bank.setUsers(this.getUsers());
-        bank.setAccounts(this.getAccounts());
+    public Bank clone() {
+        Bank bank = new Bank();
+        try {
+            bank = (Bank) super.clone();
+            bank.setBankingServices(DeepCloning.CLONER.deepClone(this.getBankingServices()));
+            bank.setUsers(DeepCloning.CLONER.deepClone(this.getUsers()));
+            bank.setAccounts(DeepCloning.CLONER.deepClone(this.getAccounts()));
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return bank;
     }
 

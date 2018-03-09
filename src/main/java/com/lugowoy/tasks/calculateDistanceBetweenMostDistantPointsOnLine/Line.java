@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.calculateDistanceBetweenMostDistantPointsOnLine;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 import java.io.Serializable;
 import java.util.Arrays;
 
@@ -13,6 +15,9 @@ public final class Line<T extends Number> implements Serializable, Cloneable {
 
     private T minValueOfPoint;
     private T maxValueOfPoint;
+
+    public Line() {
+    }
 
     public Line(T[] pointsOnLine) throws IllegalArgumentException {
         //The setters are used in the constructor, since the class is declared with the modifier final.йй
@@ -52,11 +57,16 @@ public final class Line<T extends Number> implements Serializable, Cloneable {
 
     @SuppressWarnings("unchecked")
     @Override
-    protected Line<T> clone() throws CloneNotSupportedException {
-        Line<T> line = (Line<T>) super.clone();
-        line.setValueMinPoint(this.getValueMinPoint());
-        line.setValueMaxPoint(this.getValueMaxPoint());
-        line.setPointsOnLine(this.getPointsOnLine());
+    protected Line<T> clone() {
+        Line<T> line = new Line<>();
+        try {
+            line = (Line<T>) super.clone();
+            line.setPointsOnLine(DeepCloning.CLONER.deepClone(this.getPointsOnLine()));
+            line.setValueMinPoint(DeepCloning.CLONER.deepClone(this.getValueMinPoint()));
+            line.setValueMaxPoint(DeepCloning.CLONER.deepClone(this.getValueMaxPoint()));
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return line;
     }
 
@@ -65,13 +75,9 @@ public final class Line<T extends Number> implements Serializable, Cloneable {
     }
 
     public void setPointsOnLine(T[] pointsOnLine) {
-        try {
-            if (checkPointsOnLineNonNull(pointsOnLine)
-                  && checkNumbersOfPointsOnLineGreatestOrEqualMinNumberPoints(pointsOnLine)) {
-                    this.pointsOnLine = Arrays.copyOf(pointsOnLine, pointsOnLine.length);
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
+        if (checkPointsOnLineNonNull(pointsOnLine)
+                && checkNumbersOfPointsOnLineGreatestOrEqualMinNumberPoints(pointsOnLine)) {
+            this.pointsOnLine = Arrays.copyOf(pointsOnLine, pointsOnLine.length);
         }
     }
 
@@ -79,12 +85,16 @@ public final class Line<T extends Number> implements Serializable, Cloneable {
         return minValueOfPoint;
     }
 
-    public void setValueMinPoint(T valueMinPoint) throws IllegalArgumentException {
-        if (valueMinPoint != null) {
-            this.minValueOfPoint = valueMinPoint;
-        } else {
-            throw new IllegalArgumentException(
-                    new NullPointerException("The min value of Point on the line passed by argument is equal to null."));
+    public void setValueMinPoint(T valueMinPoint) {
+        try {
+            if (valueMinPoint != null) {
+                this.minValueOfPoint = valueMinPoint;
+            } else {
+                throw new IllegalArgumentException(
+                        new NullPointerException("The min value of Point on the line passed by argument is equal to null."));
+            }
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
         }
     }
 
@@ -92,31 +102,43 @@ public final class Line<T extends Number> implements Serializable, Cloneable {
         return maxValueOfPoint;
     }
 
-    public void setValueMaxPoint(T valueMaxPoint) throws IllegalArgumentException {
-        if (valueMaxPoint != null) {
-            this.maxValueOfPoint = valueMaxPoint;
-        } else {
-            throw new IllegalArgumentException(
-                    new NullPointerException("The max value of Point on the line passed by argument is equal to null."));
+    public void setValueMaxPoint(T valueMaxPoint) {
+        try {
+            if (valueMaxPoint != null) {
+                this.maxValueOfPoint = valueMaxPoint;
+            } else {
+                throw new IllegalArgumentException(
+                        new NullPointerException("The max value of Point on the line passed by argument is equal to null."));
+            }
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
         }
     }
 
-    private static <T> boolean checkPointsOnLineNonNull(T[] pointsOnLine) throws IllegalArgumentException {
-        boolean resultOfCheck;
-        if (pointsOnLine != null) {
-            resultOfCheck = true;
-        } else {
-            throw new IllegalArgumentException("The array passed by argument is equal to null.");
+    private static <T> boolean checkPointsOnLineNonNull(T[] pointsOnLine) {
+        boolean resultOfCheck = false;
+        try {
+            if (pointsOnLine != null) {
+                resultOfCheck = true;
+            } else {
+                throw new IllegalArgumentException("The array passed by argument is equal to null.");
+            }
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
         }
         return resultOfCheck;
     }
 
-    private static <T> boolean checkNumbersOfPointsOnLineGreatestOrEqualMinNumberPoints(T[] pointsOnLine) throws IllegalArgumentException {
-        boolean resultOfCheck;
-        if (pointsOnLine.length >= MIN_NUMBER_POINTS_ON_LINE) {
-            resultOfCheck = true;
-        } else {
-            throw new IllegalArgumentException("The array passed by argument is not correspond to the correct size.");
+    private static <T> boolean checkNumbersOfPointsOnLineGreatestOrEqualMinNumberPoints(T[] pointsOnLine) {
+        boolean resultOfCheck = false;
+        try {
+            if (pointsOnLine.length >= MIN_NUMBER_POINTS_ON_LINE) {
+                resultOfCheck = true;
+            } else {
+                throw new IllegalArgumentException("The array passed by argument is not correspond to the correct size.");
+            }
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
         }
         return resultOfCheck;
     }

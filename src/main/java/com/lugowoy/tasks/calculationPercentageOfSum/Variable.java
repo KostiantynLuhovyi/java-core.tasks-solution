@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.calculationPercentageOfSum;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -10,6 +12,9 @@ public class Variable implements Serializable, Cloneable {
     private BigDecimal sum;
     private BigDecimal percent;
     private BigDecimal partOfSum;
+
+    public Variable() {
+    }
 
     public Variable(BigDecimal sum) {
         this.sum = sum;
@@ -52,10 +57,15 @@ public class Variable implements Serializable, Cloneable {
 
     @Override
     public Variable clone() throws CloneNotSupportedException {
-        Variable variable = (Variable) super.clone();
-        variable.setSum(this.getSum());
-        variable.setPartOfSum(this.getPartOfSum());
-        variable.setPercent(this.getPercent());
+        Variable variable = new Variable();
+        try {
+            variable = (Variable) super.clone();
+            variable.setSum(DeepCloning.CLONER.deepClone(this.getSum()));
+            variable.setPartOfSum(DeepCloning.CLONER.deepClone(this.getPartOfSum()));
+            variable.setPercent(DeepCloning.CLONER.deepClone(this.getPercent()));
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return variable;
     }
 

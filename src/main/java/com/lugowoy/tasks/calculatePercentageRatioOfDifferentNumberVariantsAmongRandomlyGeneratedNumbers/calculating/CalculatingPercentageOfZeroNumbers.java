@@ -9,9 +9,11 @@ public interface CalculatingPercentageOfZeroNumbers<T extends Number> extends Ca
     @Override
     default int calculatePercentageOfZeroNumbers(Array<T> array) {
         int amountOfZeroNumbers = 0;
-        for (int i = 0; i < array.getArray().length; i++) {
-            if (array.getArray()[i].equals(0)) {
-                amountOfZeroNumbers++;
+        if (Checker.checkObjectOfArrayClassNonNull(array) && Checker.checkArrayNonNull(array.getArray())) {
+            for (int i = 0; i < array.getLength(); i++) {
+                if (array.get(i).equals(0)) {
+                    amountOfZeroNumbers++;
+                }
             }
         }
         return CalculatingPercentage.calculatePercentage(amountOfZeroNumbers, array.getArray().length);

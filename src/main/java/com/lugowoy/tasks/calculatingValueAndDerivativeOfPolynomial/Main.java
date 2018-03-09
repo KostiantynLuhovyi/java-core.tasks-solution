@@ -4,7 +4,7 @@ import com.lugowoy.helper.factory.FactoryArray;
 import com.lugowoy.helper.factory.creator.CreatorArrayNumbers;
 import com.lugowoy.helper.filling.array.numbers.FillerArrayNumbers;
 import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
-import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.models.arrays.ArrayOfNumbers;
 
 /** Created by Konstantin Lugowoy on 14.11.2017. */
 
@@ -20,10 +20,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Array<Integer> polynomialCoefficients = FACTORY.create(FILLER.fill(LENGTH_ARRAY, START_BOUND, END_BOUND));
+        ArrayOfNumbers<Integer> polynomialCoefficients = (ArrayOfNumbers<Integer>) FACTORY.create(FILLER.fill(LENGTH_ARRAY,
+                                                                                                              START_BOUND,
+                                                                                                              END_BOUND));
         System.out.println(polynomialCoefficients);
 
-        Array<Integer> derivativeCoefficients = FACTORY.create(LENGTH_ARRAY - 1);
+        ArrayOfNumbers<Integer> derivativeCoefficients = (ArrayOfNumbers<Integer>) FACTORY.create(LENGTH_ARRAY - 1);
 
         double resultPolynomial = 0;
         double resultDerivative = 0;
@@ -31,13 +33,13 @@ public class Main {
         double argument = 2.0;
         double factor = 1;
 
-        for(int i = 0; i < derivativeCoefficients.getArray().length; i++){
-            resultPolynomial += polynomialCoefficients.getArray()[i] * factor;
-            derivativeCoefficients.getArray()[i] = (i + 1) * polynomialCoefficients.getArray()[i + 1];
-            resultDerivative += derivativeCoefficients.getArray()[i] * factor;
+        for(int i = 0; i < derivativeCoefficients.getLength(); i++){
+            resultPolynomial += polynomialCoefficients.get(i) * factor;
+            derivativeCoefficients.set(i, (i + 1) * polynomialCoefficients.get(i + 1));
+            resultDerivative += derivativeCoefficients.get(i) * factor;
             factor *= argument;
         }
-        resultPolynomial += polynomialCoefficients.getArray()[polynomialCoefficients.getArray().length - 1] * factor;
+        resultPolynomial += polynomialCoefficients.get(polynomialCoefficients.getLength() - 1) * factor;
 
         System.out.println();
         System.out.println("Result polynomial : " + resultPolynomial);

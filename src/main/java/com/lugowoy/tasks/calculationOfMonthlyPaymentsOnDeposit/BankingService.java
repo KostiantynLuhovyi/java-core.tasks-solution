@@ -33,6 +33,18 @@ public class BankingService implements Serializable, Cloneable {
                 ']';
     }
 
+    @Override
+    public BankingService clone() {
+        BankingService bankingService = new BankingService();
+        try {
+            bankingService = (BankingService) super.clone();
+            bankingService.setId(this.getId());
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
+        return bankingService;
+    }
+
     public int getId() {
         return id;
     }

@@ -45,11 +45,16 @@ public class LinearEquation implements Serializable, Cloneable {
     }
 
     @Override
-    public LinearEquation clone() throws CloneNotSupportedException {
-        LinearEquation linearEquation = (LinearEquation) super.clone();
-        linearEquation.setA(this.getA());
-        linearEquation.setB(this.getB());
-        linearEquation.setXRootLinearEquation(this.getXRootLinearEquation());
+    public LinearEquation clone() {
+        LinearEquation linearEquation = new LinearEquation();
+        try {
+            linearEquation = (LinearEquation) super.clone();
+            linearEquation.setA(this.getA());
+            linearEquation.setB(this.getB());
+            linearEquation.setXRootLinearEquation(this.getXRootLinearEquation());
+        } catch (CloneNotSupportedException  ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return linearEquation;
     }
 

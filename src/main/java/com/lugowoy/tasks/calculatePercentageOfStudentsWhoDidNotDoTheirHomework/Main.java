@@ -9,9 +9,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int numberOfStudentsWhoDidTheirHomework = enterNumberOfStudents("Enter the number of students who did their homework :");
+        int numberOfStudentsWhoDidTheirHomework =
+                                   enterNumberOfStudents("Enter the number of students who did their homework :");
 
-        int numberOfStudentsWhoDidNotDoTheirHomework = enterNumberOfStudents("Enter the number of students who did not do their homework :");
+        int numberOfStudentsWhoDidNotDoTheirHomework
+                           = enterNumberOfStudents("Enter the number of students who did not do their homework :");
 
         double percentageOfStudentsWhoDidNotDoTheirHomework = (double) (numberOfStudentsWhoDidTheirHomework + numberOfStudentsWhoDidNotDoTheirHomework)
                                                                         * numberOfStudentsWhoDidNotDoTheirHomework / 100;

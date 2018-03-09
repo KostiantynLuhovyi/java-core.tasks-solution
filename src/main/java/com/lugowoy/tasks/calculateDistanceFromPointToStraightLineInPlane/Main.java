@@ -15,12 +15,15 @@ public class Main {
     private static final String POINT_M = "M";
     private static final String POINT_A = "A";
 
+    private static final double DEFAULT_COORDINATE = 0d;
+
     public static void main(String[] args) {
 
         Point<Double> pointM = getPoint(POINT_M);
         Point<Double> pointA = getPoint(POINT_A);
 
-        Point<Double> pointO = FactoryPoint.getFactoryPoint(new CreatorPoint<Double>()).create();
+        Point<Double> pointO = FactoryPoint.getFactoryPoint(new CreatorPoint<Double>()).create(DEFAULT_COORDINATE,
+                                                                                               DEFAULT_COORDINATE);
 
         if (isDifferent(pointO, pointA)) {
             System.out.printf("Distance from point M(%.2f, %.2f) to line OA is equal : %.2f .",

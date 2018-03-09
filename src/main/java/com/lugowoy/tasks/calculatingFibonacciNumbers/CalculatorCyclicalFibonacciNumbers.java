@@ -6,37 +6,47 @@ public class CalculatorCyclicalFibonacciNumbers extends CalculatorFibonacciNumbe
 
     @Override
     public int calculatingOfPositiveFibonacciNumbers(int number) {
-        int a = 1, b = 1, result = 0;
-        if (number >= 0) {
-            System.out.println(0);
-            System.out.println(a);
-            System.out.println(b);
-            for (int i = 0; i < number; i++) {
-                result = a + b;
-                a = b;
-                b = result;
-                System.out.println(result);
+        int result = 0;
+        try {
+            int a = 1, b = 1;
+            if (number >= 0) {
+                /*System.out.println(0);*/
+                System.out.println(a);
+                System.out.println(b);
+                for (int i = 0; i < number; i++) {
+                    result = a + b;
+                    a = b;
+                    b = result;
+                    System.out.println(result);
+                }
+            } else {
+                throw new IllegalArgumentException("Incorrect value of argument. Value must be a positive number.");
             }
-        } else {
-            throw new RuntimeException("Incorrect value of argument. Value must be a positive number.");
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
         }
         return result;
     }
 
     @Override
     public int calculatingOfNegativeFibonacciNumbers(int number) {
-        int a = 0, b = 1, result = 0;
-        if (number <= 0) {
-            System.out.println(a);
-            System.out.println(b);
-            for (int i = 0; i > number; i--) {
-                result = a - b;
-                a = b;
-                b = result;
-                System.out.println(result);
+        int result = 0;
+        try {
+            int a = 0, b = 1;
+            if (number <= 0) {
+                /*System.out.println(a);*/
+                System.out.println(b);
+                for (int i = 0; i > number; i--) {
+                    result = a - b;
+                    a = b;
+                    b = result;
+                    System.out.println(result);
+                }
+            } else {
+                throw new IllegalArgumentException("Incorrect value of argument. Value must be a negative number.");
             }
-        } else {
-            throw new RuntimeException("Incorrect value of argument. Value must be a negative number.");
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
         }
         return result;
     }

@@ -11,13 +11,15 @@ public interface CalculatingPercentageOfEvenNumbers<T extends Number> extends Ca
     @Override
     default int calculatePercentageOfEvenNumbers(Array<T> array) {
         int amountOfEvenNumbers = 0;
-        for (int i = 0; i < array.getArray().length; i++) {
-            double value = array.getArray()[i].doubleValue();
-            if (abs(value) % 2 == 0) {
-                amountOfEvenNumbers++;
+        if (Checker.checkObjectOfArrayClassNonNull(array) && Checker.checkArrayNonNull(array.getArray())) {
+            for (int i = 0; i < array.getLength(); i++) {
+                double value = array.get(i).doubleValue();
+                if (abs(value) % 2 == 0) {
+                    amountOfEvenNumbers++;
+                }
             }
         }
-        return CalculatingPercentage.calculatePercentage(amountOfEvenNumbers, array.getArray().length);
+        return CalculatingPercentage.calculatePercentage(amountOfEvenNumbers, array.getLength());
     }
 
 }

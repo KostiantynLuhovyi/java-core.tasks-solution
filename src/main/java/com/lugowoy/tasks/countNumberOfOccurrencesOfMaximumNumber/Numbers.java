@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.countNumberOfOccurrencesOfMaximumNumber;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -42,10 +44,15 @@ class Numbers {
     }
 
     @Override
-    public Numbers clone() throws CloneNotSupportedException {
-        Numbers numbers = (Numbers) super.clone();
-        numbers.setNumbers(this.getNumbers());
-        numbers.setMaxNumberCount(this.getMaxNumberCount());
+    public Numbers clone() {
+        Numbers numbers = new Numbers();
+        try {
+            numbers = (Numbers) super.clone();
+            numbers.setNumbers(DeepCloning.CLONER.deepClone(this.getNumbers()));
+            numbers.setMaxNumberCount(this.getMaxNumberCount());
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return numbers;
     }
 

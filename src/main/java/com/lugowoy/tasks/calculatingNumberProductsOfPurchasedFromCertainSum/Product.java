@@ -1,4 +1,6 @@
-package com.lugowoy.tasks.calculatingNumberProductsOfPurchasedForCertainSum;
+package com.lugowoy.tasks.calculatingNumberProductsOfPurchasedFromCertainSum;
+
+import com.lugowoy.helper.other.DeepCloning;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -34,9 +36,14 @@ public final class Product implements Serializable, Cloneable {
     }
 
     @Override
-    public Product clone() throws CloneNotSupportedException {
-        Product product = (Product) super.clone();
-        product.setPrice(this.getPrice());
+    public Product clone() {
+        Product product = new Product();
+        try {
+            product = (Product) super.clone();
+            product.setPrice(DeepCloning.CLONER.deepClone(this.getPrice()));
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return product;
     }
 

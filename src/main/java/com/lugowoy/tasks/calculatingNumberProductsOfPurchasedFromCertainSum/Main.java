@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculatingNumberProductsOfPurchasedForCertainSum;
+package com.lugowoy.tasks.calculatingNumberProductsOfPurchasedFromCertainSum;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -29,7 +29,7 @@ public class Main {
 
         System.out.printf("Is bought %d products", numberOfProducts);
         System.out.println();
-        System.out.printf("Change of money : %f", user.getAvailableSumOfMoney());
+        System.out.printf("There is money left : %.2f", user.getAvailableSumOfMoney());
 
     }
 

@@ -34,10 +34,10 @@ public class Main {
         double distance = calculatingDistanceFromPointToSingleCircle.calculate(pointM, pointC);
 
         System.out.printf("If we assume that the point C(%.2f, %.2f) is the center of the unit circle, " +
-                        "%n then the distance from the point M(%.2f, %.2f) to the unit circle is %.2f .",
-                                                                    pointC.getCoordinateX(), pointC.getCoordinateY(),
-                                                                    pointM.getCoordinateX(), pointM.getCoordinateY(),
-                                                                    distance);
+                                    "%n then the distance from the point M(%.2f, %.2f) to the unit circle is %.2f .",
+                                                                        pointC.getCoordinateX(), pointC.getCoordinateY(),
+                                                                        pointM.getCoordinateX(), pointM.getCoordinateY(),
+                                                                        distance);
 
     }
 

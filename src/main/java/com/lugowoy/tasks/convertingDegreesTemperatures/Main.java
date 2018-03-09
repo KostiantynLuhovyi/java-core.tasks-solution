@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
 
         Temperature temperature = new Temperature();
-        temperature.setScale(setSelectionOfTemperatureScaleForInputTemperature());
+        temperature.setScale(selectionOfTemperatureScaleForInputTemperature());
 
         System.out.println("Enter the temperature value :");
         temperature.setDegreesTemperatures(READER.readDouble());
@@ -81,7 +81,7 @@ public class Main {
         }
     }
 
-    private static TemperatureScale setSelectionOfTemperatureScaleForInputTemperature() {
+    private static TemperatureScale selectionOfTemperatureScaleForInputTemperature() {
         TemperatureScale temperatureScale = null;
 
         System.out.println("Select what temperature scale will enter the temperature.Enter the number.");

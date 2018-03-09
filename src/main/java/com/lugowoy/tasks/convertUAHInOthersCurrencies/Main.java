@@ -23,9 +23,9 @@ public class Main {
         System.out.println("Enter the amount in UAH : ");
         account.setUAH(new BigDecimal(reader.readDouble()));
 
-        Converter<Account> converter = new Converter<>(new ConvertUAHInOtherCurrencies(EUR_EXCHANGE_RATE,
-                                                                                       USD_EXCHANGE_RATE,
-                                                                                       RUB_EXCHANGE_RATE));
+        Converter<Account> converter = new Converter<>(new ConvertorUAHInOtherCurrencies(EUR_EXCHANGE_RATE,
+                                                                                         USD_EXCHANGE_RATE,
+                                                                                         RUB_EXCHANGE_RATE));
 
         converter.convert(account);
 

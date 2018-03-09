@@ -39,11 +39,16 @@ public class Length implements Serializable, Cloneable {
     }
 
     @Override
-    public Length clone() throws CloneNotSupportedException {
-        Length length = (Length) super.clone();
-        length.setKilometers(this.getKilometers());
-        length.setMilesOfSea(this.getMilesOfSea());
-        length.setMilesOfLand(this.getMilesOfLand());
+    public Length clone() {
+        Length length = new Length();
+        try {
+            length = (Length) super.clone();
+            length.setKilometers(this.getKilometers());
+            length.setMilesOfSea(this.getMilesOfSea());
+            length.setMilesOfLand(this.getMilesOfLand());
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return length;
     }
 

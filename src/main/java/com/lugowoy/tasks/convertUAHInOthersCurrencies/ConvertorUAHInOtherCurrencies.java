@@ -8,7 +8,7 @@ import java.math.RoundingMode;
 
 /**Created by Konstantin Lugowoy on 15-Dec-16.*/
 
-public class ConvertUAHInOtherCurrencies implements Converting<Account> {
+public class ConvertorUAHInOtherCurrencies implements Converting<Account> {
 
     private BigDecimal EUR_EXCHANGE_RATE;
     private BigDecimal RUB_EXCHANGE_RATE;
@@ -16,16 +16,16 @@ public class ConvertUAHInOtherCurrencies implements Converting<Account> {
 
     private Account account;
 
-    public ConvertUAHInOtherCurrencies() {
+    public ConvertorUAHInOtherCurrencies() {
     }
 
-    public ConvertUAHInOtherCurrencies(BigDecimal EUR_EXCHANGE_RATE, BigDecimal RUB_EXCHANGE_RATE, BigDecimal USD_EXCHANGE_RATE) {
+    public ConvertorUAHInOtherCurrencies(BigDecimal EUR_EXCHANGE_RATE, BigDecimal RUB_EXCHANGE_RATE, BigDecimal USD_EXCHANGE_RATE) {
         this.EUR_EXCHANGE_RATE = EUR_EXCHANGE_RATE;
         this.RUB_EXCHANGE_RATE = RUB_EXCHANGE_RATE;
         this.USD_EXCHANGE_RATE = USD_EXCHANGE_RATE;
     }
 
-    public ConvertUAHInOtherCurrencies(double EUR_EXCHANGE_RATE, double USD_EXCHANGE_RATE, double RUB_EXCHANGE_RATE) {
+    public ConvertorUAHInOtherCurrencies(double EUR_EXCHANGE_RATE, double USD_EXCHANGE_RATE, double RUB_EXCHANGE_RATE) {
         this.EUR_EXCHANGE_RATE = new BigDecimal(EUR_EXCHANGE_RATE);
         this.USD_EXCHANGE_RATE = new BigDecimal(USD_EXCHANGE_RATE);
         this.RUB_EXCHANGE_RATE = new BigDecimal(RUB_EXCHANGE_RATE);

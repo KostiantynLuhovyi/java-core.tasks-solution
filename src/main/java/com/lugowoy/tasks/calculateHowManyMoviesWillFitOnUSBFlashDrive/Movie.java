@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.calculateHowManyMoviesWillFitOnUSBFlashDrive;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 import java.io.Serializable;
 
 /** Created by Konstantin Lugowoy on 16.06.2017. */
@@ -8,6 +10,9 @@ public final class Movie implements Serializable, Cloneable {
 
     private String nameMovie;
     private double sizeMovie;
+
+    public Movie() {
+    }
 
     public Movie(String nameMovie, double sizeMovie) throws IllegalArgumentException {
         //The setters are used in the constructor, since the class is declared with the modifier final.
@@ -45,10 +50,15 @@ public final class Movie implements Serializable, Cloneable {
     }
 
     @Override
-    protected Movie clone() throws CloneNotSupportedException {
-        Movie movie = (Movie) super.clone();
-        movie.setNameMovie(this.getNameMovie());
-        movie.setSizeMovie(this.getSizeMovie());
+    protected Movie clone() {
+        Movie movie = new Movie();
+        try {
+            movie = (Movie) super.clone();
+            movie.setNameMovie(DeepCloning.CLONER.deepClone(this.getNameMovie()));
+            movie.setSizeMovie(this.getSizeMovie());
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return movie;
     }
 
@@ -57,12 +67,8 @@ public final class Movie implements Serializable, Cloneable {
     }
 
     public void setNameMovie(String nameMovie) {
-        try {
-            if (checkNameOfMovie(nameMovie)) {
-                this.nameMovie = nameMovie;
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
+        if (checkNameOfMovie(nameMovie)) {
+            this.nameMovie = nameMovie;
         }
     }
 
@@ -70,30 +76,38 @@ public final class Movie implements Serializable, Cloneable {
         return sizeMovie;
     }
 
-    public void setSizeMovie(double sizeMovie) throws IllegalArgumentException {
+    public void setSizeMovie(double sizeMovie) {
+        if (checkSizeMovie(sizeMovie)) {
+            this.sizeMovie = sizeMovie;
+        }
+    }
+
+    private boolean checkNameOfMovie(String nameMovie) {
+        boolean resultOfCheck = false;
         try {
-            if (checkSizeMovie(sizeMovie)) {
-                this.sizeMovie = sizeMovie;
+            if ((nameMovie != null) && (!nameMovie.equals(""))) {
+                resultOfCheck = true;
+            } else {
+                throw new IllegalArgumentException("The name of the movie passed by the argument is null or an empty string.");
             }
         } catch (IllegalArgumentException ex) {
             System.err.println(ex.getMessage());
         }
-    }
-
-    private boolean checkNameOfMovie(String nameMovie) throws IllegalArgumentException {
-        if ((nameMovie != null) && (!nameMovie.equals(""))) {
-            return true;
-        } else {
-            throw new IllegalArgumentException("The name of the movie passed by the argument is null or an empty string.");
-        }
+        return resultOfCheck;
     }
 
     private boolean checkSizeMovie(double sizeMovie) {
-        if (sizeMovie > 0) {
-            return true;
-        } else {
-            throw new IllegalArgumentException("The size of the movie passed by the argument is less than or equal to 0.");
+        boolean resultOfCheck = false;
+        try {
+            if (sizeMovie > 0) {
+                resultOfCheck = true;
+            } else {
+                throw new IllegalArgumentException("The size of the movie passed by the argument is less than or equal to 0.");
+            }
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
         }
+        return resultOfCheck;
     }
 
 }

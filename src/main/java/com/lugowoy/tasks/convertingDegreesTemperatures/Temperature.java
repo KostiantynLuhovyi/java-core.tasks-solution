@@ -42,10 +42,15 @@ public class Temperature implements Serializable, Cloneable {
     }
 
     @Override
-    public Temperature clone() throws CloneNotSupportedException {
-        Temperature temperature = (Temperature)super.clone();
-        temperature.setDegreesTemperatures(this.getDegreesTemperatures());
-        temperature.setScale(this.getScale());
+    public Temperature clone() {
+        Temperature temperature = new Temperature();
+        try {
+            temperature = (Temperature) super.clone();
+            temperature.setDegreesTemperatures(this.getDegreesTemperatures());
+            temperature.setScale(this.getScale());
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return temperature;
     }
 

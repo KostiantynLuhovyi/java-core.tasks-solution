@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.calculateTotalCostOfOrderingLaptopAtDiscount;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -12,6 +14,9 @@ public final class Laptop implements Serializable, Cloneable {
     private String brandName;
 
     private BigDecimal price;
+
+    public Laptop() {
+    }
 
     public Laptop(long idLaptop, String brandName, BigDecimal price) {
         //The setters are used in the constructor, since the class is declared with the modifier final.
@@ -50,11 +55,16 @@ public final class Laptop implements Serializable, Cloneable {
     }
 
     @Override
-    protected Laptop clone() throws CloneNotSupportedException {
-        Laptop laptop = (Laptop) super.clone();
-        laptop.setIdLaptop(this.getIdLaptop());
-        laptop.setBrandName(this.getBrandName());
-        laptop.setPrice(new BigDecimal(this.getPrice().doubleValue()));
+    public Laptop clone() {
+        Laptop laptop = new Laptop();
+        try {
+            laptop = (Laptop) super.clone();
+            laptop.setIdLaptop(this.getIdLaptop());
+            laptop.setBrandName(DeepCloning.CLONER.deepClone(this.getBrandName()));
+            laptop.setPrice(DeepCloning.CLONER.deepClone(this.getPrice()));
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return laptop;
     }
 

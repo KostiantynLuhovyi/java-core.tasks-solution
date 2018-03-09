@@ -1,4 +1,6 @@
-package com.lugowoy.tasks.calculatingNumberProductsOfPurchasedForCertainSum;
+package com.lugowoy.tasks.calculatingNumberProductsOfPurchasedFromCertainSum;
+
+import com.lugowoy.helper.other.DeepCloning;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -29,24 +31,29 @@ public final class User implements Serializable, Cloneable {
     @Override
     public String toString() {
         return "User[" +
-                "availableSumOfMoney=" + availableSumOfMoney +
+                "availableSumOfMoney=" + this.availableSumOfMoney +
                 ']';
     }
 
     @Override
-    public User clone() throws CloneNotSupportedException {
-        User user = (User) super.clone();
-        user.setAvailableSumOfMoney(this.getAvailableSumOfMoney());
+    public User clone() {
+        User user = new User();
+        try {
+            user = (User) super.clone();
+            user.setAvailableSumOfMoney(DeepCloning.CLONER.deepClone(this.getAvailableSumOfMoney()));
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return user;
     }
 
     public BigDecimal getAvailableSumOfMoney() {
-        return availableSumOfMoney;
+        return this.availableSumOfMoney;
     }
 
     public void setAvailableSumOfMoney(BigDecimal availableSumOfMoney) {
         try {
-            if ((availableSumOfMoney != null) && (availableSumOfMoney.doubleValue() > 0)) {
+            if ((availableSumOfMoney != null) && (availableSumOfMoney.doubleValue() >= 0)) {
                 this.availableSumOfMoney = availableSumOfMoney;
             } else {
                 throw new IllegalArgumentException("The available sum of money passed by argument is incorrect.");

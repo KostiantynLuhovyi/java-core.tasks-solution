@@ -12,24 +12,18 @@ public class Main {
 
         Circle circle = new Circle();
 
-        try {
+        System.out.println("Enter the radius of the circle : ");
+        circle.setRadius(Reader.getReader(new ReadingConsole()).readDouble());
 
-            System.out.println("Enter the radius of the circle : ");
-            circle.setRadius(Reader.getReader(new ReadingConsole()).readDouble());
+        CalculationUsingOneParameter<Circle, Circle> calculator = CalculatingAreaOfCircle::calculateTheAreaOfTheCircle;
+        calculator.calculate(circle);
 
-            CalculationUsingOneParameter<Circle, Circle> calculator = CalculatingAreaOfCircle::calculateTheAreaOfTheCircle;
-            calculator.calculate(circle);
+        System.out.format("The area of the circle is equal to %f", circle.getArea());
 
-            System.out.format("The area of the circle is equal to %f", circle.getArea());
+        System.out.println();
 
-            System.out.println();
-
-            calculator = CalculatingLengthOfCircle::calculateTheLengthOfTheCircle;
-            calculator.calculate(circle);
-
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
-        }
+        calculator = CalculatingLengthOfCircle::calculateTheLengthOfTheCircle;
+        calculator.calculate(circle);
 
         System.out.format("The length of the circle is equal to %.3f", circle.getLength());
 

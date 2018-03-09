@@ -5,6 +5,7 @@ import com.lugowoy.helper.factory.creator.CreatorArrayNumbers;
 import com.lugowoy.helper.filling.array.numbers.FillerArrayNumbers;
 import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
 import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.models.arrays.ArrayOfNumbers;
 import com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating.CalculatingPercentage;
 import com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating.Calculator;
 import com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating.CalculatorPercentage;
@@ -25,7 +26,8 @@ public class Main {
 
         Array<Integer> array = FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(LENGTH_ARRAY);
 
-        FillerArrayNumbers.getFillerArrayNumbers(new FillingArrayRandomIntegerNumbers()).fill(array, MIN_BOUND, MAX_BOUND);
+        FillerArrayNumbers.getFillerArrayNumbers(new FillingArrayRandomIntegerNumbers()).fill(array, MIN_BOUND,
+                                                                                                     MAX_BOUND);
 
         System.out.println("Numbers : ");
         System.out.println(Arrays.toString(array.getArray()));

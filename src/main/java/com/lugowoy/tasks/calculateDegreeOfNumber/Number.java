@@ -39,11 +39,16 @@ public class Number implements Serializable, Cloneable {
     }
 
     @Override
-    public Number clone() throws CloneNotSupportedException {
-        Number number = (Number) super.clone();
-        number.setNumber(this.getNumber());
-        number.setDegreeOfNumber(this.getDegreeOfNumber());
-        number.setNumberReducedToDegree(this.numberReducedToDegree);
+    public Number clone() {
+        Number number = new Number();
+        try {
+            number = (Number) super.clone();
+            number.setNumber(this.getNumber());
+            number.setDegreeOfNumber(this.getDegreeOfNumber());
+            number.setNumberReducedToDegree(this.getNumberReducedToDegree());
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return number;
     }
 
@@ -52,12 +57,8 @@ public class Number implements Serializable, Cloneable {
     }
 
     public void setNumber(double number) {
-        try {
-            if (checkAnyNumberIsPositive(number)) {
-                this.number = number;
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
+        if (checkAnyNumberIsPositive(number)) {
+            this.number = number;
         }
     }
 
@@ -66,12 +67,8 @@ public class Number implements Serializable, Cloneable {
     }
 
     public void setDegreeOfNumber(double degreeOfNumber) {
-        try {
-            if (checkAnyNumberIsPositive(degreeOfNumber)) {
-                this.degreeOfNumber = degreeOfNumber;
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
+        if (checkAnyNumberIsPositive(degreeOfNumber)) {
+            this.degreeOfNumber = degreeOfNumber;
         }
     }
 
@@ -80,21 +77,23 @@ public class Number implements Serializable, Cloneable {
     }
 
     public void setNumberReducedToDegree(double numberReducedToDegree) {
+        if (checkAnyNumberIsPositive(numberReducedToDegree)) {
+            this.numberReducedToDegree = numberReducedToDegree;
+        }
+    }
+
+    private static boolean checkAnyNumberIsPositive(double number) {
+        boolean resultOfCheck = false;
         try {
-            if (checkAnyNumberIsPositive(numberReducedToDegree)) {
-                this.numberReducedToDegree = numberReducedToDegree;
+            if (number > 0) {
+                resultOfCheck = true;
+            } else {
+                throw new IllegalArgumentException("The number passed by argument is negative.");
             }
         } catch (IllegalArgumentException ex) {
             System.err.println(ex.getMessage());
         }
-    }
-
-    private static boolean checkAnyNumberIsPositive(double number) throws IllegalArgumentException {
-        if (number > 0) {
-            return true;
-        } else {
-            throw new IllegalArgumentException("The number passed by argument is negative.");
-        }
+        return resultOfCheck;
     }
 
 }

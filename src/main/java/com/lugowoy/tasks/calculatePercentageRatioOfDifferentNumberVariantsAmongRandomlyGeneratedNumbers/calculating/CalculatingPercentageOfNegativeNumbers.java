@@ -9,10 +9,12 @@ public interface CalculatingPercentageOfNegativeNumbers<T extends Number> extend
     @Override
     default int calculatePercentageOfNegativeNumbers(Array<T> array) {
         int amountOfNegativeNumbers = 0;
-        for (int i = 0; i < array.getArray().length; i++) {
-            double value = array.getArray()[i].doubleValue();
-            if (value < 0) {
-                amountOfNegativeNumbers++;
+        if (Checker.checkObjectOfArrayClassNonNull(array) && Checker.checkArrayNonNull(array.getArray())) {
+            for (int i = 0; i < array.getLength(); i++) {
+                double value = array.get(i).doubleValue();
+                if (value < 0) {
+                    amountOfNegativeNumbers++;
+                }
             }
         }
         return CalculatingPercentage.calculatePercentage(amountOfNegativeNumbers, array.getArray().length);

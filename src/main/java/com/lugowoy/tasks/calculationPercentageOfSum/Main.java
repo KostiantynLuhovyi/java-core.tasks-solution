@@ -34,13 +34,14 @@ public class Main {
         };
 
         if (variableComparable.compareTo(variable) > 0) {
-            CalculationUsingOneParameter<Variable, Variable> variableCalculableOnTheObject = new CalculatingPercentOfSum()::calculateThePercentageOfTheSum;
+            CalculationUsingOneParameter<Variable, Variable> variableCalculableOnTheObject =
+                                                          new CalculatingPercentOfSum()::calculateThePercentageOfTheSum;
             variableCalculableOnTheObject.calculate(variable);
 
             System.out.printf("Result calculation the percent of the sum of equal : %s",
                     variable.getPercent().setScale(2, RoundingMode.HALF_DOWN).stripTrailingZeros().toPlainString());
         } else {
-            System.out.println("It is impossible to calculateTheAreaOfTheCircle the percentage of the sum.");
+            System.out.println("It is impossible to calculate the percentage of the sum.");
         }
 
     }

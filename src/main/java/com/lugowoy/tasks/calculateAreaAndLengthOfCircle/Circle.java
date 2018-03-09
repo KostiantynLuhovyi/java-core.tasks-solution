@@ -39,11 +39,16 @@ public class Circle implements Serializable, Cloneable {
     }
 
     @Override
-    public Circle clone() throws CloneNotSupportedException {
-        Circle circle = (Circle) super.clone();
-        circle.setRadius(this.getRadius());
-        circle.setArea(this.getArea());
-        circle.setLength(this.getLength());
+    public Circle clone() {
+        Circle circle = new Circle();
+        try {
+            circle = (Circle) super.clone();
+            circle.setRadius(this.getRadius());
+            circle.setArea(this.getArea());
+            circle.setLength(this.getLength());
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return circle;
     }
 
@@ -51,11 +56,15 @@ public class Circle implements Serializable, Cloneable {
         return radius;
     }
 
-    public void setRadius(double radius) throws IllegalArgumentException {
-        if (radius > 0) {
-            this.radius = radius;
-        } else {
-            throw new IllegalArgumentException("The value of radius passed of argument is less than or equal to 0.");
+    public void setRadius(double radius) {
+        try {
+            if (radius > 0) {
+                this.radius = radius;
+            } else {
+                throw new IllegalArgumentException("The value of radius passed of argument is less than or equal to 0.");
+            }
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
         }
     }
 
@@ -63,11 +72,15 @@ public class Circle implements Serializable, Cloneable {
         return area;
     }
 
-    public void setArea(double area) throws IllegalArgumentException {
-        if (area > 0) {
-            this.area = area;
-        } else {
-            throw new IllegalArgumentException("The value of area passed by argument is less than or equal to 0.");
+    public void setArea(double area) {
+        try {
+            if (area > 0) {
+                this.area = area;
+            } else {
+                throw new IllegalArgumentException("The value of area passed by argument is less than or equal to 0.");
+            }
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
         }
     }
 
@@ -75,11 +88,15 @@ public class Circle implements Serializable, Cloneable {
         return length;
     }
 
-    public void setLength(double length) throws IllegalArgumentException {
-        if (length > 0) {
-            this.length = length;
-        } else {
-            throw new IllegalArgumentException("The value of length passed by argument is less than or equal to 0.");
+    public void setLength(double length) {
+        try {
+            if (length > 0) {
+                this.length = length;
+            } else {
+                throw new IllegalArgumentException("The value of length passed by argument is less than or equal to 0.");
+            }
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
         }
     }
 

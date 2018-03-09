@@ -7,9 +7,9 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 
 public class Main {
 
-    private static final CalculatingDegreeOfNumber CALCULATE_THE_DEGREE_OF_NUMBER = Math::pow;
-
     private static final Reader READER = Reader.getReader(new ReadingConsole());
+
+    private static final CalculatingDegreeOfNumber CALCULATE_THE_DEGREE_OF_NUMBER = Math::pow;
 
     public static void main(String[] args) {
 
@@ -21,9 +21,11 @@ public class Main {
         System.out.println("Enter degree : ");
         number.setDegreeOfNumber(READER.readDouble());
 
-        number.setNumberReducedToDegree(CALCULATE_THE_DEGREE_OF_NUMBER.calculateDegreeOfNumber(number.getNumber(), number.getDegreeOfNumber()));
+        number.setNumberReducedToDegree(CALCULATE_THE_DEGREE_OF_NUMBER.calculateDegreeOfNumber(number.getNumber(),
+                                        number.getDegreeOfNumber()));
 
-        System.out.format("Result calculateTheAreaOfTheCircle the degree of the number equal %f", number.getNumberReducedToDegree());
+        System.out.format("Result calculateTheAreaOfTheCircle the degree of the number equal %f",
+                                                                                     number.getNumberReducedToDegree());
 
     }
 

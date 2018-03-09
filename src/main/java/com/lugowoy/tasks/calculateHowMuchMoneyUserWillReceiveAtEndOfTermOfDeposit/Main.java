@@ -24,10 +24,10 @@ public class Main {
         BigDecimal rateOfAllMonths = calculateAmountRateOfDepositOfAllMonths(rate, termOfDepositInMonth);
 
         BigDecimal resultSum = new BigDecimal(depositSumInUAH.doubleValue() * rateOfAllMonths.doubleValue()
-                                                                                        + depositSumInUAH.doubleValue());
+                                                                                       + depositSumInUAH.doubleValue());
 
         System.out.println("Result sum deposit after " + termOfDepositInMonth
-                                                    + " month is equal " + resultSum.setScale(SCALE, RoundingMode.DOWN));
+                                                   + " month is equal " + resultSum.setScale(SCALE, RoundingMode.DOWN));
 
     }
 
