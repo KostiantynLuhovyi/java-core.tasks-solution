@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineHowMuchTimeOnTheRoadWasMarathonRunner;
+package com.lugowoy.tasks.determineHowMuchTimeOnRoadWasMarathonRunner;
 
 /** Created by Konstantin Lugowoy on 23.03.2017. */
 

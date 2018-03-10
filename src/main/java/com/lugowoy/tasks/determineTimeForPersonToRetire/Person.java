@@ -44,10 +44,15 @@ public class Person implements Serializable, Cloneable {
     }
 
     @Override
-    public Person clone() throws CloneNotSupportedException {
-        Person person = (Person) super.clone();
-        person.setAge(this.getAge());
-        person.setGender(this.getGender());
+    public Person clone() {
+        Person person = new Person();
+        try {
+            person = (Person) super.clone();
+            person.setAge(this.getAge());
+            person.setGender(this.getGender());
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return person;
     }
 

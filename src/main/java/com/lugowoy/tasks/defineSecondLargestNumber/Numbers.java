@@ -45,11 +45,16 @@ class Numbers implements Serializable, Cloneable {
     }
 
     @Override
-    public Numbers clone() throws CloneNotSupportedException {
-        Numbers numbers = (Numbers) super.clone();
-        numbers.setFirstNumber(this.getFirstNumber());
-        numbers.setSecondNumber(this.getSecondNumber());
-        numbers.setThirdNumber(this.getThirdNumber());
+    public Numbers clone() {
+        Numbers numbers = new Numbers();
+        try {
+            numbers = (Numbers) super.clone();
+            numbers.setFirstNumber(this.getFirstNumber());
+            numbers.setSecondNumber(this.getSecondNumber());
+            numbers.setThirdNumber(this.getThirdNumber());
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return numbers;
     }
 

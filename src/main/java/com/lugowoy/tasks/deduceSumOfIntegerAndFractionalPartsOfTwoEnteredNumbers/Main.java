@@ -26,10 +26,11 @@ public class Main {
         double resultSumOfFractionalPartsOfTwoNumbers = summing.summarize(firstRealNumber, secondRealNumber);
 
         System.out.printf("The sum of the integer and fractional parts of the entered numbers %f and %f is : \n" +
-                            "sum of the integer parts : %f ;\n" +
-                            "sum of the fractional parts : %f .",
-                                firstRealNumber, secondRealNumber,
-                                resultSumOfIntegerPartsOfTwoNumbers, resultSumOfFractionalPartsOfTwoNumbers);
+                                                                      "sum of the integer parts : %f ;\n" +
+                                                                      "sum of the fractional parts : %f .",
+                                                                            firstRealNumber, secondRealNumber,
+                                                                                resultSumOfIntegerPartsOfTwoNumbers,
+                                                                                resultSumOfFractionalPartsOfTwoNumbers);
 
     }
 

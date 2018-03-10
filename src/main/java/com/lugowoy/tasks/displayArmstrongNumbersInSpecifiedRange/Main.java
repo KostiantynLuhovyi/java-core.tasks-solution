@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         for (int i = 0; i <= BOUND; i++) {
-            if (isAmstrongNumber(i)) {
+            if (isArmstrongNumber(i)) {
                 System.out.print(i + ", ");
             }
         }
@@ -26,7 +26,7 @@ public class Main {
         return numberOfDigit;
     }
 
-    private static boolean isAmstrongNumber(int number) {
+    private static boolean isArmstrongNumber(int number) {
         int digit;
         int result = 0;
         int tmpNumber = number;

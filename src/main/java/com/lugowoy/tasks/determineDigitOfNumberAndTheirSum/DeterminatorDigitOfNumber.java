@@ -13,7 +13,7 @@ public class DeterminatorDigitOfNumber {
                 number /= 10;
                 countDigit++;
 
-                sumDigit = getSumDigitInNumber(digit, sumDigit);
+                sumDigit = calculateSumDigitInNumber(digit, sumDigit);
             } else {
                 break;
             }
@@ -22,7 +22,7 @@ public class DeterminatorDigitOfNumber {
         System.out.println("Sum of digit in number is : " + sumDigit + ".");
     }
 
-    private static int getSumDigitInNumber(int digit, int sumDigit) {
+    private static int calculateSumDigitInNumber(int digit, int sumDigit) {
         sumDigit += digit;
         return sumDigit;
     }

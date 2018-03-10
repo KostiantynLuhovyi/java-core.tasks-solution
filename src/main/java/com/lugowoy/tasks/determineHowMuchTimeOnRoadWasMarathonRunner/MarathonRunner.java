@@ -1,4 +1,6 @@
-package com.lugowoy.tasks.determineHowMuchTimeOnTheRoadWasMarathonRunner;
+package com.lugowoy.tasks.determineHowMuchTimeOnRoadWasMarathonRunner;
+
+import com.lugowoy.helper.other.DeepCloning;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -45,11 +47,16 @@ public class MarathonRunner implements Serializable, Cloneable {
     }
 
     @Override
-    public MarathonRunner clone() throws CloneNotSupportedException {
-        MarathonRunner marathonRunner = (MarathonRunner) super.clone();
-        marathonRunner.setDistance(this.getDistance());
-        marathonRunner.setSpeed(this.getSpeed());
-        marathonRunner.setTime(this.getTime());
+    public MarathonRunner clone() {
+        MarathonRunner marathonRunner = new MarathonRunner();
+        try {
+            marathonRunner = (MarathonRunner) super.clone();
+            marathonRunner.setDistance(this.getDistance());
+            marathonRunner.setSpeed(this.getSpeed());
+            marathonRunner.setTime(DeepCloning.CLONER.deepClone(this.getTime()));
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return marathonRunner;
     }
 

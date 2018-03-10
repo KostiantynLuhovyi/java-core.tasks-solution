@@ -23,7 +23,7 @@ public class Main {
         int number;
         while (true) {
             number = READER.readInt();
-            if ((number >= (Integer.MIN_VALUE + 1)) && (number <= (Integer.MAX_VALUE - 1))) {
+            if ((number > Integer.MIN_VALUE) && (number < Integer.MAX_VALUE)) {
                 break;
             } else {
                 System.out.println("Incorrect value. Re-enter : ");

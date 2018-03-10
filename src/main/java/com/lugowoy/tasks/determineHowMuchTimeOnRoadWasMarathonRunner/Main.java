@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineHowMuchTimeOnTheRoadWasMarathonRunner;
+package com.lugowoy.tasks.determineHowMuchTimeOnRoadWasMarathonRunner;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -16,17 +16,17 @@ public class Main {
 
         System.out.println("Input distance (kilometers) to marathon runner : ");
         double distance = reader.readDouble();
-        System.out.println();
 
         System.out.println("Input speed (m/s) to marathon runner : ");
         double speed = reader.readDouble();
-        System.out.println();
 
         MarathonRunner marathonRunner = new MarathonRunner(distance, speed);
 
         marathonRunner.setTime(DETERMINATOR.determine(marathonRunner));
 
-        System.out.println(marathonRunner.getTime());
+        System.out.printf("Time : %d hours, %d minutes, %d seconds .", marathonRunner.getTime().getHour(),
+                                                                       marathonRunner.getTime().getMinutes(),
+                                                                       marathonRunner.getTime().getSecond());
 
     }
 

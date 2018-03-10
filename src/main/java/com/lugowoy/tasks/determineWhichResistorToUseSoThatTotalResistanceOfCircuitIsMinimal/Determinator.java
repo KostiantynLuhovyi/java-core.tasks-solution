@@ -5,13 +5,19 @@ package com.lugowoy.tasks.determineWhichResistorToUseSoThatTotalResistanceOfCirc
 @FunctionalInterface
 public interface Determinator {
 
-    boolean determineMethodOfConnection(double firstValueOfChainSection, double secondValueOfChainSection, double thirdValueOfChainSection);
+    boolean determineMethodOfConnection(double firstValueOfChainSection,
+                                        double secondValueOfChainSection,
+                                        double thirdValueOfChainSection);
 
-    static boolean determineFirstVariantOfMethodConnection(double firstValueOfChainSection, double secondValueOfChainSection, double thirdValueOfChainSection) {
+    static boolean determineFirstVariantOfMethodConnection(double firstValueOfChainSection,
+                                                           double secondValueOfChainSection,
+                                                           double thirdValueOfChainSection) {
         return (firstValueOfChainSection <= secondValueOfChainSection) && (firstValueOfChainSection <= thirdValueOfChainSection);
     }
 
-    static boolean determineSecondVariantOfMethodConnection(double firstValueOfChainSection, double secondValueOfChainSection, double thirdValueOfChainSection) {
+    static boolean determineSecondVariantOfMethodConnection(double firstValueOfChainSection,
+                                                            double secondValueOfChainSection,
+                                                            double thirdValueOfChainSection) {
         return (secondValueOfChainSection <= firstValueOfChainSection) && (secondValueOfChainSection <= thirdValueOfChainSection);
     }
 

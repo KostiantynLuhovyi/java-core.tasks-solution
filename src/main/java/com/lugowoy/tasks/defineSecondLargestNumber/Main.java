@@ -23,7 +23,8 @@ public class Main {
         numbers.setThirdNumber(READER.readInt());
 
         Computing<Numbers> computing = ComputingSecondLargestNumber::computeSecondLargestNumber;
-        computing.coumpute(numbers);
+
+        System.out.printf("The second largest number of inputs is %d .", computing.coumpute(numbers));
 
     }
 

@@ -17,7 +17,7 @@ public class Main {
         if (Character.isDigit(symbol)) {
             System.out.println("Entered symbol is number.");
         } else if (Character.isLetter(symbol)) {
-            System.out.println("Entered symbol is letter");
+            System.out.println("Entered symbol is letter.");
         } else if (",.:!\"'".indexOf(symbol) > -1){
             System.out.println("Entered symbol is punctuation mark.");
         }

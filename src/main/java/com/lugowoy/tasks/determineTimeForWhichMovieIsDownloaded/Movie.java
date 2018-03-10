@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.determineTimeForWhichMovieIsDownloaded;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 import java.io.Serializable;
 
 /** Created by Konstantin Lugowoy on 16.06.2017. */
@@ -52,11 +54,16 @@ public class Movie implements Cloneable, Serializable {
     }
 
     @Override
-    protected Movie clone() throws CloneNotSupportedException {
-        Movie movie = (Movie) super.clone();
-        movie.setIdMovie(this.getIdMovie());
-        movie.setNameMovie(this.nameMovie);
-        movie.setSizeMovieInGb(this.getSizeMovieInGb());
+    protected Movie clone() {
+        Movie movie = new Movie();
+        try {
+            movie = (Movie) super.clone();
+            movie.setIdMovie(this.getIdMovie());
+            movie.setNameMovie(DeepCloning.CLONER.deepClone(this.getNameMovie()));
+            movie.setSizeMovieInGb(this.getSizeMovieInGb());
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return movie;
     }
 

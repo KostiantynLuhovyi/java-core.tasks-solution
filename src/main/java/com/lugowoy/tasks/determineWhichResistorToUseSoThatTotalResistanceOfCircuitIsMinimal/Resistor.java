@@ -2,22 +2,24 @@ package com.lugowoy.tasks.determineWhichResistorToUseSoThatTotalResistanceOfCirc
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /** Created by Konstantin Lugowoy on 10.11.2017. */
 
 public class Resistor implements Serializable, Cloneable {
 
-    private static int idResistor = 0;
+    private static final AtomicInteger ID_COUNT = new AtomicInteger();
+
+    private int idResistor;
+
     private double resistance;
 
-    static {
-        idResistor++;
-    }
-
     public Resistor() {
+        this.idResistor = ID_COUNT.incrementAndGet();
     }
 
     public Resistor(double resistance) {
+        this.idResistor = ID_COUNT.incrementAndGet();
         this.resistance = resistance;
     }
 
@@ -26,26 +28,32 @@ public class Resistor implements Serializable, Cloneable {
         if (this == o) return true;
         if (!(o instanceof Resistor)) return false;
         Resistor resistor = (Resistor) o;
-        return Double.compare(resistor.getResistance(), getResistance()) == 0;
+        return getIdResistor() == resistor.getIdResistor() &&
+                Double.compare(resistor.getResistance(), getResistance()) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getResistance());
+        return Objects.hash(getIdResistor(), getResistance());
     }
 
     @Override
     public String toString() {
         return "Resistor[" +
-                "idResistor=" + idResistor +
-                ", resistance=" + resistance +
+                "idResistor=" + this.idResistor +
+                ", resistance=" + this.resistance +
                 ']';
     }
 
     @Override
-    public Resistor clone() throws CloneNotSupportedException {
-        Resistor resistor = (Resistor) super.clone();
-        resistor.setResistance(this.getResistance());
+    public Resistor clone() {
+        Resistor resistor = new Resistor();
+        try {
+            resistor = (Resistor) super.clone();
+            resistor.setResistance(this.getResistance());
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return resistor;
     }
 
@@ -58,7 +66,7 @@ public class Resistor implements Serializable, Cloneable {
     }
 
     public int getIdResistor() {
-        return idResistor;
+        return this.idResistor;
     }
 
 }

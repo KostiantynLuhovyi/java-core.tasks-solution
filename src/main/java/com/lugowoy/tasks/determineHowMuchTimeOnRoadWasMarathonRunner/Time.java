@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineHowMuchTimeOnTheRoadWasMarathonRunner;
+package com.lugowoy.tasks.determineHowMuchTimeOnRoadWasMarathonRunner;
 
 import java.util.Calendar;
 import java.util.Objects;
@@ -59,11 +59,16 @@ public class Time {
     }
 
     @Override
-    public Time clone() throws CloneNotSupportedException {
-        Time time = (Time) super.clone();
-        time.setHour(this.getHour());
-        time.setMinutes(this.getMinutes());
-        time.setSecond(this.getSecond());
+    public Time clone() {
+        Time time = new Time();
+        try {
+            time = (Time) super.clone();
+            time.setHour(this.getHour());
+            time.setMinutes(this.getMinutes());
+            time.setSecond(this.getSecond());
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return time;
     }
 
