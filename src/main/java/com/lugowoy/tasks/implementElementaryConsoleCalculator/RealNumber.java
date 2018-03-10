@@ -38,9 +38,14 @@ public class RealNumber implements Serializable, Cloneable {
     }
 
     @Override
-    public RealNumber clone() throws CloneNotSupportedException {
-        RealNumber realNumber = (RealNumber) super.clone();
-        realNumber.setNumber(this.getNumber());
+    public RealNumber clone() {
+        RealNumber realNumber = new RealNumber();
+        try {
+            realNumber = (RealNumber) super.clone();
+            realNumber.setNumber(this.getNumber());
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return realNumber;
     }
 

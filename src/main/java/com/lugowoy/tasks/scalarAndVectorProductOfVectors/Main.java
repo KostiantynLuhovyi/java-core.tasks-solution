@@ -31,9 +31,9 @@ public class Main {
         System.out.println();
         System.out.println("Result of vector product of vectors : ");
         for (int i = 0; i < LENGTH_ARRAY; i++) {
-            resultScalarProductOfVectors += firstArray.getArray()[i] * secondArray.getArray()[i];
-            vectorProductOfVectors.getArray()[i] = firstArray.getArray()[(i + 1) % 3] * secondArray.getArray()[(i + 2) % 3]
-                                                        - firstArray.getArray()[(i + 2) % 3] * secondArray.getArray()[(i + 1) % 3];
+            resultScalarProductOfVectors += firstArray.get(i) * secondArray.get(i);
+            vectorProductOfVectors.set(i, firstArray.get((i + 1) % 3) * secondArray.get((i + 2) % 3)
+                                          - firstArray.get((i + 2) % 3) * secondArray.get((i + 1) % 3));
         }
 
         System.out.println(Arrays.toString(vectorProductOfVectors.getArray()));

@@ -19,8 +19,8 @@ public class Main {
 
         int number = getSelectAnimal(animalList);
 
-        Voice voice = new Voice();
-        voice.getVoice(animalList.get(number));
+        Screaming screaming = new Screaming();
+        screaming.scream(animalList.get(number));
 
     }
 

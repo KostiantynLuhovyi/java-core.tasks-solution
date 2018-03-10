@@ -30,7 +30,7 @@ public class Main {
         int lastDigitOfNumber = ParserIntegerNumber.getSingleDigitOfTheNumber(number.getNumber(), 4);
 
         System.out.printf("The sum of the first and last digit numbers contained in the entered number equal : %d",
-                                                                                firstDigitOfNumber + lastDigitOfNumber);
+                                                                           firstDigitOfNumber + lastDigitOfNumber);
 
         System.out.println();
 
@@ -38,7 +38,7 @@ public class Main {
         int thirdDigitOfNumber = ParserIntegerNumber.getSingleDigitOfTheNumber(number.getNumber(), 3);
 
         System.out.printf("The difference between the second and third digit numbers contained in the entered number equal : %d",
-                                                                                        secondDigitOfNumber - thirdDigitOfNumber);
+                                                                                       secondDigitOfNumber - thirdDigitOfNumber);
 
     }
 

@@ -45,11 +45,16 @@ final class NumbersForComparison implements Serializable, Cloneable {
     }
 
     @Override
-    public NumbersForComparison clone() throws CloneNotSupportedException {
-        NumbersForComparison numbersForComparison = (NumbersForComparison) super.clone();
-        numbersForComparison.setFirstNumber(this.getFirstNumber());
-        numbersForComparison.setSecondNumber(this.getSecondNumber());
-        numbersForComparison.setThirdNumber(this.getThirdNumber());
+    public NumbersForComparison clone() {
+        NumbersForComparison numbersForComparison = new NumbersForComparison();
+        try {
+            numbersForComparison = (NumbersForComparison) super.clone();
+            numbersForComparison.setFirstNumber(this.getFirstNumber());
+            numbersForComparison.setSecondNumber(this.getSecondNumber());
+            numbersForComparison.setThirdNumber(this.getThirdNumber());
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return numbersForComparison;
     }
 

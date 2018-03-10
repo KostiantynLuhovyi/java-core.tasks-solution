@@ -18,6 +18,7 @@ public class Main {
             if ((numberDay >= 1) && (numberDay <= 7)) {
                 PrinterDayOfWeek printer = PrinterDayOfWeek::printDayOfWeekAccordingToNumberToUseSwitchInstruction;
                 System.out.println("The entered value corresponds to the day of the week : " + printer.print(numberDay));
+                break;
             } else {
                 System.out.println("Invalid value day of the week number.");
                 break;

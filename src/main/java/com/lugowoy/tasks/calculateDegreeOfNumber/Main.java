@@ -22,7 +22,7 @@ public class Main {
         number.setDegreeOfNumber(READER.readDouble());
 
         number.setNumberReducedToDegree(CALCULATE_THE_DEGREE_OF_NUMBER.calculateDegreeOfNumber(number.getNumber(),
-                                        number.getDegreeOfNumber()));
+                                                                                               number.getDegreeOfNumber()));
 
         System.out.format("Result calculateTheAreaOfTheCircle the degree of the number equal %f",
                                                                                      number.getNumberReducedToDegree());

@@ -16,7 +16,8 @@ public interface Display {
                 ticket[j] = k % 10;
             }
             if (ticket[0] + ticket[1] + ticket[2] == ticket[3] + ticket[4] + ticket[5]) {
-                System.out.println(ticket[0] + " " + ticket[1] + " " + ticket[2] + " " + ticket[3] + " " + ticket[4] + " " + ticket[5]);
+                System.out.println(ticket[0] + " " + ticket[1] + " " + ticket[2] + " "
+                                    + ticket[3] + " " + ticket[4] + " " + ticket[5]);
 
                 countHappyTicketNumber++;
             }

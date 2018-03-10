@@ -13,7 +13,8 @@ public class Main {
 
         int lengthArray = ArrayLength.getLengthArray(new ReadingConsole());
 
-        Numbers numbers = new Numbers(FillerArray.getFillerArray(new FillingArrayReadIntegerNumbers(new ReadingConsole())).fill(lengthArray));
+        Numbers numbers = new Numbers(FillerArray.getFillerArray(new FillingArrayReadIntegerNumbers(
+                                                                        new ReadingConsole())).fill(lengthArray));
 
         Counting counting = CountingNumbers::countMaximumNumbers;
 

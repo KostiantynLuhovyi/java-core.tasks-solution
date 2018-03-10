@@ -17,9 +17,9 @@ public class Main {
 
         int lengthArray = ArrayLength.getLengthArray(new ReadingConsole());
 
-        Array<Integer> array =
-                             FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(
-                                                              new FillingArrayRandomIntegerNumbers().fill(lengthArray));
+        Array<Integer> array = FactoryArray.getFactoryArray(
+                                                new CreatorArrayNumbers<Integer>()).create(
+                                                        new FillingArrayRandomIntegerNumbers().fill(lengthArray));
 
         System.out.println("Original number : ");
         Arrays.stream(array.getArray()).forEachOrdered(value -> System.out.print(value + " "));

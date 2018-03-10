@@ -41,10 +41,15 @@ public class Variables implements Serializable, Cloneable {
     }
 
     @Override
-    public Variables clone() throws CloneNotSupportedException {
-        Variables variables = (Variables) super.clone();
-        variables.setFirstVariable(this.getFirstVariable());
-        variables.setSecondVariable(this.getSecondVariable());
+    public Variables clone() {
+        Variables variables = new Variables();
+        try {
+            variables = (Variables) super.clone();
+            variables.setFirstVariable(this.getFirstVariable());
+            variables.setSecondVariable(this.getSecondVariable());
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return variables;
     }
 

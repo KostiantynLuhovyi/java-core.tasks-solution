@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.outputVoiceThatIsEmittedByAnimal.animals;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 /** Created by Konstantin Lugowoy on 04.10.2017. */
 
 public class Owl extends Animal {
@@ -14,8 +16,15 @@ public class Owl extends Animal {
     }
 
     @Override
-    public Owl clone() throws CloneNotSupportedException {
-        return (Owl) super.clone();
+    public Owl clone() {
+        Owl owl = new Owl();
+        try {
+            owl = (Owl) super.clone();
+            owl.setVoice(DeepCloning.CLONER.deepClone(this.getVoice()));
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
+        return owl;
     }
 
 }

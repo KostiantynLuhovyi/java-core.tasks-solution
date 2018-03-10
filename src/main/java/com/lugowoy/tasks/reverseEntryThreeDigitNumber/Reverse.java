@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.getReverseEntryThreeDigitNumber;
+package com.lugowoy.tasks.reverseEntryThreeDigitNumber;
 
 /**Created by Konstantin Lugowoy on 03-Feb-17.*/
 

@@ -37,9 +37,14 @@ public class Number implements Serializable, Cloneable {
     }
 
     @Override
-    public Number clone() throws CloneNotSupportedException {
-        Number number = (Number) super.clone();
-        number.setNumber(this.getNumber());
+    public Number clone() {
+        Number number = new Number();
+        try {
+            number = (Number) super.clone();
+            number.setNumber(this.getNumber());
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
         return number;
     }
 

@@ -150,7 +150,7 @@ If you have any questions about this repository or the solution of the tasks in 
 * determineHowMuchTimeIsLeftBeforeMidnight  
     * _The user enters the time in seconds from the beginning of the day from the keyboard.
        Determine how much time (hours, minutes and seconds) is left until midnight._  
-* determineHowMuchTimeOnTheRoadWasMarathonRunner  
+* determineHowMuchTimeOnRoadWasMarathonRunner  
     * _The marathon runner has passed S kilometers with a speed of V meters per second (distance and speed are entered from the keyboard).
        Determine how much time he was on the road (hours, minutes, seconds)?_  
 * determineNumberIsPolindrome  
@@ -218,8 +218,6 @@ If you have any questions about this repository or the solution of the tasks in 
 * flipNumberDownSoThatDigitsAreArrangedInReverseOrder  
     * _An integer of any length is entered from the keyboard. It is necessary to turn this number around,
        i.e. the numbers should be in the reverse order (for example, enter the number 1234 - the result will be 4321)._  
-* getReverseEntryThreeDigitNumber  
-    * _Key in three-digit number and "reverse" it._  
 * identifyTwoIdenticalNumbers  
     * _Enter three numbers and define two of the same number of them._  
 * implementElementaryConsoleCalculator  
@@ -261,6 +259,8 @@ If you have any questions about this repository or the solution of the tasks in 
     * _Product of square matrices._  
 * removeCentralDigitNumberOfThreeDigitsNumber  
     * _Entered from the keyboard three-digit number and remove it from the central digit._  
+* reverseEntryThreeDigitNumber  
+    * _Key in three-digit number and "reverse" it._  
 * roundTheNumberToTwoDecimalPlaces  
     * _The user enters a fractional number from the keyboard.
        Round it up to two decimal places and display it._  

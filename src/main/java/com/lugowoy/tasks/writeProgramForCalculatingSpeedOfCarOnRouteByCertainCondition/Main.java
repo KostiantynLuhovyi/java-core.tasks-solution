@@ -55,7 +55,8 @@ public class Main {
         for (double valueDistance : totalValueOfDistance) {
             resultSumOfValuesTotalDistance += valueDistance;
         }
-        return totalTravelTime > timeTravelOnFirstRoadSection ? resultSumOfValuesTotalDistance / (totalTravelTime - timeTravelOnFirstRoadSection) : -1;
+        return totalTravelTime > timeTravelOnFirstRoadSection ? resultSumOfValuesTotalDistance / (totalTravelTime - timeTravelOnFirstRoadSection)
+                                                              : -1;
     }
 
 }

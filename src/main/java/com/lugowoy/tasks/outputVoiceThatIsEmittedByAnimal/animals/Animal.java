@@ -33,13 +33,12 @@ public abstract class Animal implements Serializable, Cloneable {
                 ']';
     }
 
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
-
     public String getVoice() {
         return voice;
+    }
+
+    protected void setVoice(String voice) {
+        this.voice = voice;
     }
 
 }

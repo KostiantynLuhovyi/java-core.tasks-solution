@@ -17,11 +17,12 @@ public class Main {
 
     public static void main(String[] args) {
 
+        System.out.println("Enter length of array : ");
         int lengthArray = ArrayLength.getLengthArray(new ReadingConsole());
 
-        Array<Integer> array =
-                            FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(
-                                                              new FillingArrayRandomIntegerNumbers().fill(lengthArray));
+        Array<Integer> array = FactoryArray.getFactoryArray(
+                                                new CreatorArrayNumbers<Integer>()).create(
+                                                       new FillingArrayRandomIntegerNumbers().fill(lengthArray));
 
         System.out.println("Numbers : ");
         Arrays.stream(array.getArray()).forEachOrdered(value -> System.out.print(value + " "));
@@ -29,7 +30,7 @@ public class Main {
 
         System.out.println("Numbers that are divisible by 3 and by 9 : ");
         Array<Integer> resultNumbers = printNumbersThatAreDivisibleByThreeAndNine(array);
-        if (resultNumbers.getArray().length == 0) {
+        if (resultNumbers.getLength() == 0) {
             System.out.print("There are no such numbers.");
         } else {
             Arrays.stream(resultNumbers.getArray()).forEachOrdered(value -> System.out.print(value + " "));
@@ -44,8 +45,7 @@ public class Main {
                 integerList.add(value);
             }
         });
-        return FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(
-                                                                  integerList.toArray(new Integer[integerList.size()]));
+        return FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(integerList.toArray(new Integer[integerList.size()]));
     }
 
 }

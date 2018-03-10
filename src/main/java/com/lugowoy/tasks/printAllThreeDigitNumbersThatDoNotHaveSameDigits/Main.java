@@ -15,25 +15,33 @@ public class Main {
 
     public static void main(String[] args) {
 
+        System.out.println("Enter length of array : ");
         int lengthArray = ArrayLength.getLengthArray(new ReadingConsole());
 
-        Array<Integer> array =
-                        FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(
-                                                              new FillingArrayRandomIntegerNumbers().fill(lengthArray));
+        Array<Integer> array = FactoryArray.getFactoryArray(
+                                                new CreatorArrayNumbers<Integer>()).create(
+                                                        new FillingArrayRandomIntegerNumbers().fill(lengthArray));
 
         System.out.println("Numbers : ");
         Arrays.stream(array.getArray()).forEachOrdered(value -> System.out.print(value + " "));
         System.out.println();
 
-        System.out.println("Result numbers : ");
-        printAllThreeDigitNumbersThatDoNotHaveSameDigits(array);
+        Array<Integer> resultArray = getAllThreeDigitNumbersThatDoNotHaveSameDigits(array);
+        if (resultArray.getLength() > 0) {
+            System.out.println("Result numbers : ");
+            printValueOfArray(resultArray);
+        } else {
+            System.out.println("No numbers are found that satisfy the condition.");
+        }
 
     }
 
-    private static void printAllThreeDigitNumbersThatDoNotHaveSameDigits(Array<Integer> array) {
+    private static Array<Integer> getAllThreeDigitNumbersThatDoNotHaveSameDigits(Array<Integer> array) {
+        Array<Integer> resultArray = new Array<>(0);
         Arrays.stream(array.getArray()).forEachOrdered(value -> {
             String stringOfValue = Integer.toString(value);
-            if (stringOfValue.length() == 3) {
+
+            if ((stringOfValue.startsWith("-") && (stringOfValue.length() == 4)) || (stringOfValue.matches("\\d{3}"))) {
                 int tmpValue = value;
                 int firstDigit = tmpValue % 10;
                 tmpValue /= 10;
@@ -41,11 +49,15 @@ public class Main {
                 int thirdDigit = tmpValue / 10;
 
                 if ( ! ((firstDigit == secondDigit) || (secondDigit == thirdDigit) || (thirdDigit == firstDigit))) {
-                    System.out.print(value + " ");
+                    resultArray.add(value);
                 }
             }
         });
+        return resultArray;
+    }
 
+    private static void printValueOfArray(Array<Integer> integerArray) {
+        System.out.println(Arrays.toString(integerArray.getArray()));
     }
 
 }

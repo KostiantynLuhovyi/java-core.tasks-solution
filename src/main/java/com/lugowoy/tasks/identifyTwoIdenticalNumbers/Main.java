@@ -4,8 +4,6 @@ import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.other.GeneratorRandomNumber;
 
-import java.io.IOException;
-
 /**Created by Konstantin Lugowoy on 07.11.2016.*/
 
 public class Main {
@@ -61,7 +59,7 @@ public class Main {
         String description = "Enter a number from 1 to 3\n";
         String inputValue = READER.readString();
         if (isDigit(inputValue)) {
-            if (isCorrectRange(Integer.parseInt(inputValue))) {
+            if (checkCorrectRange(Integer.parseInt(inputValue))) {
                 statusChoice = Integer.parseInt(inputValue);
             } else {
                 System.out.println(description);
@@ -72,7 +70,7 @@ public class Main {
         return statusChoice;
     }
 
-    private static boolean isCorrectRange(int value) {
+    private static boolean checkCorrectRange(int value) {
         return ((value > 0) && (value < 4));
     }
 

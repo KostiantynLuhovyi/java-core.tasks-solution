@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.outputVoiceThatIsEmittedByAnimal.animals;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 /** Created by Konstantin Lugowoy on 04.10.2017. */
 
 public class Rooster extends Animal {
@@ -14,8 +16,15 @@ public class Rooster extends Animal {
     }
 
     @Override
-    public Rooster clone() throws CloneNotSupportedException {
-        return (Rooster) super.clone();
+    public Rooster clone() {
+        Rooster rooster = new Rooster();
+        try {
+            rooster = (Rooster) super.clone();
+            rooster.setVoice(DeepCloning.CLONER.deepClone(this.getVoice()));
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
+        return rooster;
     }
 
 }

@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter height of isosceles triangle : ");
-        int height = getParam();
+        int height = enterParam();
 
         System.out.println("Isosceles triangle filled with stars : ");
         int a = 0;
@@ -56,7 +56,7 @@ public class Main {
 
     }
 
-    private static int getParam() {
+    private static int enterParam() {
         int param;
         while (true) {
             param = READER.readInt();

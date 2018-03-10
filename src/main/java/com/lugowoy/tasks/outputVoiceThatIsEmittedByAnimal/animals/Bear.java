@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.outputVoiceThatIsEmittedByAnimal.animals;
 
+import com.lugowoy.helper.other.DeepCloning;
+
 /** Created by Konstantin Lugowoy on 04.10.2017. */
 
 public class Bear extends Animal {
@@ -14,8 +16,15 @@ public class Bear extends Animal {
     }
 
     @Override
-    public Bear clone() throws CloneNotSupportedException {
-        return (Bear) super.clone();
+    public Bear clone() {
+        Bear bear = new Bear();
+        try {
+            bear = (Bear) super.clone();
+            bear.setVoice(DeepCloning.CLONER.deepClone(this.getVoice()));
+        } catch (CloneNotSupportedException ex) {
+            new InternalError(ex.getMessage()).printStackTrace();
+        }
+        return bear;
     }
 
 }

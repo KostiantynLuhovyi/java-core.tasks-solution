@@ -22,11 +22,11 @@ public class Main {
         System.out.println("Enter the value of the angle (degree) under which the ball was thrown : ");
         double angle = Math.toRadians(READER.readDouble());
 
-        System.out.println("Enter the time (seconds) value for which to calculateArithmeticMeanNumbers : ");
+        System.out.println("Enter the time (seconds) value for which to calculate : ");
         double timeMoment = READER.readDouble();
 
-        double momentOfLastImpactOnSurface = calculateMomentOfLastImpactOnSurface(calculateFlightTimeOfBallBeforeHittingHorizontalSurface(initialSpeed,
-                                                                                        angle), timeMoment);
+        double momentOfLastImpactOnSurface = calculateMomentOfLastImpactOnSurface(
+                                                    calculateFlightTimeOfBallBeforeHittingHorizontalSurface(initialSpeed, angle), timeMoment);
 
         Point<Double> ballPoint = FactoryPoint.getFactoryPoint(new CreatorPoint<Double>()).create();
         ballPoint.setCoordinateX(Math.round(100 * calculateCoordinateX(initialSpeed, angle, timeMoment)) / 100.0);

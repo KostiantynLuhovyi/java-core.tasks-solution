@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.getReverseEntryThreeDigitNumber;
+package com.lugowoy.tasks.reverseEntryThreeDigitNumber;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
