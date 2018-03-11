@@ -56,7 +56,7 @@ public class Variable implements Serializable, Cloneable {
     }
 
     @Override
-    public Variable clone() throws CloneNotSupportedException {
+    public Variable clone() {
         Variable variable = new Variable();
         try {
             variable = (Variable) super.clone();

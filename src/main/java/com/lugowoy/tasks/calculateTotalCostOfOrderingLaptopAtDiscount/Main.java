@@ -28,11 +28,11 @@ public class Main {
         BigDecimal discount = enterTotalDiscountOnTheLaptop();
 
         System.out.println("The total cost of the order : "
-                                               + calculating.calculate(laptop, numberOfLaptop, discount).doubleValue());
+                                               + CALCULATING.calculate(laptop, numberOfLaptop, discount).doubleValue());
 
     }
 
-    private static CalculationUsingThreeParameters<BigDecimal, Laptop, Integer, BigDecimal> calculating =
+    private static final CalculationUsingThreeParameters<BigDecimal, Laptop, Integer, BigDecimal> CALCULATING =
                                                                                  (laptop, numberOfLaptop, discount) -> {
 
         BigDecimal sumPriceOfLaptop = new BigDecimal(laptop.getPrice().multiply(new BigDecimal(numberOfLaptop)).doubleValue());

@@ -4,7 +4,7 @@ package com.lugowoy.tasks.printToWelcomeScreenCorrespondingToEnteredTime;
 
 public class PrinterWelcomeCorrespondingToEnteredTime extends PrinterWelcome {
 
-    private int hour;
+    private final int hour;
 
     public PrinterWelcomeCorrespondingToEnteredTime(int hours) {
         this.hour = hours;

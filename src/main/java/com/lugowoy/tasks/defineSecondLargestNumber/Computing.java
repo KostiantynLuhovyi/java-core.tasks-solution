@@ -5,6 +5,6 @@ package com.lugowoy.tasks.defineSecondLargestNumber;
 @FunctionalInterface
 interface Computing<T> {
 
-    int coumpute(T t);
+    int compute(T t);
 
 }

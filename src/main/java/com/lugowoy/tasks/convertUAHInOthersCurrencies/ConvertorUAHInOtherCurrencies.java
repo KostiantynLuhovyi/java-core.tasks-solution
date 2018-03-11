@@ -35,7 +35,7 @@ public class ConvertorUAHInOtherCurrencies implements Converting<Account> {
     public void convert(Account account) {
         account.setEUR(account.getUAH().divide(EUR_EXCHANGE_RATE, 2, RoundingMode.HALF_DOWN));
         account.setUSD(account.getUAH().divide(USD_EXCHANGE_RATE, 2, RoundingMode.HALF_DOWN));
-        account.setRUB(account.getUAH().multiply(RUB_EXCHANGE_RATE, new MathContext(BigDecimal.ROUND_HALF_DOWN)));
+        account.setRUB(account.getUAH().multiply(RUB_EXCHANGE_RATE, new MathContext(0, RoundingMode.HALF_DOWN)));
     }
 
     public BigDecimal getEUR_EXCHANGE_RATE() {

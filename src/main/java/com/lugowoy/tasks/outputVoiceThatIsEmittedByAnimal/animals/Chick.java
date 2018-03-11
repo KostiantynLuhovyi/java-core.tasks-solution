@@ -16,7 +16,7 @@ public class Chick extends Animal {
     }
 
     @Override
-    public Chick clone() throws CloneNotSupportedException {
+    public Chick clone() {
         Chick chick = new Chick();
         try {
             chick = (Chick) super.clone();

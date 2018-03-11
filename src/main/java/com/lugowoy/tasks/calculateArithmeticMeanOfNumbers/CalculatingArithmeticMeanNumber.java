@@ -41,6 +41,8 @@ public interface CalculatingArithmeticMeanNumber {
         try {
             if (numbers.getNumbers() != null) {
                 resultOfCheck = true;
+            } else {
+                throw new IllegalArgumentException(new NullPointerException());
             }
         } catch (IllegalArgumentException ex) {
             System.err.println(ex.getMessage());

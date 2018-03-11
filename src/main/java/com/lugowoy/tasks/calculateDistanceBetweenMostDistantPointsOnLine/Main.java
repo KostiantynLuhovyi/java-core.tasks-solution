@@ -32,12 +32,12 @@ public class Main {
         Arrays.stream(line.getPointsOnLine()).forEachOrdered(valuePoint -> System.out.print(valuePoint + " "));
 
         double distanceBetweenMaxAndMinPoint
-                = calculatingDistanceBetweenTwoPointsOnLine.calculate(line.getValueMinPoint(), line.getValueMaxPoint());
+                = CALCULATING.calculate(line.getValueMinPoint(), line.getValueMaxPoint());
 
         System.out.println("Distance between max and min values of points is equal : " + distanceBetweenMaxAndMinPoint);
     }
 
-    private static CalculationUsingTwoParameters<Double, Double, Double> calculatingDistanceBetweenTwoPointsOnLine
+    private static final CalculationUsingTwoParameters<Double, Double, Double> CALCULATING
                                                       = (valueMinPoint, valueMaxPoint) -> valueMaxPoint - valueMinPoint;
 
 }

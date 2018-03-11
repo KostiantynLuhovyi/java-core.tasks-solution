@@ -14,9 +14,4 @@ public abstract class PrinterWelcome extends Printer {
     @Override
     public abstract void print();
 
-    @Override
-    public String getPrintText() {
-        return super.getPrintText();
-    }
-
 }

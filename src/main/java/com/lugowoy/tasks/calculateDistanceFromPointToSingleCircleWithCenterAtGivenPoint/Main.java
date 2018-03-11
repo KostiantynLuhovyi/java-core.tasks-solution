@@ -31,7 +31,7 @@ public class Main {
 
         System.out.println();
 
-        double distance = calculatingDistanceFromPointToSingleCircle.calculate(pointM, pointC);
+        double distance = CALCULATING.calculate(pointM, pointC);
 
         System.out.printf("If we assume that the point C(%.2f, %.2f) is the center of the unit circle, " +
                                     "%n then the distance from the point M(%.2f, %.2f) to the unit circle is %.2f .",
@@ -41,7 +41,7 @@ public class Main {
 
     }
 
-    private static CalculationUsingTwoParameters<Double, Point<Double>, Point<Double>> calculatingDistanceFromPointToSingleCircle
+    private static final CalculationUsingTwoParameters<Double, Point<Double>, Point<Double>> CALCULATING
             = (firstPoint, secondPoint) -> sqrt(pow(firstPoint.getCoordinateX() - (secondPoint.getCoordinateX() + 1.0), 2))
                                                 + pow(firstPoint.getCoordinateY() - (secondPoint.getCoordinateY() + 1.0), 2);
 

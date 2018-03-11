@@ -14,7 +14,7 @@ public class Main {
     private static final int RANDOM_ENTER_NUMBERS = 2;
     private static final int EXIT = 3;
 
-    private static ComparingNumbers comparingNumbers = new ComparingNumbers();
+    private static final ComparingNumbers COMPARING_NUMBERS = new ComparingNumbers();
 
     public static void main(String[] args) {
 
@@ -36,14 +36,14 @@ public class Main {
                     numbersForComparison.setSecondNumber(READER.readInt());
                     System.out.println("Enter the third value : ");
                     numbersForComparison.setThirdNumber(READER.readInt());
-                    comparingNumbers.compareNumbers(numbersForComparison);
+                    COMPARING_NUMBERS.compareNumbers(numbersForComparison);
                     break;
                 case RANDOM_ENTER_NUMBERS:
                     numbersForComparison = new NumbersForComparison();
                     numbersForComparison.setFirstNumber(GeneratorRandomNumber.generateInt());
                     numbersForComparison.setSecondNumber(GeneratorRandomNumber.generateInt());
                     numbersForComparison.setThirdNumber(GeneratorRandomNumber.generateInt());
-                    comparingNumbers.compareNumbers(numbersForComparison);
+                    COMPARING_NUMBERS.compareNumbers(numbersForComparison);
                     break;
                 case EXIT:
                     return;

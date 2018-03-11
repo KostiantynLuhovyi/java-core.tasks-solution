@@ -24,7 +24,7 @@ public class Main {
 
         Computing<Numbers> computing = ComputingSecondLargestNumber::computeSecondLargestNumber;
 
-        System.out.printf("The second largest number of inputs is %d .", computing.coumpute(numbers));
+        System.out.printf("The second largest number of inputs is %d .", computing.compute(numbers));
 
     }
 

@@ -10,7 +10,7 @@ public class Resistor implements Serializable, Cloneable {
 
     private static final AtomicInteger ID_COUNT = new AtomicInteger();
 
-    private int idResistor;
+    private final int idResistor;
 
     private double resistance;
 

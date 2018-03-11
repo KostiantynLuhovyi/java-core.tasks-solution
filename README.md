@@ -72,7 +72,7 @@ If you have any questions about this repository or the solution of the tasks in 
 * calculatingFibonacciNumbers  
     * _Calculating Fibonacci numbers._  
 * calculatingNumberProductsOfPurchasedForCertainSum  
-    * _How many products can be purchased at the cost of Y on X hryvnia and how many receive the change money?_  
+    * _How many products can be purchased at the cost of Y on X UAH and how many receive the change money?_  
 * calculatingValueAndDerivativeOfPolynomial  
     * _Calculating the value and derivative of a polynomial based on the elements of the array._  
 * calculationOfCoordinatesOfBodyCastAtAngleToHorizon  

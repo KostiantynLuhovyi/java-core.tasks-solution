@@ -11,7 +11,7 @@ public enum DayOfWeek {
     SATURDAY (6),
     SUNDAY (7);
 
-    private int indexDay;
+    private final int indexDay;
 
     DayOfWeek(int indexDay) {
         this.indexDay = indexDay;
