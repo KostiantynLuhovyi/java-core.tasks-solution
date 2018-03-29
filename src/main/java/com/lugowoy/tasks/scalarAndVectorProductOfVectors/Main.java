@@ -5,8 +5,6 @@ import com.lugowoy.helper.factory.creator.CreatorArrayNumbers;
 import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
 import com.lugowoy.helper.models.arrays.Array;
 
-import java.util.Arrays;
-
 /** Created by Konstantin Lugowoy on 14.11.2017. */
 
 public class Main {
@@ -19,9 +17,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Array<Integer> firstArray = FACTORY.create(new FillingArrayRandomIntegerNumbers().fill(LENGTH_ARRAY, MIN_BOUND, MAX_BOUND));
+        Array<Integer> firstArray = FACTORY.create(new FillingArrayRandomIntegerNumbers().fill(LENGTH_ARRAY, MIN_BOUND,
+                                                                                                             MAX_BOUND));
         System.out.println("First array : " + firstArray);
-        Array<Integer> secondArray = FACTORY.create(new FillingArrayRandomIntegerNumbers().fill(LENGTH_ARRAY, MIN_BOUND, MAX_BOUND));
+
+        Array<Integer> secondArray = FACTORY.create(new FillingArrayRandomIntegerNumbers().fill(LENGTH_ARRAY, MIN_BOUND,
+                                                                                                              MAX_BOUND));
         System.out.println("Second array : " + secondArray);
 
         Array<Integer> vectorProductOfVectors = FACTORY.create(LENGTH_ARRAY);
@@ -36,7 +37,6 @@ public class Main {
                                           - firstArray.get((i + 2) % 3) * secondArray.get((i + 1) % 3));
         }
 
-        System.out.println(Arrays.toString(vectorProductOfVectors.getArray()));
         System.out.println("Result of scalar product of vectors : " + resultScalarProductOfVectors);
 
     }

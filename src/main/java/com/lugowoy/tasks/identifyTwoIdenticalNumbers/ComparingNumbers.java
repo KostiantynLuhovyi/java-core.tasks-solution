@@ -5,7 +5,7 @@ package com.lugowoy.tasks.identifyTwoIdenticalNumbers;
 class ComparingNumbers implements Comparison<NumbersForComparison> {
 
     @Override
-    public String compareNumbers(NumbersForComparison numbersForComparison) {
+    public void compareNumbers(NumbersForComparison numbersForComparison) {
         String statusCompare = null;
 
         if ((numbersForComparison != null)) {
@@ -33,7 +33,6 @@ class ComparingNumbers implements Comparison<NumbersForComparison> {
                 System.out.println(statusCompare);
             }
         }
-        return statusCompare;
     }
 
 }

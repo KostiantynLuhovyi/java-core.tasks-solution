@@ -20,32 +20,31 @@ public class Main {
         System.out.println("Enter length of array : ");
         int lengthArray = ArrayLength.getLengthArray(new ReadingConsole());
 
-        Array<Integer> array = FactoryArray.getFactoryArray(
-                                                new CreatorArrayNumbers<Integer>()).create(
-                                                       new FillingArrayRandomIntegerNumbers().fill(lengthArray));
+        Array<Integer> array = FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(
+                                                                new FillingArrayRandomIntegerNumbers().fill(lengthArray));
 
-        System.out.println("Numbers : ");
-        Arrays.stream(array.getArray()).forEachOrdered(value -> System.out.print(value + " "));
-        System.out.println();
+        System.out.println("Numbers : " + array);
 
         System.out.println("Numbers that are divisible by 3 and by 9 : ");
+
         Array<Integer> resultNumbers = printNumbersThatAreDivisibleByThreeAndNine(array);
+
         if (resultNumbers.getLength() == 0) {
             System.out.print("There are no such numbers.");
         } else {
-            Arrays.stream(resultNumbers.getArray()).forEachOrdered(value -> System.out.print(value + " "));
+            System.out.println("Result " + resultNumbers);
         }
 
     }
 
     private static Array<Integer> printNumbersThatAreDivisibleByThreeAndNine(Array<Integer> array) {
-        List<Integer> integerList = new ArrayList<>();
-        Arrays.stream(array.getArray()).forEachOrdered(value -> {
+        Array<Integer> resultArray = FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(0);
+        Arrays.stream(array.toArray()).forEachOrdered(value -> {
             if ((value % 3 == 0) && (value % 9 == 0)) {
-                integerList.add(value);
+                resultArray.add(value);
             }
         });
-        return FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(integerList.toArray(new Integer[integerList.size()]));
+        return resultArray;
     }
 
 }

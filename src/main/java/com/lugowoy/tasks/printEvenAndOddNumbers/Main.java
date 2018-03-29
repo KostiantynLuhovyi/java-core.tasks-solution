@@ -17,12 +17,10 @@ public class Main {
 
         int lengthArray = ArrayLength.getLengthArray(new ReadingConsole());
 
-        Array<Integer> array = FactoryArray.getFactoryArray(
-                                                new CreatorArrayNumbers<Integer>()).create(
-                                                        new FillingArrayRandomIntegerNumbers().fill(lengthArray));
+        Array<Integer> array = FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(
+                                                                new FillingArrayRandomIntegerNumbers().fill(lengthArray));
 
-        System.out.println("Original numbers :");
-        Arrays.stream(array.getArray()).forEachOrdered(value -> System.out.print(value + " "));
+        System.out.println("Original numbers : " + array);
         System.out.println();
 
         printEvenNumber(array);
@@ -33,7 +31,7 @@ public class Main {
 
     private static void printEvenNumber(Array<Integer> array) {
         System.out.println("Even numbers : ");
-        Arrays.stream(array.getArray()).forEachOrdered(value -> {
+        Arrays.stream(array.toArray()).forEachOrdered(value -> {
             if (value % 2 == 0) {
                 System.out.print(value + " ");
             }
@@ -43,7 +41,7 @@ public class Main {
 
     private static void printOddNumbers(Array<Integer> array) {
         System.out.println("Odd numbers : ");
-        Arrays.stream(array.getArray()).forEachOrdered(value -> {
+        Arrays.stream(array.toArray()).forEachOrdered(value -> {
             if (value % 2 != 0) {
                 System.out.print(value + " ");
             }

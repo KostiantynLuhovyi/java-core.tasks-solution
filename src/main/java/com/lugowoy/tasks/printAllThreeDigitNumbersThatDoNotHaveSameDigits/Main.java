@@ -18,18 +18,15 @@ public class Main {
         System.out.println("Enter length of array : ");
         int lengthArray = ArrayLength.getLengthArray(new ReadingConsole());
 
-        Array<Integer> array = FactoryArray.getFactoryArray(
-                                                new CreatorArrayNumbers<Integer>()).create(
-                                                        new FillingArrayRandomIntegerNumbers().fill(lengthArray));
+        Array<Integer> array = FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(
+                                                                new FillingArrayRandomIntegerNumbers().fill(lengthArray));
 
-        System.out.println("Numbers : ");
-        Arrays.stream(array.getArray()).forEachOrdered(value -> System.out.print(value + " "));
+        System.out.println("Numbers : " + array);
         System.out.println();
 
         Array<Integer> resultArray = getAllThreeDigitNumbersThatDoNotHaveSameDigits(array);
         if (resultArray.getLength() > 0) {
-            System.out.println("Result numbers : ");
-            printValueOfArray(resultArray);
+            System.out.println("Result numbers : " + resultArray);
         } else {
             System.out.println("No numbers are found that satisfy the condition.");
         }
@@ -37,8 +34,8 @@ public class Main {
     }
 
     private static Array<Integer> getAllThreeDigitNumbersThatDoNotHaveSameDigits(Array<Integer> array) {
-        Array<Integer> resultArray = new Array<>(0);
-        Arrays.stream(array.getArray()).forEachOrdered(value -> {
+        Array<Integer> resultArray = FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(0);
+        Arrays.stream(array.toArray()).forEachOrdered(value -> {
             String stringOfValue = Integer.toString(value);
 
             if ((stringOfValue.startsWith("-") && (stringOfValue.length() == 4)) || (stringOfValue.matches("\\d{3}"))) {
@@ -54,10 +51,6 @@ public class Main {
             }
         });
         return resultArray;
-    }
-
-    private static void printValueOfArray(Array<Integer> integerArray) {
-        System.out.println(Arrays.toString(integerArray.getArray()));
     }
 
 }

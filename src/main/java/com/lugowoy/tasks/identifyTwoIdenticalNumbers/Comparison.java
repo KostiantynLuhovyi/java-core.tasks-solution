@@ -6,6 +6,6 @@ interface Comparison<T> {
 
     String NO_EQUAL_NUMBERS = "Among the three numbers is not equal.\n";
 
-    String compareNumbers(T t);
+    void compareNumbers(T t);
 
 }

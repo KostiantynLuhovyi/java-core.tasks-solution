@@ -131,7 +131,7 @@ If you have any questions about this repository or the solution of the tasks in 
 * convertTimeInSecondsToCorrespondingTimeOfStandardView  
     * _The user enters the time in seconds from the keyboard.
        Convert this value in days, hours, minutes and seconds._  
-* convertUAHInOthersCurrencies  
+* convertUAHToOthersCurrencies  
     * _Write a program that allows the user to enter the number using the keypad UAH, and convert it into USD, EUR and RUB._  
 * countHowManyFloppiesAreNeededToTransferMovieToAnotherComputer  
     * _The user enters from the keyboard the volume of one movie in gigabytes.
@@ -143,8 +143,6 @@ If you have any questions about this repository or the solution of the tasks in 
 * deduceSumOfIntegerAndFractionalPartsOfTwoEnteredNumbers  
     * _The user enters two real numbers from the keyboard.
        To deduce on the screen the sum of the integer and fractional parts of two numbers._  
-* defineSecondLargestNumber  
-    * _Enter three numbers and define the second largest number._  
 * determineDigitOfNumberAndTheirSum  
     * _An integer of any length is entered from the keyboard. Determine the number of digits in it and their sum._  
 * determineHowMuchTimeIsLeftBeforeMidnight  
@@ -159,6 +157,8 @@ If you have any questions about this repository or the solution of the tasks in 
     * _Enter an integer (no more than 4 digits!). Determine the number of digits in it._  
 * determinePeriodOfDecimalFractionForFirstTwoPositiveIntegersLocatedInRow  
     * _Determine the period of the decimal fraction p = m / n for the first two positive integers n and m located in a series._  
+* determineSecondLargestNumber  
+    * _Enter three numbers and define the second largest number._  
 * determineThatNumberIsHappy  
     * _Determine that the number is "happy"._  
 * determineThatTicketIsHappy  
@@ -261,7 +261,7 @@ If you have any questions about this repository or the solution of the tasks in 
     * _Entered from the keyboard three-digit number and remove it from the central digit._  
 * reverseEntryThreeDigitNumber  
     * _Key in three-digit number and "reverse" it._  
-* roundTheNumberToTwoDecimalPlaces  
+* roundNumberToTwoDecimalPlaces  
     * _The user enters a fractional number from the keyboard.
        Round it up to two decimal places and display it._  
 * scalarAndVectorProductOfVectors  

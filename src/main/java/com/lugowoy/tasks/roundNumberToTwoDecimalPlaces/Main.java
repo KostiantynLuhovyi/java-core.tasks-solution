@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.roundTheNumberToTwoDecimalPlaces;
+package com.lugowoy.tasks.roundNumberToTwoDecimalPlaces;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;

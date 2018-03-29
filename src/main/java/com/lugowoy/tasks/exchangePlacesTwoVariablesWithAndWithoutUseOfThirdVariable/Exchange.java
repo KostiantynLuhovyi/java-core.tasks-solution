@@ -4,7 +4,7 @@ package com.lugowoy.tasks.exchangePlacesTwoVariablesWithAndWithoutUseOfThirdVari
 
 public interface Exchange<T> {
 
-    T exchange (T t);
+    void exchange (T t);
 
 }
 
