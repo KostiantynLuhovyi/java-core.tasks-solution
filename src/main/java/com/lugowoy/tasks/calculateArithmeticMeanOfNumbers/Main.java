@@ -21,10 +21,7 @@ public class Main {
                                             .toArray());
 
         System.out.println();
-        System.out.println("You entered the numbers : ");
-        for (int i = 0; i < numbers.getNumbers().length; i++) {
-            System.out.print(numbers.getNumbers()[i] + " ");
-        }
+        System.out.println("You entered the numbers : " + numbers);
 
         System.out.println();
 

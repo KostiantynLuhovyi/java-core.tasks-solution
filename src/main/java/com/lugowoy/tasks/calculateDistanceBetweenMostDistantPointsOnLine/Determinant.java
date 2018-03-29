@@ -6,7 +6,7 @@ import java.util.Optional;
 /** Created by Konstantin Lugowoy on 10.07.2017. */
 
 @FunctionalInterface
-public interface DeterminatorOfPoints<T extends Number> {
+public interface Determinant<T extends Number> {
 
     T determine(Line<T> line);
 

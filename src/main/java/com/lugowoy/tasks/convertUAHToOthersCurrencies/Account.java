@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.convertUAHInOthersCurrencies;
+package com.lugowoy.tasks.convertUAHToOthersCurrencies;
 
 import com.lugowoy.helper.other.DeepCloning;
 

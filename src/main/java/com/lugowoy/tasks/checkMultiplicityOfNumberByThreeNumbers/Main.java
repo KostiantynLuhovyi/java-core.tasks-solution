@@ -27,7 +27,9 @@ public class Main {
                                                                                   NUMBER_THIRD_FOR_CHECK_MULTIPLICITY);
         } else {
             System.out.printf("Number %d is not multiplicity of %d, %d, %d numbers.", number,
-                    NUMBER_FIRST_FOR_CHECK_MULTIPLICITY, NUMBER_SECOND_FOR_CHECK_MULTIPLICITY, NUMBER_THIRD_FOR_CHECK_MULTIPLICITY);
+                                                                                      NUMBER_FIRST_FOR_CHECK_MULTIPLICITY,
+                                                                                      NUMBER_SECOND_FOR_CHECK_MULTIPLICITY,
+                                                                                      NUMBER_THIRD_FOR_CHECK_MULTIPLICITY);
         }
 
     }

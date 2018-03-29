@@ -29,7 +29,8 @@ public class Main {
             }
         }
 
-        double Pi = (double)4 * countOfPoints / (NUMBER_OF_POINTS + 1) / (NUMBER_OF_POINTS + 1);
+        double Pi = (double)(4 * countOfPoints / (NUMBER_OF_POINTS + 1) / (NUMBER_OF_POINTS + 1));
+
         System.out.printf("Calculating a value by %d points", countOfPoints);
         System.out.println();
         System.out.println("Result : " + Pi);

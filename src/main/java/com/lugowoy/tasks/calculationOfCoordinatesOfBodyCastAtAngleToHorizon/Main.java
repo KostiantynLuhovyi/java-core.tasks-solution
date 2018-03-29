@@ -41,14 +41,13 @@ public class Main {
         return angle / (180 / Math.PI);
     }
 
-    private static double calculateCoordinateX(double speed, double mass,
-                                               double angle, double gamma, double time) {
+    private static double calculateCoordinateX(double speed, double mass, double angle, double gamma, double time) {
         return (speed * mass * Math.cos(angle) / gamma * (1 - Math.exp( -gamma * time / mass)));
     }
 
-    private static double calculateCoordinateY(double speed, double mass,
-                                               double angle, double gamma, double time) {
-        return mass * (speed * Math.sin(angle) * gamma + mass * gamma) / gamma / gamma * (1 - Math.exp(-gamma * time  / mass)) - mass * g * time / gamma;
+    private static double calculateCoordinateY(double speed, double mass, double angle, double gamma, double time) {
+        return mass * (speed * Math.sin(angle) * gamma + mass * gamma) / gamma / gamma
+                                                      * (1 - Math.exp(-gamma * time  / mass)) - mass * g * time / gamma;
     }
 
     private static double enterAngle() {

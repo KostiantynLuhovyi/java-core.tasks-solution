@@ -25,6 +25,7 @@ public class Main {
                                                                                                               END_BOUND));
         System.out.println(polynomialCoefficients);
 
+        //todo Check why value LENGTH_ARRAY is "LENGTH_ARRAY - 1";
         ArrayOfNumbers<Integer> derivativeCoefficients = (ArrayOfNumbers<Integer>) FACTORY.create(LENGTH_ARRAY - 1);
 
         double resultPolynomial = 0;

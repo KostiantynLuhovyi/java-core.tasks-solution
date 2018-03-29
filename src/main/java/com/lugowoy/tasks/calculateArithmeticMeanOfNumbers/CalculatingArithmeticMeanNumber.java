@@ -8,17 +8,15 @@ public interface CalculatingArithmeticMeanNumber {
     double calculate(Numbers numbers);
 
     static double calculateArithmeticMeanNumber(Numbers numbers) {
-        Double resultArithmeticMeanNumber = 0d;
-        if (checkNumbersNonNull(numbers) && checkArrayNumbersOfObjectNumbersClassNonNull(numbers)) {
-            for (Double number : numbers.getNumbers()) {
-                if (number != null) {
-                    resultArithmeticMeanNumber += number;
-                }
+        double resultArithmeticMeanNumber = 0d;
+        if (checkNumbersNonNull(numbers) && checkArrayNumbersNonNull(numbers)) {
+            for (double number : numbers.getNumbers()) {
+                resultArithmeticMeanNumber += number;
             }
         }
         resultArithmeticMeanNumber /= (numbers.getNumbers().length - 1);
 
-         return resultArithmeticMeanNumber;
+        return resultArithmeticMeanNumber;
     }
 
     private static boolean checkNumbersNonNull(Numbers numbers) {
@@ -36,7 +34,7 @@ public interface CalculatingArithmeticMeanNumber {
         return resultOfCheck;
     }
 
-    private static boolean checkArrayNumbersOfObjectNumbersClassNonNull(Numbers numbers) {
+    private static boolean checkArrayNumbersNonNull(Numbers numbers) {
         boolean resultOfCheck = false;
         try {
             if (numbers.getNumbers() != null) {

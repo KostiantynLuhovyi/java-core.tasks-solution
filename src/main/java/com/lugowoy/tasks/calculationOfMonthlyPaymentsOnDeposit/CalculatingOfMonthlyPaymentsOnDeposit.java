@@ -8,20 +8,22 @@ import java.util.Calendar;
 
 public class CalculatingOfMonthlyPaymentsOnDeposit {
 
-    public BigDecimal calculateOfMonthlyPaymentsOnTheDeposit(User user) {
-        Deposit deposit = this.getDepositServiceOnThePersonalAccount(user.getPersonalAccount());
+    private static final int SCALE = 2;
+
+    public BigDecimal calculateOfMonthlyPaymentsOnDeposit(User user) {
+        Deposit deposit = this.getDepositServiceOnPersonalAccount(user.getPersonalAccount());
 
         Calendar calendar = Calendar.getInstance();
         int dayOfActualMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
 
         return new BigDecimal(deposit.getSumDeposit().multiply(new BigDecimal(deposit.getPercentYearly().doubleValue())
-                                                     .divide(new BigDecimal(100), 2, RoundingMode.HALF_DOWN))
+                                                     .divide(new BigDecimal(100), SCALE, RoundingMode.HALF_DOWN))
                                                      .multiply(new BigDecimal(dayOfActualMonth))
-                                                     .divide(new BigDecimal(calendar.getActualMaximum(Calendar.DAY_OF_YEAR)), 2, RoundingMode.DOWN)
+                                                     .divide(new BigDecimal(calendar.getActualMaximum(Calendar.DAY_OF_YEAR)), SCALE, RoundingMode.DOWN)
                                                      .doubleValue());
     }
 
-    private Deposit getDepositServiceOnThePersonalAccount(PersonalAccount account) {
+    private Deposit getDepositServiceOnPersonalAccount(PersonalAccount account) {
         return (Deposit) account.getBankingServices().stream()
                                                      .findAny()
                                                      .filter(bankingService -> bankingService instanceof Deposit)

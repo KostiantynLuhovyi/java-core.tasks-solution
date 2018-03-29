@@ -12,10 +12,11 @@ public class Deposit extends BankingService {
     private BigDecimal percentYearly;
 
     public Deposit() {
+        super();
     }
 
-    public Deposit(BigDecimal sumDeposit, BigDecimal percentYearly) {
-        super();
+    public Deposit(int id, BigDecimal sumDeposit, BigDecimal percentYearly) {
+        super(id);
         this.sumDeposit = sumDeposit;
         this.percentYearly = percentYearly;
     }

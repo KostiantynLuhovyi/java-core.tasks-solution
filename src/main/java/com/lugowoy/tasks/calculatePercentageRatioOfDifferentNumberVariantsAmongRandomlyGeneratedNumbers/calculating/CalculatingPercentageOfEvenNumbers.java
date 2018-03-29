@@ -11,7 +11,7 @@ public interface CalculatingPercentageOfEvenNumbers<T extends Number> extends Ca
     @Override
     default int calculatePercentageOfEvenNumbers(Array<T> array) {
         int amountOfEvenNumbers = 0;
-        if (Checker.checkObjectOfArrayClassNonNull(array) && Checker.checkArrayNonNull(array.getArray())) {
+        if (Checker.checkObjectOfArrayClassNonNull(array) && Checker.checkArrayNonNull(array.toArray())) {
             for (int i = 0; i < array.getLength(); i++) {
                 double value = array.get(i).doubleValue();
                 if (abs(value) % 2 == 0) {

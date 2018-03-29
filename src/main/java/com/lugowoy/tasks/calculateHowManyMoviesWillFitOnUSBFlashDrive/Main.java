@@ -17,9 +17,12 @@ public class Main {
 
         Movie movie = new Movie(NAME_MOVIE, enterSizeMovie());
 
-        System.out.println("Number movie on the flash drive USB : "
-                                                + (int)(driveUSB.getSizeFlashDriveUSB() * 1024 / movie.getSizeMovie()));
+        System.out.println("Number movie on the flash drive USB : " + calculateNumberOfMovieOnFlashDriveUSB(driveUSB, movie));
 
+    }
+
+    private static int calculateNumberOfMovieOnFlashDriveUSB(FlashDriveUSB driveUSB, Movie movie) {
+        return (int)(driveUSB.getSizeFlashDriveUSB() * 1024 / movie.getSizeMovie());
     }
 
     private static double enterSizeFlashDriveUSB() {

@@ -24,7 +24,7 @@ public class Main {
             }
         }
 
-        int resultHowManyHoursLeftAtWork = (int) ((WORKING_HOURS - timeElapsedFromTheBeginningOfTeWorkdayInSeconds) / 3600);
+        int resultHowManyHoursLeftAtWork = calculateManyHoursLeftAtWork(timeElapsedFromTheBeginningOfTeWorkdayInSeconds);
 
         if (resultHowManyHoursLeftAtWork <= 0) {
             System.out.println("The working day is over.");
@@ -32,6 +32,10 @@ public class Main {
             System.out.println(resultHowManyHoursLeftAtWork + " hours left to work.");
         }
 
+    }
+
+    private static int calculateManyHoursLeftAtWork(long timeElapsedFromTheBeginningOfTeWorkdayInSeconds) {
+        return (int) ((WORKING_HOURS - timeElapsedFromTheBeginningOfTeWorkdayInSeconds) / 3600);
     }
 
 }

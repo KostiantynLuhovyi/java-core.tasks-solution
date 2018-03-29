@@ -9,9 +9,12 @@ import java.util.Arrays;
 
 public final class Numbers implements Serializable, Cloneable {
 
+    private static final int DEFAULT_LENGTH = 10;
+
     private double[] numbers;
 
     public Numbers() {
+        this.numbers = new double[DEFAULT_LENGTH];
     }
 
     public Numbers(double[] numbers) {
@@ -34,9 +37,7 @@ public final class Numbers implements Serializable, Cloneable {
 
     @Override
     public String toString() {
-        return "Numbers[" +
-                "numbers=" + Arrays.toString(numbers) +
-                ']';
+        return Arrays.toString(numbers);
     }
 
     @Override

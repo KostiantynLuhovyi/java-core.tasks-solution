@@ -28,14 +28,12 @@ public class Main {
                 case 1:
                     lengthConverting = new ConvertingKilometersToMilesOfSea();
                     lengthConverting.convert(length);
-                    System.out.printf("The result of the conversion of kilometers to nautical miles is %f",
-                                                                                                length.getMilesOfSea());
+                    System.out.printf("The result of the conversion of kilometers to nautical miles is %f", length.getMilesOfSea());
                     break;
                 case 2:
                     lengthConverting = new ConvertingKilometersToMilesOfLand();
                     lengthConverting.convert(length);
-                    System.out.printf("The result of the conversion of kilometers to miles of land is %f",
-                                                                                               length.getMilesOfLand());
+                    System.out.printf("The result of the conversion of kilometers to miles of land is %f", length.getMilesOfLand());
                     break;
                 case 3:
                     System.out.println("EXIT");

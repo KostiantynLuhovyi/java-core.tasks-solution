@@ -15,7 +15,7 @@ public class Main {
         LinearEquation equation = new LinearEquation();
 
         CalculationUsingOneParameter<LinearEquation, LinearEquation> linearEquationCalculableOnTheObject =
-                                                      new CalculatingLinearEquation()::calculateRootOfTheLinearEquation;
+                                                                                new CalculatingLinearEquation()::calculateRootOfTheLinearEquation;
 
         System.out.println("Calculate root in the linear equation : ax + b = 0");
 

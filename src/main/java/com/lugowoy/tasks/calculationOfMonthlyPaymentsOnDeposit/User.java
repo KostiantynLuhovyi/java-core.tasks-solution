@@ -3,10 +3,13 @@ package com.lugowoy.tasks.calculationOfMonthlyPaymentsOnDeposit;
 import com.lugowoy.helper.other.DeepCloning;
 
 import java.io.Serializable;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /** Created by Konstantin Lugowoy on 10-Feb-17. */
 
 public class User implements Serializable, Cloneable {
+
+    private static final AtomicInteger INTEGER = new AtomicInteger(0);
 
     private Bank bank;
     private PersonalAccount personalAccount;
@@ -16,9 +19,11 @@ public class User implements Serializable, Cloneable {
     private String secondName;
 
     public User() {
+        this.id = INTEGER.incrementAndGet();
     }
 
-    public User(String firstName, String secondName) {
+    public User(int id, String firstName, String secondName) {
+        this.id = id;
         this.firstName = firstName;
         this.secondName = secondName;
     }

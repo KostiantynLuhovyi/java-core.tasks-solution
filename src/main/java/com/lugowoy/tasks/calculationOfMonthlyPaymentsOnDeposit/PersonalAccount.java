@@ -4,10 +4,13 @@ import com.lugowoy.helper.other.DeepCloning;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /** Created by Konstantin Lugowoy on 11-Feb-17. */
 
 public class PersonalAccount implements Serializable, Cloneable {
+
+    private static final AtomicInteger INTEGER = new AtomicInteger(0);
 
     private int id;
 
@@ -17,6 +20,7 @@ public class PersonalAccount implements Serializable, Cloneable {
     private List<BankingService> bankingServices;
 
     public PersonalAccount() {
+        this.id = INTEGER.incrementAndGet();
     }
 
     @Override

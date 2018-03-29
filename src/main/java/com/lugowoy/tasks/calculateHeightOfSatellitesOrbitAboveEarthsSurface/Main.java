@@ -19,13 +19,20 @@ public class Main {
         double orbitalPeriod = READER.readDouble();
         orbitalPeriod *= 3600;
 
-        double heightOfSatellitesOrbitInMeters = Math.pow(G * EARTH_MASS * orbitalPeriod
-                                                 * orbitalPeriod / 4 / Math.PI / Math.PI, (double) 1 / 3) - EARTH_RADIUS;
+        double heightOfSatellitesOrbitInMeters = calculateHeightOfSatellitesOrbitInMeters(orbitalPeriod);
 
-        double heightOfSatellitesOrbitInKilometers = (double)(Math.round(heightOfSatellitesOrbitInMeters)) / 1000;
+        double heightOfSatellitesOrbitInKilometers = calculateHeightOfSatellitesOrbitInKilometers(heightOfSatellitesOrbitInMeters);
 
         System.out.println("The height of the satellite's orbit : " + heightOfSatellitesOrbitInKilometers);
 
+    }
+
+    private static double calculateHeightOfSatellitesOrbitInKilometers(double heightOfSatellitesOrbitInMeters) {
+        return (double)(Math.round(heightOfSatellitesOrbitInMeters)) / 1000;
+    }
+
+    private static double calculateHeightOfSatellitesOrbitInMeters(double orbitalPeriod) {
+        return Math.pow(G * EARTH_MASS * orbitalPeriod * orbitalPeriod / 4 / Math.PI / Math.PI, (double) 1 / 3) - EARTH_RADIUS;
     }
 
 }

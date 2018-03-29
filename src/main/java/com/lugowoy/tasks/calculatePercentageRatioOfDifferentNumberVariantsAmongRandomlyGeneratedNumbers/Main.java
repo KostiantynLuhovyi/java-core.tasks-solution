@@ -25,13 +25,11 @@ public class Main {
 
         Array<Integer> array = FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(LENGTH_ARRAY);
 
-        FillerArrayNumbers.getFillerArrayNumbers(new FillingArrayRandomIntegerNumbers()).fill(array, MIN_BOUND,
-                                                                                                     MAX_BOUND);
+        FillerArrayNumbers.getFillerArrayNumbers(new FillingArrayRandomIntegerNumbers()).fill(array, MIN_BOUND, MAX_BOUND);
 
-        System.out.println("Numbers : ");
-        System.out.println(Arrays.toString(array.getArray()));
+        System.out.println("Numbers : " + array);
 
-        System.out.println("The numbers contains.");
+        System.out.println("The numbers contains : ");
         Calculator<Integer> calculator = new Calculator<>();
 
         calculator.setCalculating(CALCULATING_PERCENTAGE::calculatePercentageOfPositiveNumbers);

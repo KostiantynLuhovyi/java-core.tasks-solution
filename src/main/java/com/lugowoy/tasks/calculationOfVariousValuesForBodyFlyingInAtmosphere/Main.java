@@ -69,9 +69,11 @@ public class Main {
             switch (zoneNumberIndicator) {
                 case 1 :
                     projectionOfResistanceForceX = firstResistanceCoefficient * horizontalProjectionOfSpeed
-                            * Math.sqrt(horizontalProjectionOfSpeed * horizontalProjectionOfSpeed + verticalProjectionOfSpeed * verticalProjectionOfSpeed);
+                            * Math.sqrt(horizontalProjectionOfSpeed * horizontalProjectionOfSpeed
+                                                               + verticalProjectionOfSpeed * verticalProjectionOfSpeed);
                     projectionOfResistanceForceY = firstResistanceCoefficient * verticalProjectionOfSpeed
-                            * Math.sqrt(horizontalProjectionOfSpeed * horizontalProjectionOfSpeed + verticalProjectionOfSpeed * verticalProjectionOfSpeed);
+                            * Math.sqrt(horizontalProjectionOfSpeed * horizontalProjectionOfSpeed
+                                                               + verticalProjectionOfSpeed * verticalProjectionOfSpeed);
                     break;
                 case 2 :
                     projectionOfResistanceForceX = secondResistanceCoefficient * horizontalProjectionOfSpeed;

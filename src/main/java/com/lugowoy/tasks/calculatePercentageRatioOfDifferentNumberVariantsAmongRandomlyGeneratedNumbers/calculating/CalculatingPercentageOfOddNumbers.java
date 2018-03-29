@@ -11,7 +11,7 @@ public interface CalculatingPercentageOfOddNumbers<T extends Number> extends Cal
     @Override
     default int calculatePercentageOfOddNumbers(Array<T> array) {
         int amountOfOddNumbers = 0;
-        if (Checker.checkObjectOfArrayClassNonNull(array) && Checker.checkArrayNonNull(array.getArray())) {
+        if (Checker.checkObjectOfArrayClassNonNull(array) && Checker.checkArrayNonNull(array.toArray())) {
             for (int i = 0; i < array.getLength(); i++) {
                 double value = array.get(i).doubleValue();
                 if (abs(value) % 2 != 0) {
@@ -19,7 +19,7 @@ public interface CalculatingPercentageOfOddNumbers<T extends Number> extends Cal
                 }
             }
         }
-        return CalculatingPercentage.calculatePercentage(amountOfOddNumbers, array.getArray().length);
+        return CalculatingPercentage.calculatePercentage(amountOfOddNumbers, array.getLength());
     }
 
 }

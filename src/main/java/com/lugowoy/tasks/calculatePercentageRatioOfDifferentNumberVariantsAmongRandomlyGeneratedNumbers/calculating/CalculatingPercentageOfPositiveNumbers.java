@@ -9,7 +9,7 @@ public interface CalculatingPercentageOfPositiveNumbers<T extends Number> extend
     @Override
     default int calculatePercentageOfPositiveNumbers(Array<T> array) {
         int amountOfPositiveNumbers = 0;
-        if (Checker.checkObjectOfArrayClassNonNull(array) && Checker.checkArrayNonNull(array.getArray())) {
+        if (Checker.checkObjectOfArrayClassNonNull(array) && Checker.checkArrayNonNull(array.toArray())) {
             for (int i = 0; i < array.getLength(); i++) {
                 double value = array.get(i).doubleValue();
                 if (value > 0) {
@@ -17,7 +17,7 @@ public interface CalculatingPercentageOfPositiveNumbers<T extends Number> extend
                 }
             }
         }
-        return CalculatingPercentage.calculatePercentage(amountOfPositiveNumbers, array.getArray().length);
+        return CalculatingPercentage.calculatePercentage(amountOfPositiveNumbers, array.getLength());
     }
 
 }

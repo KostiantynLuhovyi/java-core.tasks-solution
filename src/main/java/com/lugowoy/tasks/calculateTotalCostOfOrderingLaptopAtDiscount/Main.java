@@ -17,6 +17,7 @@ public class Main {
     private static final int SCALE = 2;
 
     private static final int BOUND_OF_ID_LAPTOP = 10;
+
     private static final String BRAND_NAME_OF_LAPTOP = "Dell";
 
     public static void main(String[] args) {
@@ -27,16 +28,12 @@ public class Main {
 
         BigDecimal discount = enterTotalDiscountOnTheLaptop();
 
-        System.out.println("The total cost of the order : "
-                                               + CALCULATING.calculate(laptop, numberOfLaptop, discount).doubleValue());
+        System.out.println("The total cost of the order : " + CALCULATING.calculate(laptop, numberOfLaptop, discount).doubleValue());
 
     }
 
-    private static final CalculationUsingThreeParameters<BigDecimal, Laptop, Integer, BigDecimal> CALCULATING =
-                                                                                 (laptop, numberOfLaptop, discount) -> {
-
+    private static final CalculationUsingThreeParameters<BigDecimal, Laptop, Integer, BigDecimal> CALCULATING = (laptop, numberOfLaptop, discount) -> {
         BigDecimal sumPriceOfLaptop = new BigDecimal(laptop.getPrice().multiply(new BigDecimal(numberOfLaptop)).doubleValue());
-
         return new BigDecimal(sumPriceOfLaptop.subtract(sumPriceOfLaptop.multiply(discount)
                                                                         .divide(new BigDecimal(100), SCALE, RoundingMode.DOWN))
                                                                         .doubleValue());

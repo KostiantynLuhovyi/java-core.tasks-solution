@@ -11,21 +11,24 @@ public class Main {
 
     private static final int COST_OF_THE_MINUTES = 15;
 
+    private static final int MINUTES_OF_HOUR = 60;
+
     public static void main(String[] args) {
 
-        long timeOfStartCallInTheSeconds, timeOfFinishCallInTheSeconds;
+        long timeOfStartCallInSeconds = enterCallTimeInSeconds("Enter the start time of the call.");
+        long timeOfFinishCallInSeconds = enterCallTimeInSeconds("Enter the finish time of the call.");
 
-        timeOfStartCallInTheSeconds = enterTimeOfStartCallInTheSeconds("Enter the start time of the call.");
-
-        timeOfFinishCallInTheSeconds = enterTimeOfStartCallInTheSeconds("Enter the finish time of the call.");
-
-        BigDecimal costOfTheCall = new BigDecimal((double) (timeOfFinishCallInTheSeconds - timeOfStartCallInTheSeconds) * COST_OF_THE_MINUTES / 60);
+        BigDecimal costOfTheCall = new BigDecimal(calculateCostOfCall(timeOfStartCallInSeconds, timeOfFinishCallInSeconds));
 
         System.out.println("The cost of the call is : " + costOfTheCall);
 
     }
 
-    private static long enterTimeOfStartCallInTheSeconds(String msg) {
+    private static double calculateCostOfCall(long timeOfStartCallInSeconds, long timeOfFinishCallInSeconds) {
+        return (double) (timeOfFinishCallInSeconds - timeOfStartCallInSeconds) * COST_OF_THE_MINUTES / MINUTES_OF_HOUR;
+    }
+
+    private static long enterCallTimeInSeconds(String msg) {
         Reader reader = Reader.getReader(new ReadingConsole());
 
         System.out.println(msg);

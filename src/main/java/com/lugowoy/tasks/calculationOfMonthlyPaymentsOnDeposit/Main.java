@@ -39,11 +39,11 @@ public class Main {
         System.out.println("Enter percent of yearly : ");
         deposit.setPercentYearly(new BigDecimal(READER.readDouble()));
 
-        CalculatingOfMonthlyPaymentsOnDeposit calculatingOfMonthlyPaymentsOnDeposit =
-                                                                           new CalculatingOfMonthlyPaymentsOnDeposit();
+        CalculatingOfMonthlyPaymentsOnDeposit calculatingOfMonthlyPaymentsOnDeposit = new CalculatingOfMonthlyPaymentsOnDeposit();
 
         System.out.printf("The amount of payments for deposit percent for this month is equal : %f",
-                                   calculatingOfMonthlyPaymentsOnDeposit.calculateOfMonthlyPaymentsOnTheDeposit(user));
+                                       calculatingOfMonthlyPaymentsOnDeposit.calculateOfMonthlyPaymentsOnDeposit(user));
+
     }
 
 }

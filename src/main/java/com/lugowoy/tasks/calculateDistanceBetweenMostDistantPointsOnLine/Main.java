@@ -3,7 +3,7 @@ package com.lugowoy.tasks.calculateDistanceBetweenMostDistantPointsOnLine;
 import com.lugowoy.helper.calculating.CalculationUsingTwoParameters;
 import com.lugowoy.helper.filling.array.numbers.FillingArrayReadDoubleNumbers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.tasks.calculateDistanceBetweenMostDistantPointsOnLine.DeterminatorOfPoints.NotDetermineValueException;
+import com.lugowoy.tasks.calculateDistanceBetweenMostDistantPointsOnLine.Determinant.NotDetermineValueException;
 
 import java.util.Arrays;
 
@@ -19,10 +19,10 @@ public class Main {
         Line<Double> line = new Line<>(new FillingArrayReadDoubleNumbers(new ReadingConsole()).fill(LENGTH_ARRAY));
 
         try {
-            DeterminatorOfPoints<Double> determinator = DeterminatorOfPoints::determineMinValueOfPointOnLine;
+            Determinant<Double> determinator = Determinant::determineMinValueOfPointOnLine;
             line.setValueMinPoint(determinator.determine(line));
 
-            determinator = DeterminatorOfPoints::determineMaxValueOfPointOnLine;
+            determinator = Determinant::determineMaxValueOfPointOnLine;
             line.setValueMaxPoint(determinator.determine(line));
         } catch (NotDetermineValueException ex) {
             System.err.println(ex.getMessage());
@@ -31,8 +31,7 @@ public class Main {
         System.out.println("Values of points on the line : ");
         Arrays.stream(line.getPointsOnLine()).forEachOrdered(valuePoint -> System.out.print(valuePoint + " "));
 
-        double distanceBetweenMaxAndMinPoint
-                = CALCULATING.calculate(line.getValueMinPoint(), line.getValueMaxPoint());
+        double distanceBetweenMaxAndMinPoint = CALCULATING.calculate(line.getValueMinPoint(), line.getValueMaxPoint());
 
         System.out.println("Distance between max and min values of points is equal : " + distanceBetweenMaxAndMinPoint);
     }
