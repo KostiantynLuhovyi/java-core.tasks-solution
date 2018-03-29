@@ -3,7 +3,7 @@ package com.lugowoy.tasks.determineNumberIsPolindrome;
 /** Created by Konstantin Lugowoy on 03.09.2017. */
 
 @FunctionalInterface
-public interface Determinator<T> {
+public interface Determinant<T> {
 
     boolean determine(T t);
 

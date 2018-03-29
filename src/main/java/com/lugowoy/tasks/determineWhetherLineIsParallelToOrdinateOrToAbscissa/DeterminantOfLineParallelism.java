@@ -4,7 +4,7 @@ import com.lugowoy.helper.models.points.Point;
 
 /** Created by Konstantin Lugowoy on 28.09.2017. */
 
-public class DeterminatorOfLineParallelism {
+public class DeterminantOfLineParallelism {
 
     public static void determineWhetherLineIsParallelToOrdinateOrToAbscissa(Point<Integer> firstPoint, Point<Integer> secondPoint) {
         if (firstPoint.getCoordinateX().intValue() == secondPoint.getCoordinateX().intValue()

@@ -18,8 +18,8 @@ public class Resistor implements Serializable, Cloneable {
         this.idResistor = ID_COUNT.incrementAndGet();
     }
 
-    public Resistor(double resistance) {
-        this.idResistor = ID_COUNT.incrementAndGet();
+    public Resistor(int idResistor, double resistance) {
+        this.idResistor = idResistor;
         this.resistance = resistance;
     }
 

@@ -18,13 +18,13 @@ public class Main {
 
         int lengthArray = ArrayLength.getLengthArray(new ReadingConsole());
 
-        Array<Integer> array = FactoryArray.getFactoryArray(
-                                                new CreatorArrayNumbers<Integer>()).create(
-                                                        new FillingArrayRandomIntegerNumbers().fill(lengthArray, START_BOUND,
-                                                                                                                 END_BOUND));
+        Array<Integer> array = FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(
+                                                                new FillingArrayRandomIntegerNumbers().fill(lengthArray,
+                                                                                                            START_BOUND,
+                                                                                                            END_BOUND));
 
-        Determinator determinator = Determinator::determinePeriodOfDecimalFractionForFirstTwoPositiveIntegersLocatedInRow;
-        determinator.determine(array);
+        Determinant determinant = Determinant::determinePeriodOfDecimalFractionForFirstTwoPositiveIntegersLocatedInRow;
+        determinant.determine(array);
 
     }
 

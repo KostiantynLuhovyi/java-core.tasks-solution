@@ -13,12 +13,11 @@ public class Main {
 
     private static final double BITS_IN_GB = 8590e+6;
 
-    private static final int BOUND = 10;
     private static final String NAME_MOVIE = "Terminator";
 
     public static void main(String[] args) {
 
-        Movie movie = new Movie(new Random().nextInt(BOUND), NAME_MOVIE, enterSizeFilmInGb());
+        Movie movie = new Movie(NAME_MOVIE, enterSizeFilmInGb());
         System.out.println(movie);
 
         double speedInternetConnection = enterSpeedInternetConnection();

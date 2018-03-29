@@ -3,7 +3,7 @@ package com.lugowoy.tasks.determineWhetherFiveDigitNumberIsPalindrome;
 /** Created by Konstantin Lugowoy on 14.09.2017. */
 
 @FunctionalInterface
-public interface Determinator {
+public interface Determinant {
 
     boolean determine(int number);
 

@@ -14,8 +14,8 @@ public class Main {
         System.out.println("Enter real number : ");
         double number = READER.readDouble();
 
-        Determinator determinator = Determinator::determineWhetherIntroducedNumberHasRealPart;
-        if (determinator.determine(number)) {
+        Determinant determinant = Determinant::determineWhetherIntroducedNumberHasRealPart;
+        if (determinant.determine(number)) {
             System.out.printf("The entered number %.1f has a real part", number);
         } else {
             System.out.printf("The entered number %.1f does not have a real part", number);

@@ -3,7 +3,7 @@ package com.lugowoy.tasks.determineWhetherNumberBelongsToRangeOfNumbers;
 /** Created by Konstantin Lugowoy on 11.09.2017. */
 
 @FunctionalInterface
-public interface Determinator {
+public interface Determinant {
 
     boolean determine(int number, int minBound, int maxBound);
 

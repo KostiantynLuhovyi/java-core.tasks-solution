@@ -3,7 +3,7 @@ package com.lugowoy.tasks.determineHowMuchTimeOnRoadWasMarathonRunner;
 /** Created by Konstantin Lugowoy on 23.03.2017. */
 
 @FunctionalInterface
-public interface Determinator<T, V> {
+public interface Determinant<T, V> {
 
     T determine(V v);
 

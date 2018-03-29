@@ -4,20 +4,20 @@ import com.lugowoy.helper.models.arrays.Array;
 
 /** Created by Konstantin Lugowoy on 03.09.2017. */
 
-public interface Determinator {
+public interface Determinant {
 
     void determine(Array<Integer> array);
 
     static void determinePeriodOfDecimalFractionForFirstTwoPositiveIntegersLocatedInRow(Array<Integer> array) {
-        long p, q, r, l, t, i;
-        for (int n = 0; n < array.getArray().length - 1; n++) {
-            if (array.getArray().length < 2) {
+        long p, q, r, l, t, n;
+        for (int i = 0; i < array.getLength() - 1; i++) {
+            if (array.getLength() < 2) {
                 break;
-            } else if ((array.getArray()[n] >= 0) && (array.getArray()[n + 1] >= 0)) {
-                p = array.getArray()[n];
-                q = array.getArray()[n + 1];
+            } else if ((array.get(i) >= 0) && (array.get(i + 1) >= 0)) {
+                p = array.get(i);
+                q = array.get(i + 1);
                 r = p;
-                for (i = 0; i < q; i++) {
+                for (n = 0; n < q; n++) {
                     r = (r * 10) % q;
                 }
                 t = r;
@@ -28,18 +28,18 @@ public interface Determinator {
                 } while (r != t);
                 t = r = p;
                 System.out.println();
-                System.out.print("The period of the decimal fraction p = m / n " +
-                                  "for the first two consecutive positive integers n and m, is equal : 0.");
-                for (i = 0; i < l; i++) {
+                System.out.print("The period of the decimal fraction p = m / i " +
+                                  "for the first two consecutive positive integers i and m, is equal : 0.");
+                for (n = 0; n < l; n++) {
                     r = (r * 10) % q;
                 }
-                for (i = 0; r != t; i++) {
+                for (n = 0; r != t; n++) {
                     System.out.print(t * 10 / q);
                     r = (r * 10) % q;
                     t = (t * 10) % q;
                 }
                 System.out.print('(');
-                for (i = 0; i < l; i++) {
+                for (n = 0; n < l; n++) {
                     System.out.print(t * 10 / q);
                     t = (t * 10) % q;
                 }

@@ -14,8 +14,9 @@ public class Main {
         System.out.println("Enter a number consisting of five digits : ");
         int number = enterNumber();
 
-        Determinator determinator = Determinator::determineWhetherFiveDigitNumberIsPalindrome;
-        if (determinator.determine(number)) {
+        Determinant determinant = Determinant::determineWhetherFiveDigitNumberIsPalindrome;
+
+        if (determinant.determine(number)) {
             System.out.printf("Number %d is a polindrome.", number);
         } else {
             System.out.printf("Number %d is a not polindrome.", number);

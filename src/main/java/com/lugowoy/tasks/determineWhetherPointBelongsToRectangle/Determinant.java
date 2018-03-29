@@ -5,7 +5,7 @@ import com.lugowoy.helper.models.points.Point;
 /** Created by Konstantin Lugowoy on 14.09.2017. */
 
 @FunctionalInterface
-public interface Determinator {
+public interface Determinant {
 
     boolean determine(Point<Double> point, Point<Double> pointFirst, Point<Double> pointSecond);
 

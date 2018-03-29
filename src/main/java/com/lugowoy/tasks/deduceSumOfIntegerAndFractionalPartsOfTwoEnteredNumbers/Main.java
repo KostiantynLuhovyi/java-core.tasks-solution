@@ -28,7 +28,7 @@ public class Main {
         System.out.printf("The sum of the integer and fractional parts of the entered numbers %f and %f is : \n" +
                                                                       "sum of the integer parts : %f ;\n" +
                                                                       "sum of the fractional parts : %f .",
-                                                                            firstRealNumber, secondRealNumber,
+                                                                                firstRealNumber, secondRealNumber,
                                                                                 resultSumOfIntegerPartsOfTwoNumbers,
                                                                                 resultSumOfFractionalPartsOfTwoNumbers);
 

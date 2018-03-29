@@ -9,8 +9,8 @@ public class Main {
 
     private static final Reader reader = Reader.getReader(new ReadingConsole());
 
-    private static final Determinator<Time, MarathonRunner> DETERMINATOR =
-                                                           Determinator::determineHowMuchTimeOnTheRoadWasMarathonRunner;
+    private static final Determinant<Time, MarathonRunner> DETERMINANT =
+                                                           Determinant::determineHowMuchTimeOnTheRoadWasMarathonRunner;
 
     public static void main(String[] args) {
 
@@ -22,7 +22,7 @@ public class Main {
 
         MarathonRunner marathonRunner = new MarathonRunner(distance, speed);
 
-        marathonRunner.setTime(DETERMINATOR.determine(marathonRunner));
+        marathonRunner.setTime(DETERMINANT.determine(marathonRunner));
 
         System.out.printf("Time : %d hours, %d minutes, %d seconds .", marathonRunner.getTime().getHour(),
                                                                        marathonRunner.getTime().getMinutes(),

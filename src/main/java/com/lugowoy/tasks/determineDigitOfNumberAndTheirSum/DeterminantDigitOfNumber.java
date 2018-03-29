@@ -2,7 +2,7 @@ package com.lugowoy.tasks.determineDigitOfNumberAndTheirSum;
 
 /** Created by Konstantin Lugowoy on 06.10.2017. */
 
-public class DeterminatorDigitOfNumber {
+public class DeterminantDigitOfNumber {
 
     public static void determineDigitInNumber(int number) {
         int countDigit = 0;

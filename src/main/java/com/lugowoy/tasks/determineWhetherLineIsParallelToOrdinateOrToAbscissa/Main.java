@@ -29,8 +29,8 @@ public class Main {
 
         Point<Integer> secondPoint = FACTORY.create(secondPointCoordinateX, secondPointCoordinateY);
 
-        Determinator determinator = DeterminatorOfLineParallelism::determineWhetherLineIsParallelToOrdinateOrToAbscissa;
-        determinator.determine(firstPoint, secondPoint);
+        Determinant determinant = DeterminantOfLineParallelism::determineWhetherLineIsParallelToOrdinateOrToAbscissa;
+        determinant.determine(firstPoint, secondPoint);
 
     }
 

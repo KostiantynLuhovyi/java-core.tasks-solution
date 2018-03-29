@@ -14,9 +14,9 @@ public class Main {
         System.out.println("Enter a number to determine if it is a palindrome : ");
         int number = READER.readInt();
 
-        Determinator<Integer> determinator = Determinator::determineNumberIsPolindrome;
+        Determinant<Integer> determinant = Determinant::determineNumberIsPolindrome;
 
-        if (determinator.determine(number)) {
+        if (determinant.determine(number)) {
             System.out.printf("Number %d is a polindrome.", number);
         } else {
             System.out.printf("Number %d is a not polindrome.", number);

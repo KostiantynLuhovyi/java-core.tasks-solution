@@ -40,8 +40,9 @@ public class Main {
 
         Point<Double> point = FACTORY.create(xCoordinatePoint, yCoordinatePoint);
 
-        Determinator determinator = Determinator::determineWhetherPointBelongsToRectangle;
-        if (determinator.determine(point, pointUpperLeft, pointLowerRight)) {
+        Determinant determinant = Determinant::determineWhetherPointBelongsToRectangle;
+
+        if (determinant.determine(point, pointUpperLeft, pointLowerRight)) {
             System.out.println("The entered point belongs to the rectangle.");
         } else {
             System.out.println("The entered point does not belong to the rectangle.");

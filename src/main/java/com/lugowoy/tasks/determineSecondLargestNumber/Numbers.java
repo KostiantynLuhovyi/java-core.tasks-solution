@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.defineSecondLargestNumber;
+package com.lugowoy.tasks.determineSecondLargestNumber;
 
 import java.io.Serializable;
 import java.util.Objects;

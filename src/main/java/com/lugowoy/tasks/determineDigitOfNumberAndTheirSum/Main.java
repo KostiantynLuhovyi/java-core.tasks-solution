@@ -14,8 +14,8 @@ public class Main {
         System.out.println("Enter number : ");
         int number = enterNumber();
 
-        Determinator<Integer> determinator = DeterminatorDigitOfNumber::determineDigitInNumber;
-        determinator.determine(number);
+        Determinant<Integer> determinant = DeterminantDigitOfNumber::determineDigitInNumber;
+        determinant.determine(number);
 
     }
 

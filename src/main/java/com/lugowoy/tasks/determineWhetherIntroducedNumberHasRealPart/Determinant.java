@@ -3,7 +3,7 @@ package com.lugowoy.tasks.determineWhetherIntroducedNumberHasRealPart;
 /** Created by Konstantin Lugowoy on 01.10.2017. */
 
 @FunctionalInterface
-public interface Determinator {
+public interface Determinant {
 
     boolean determine(double number);
 

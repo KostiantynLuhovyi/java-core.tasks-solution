@@ -16,7 +16,8 @@ public interface Calculator {
                 / (firstResistor.getResistance() + mainResistor.getResistance());
     }
 
-    static double calculationOfResistanceOfCircuitForSecondConnectionMethods(Resistor mainResistor, Resistor firstResistor, Resistor secondResistor, Resistor thirdResistor) {
+    static double calculationOfResistanceOfCircuitForSecondConnectionMethods(Resistor mainResistor, Resistor firstResistor,
+                                                                             Resistor secondResistor, Resistor thirdResistor) {
         return firstResistor.getResistance() * thirdResistor.getResistance()
                 / (firstResistor.getResistance() + thirdResistor.getResistance())
                         +
@@ -24,7 +25,8 @@ public interface Calculator {
                 / (secondResistor.getResistance() + mainResistor.getResistance());
     }
 
-    static double calculationOfResistanceOfCircuitForThirdConnectionMethods(Resistor mainResistor, Resistor firstResistor, Resistor secondResistor, Resistor thirdResistor) {
+    static double calculationOfResistanceOfCircuitForThirdConnectionMethods(Resistor mainResistor, Resistor firstResistor,
+                                                                            Resistor secondResistor, Resistor thirdResistor) {
         return secondResistor.getResistance() * firstResistor.getResistance()
                 / (secondResistor.getResistance() + firstResistor.getResistance())
                         +
