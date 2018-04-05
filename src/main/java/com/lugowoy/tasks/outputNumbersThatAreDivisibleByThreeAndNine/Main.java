@@ -7,10 +7,6 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.arrays.Array;
 import com.lugowoy.helper.other.ArrayLength;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 /** Created by Konstantin Lugowoy on 13.07.2017. */
 
 public class Main {
@@ -39,11 +35,11 @@ public class Main {
 
     private static Array<Integer> printNumbersThatAreDivisibleByThreeAndNine(Array<Integer> array) {
         Array<Integer> resultArray = FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(0);
-        Arrays.stream(array.toArray()).forEachOrdered(value -> {
-            if ((value % 3 == 0) && (value % 9 == 0)) {
-                resultArray.add(value);
+        for (int i = 0; i < array.getLength(); i++) {
+            if ((array.get(i) % 3 == 0) && (array.get(i) % 9 == 0)) {
+                resultArray.add(array.get(i));
             }
-        });
+        }
         return resultArray;
     }
 

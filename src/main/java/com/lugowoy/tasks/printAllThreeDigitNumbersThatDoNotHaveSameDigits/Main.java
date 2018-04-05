@@ -7,8 +7,6 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.arrays.Array;
 import com.lugowoy.helper.other.ArrayLength;
 
-import java.util.Arrays;
-
 /** Created by Konstantin Lugowoy on 13.07.2017. */
 
 public class Main {
@@ -35,21 +33,21 @@ public class Main {
 
     private static Array<Integer> getAllThreeDigitNumbersThatDoNotHaveSameDigits(Array<Integer> array) {
         Array<Integer> resultArray = FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(0);
-        Arrays.stream(array.toArray()).forEachOrdered(value -> {
-            String stringOfValue = Integer.toString(value);
+        for (int i = 0; i < array.getLength(); i++) {
+            String stringOfValue = Integer.toString(array.get(i));
 
             if ((stringOfValue.startsWith("-") && (stringOfValue.length() == 4)) || (stringOfValue.matches("\\d{3}"))) {
-                int tmpValue = value;
+                int tmpValue = array.get(i);
                 int firstDigit = tmpValue % 10;
                 tmpValue /= 10;
                 int secondDigit = tmpValue % 10;
                 int thirdDigit = tmpValue / 10;
 
                 if ( ! ((firstDigit == secondDigit) || (secondDigit == thirdDigit) || (thirdDigit == firstDigit))) {
-                    resultArray.add(value);
+                    resultArray.add(array.get(i));
                 }
             }
-        });
+        }
         return resultArray;
     }
 

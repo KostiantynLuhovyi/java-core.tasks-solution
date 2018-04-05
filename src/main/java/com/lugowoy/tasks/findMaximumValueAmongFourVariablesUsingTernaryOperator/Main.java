@@ -20,11 +20,12 @@ public class Main {
                                                                                                             MIN_BOUND,
                                                                                                             MAX_BOUND));
 
-        System.out.println(array.toString());
+        System.out.println("Original array : " + array);
 
         int resultValue = findMaximumValueAmongFourVariablesUsingTernaryOperator(array);
 
-        System.out.println(resultValue);
+        System.out.println();
+        System.out.println("Result : " + resultValue);
 
     }
 

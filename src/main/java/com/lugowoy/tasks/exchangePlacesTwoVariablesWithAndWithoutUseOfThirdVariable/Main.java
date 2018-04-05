@@ -21,8 +21,7 @@ public class Main {
         int secondValue = READER.readInt();
         variableForExchangePlacesTwoVariableWithThirdVariables.setSecondVariable(secondValue);
 
-        Exchange<Variables> variablesExchangeWithTheUseThirdVariable =
-                (variableForExchangeWithTheUseThirdVariables) -> {
+        Exchange<Variables> variablesExchangeWithTheUseThirdVariable = (variableForExchangeWithTheUseThirdVariables) -> {
             if (variableForExchangeWithTheUseThirdVariables != null) {
                 int tmp = variableForExchangeWithTheUseThirdVariables.getFirstVariable();
                 variableForExchangeWithTheUseThirdVariables.setFirstVariable(variableForExchangeWithTheUseThirdVariables.getSecondVariable());
@@ -30,14 +29,15 @@ public class Main {
             } else {
                 System.out.println("Variables is equal null");
             }
-            return variableForExchangeWithTheUseThirdVariables;
         };
 
         variablesExchangeWithTheUseThirdVariable.exchange(variableForExchangePlacesTwoVariableWithThirdVariables);
 
         System.out.printf("After the exchange of variable values using the third variable, the result is : \n" +
-                "firstVariable = %d;\n" +
-                "secondVariable = %d;\n", variableForExchangePlacesTwoVariableWithThirdVariables.getFirstVariable(), variableForExchangePlacesTwoVariableWithThirdVariables.getSecondVariable());
+                                            "firstVariable = %d;\n" +
+                                            "secondVariable = %d;\n",
+                                            variableForExchangePlacesTwoVariableWithThirdVariables.getFirstVariable(),
+                                            variableForExchangePlacesTwoVariableWithThirdVariables.getSecondVariable());
 
         Variables variableForExchangePlacesTwoVariableWithoutThirdVariables = new Variables(firstValue, secondValue);
 
@@ -49,7 +49,6 @@ public class Main {
                         - variableForExchangeTwoVariableWithoutTheUseThirdVariables.getSecondVariable());
                     variableForExchangeTwoVariableWithoutTheUseThirdVariables.setFirstVariable(variableForExchangeTwoVariableWithoutTheUseThirdVariables.getFirstVariable()
                         - variableForExchangeTwoVariableWithoutTheUseThirdVariables.getSecondVariable());
-                    return variableForExchangeTwoVariableWithoutTheUseThirdVariables;
                 };
 
         variablesExchangeTwoVariablesWithoutTheUseThirdVariable.exchange(variableForExchangePlacesTwoVariableWithoutThirdVariables);

@@ -32,7 +32,9 @@ public class Main {
 
     }
 
-    private static final CalculationUsingThreeParameters<BigDecimal, Laptop, Integer, BigDecimal> CALCULATING = (laptop, numberOfLaptop, discount) -> {
+    private static final CalculationUsingThreeParameters<BigDecimal, Laptop, Integer, BigDecimal> CALCULATING = (laptop,
+                                                                                                                 numberOfLaptop,
+                                                                                                                 discount) -> {
         BigDecimal sumPriceOfLaptop = new BigDecimal(laptop.getPrice().multiply(new BigDecimal(numberOfLaptop)).doubleValue());
         return new BigDecimal(sumPriceOfLaptop.subtract(sumPriceOfLaptop.multiply(discount)
                                                                         .divide(new BigDecimal(100), SCALE, RoundingMode.DOWN))

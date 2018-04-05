@@ -31,22 +31,20 @@ public class Main {
 
     private static void printEvenNumber(Array<Integer> array) {
         System.out.println("Even numbers : ");
-        Arrays.stream(array.toArray()).forEachOrdered(value -> {
-            if (value % 2 == 0) {
-                System.out.print(value + " ");
+        for (int i = 0; i < array.getLength(); i++) {
+            if (array.get(i) % 2 == 0) {
+                System.out.print(array.get(i) + " ");
             }
-        });
-
+        }
     }
 
     private static void printOddNumbers(Array<Integer> array) {
         System.out.println("Odd numbers : ");
-        Arrays.stream(array.toArray()).forEachOrdered(value -> {
-            if (value % 2 != 0) {
-                System.out.print(value + " ");
+        for (int i = 0; i < array.getLength(); i++) {
+            if (array.get(i) % 2 != 0) {
+                System.out.print(array.get(i) + " ");
             }
-        });
-
+        }
     }
 
 }
