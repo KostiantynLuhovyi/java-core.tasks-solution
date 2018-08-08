@@ -6,7 +6,7 @@ class ComparingNumbers implements Comparison<NumbersForComparison> {
 
     @Override
     public void compareNumbers(NumbersForComparison numbersForComparison) {
-        String statusCompare = null;
+        String statusCompare;
 
         if ((numbersForComparison != null)) {
 

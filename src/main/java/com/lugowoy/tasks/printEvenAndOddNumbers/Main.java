@@ -7,8 +7,6 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.arrays.Array;
 import com.lugowoy.helper.other.ArrayLength;
 
-import java.util.Arrays;
-
 /** Created by Konstantin Lugowoy on 12.07.2017. */
 
 public class Main {

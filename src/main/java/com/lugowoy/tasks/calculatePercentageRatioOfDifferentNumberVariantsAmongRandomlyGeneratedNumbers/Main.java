@@ -9,8 +9,6 @@ import com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmongR
 import com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating.Calculator;
 import com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating.CalculatorPercentage;
 
-import java.util.Arrays;
-
 /** Created by Konstantin Lugowoy on 23.10.2017. */
 
 public class Main {

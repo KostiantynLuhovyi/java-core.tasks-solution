@@ -3,8 +3,6 @@ package com.lugowoy.tasks.determineTimeForWhichMovieIsDownloaded;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-import java.util.Random;
-
 /** Created by Konstantin Lugowoy on 16.06.2017. */
 
 public class Main {

@@ -1,7 +1,5 @@
 package com.lugowoy.tasks.determineThatTicketIsHappy;
 
-import java.util.Objects;
-
 /** Created by Konstantin Lugowoy on 18.08.2017. */
 
 public interface DeterminantHappyTicket {
