@@ -256,6 +256,8 @@ If you have any questions about this repository or the solution of the tasks in 
     * _Print max and min value number._  
 * printNumbersInAscendingOrderOfLength  
     * _Sort and print the numbers in ascending order of their lengths._  
+* printNumbersInDescendingOrderOfLength
+    * _Sort and print the numbers in descending order of their lengths._  
 * printShortestNumber
     * _Find the shortest number. Print the found number and their length._          
 * printToWelcomeScreenCorrespondingToEnteredTime  

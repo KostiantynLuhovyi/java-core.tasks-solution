@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.printNumbersInAscendingOrderOfLength;
+package com.lugowoy.tasks.printNumbersInDescendingOrderOfLength;
 
 import com.lugowoy.helper.factory.FactoryArray;
 import com.lugowoy.helper.factory.creator.CreatorArrayNumbers;
@@ -7,7 +7,7 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.arrays.Array;
 import com.lugowoy.helper.other.ArrayLength;
 
-/** Created by Konstantin Lugowoy on 08.08.2018. */
+/** Created by Konstantin Lugowoy on 09.08.2018. */
 
 public class Main {
 
@@ -19,22 +19,22 @@ public class Main {
         int lengthArray = ArrayLength.getLengthArray(new ReadingConsole());
 
         Array<Integer> integerArray = FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(
-                                                                        new FillingArrayRandomIntegerNumbers().fill(lengthArray, MAX_VALUE));
+                                                                       new FillingArrayRandomIntegerNumbers().fill(lengthArray, MAX_VALUE));
 
         System.out.println("Numbers in an array : " + integerArray);
 
-        printNumbersInAscendingOrdersOfLength(integerArray);
+        printNumbersInDescendingOrdersOfLength(integerArray);
 
         System.out.println("Result : " + integerArray);
 
     }
 
-    private static void printNumbersInAscendingOrdersOfLength(Array<Integer> integerArray) {
+    private static void printNumbersInDescendingOrdersOfLength(Array<Integer> integerArray) {
         boolean toSort = true;
         while (toSort) {
             toSort = false;
             for (int j = 0; j < integerArray.getLength() - 1; j++) {
-                if (countDigitOfNumber(integerArray.get(j)) > countDigitOfNumber(integerArray.get(j + 1))) {
+                if (countDigitOfNumber(integerArray.get(j)) < countDigitOfNumber(integerArray.get(j + 1))) {
                     int tmp = integerArray.get(j + 1);
                     integerArray.set(j + 1, integerArray.get(j));
                     integerArray.set(j, tmp);
