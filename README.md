@@ -250,6 +250,8 @@ If you have any questions about this repository or the solution of the tasks in 
        Solve using if and switch._  
 * printEvenAndOddNumbers  
     * _Print even and odd numbers._  
+* printLongestNumber
+    * _Find the longest number. Print the found number and their length._  
 * printMaxAndMinNumber  
     * _Print max and min value number._  
 * printShortestNumber

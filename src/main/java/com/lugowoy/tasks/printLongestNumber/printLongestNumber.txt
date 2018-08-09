@@ -1,0 +1,1 @@
+Find the longest number. Print the found number and their length.
