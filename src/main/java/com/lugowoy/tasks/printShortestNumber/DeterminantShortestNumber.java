@@ -12,7 +12,7 @@ public interface DeterminantShortestNumber<T> {
         int resultNumber = Integer.MAX_VALUE;
         int digitCount = 0, resultNumberDigitCount = 10;
         for (int i = 0; i < integerArray.getLength(); i++) {
-            int number = integerArray.get(i);
+            int number = Math.abs(integerArray.get(i));
             digitCount = countDigitOfNumber(digitCount, number);
             if (resultNumberDigitCount > digitCount) {
                 resultNumberDigitCount = digitCount;
@@ -28,7 +28,7 @@ public interface DeterminantShortestNumber<T> {
         StringBuilder numberOfString = new StringBuilder();
         int digitCount = 0, resultNumberDigitCount = 10;
         for (int i = 0; i < stringsArray.getLength(); i++) {
-            String number = stringsArray.get(i);
+            String number = Integer.toString(Math.abs(Integer.parseInt(stringsArray.get(i))));
             digitCount = countDigitOfNumberOfString(numberOfString, digitCount, number);
             if (resultNumberDigitCount > digitCount) {
                 resultNumberDigitCount = digitCount;

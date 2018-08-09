@@ -17,7 +17,7 @@ public class Main {
         int lengthArray = ArrayLength.getLengthArray(new ReadingConsole());
 
         Array<Integer> integerArray = FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(
-                new FillingArrayRandomIntegerNumbers().fill(lengthArray, Integer.MAX_VALUE));
+                                                                        new FillingArrayRandomIntegerNumbers().fill(lengthArray, Integer.MAX_VALUE));
 
         System.out.println("Numbers in an array : " + integerArray);
 

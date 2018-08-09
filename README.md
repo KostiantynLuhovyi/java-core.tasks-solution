@@ -250,10 +250,10 @@ If you have any questions about this repository or the solution of the tasks in 
        Solve using if and switch._  
 * printEvenAndOddNumbers  
     * _Print even and odd numbers._  
-* printShortestNumber
-    * _
 * printMaxAndMinNumber  
     * _Print max and min value number._  
+* printShortestNumber
+    * _Find the shortest number. Print the found number and their length._          
 * printToWelcomeScreenCorrespondingToEnteredTime  
     * _The time (hours and minutes) is entered - the program displays a greeting corresponding to the entered time
        (for example, entered 15 hours 6 minutes - the greeting "good day" is displayed)._  
