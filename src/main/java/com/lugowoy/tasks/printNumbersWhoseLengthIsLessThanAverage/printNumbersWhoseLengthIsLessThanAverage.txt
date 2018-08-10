@@ -1,0 +1,1 @@
+Print numbers whose length is less than the average.
