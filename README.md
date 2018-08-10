@@ -258,6 +258,8 @@ If you have any questions about this repository or the solution of the tasks in 
     * _Sort and print the numbers in ascending order of their lengths._  
 * printNumbersInDescendingOrderOfLength
     * _Sort and print the numbers in descending order of their lengths._  
+* printNumbersWhoseLengthIsGreaterThanAverage
+    * _Print numbers whose length is greater than the average._  
 * printShortestNumber
     * _Find the shortest number. Print the found number and their length._          
 * printToWelcomeScreenCorrespondingToEnteredTime  
