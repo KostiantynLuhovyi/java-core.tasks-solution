@@ -218,6 +218,8 @@ If you have any questions about this repository or the solution of the tasks in 
        Find both roots of this equation._  
 * findMaximumValueAmongFourVariablesUsingTernaryOperator  
     * _Find the maximum value among the 4 variables using the ternary operator._  
+* findNumbersThatContainOnlyEvenNumbers
+    * _Find numbers that contain only even numbers._  
 * flipNumberDownSoThatDigitsAreArrangedInReverseOrder  
     * _An integer of any length is entered from the keyboard. It is necessary to turn this number around,
        i.e. the numbers should be in the reverse order (for example, enter the number 1234 - the result will be 4321)._  
