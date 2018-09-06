@@ -151,6 +151,9 @@ If you have any questions about this repository or the solution of the tasks in 
 * determineHowMuchTimeOnRoadWasMarathonRunner  
     * _The marathon runner has passed S kilometers with a speed of V meters per second (distance and speed are entered from the keyboard).
        Determine how much time he was on the road (hours, minutes, seconds)?_  
+* determineNumberInWhichNumberOfDifferentDigitsIsMinimal  
+    * _Determine the number in which the number of different digits is minimal.
+       If there are several of them, then print the first number._  
 * determineNumberIsPolindrome  
     * _Determine that the number of palindromes, whose values in the forward and reverse order are the same._  
 * determineNumberOfDigitsInNumber  

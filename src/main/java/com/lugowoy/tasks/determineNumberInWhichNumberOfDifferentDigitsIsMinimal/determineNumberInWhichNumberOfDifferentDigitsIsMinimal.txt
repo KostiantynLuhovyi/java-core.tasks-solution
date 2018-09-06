@@ -1,0 +1,2 @@
+Determine the number in which the number of different digits is minimal.
+If there are several of them, then print the first number.
