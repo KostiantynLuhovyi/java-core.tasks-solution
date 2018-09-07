@@ -220,6 +220,9 @@ If you have any questions about this repository or the solution of the tasks in 
        Find both roots of this equation._  
 * findMaximumValueAmongFourVariablesUsingTernaryOperator  
     * _Find the maximum value among the 4 variables using the ternary operator._  
+* findNumbersThatContainOnlyEvenNumbers  
+    * _Find the number of digits in which go in the order of strict ascending.
+       If such numbers are somewhat to display the first._  
 * findNumbersThatContainOnlyEvenNumbers
     * _Find numbers that contain only even numbers._  
 * flipNumberDownSoThatDigitsAreArrangedInReverseOrder  

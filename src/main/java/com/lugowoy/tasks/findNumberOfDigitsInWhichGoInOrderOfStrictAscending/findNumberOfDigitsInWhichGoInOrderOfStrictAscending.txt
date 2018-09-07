@@ -1,0 +1,2 @@
+Find the number of digits in which go in the order of strict ascending.
+If such numbers are somewhat to display the first.
