@@ -158,8 +158,10 @@ If you have any questions about this repository or the solution of the tasks in 
     * _Determine that the number of palindromes, whose values in the forward and reverse order are the same._  
 * determineNumberOfDigitsInNumber  
     * _Enter an integer (no more than 4 digits!). Determine the number of digits in it._  
-* Determine numbers with an equal number of even and odd digits.  
+* DetermineNumbersWithEqualNumberOfEvenAndOddDigits  
     * _Determine numbers with an equal number of even and odd digits._  
+* determineNumberThatContainsOnlyDifferentDigits  
+    * _Determine a number consisting only of different digits. Print the first found number._  
 * determinePeriodOfDecimalFractionForFirstTwoPositiveIntegersLocatedInRow  
     * _Determine the period of the decimal fraction p = m / n for the first two positive integers n and m located in a series._  
 * determineSecondLargestNumber  
