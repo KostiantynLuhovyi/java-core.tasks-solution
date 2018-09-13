@@ -158,7 +158,7 @@ If you have any questions about this repository or the solution of the tasks in 
     * _Determine that the number of palindromes, whose values in the forward and reverse order are the same._  
 * determineNumberOfDigitsInNumber  
     * _Enter an integer (no more than 4 digits!). Determine the number of digits in it._  
-* DetermineNumbersWithEqualNumberOfEvenAndOddDigits  
+* determineNumbersWithEqualNumberOfEvenAndOddDigits  
     * _Determine numbers with an equal number of even and odd digits._  
 * determineNumberThatContainsOnlyDifferentDigits  
     * _Determine a number consisting only of different digits. Print the first found number._  
@@ -166,6 +166,8 @@ If you have any questions about this repository or the solution of the tasks in 
     * _Determine the period of the decimal fraction p = m / n for the first two positive integers n and m located in a series._  
 * determineSecondLargestNumber  
     * _Enter three numbers and define the second largest number._  
+* determineSecondNumberOfPalindrome  
+    * _Determine the number of the palindrome. If it is not the only one, then take the second one._  
 * determineThatNumberIsHappy  
     * _Determine that the number is "happy"._  
 * determineThatTicketIsHappy  
