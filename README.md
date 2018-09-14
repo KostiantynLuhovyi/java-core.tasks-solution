@@ -197,6 +197,8 @@ If you have any questions about this repository or the solution of the tasks in 
 * determineWhetherPointBelongsToRectangle  
     * _The user enters the coordinates of the upper left, and the lower right corner of the rectangle,
        as well as the coordinates of the point (X, Y) in the Cartesian coordinate system. Does the point belong to this rectangle?_  
+* determineWhetherValueBelongsToCertainInterval  
+    * _Determine if K belongs to a certain interval (n,m],[n,m),(n,m),[n,m]._  
 * determineWhichResistorToUseSoThatTotalResistanceOfCircuitIsMinimal  
     * _Suppose that the area of the electrical circuit must consist of two blocks, in each of which two parallel resistors are located.
        The blocks are connected in series. There are three resistors of known resistance that can be freely shifted between blocks, 
