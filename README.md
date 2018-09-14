@@ -268,6 +268,8 @@ If you have any questions about this repository or the solution of the tasks in 
        Solve using if and switch._  
 * printEvenAndOddNumbers  
     * _Print even and odd numbers._  
+* printFilledMatrix5x5FromLeftToRight  
+    * _Write a program that displays numbers from 1 to 25 as a 5x5 matrix from left to right._  
 * printLongestNumber
     * _Find the longest number. Print the found number and their length._  
 * printMaxAndMinNumber  
