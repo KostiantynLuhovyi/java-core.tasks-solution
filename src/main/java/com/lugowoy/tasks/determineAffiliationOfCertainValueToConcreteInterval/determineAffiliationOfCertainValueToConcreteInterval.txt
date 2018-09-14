@@ -1,0 +1,1 @@
+Write a program that displays messages about the belonging of some value of k to the intervals (-10k, 0], (0, 5], (5, 10], (10, 10k].

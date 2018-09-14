@@ -143,6 +143,8 @@ If you have any questions about this repository or the solution of the tasks in 
 * deduceSumOfIntegerAndFractionalPartsOfTwoEnteredNumbers  
     * _The user enters two real numbers from the keyboard.
        To deduce on the screen the sum of the integer and fractional parts of two numbers._  
+* determineAffiliationOfCertainValueToConcreteInterval
+    *_Write a program that displays messages about the belonging of some value of k to the intervals (-10k, 0], (0, 5], (5, 10], (10, 10k]._  
 * determineDigitOfNumberAndTheirSum  
     * _An integer of any length is entered from the keyboard. Determine the number of digits in it and their sum._  
 * determineHowMuchTimeIsLeftBeforeMidnight  
