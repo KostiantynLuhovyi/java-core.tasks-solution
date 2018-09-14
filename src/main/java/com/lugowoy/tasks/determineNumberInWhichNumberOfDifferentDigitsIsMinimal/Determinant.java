@@ -23,9 +23,9 @@ public interface Determinant {
             }
             if (counter < generalCounter) {
                 generalCounter = counter;
-                counter = 0;
                 resultNumber = integerArray.get(i);
             }
+            counter = 0;
         }
         return resultNumber;
     }
