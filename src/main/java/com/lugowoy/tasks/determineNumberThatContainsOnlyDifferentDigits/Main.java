@@ -38,31 +38,34 @@ public class Main {
         int resultNumber = 0;
         int counterDifferentDigit = 0;
         int[] ints;
-        ArrayChecker.checkArrayNonNull(integerArray);
-        ArrayChecker.checkLengthOfArrayIsEqualToOrGreaterThanZero(integerArray.getLength());
-        for (int i = 0; i < integerArray.getLength(); i++) {
-            int number = integerArray.get(i);
-            ints = getIntNumbersOfNumber(number);
-            for (int j = 0; j < ints.length; j++) {
-                for (int k = 0; k < ints.length; k++) {
-                    if (j != k) {
-                        if (ints[j] == ints[k]) {
-                            counterDifferentDigit++;
-                            if (counterDifferentDigit >= 2) {
-                                break;
+        if (ArrayChecker.checkArrayNonNull(integerArray)
+                && ArrayChecker.checkLengthOfArrayIsGreaterZero(integerArray.getLength())) {
+            for (int i = 0; i < integerArray.getLength(); i++) {
+                int number = integerArray.get(i);
+                ints = getIntNumbersOfNumber(number);
+                for (int j = 0; j < ints.length; j++) {
+                    for (int k = 0; k < ints.length; k++) {
+                        if (j != k) {
+                            if (ints[j] == ints[k]) {
+                                counterDifferentDigit++;
+                                if (counterDifferentDigit >= 2) {
+                                    break;
+                                }
+                            } else {
+                                resultNumber = number;
                             }
-                        } else {
-                            resultNumber = number;
                         }
                     }
                 }
+                if (counterDifferentDigit >= 2) {
+                    counterDifferentDigit = 0;
+                    resultNumber = 0;
+                } else {
+                    break;
+                }
             }
-            if (counterDifferentDigit >= 2) {
-                counterDifferentDigit = 0;
-                resultNumber = 0;
-            } else {
-                break;
-            }
+        } else {
+            System.err.println("Incorrect arguments.");
         }
         return resultNumber;
     }

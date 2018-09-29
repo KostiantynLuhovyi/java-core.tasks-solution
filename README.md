@@ -285,7 +285,10 @@ If you have any questions about this repository or the solution of the tasks in 
 * printNumbersWhoseLengthIsLessThanAverage  
     * _Print numbers whose length is less than the average._  
 * printShortestNumber
-    * _Find the shortest number. Print the found number and their length._          
+    * _Find the shortest number. Print the found number and their length._  
+* printToNameOfMonthCorrespondingToGivenNumber  
+    * _Enter the number from 1 to 12. Output to the console the name of the month corresponding to the given number.
+       (Make sure that the numbers are entered correctly)._  
 * printToWelcomeScreenCorrespondingToEnteredTime  
     * _The time (hours and minutes) is entered - the program displays a greeting corresponding to the entered time
        (for example, entered 15 hours 6 minutes - the greeting "good day" is displayed)._  
