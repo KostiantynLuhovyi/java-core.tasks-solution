@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.outputVoiceThatIsEmittedByAnimal.animals;
 
-import com.lugowoy.helper.other.DeepCloning;
+import static com.lugowoy.helper.other.DeepCloning.CLONER;
 
 /** Created by Konstantin Lugowoy on 04.10.2017. */
 
@@ -21,7 +21,7 @@ public class Elephant extends Animal {
         Elephant elephant = new Elephant();
         try {
             elephant = (Elephant) super.clone();
-            elephant.setVoice(DeepCloning.CLONER.deepClone(this.getVoice()));
+            elephant.setVoice(CLONER.deepClone(this.getVoice()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

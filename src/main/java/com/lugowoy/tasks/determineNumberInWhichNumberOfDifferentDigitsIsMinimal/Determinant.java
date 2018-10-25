@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.determineNumberInWhichNumberOfDifferentDigitsIsMinimal;
 
-import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.models.Array;
 
 /** Created by Konstantin Lugowoy on 03.09.2018 */
 

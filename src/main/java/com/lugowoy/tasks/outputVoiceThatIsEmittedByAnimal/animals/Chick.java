@@ -2,6 +2,8 @@ package com.lugowoy.tasks.outputVoiceThatIsEmittedByAnimal.animals;
 
 import com.lugowoy.helper.other.DeepCloning;
 
+import static com.lugowoy.helper.other.DeepCloning.*;
+
 /** Created by Konstantin Lugowoy on 04.10.2017. */
 
 public class Chick extends Animal {
@@ -20,7 +22,7 @@ public class Chick extends Animal {
         Chick chick = new Chick();
         try {
             chick = (Chick) super.clone();
-            chick.setVoice(DeepCloning.CLONER.deepClone(this.getVoice()));
+            chick.setVoice(CLONER.deepClone(this.getVoice()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

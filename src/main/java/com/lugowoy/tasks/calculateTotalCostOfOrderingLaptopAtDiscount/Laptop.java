@@ -1,9 +1,9 @@
 package com.lugowoy.tasks.calculateTotalCostOfOrderingLaptopAtDiscount;
 
-import com.lugowoy.helper.other.DeepCloning;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
+
+import static com.lugowoy.helper.other.DeepCloning.CLONER;
 
 /** Created by Konstantin Lugowoy on 15.06.2017. */
 
@@ -60,8 +60,8 @@ public final class Laptop implements Serializable, Cloneable {
         try {
             laptop = (Laptop) super.clone();
             laptop.setIdLaptop(this.getIdLaptop());
-            laptop.setBrandName(DeepCloning.CLONER.deepClone(this.getBrandName()));
-            laptop.setPrice(DeepCloning.CLONER.deepClone(this.getPrice()));
+            laptop.setBrandName(CLONER.deepClone(this.getBrandName()));
+            laptop.setPrice(CLONER.deepClone(this.getPrice()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

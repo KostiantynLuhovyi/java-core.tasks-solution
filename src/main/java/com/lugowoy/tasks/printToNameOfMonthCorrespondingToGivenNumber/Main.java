@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter number of the month : ");
-        int numberOfMonth = 0;
+        int numberOfMonth;
         while (true) {
              numberOfMonth = READER.readInt();
             if (numberOfMonth > 0 && numberOfMonth <= 12) {

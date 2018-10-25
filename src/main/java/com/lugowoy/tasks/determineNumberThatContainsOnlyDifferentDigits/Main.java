@@ -1,12 +1,10 @@
 package com.lugowoy.tasks.determineNumberThatContainsOnlyDifferentDigits;
 
-import com.lugowoy.helper.factory.FactoryArray;
-import com.lugowoy.helper.factory.creator.CreatorArrayNumbers;
 import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.arrays.Array;
-import com.lugowoy.helper.other.ArrayChecker;
-import com.lugowoy.helper.other.ArrayLength;
+import com.lugowoy.helper.models.Array;
+import com.lugowoy.helper.other.CheckerArray;
+import com.lugowoy.helper.other.LengthArray;
 
 /** Created by Konstantin Lugowoy on 12.09.2018 */
 
@@ -17,10 +15,9 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthArray = ArrayLength.getLengthArray(new ReadingConsole());
+        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
 
-        Array<Integer> integerArray = FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(
-                                                                        new FillingArrayRandomIntegerNumbers().fill(lengthArray, BOUND));
+        Array<Integer> integerArray = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, BOUND));
 
         System.out.println("Numbers in an array : " + integerArray);
 
@@ -38,8 +35,8 @@ public class Main {
         int resultNumber = 0;
         int counterDifferentDigit = 0;
         int[] ints;
-        if (ArrayChecker.checkArrayNonNull(integerArray)
-                && ArrayChecker.checkLengthOfArrayIsGreaterZero(integerArray.getLength())) {
+        if (CheckerArray.checkArrayNonNull(integerArray)
+                && CheckerArray.checkLengthOfArrayIsGreaterZero(integerArray.getLength())) {
             for (int i = 0; i < integerArray.getLength(); i++) {
                 int number = integerArray.get(i);
                 ints = getIntNumbersOfNumber(number);

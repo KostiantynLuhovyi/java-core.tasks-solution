@@ -1,8 +1,8 @@
 package com.lugowoy.tasks.calculateHowManyMoviesWillFitOnUSBFlashDrive;
 
-import com.lugowoy.helper.other.DeepCloning;
-
 import java.io.Serializable;
+
+import static com.lugowoy.helper.other.DeepCloning.CLONER;
 
 /** Created by Konstantin Lugowoy on 16.06.2017. */
 
@@ -54,7 +54,7 @@ public final class Movie implements Serializable, Cloneable {
         Movie movie = new Movie();
         try {
             movie = (Movie) super.clone();
-            movie.setNameMovie(DeepCloning.CLONER.deepClone(this.getNameMovie()));
+            movie.setNameMovie(CLONER.deepClone(this.getNameMovie()));
             movie.setSizeMovie(this.getSizeMovie());
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();

@@ -1,8 +1,8 @@
 package com.lugowoy.tasks.calculationOfMonthlyPaymentsOnDeposit;
 
-import com.lugowoy.helper.other.DeepCloning;
-
 import java.math.BigDecimal;
+
+import static com.lugowoy.helper.other.DeepCloning.CLONER;
 
 /** Created by Konstantin Lugowoy on 10-Feb-17. */
 
@@ -53,8 +53,8 @@ public class Deposit extends BankingService {
     @Override
     public Deposit clone() {
         Deposit deposit = (Deposit) super.clone();
-        deposit.setSumDeposit(DeepCloning.CLONER.deepClone(this.getSumDeposit()));
-        deposit.setPercentYearly(DeepCloning.CLONER.deepClone(this.getPercentYearly()));
+        deposit.setSumDeposit(CLONER.deepClone(this.getSumDeposit()));
+        deposit.setPercentYearly(CLONER.deepClone(this.getPercentYearly()));
         return deposit;
     }
 

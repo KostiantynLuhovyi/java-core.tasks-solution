@@ -1,35 +1,25 @@
 package com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating;
 
-import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.models.Array;
 
 public class Checker {
 
     static <T> boolean checkObjectOfArrayClassNonNull(Array<T> array) {
         boolean resultOfCheck = false;
-        try {
-            if (array != null) {
-                resultOfCheck = true;
-            } else {
-                throw new IllegalArgumentException(
-                        new NullPointerException("The object of Array class by passed to argument is equal null."));
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
+        if (array != null) {
+            resultOfCheck = true;
+        } else {
+            System.err.println("The object of Array class by passed to argument is equal null.");
         }
         return resultOfCheck;
     }
 
     static <T> boolean checkArrayNonNull(T[] array) {
         boolean resultOfCheck = false;
-        try {
-            if (array != null) {
-                resultOfCheck = true;
-            } else {
-                throw new IllegalArgumentException(
-                        new NullPointerException("The array by passed to argument is equal null."));
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
+        if (array != null) {
+            resultOfCheck = true;
+        } else {
+            System.err.println("The array by passed to argument is equal null.");
         }
         return resultOfCheck;
     }

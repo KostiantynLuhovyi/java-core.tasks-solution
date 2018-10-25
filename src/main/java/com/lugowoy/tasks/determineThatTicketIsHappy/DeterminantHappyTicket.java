@@ -25,7 +25,7 @@ public interface DeterminantHappyTicket {
                 System.err.println("The ticket has an incorrect number value.");
             }
         } else {
-            throw new NullPointerException("Ticket is null.");
+            System.err.println("Ticket is null.");
         }
         return result;
     }
@@ -52,7 +52,7 @@ public interface DeterminantHappyTicket {
                 System.err.println("The ticket has an incorrect number value.");
             }
         } else {
-            throw new NullPointerException("Ticket is null.");
+            System.err.println("Ticket is null.");
         }
         return result;
     }

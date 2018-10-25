@@ -18,8 +18,7 @@ public class Main {
     private static int numberOfDigit(int number) {
         int numberOfDigit = 0;
         if (number > 0)
-            while (number != 0)
-            {
+            while (number != 0) {
                 number = number / 10;
                 numberOfDigit++;
             }
@@ -31,7 +30,6 @@ public class Main {
         int result = 0;
         int tmpNumber = number;
         int count = numberOfDigit(number);
-
         while (number != 0) {
             digit = number % 10;
             result = result+((int) Math.pow(digit, count));

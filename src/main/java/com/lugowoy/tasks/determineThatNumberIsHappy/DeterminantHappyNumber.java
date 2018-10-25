@@ -11,15 +11,11 @@ public interface DeterminantHappyNumber {
 
     static boolean determineThatNumberIsHappy(int number) {
         boolean result = false;
-
         List<Integer> happyNumbers = getListOfHappyNumbers(number);
-
         fillListOfHappyNumbers(happyNumbers);
-
         if (happyNumbers.contains(number)) {
             result = true;
         }
-
         return result;
     }
 
@@ -43,9 +39,7 @@ public interface DeterminantHappyNumber {
 
     private static List<Integer> getListOfHappyNumbers(int number) {
         List<Integer> list;
-
         number += 10;
-
         if (checkEvenNumber(number)) {
             list = fillListOddNumbers(number);
         } else {
@@ -65,11 +59,9 @@ public interface DeterminantHappyNumber {
 
     private static boolean checkEvenNumber(int number) {
         boolean result = false;
-
         if (number % 2 == 0) {
             result = true;
         }
-
         return result;
     }
 

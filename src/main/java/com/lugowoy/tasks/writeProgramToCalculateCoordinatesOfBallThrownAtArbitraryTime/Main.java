@@ -1,10 +1,8 @@
 package com.lugowoy.tasks.writeProgramToCalculateCoordinatesOfBallThrownAtArbitraryTime;
 
-import com.lugowoy.helper.factory.FactoryPoint;
-import com.lugowoy.helper.factory.creator.CreatorPoint;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.points.Point;
+import com.lugowoy.helper.models.Point;
 
 /** Created by Konstantin Lugowoy on 08.11.2017. */
 
@@ -28,7 +26,7 @@ public class Main {
         double momentOfLastImpactOnSurface = calculateMomentOfLastImpactOnSurface(
                                                     calculateFlightTimeOfBallBeforeHittingHorizontalSurface(initialSpeed, angle), timeMoment);
 
-        Point<Double> ballPoint = FactoryPoint.getFactoryPoint(new CreatorPoint<Double>()).create();
+        Point<Double> ballPoint = Point.create();
         ballPoint.setCoordinateX(Math.round(100 * calculateCoordinateX(initialSpeed, angle, timeMoment)) / 100.0);
         ballPoint.setCoordinateY(Math.round(100 * calculateCoordinateY(initialSpeed, angle, timeMoment, momentOfLastImpactOnSurface)) / 100.0);
 

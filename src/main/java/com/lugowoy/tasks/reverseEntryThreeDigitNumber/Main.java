@@ -11,10 +11,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int number;
-
         System.out.println("Enter the three-digit number : ");
-        number = READER.readInt();
+        int number = READER.readInt();
 
         while (true) {
             if (number > 999 || number < 102) {

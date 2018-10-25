@@ -5,6 +5,8 @@ import com.lugowoy.helper.other.DeepCloning;
 import java.io.Serializable;
 import java.util.Objects;
 
+import static com.lugowoy.helper.other.DeepCloning.*;
+
 /** Created by Konstantin Lugowoy on 23.03.2017. */
 
 public class MarathonRunner implements Serializable, Cloneable {
@@ -53,7 +55,7 @@ public class MarathonRunner implements Serializable, Cloneable {
             marathonRunner = (MarathonRunner) super.clone();
             marathonRunner.setDistance(this.getDistance());
             marathonRunner.setSpeed(this.getSpeed());
-            marathonRunner.setTime(DeepCloning.CLONER.deepClone(this.getTime()));
+            marathonRunner.setTime(CLONER.deepClone(this.getTime()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

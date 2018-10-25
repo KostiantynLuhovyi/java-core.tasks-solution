@@ -10,30 +10,26 @@ public interface Determinant<T extends Number> {
 
     T determine(Line<T> line);
 
-    static Double determineMinValueOfPointOnLine(Line<Double> line) throws NotDetermineValueException {
+    static Double determineMinValueOfPointOnLine(Line<Double> line) {
         Optional<Double> optionalMinValueOfPoint = Arrays.stream(line.getPointsOnLine()).min(Double::compareTo);
+        double resultValue = 0;
         if (optionalMinValueOfPoint.isPresent()) {
-            return optionalMinValueOfPoint.get();
+            resultValue = optionalMinValueOfPoint.get();
         } else {
-            throw new NotDetermineValueException("Can not determine the minimal value of point on the line.");
+            System.err.println("Can not determine the minimal value of point on the line.");
         }
+        return resultValue;
     }
 
-    static Double determineMaxValueOfPointOnLine(Line<Double> line) throws NotDetermineValueException {
+    static Double determineMaxValueOfPointOnLine(Line<Double> line) {
         Optional<Double> optionalMaxValueOfPoint = Arrays.stream(line.getPointsOnLine()).max(Double::compareTo);
+        double resultValue = 0;
         if (optionalMaxValueOfPoint.isPresent()) {
-            return optionalMaxValueOfPoint.get();
+            resultValue = optionalMaxValueOfPoint.get();
         } else {
-            throw new NotDetermineValueException("Can not determine the maximum value of point on the line.");
+            System.err.println("Can not determine the maximum value of point on the line.");
         }
-    }
-
-    class NotDetermineValueException extends RuntimeException {
-
-        NotDetermineValueException(String message) {
-            super(message);
-        }
-
+        return resultValue;
     }
 
 }

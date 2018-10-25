@@ -1,10 +1,10 @@
 package com.lugowoy.tasks.calculatingNumberProductsOfPurchasedFromCertainSum;
 
-import com.lugowoy.helper.other.DeepCloning;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
+
+import static com.lugowoy.helper.other.DeepCloning.CLONER;
 
 /**Created by Konstantin Lugowoy on 11-Feb-17.*/
 
@@ -40,7 +40,7 @@ public final class Product implements Serializable, Cloneable {
         Product product = new Product();
         try {
             product = (Product) super.clone();
-            product.setPrice(DeepCloning.CLONER.deepClone(this.getPrice()));
+            product.setPrice(CLONER.deepClone(this.getPrice()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.outputVoiceThatIsEmittedByAnimal.animals;
 
-import com.lugowoy.helper.other.DeepCloning;
+import static com.lugowoy.helper.other.DeepCloning.CLONER;
 
 /** Created by Konstantin Lugowoy on 04.10.2017. */
 
@@ -20,7 +20,7 @@ public class Bee extends Animal {
         Bee bee = new Bee();
         try {
             bee = (Bee) super.clone();
-            bee.setVoice(DeepCloning.CLONER.deepClone(this.getVoice()));
+            bee.setVoice(CLONER.deepClone(this.getVoice()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

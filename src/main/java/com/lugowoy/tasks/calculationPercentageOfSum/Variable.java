@@ -1,9 +1,9 @@
 package com.lugowoy.tasks.calculationPercentageOfSum;
 
-import com.lugowoy.helper.other.DeepCloning;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
+
+import static com.lugowoy.helper.other.DeepCloning.CLONER;
 
 /** Created by Konstantin Lugowoy on 30-Jan-17. */
 
@@ -60,9 +60,9 @@ public class Variable implements Serializable, Cloneable {
         Variable variable = new Variable();
         try {
             variable = (Variable) super.clone();
-            variable.setSum(DeepCloning.CLONER.deepClone(this.getSum()));
-            variable.setPartOfSum(DeepCloning.CLONER.deepClone(this.getPartOfSum()));
-            variable.setPercent(DeepCloning.CLONER.deepClone(this.getPercent()));
+            variable.setSum(CLONER.deepClone(this.getSum()));
+            variable.setPartOfSum(CLONER.deepClone(this.getPartOfSum()));
+            variable.setPercent(CLONER.deepClone(this.getPercent()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

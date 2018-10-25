@@ -7,7 +7,8 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 
 public class Main {
 
-    private static final String[] INTERVALS = {"(-10000, 0]", "(0, 5]", "(5, 10]", "(10, 10000]", "(-10000, 5]", "[0, 10]", "[5, 15]", "[10, 10000]"};
+    private static final String[] INTERVALS = {"(-10000, 0]", "(0, 5]", "(5, 10]", "(10, 10000]",
+                                               "(-10000, 5]", "[0, 10]", "[5, 15]", "[10, 10000]"};
 
     public static void main(String[] args) {
 

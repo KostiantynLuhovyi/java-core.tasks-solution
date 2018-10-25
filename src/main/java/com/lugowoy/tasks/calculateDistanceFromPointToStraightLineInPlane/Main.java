@@ -1,10 +1,8 @@
 package com.lugowoy.tasks.calculateDistanceFromPointToStraightLineInPlane;
 
-import com.lugowoy.helper.factory.FactoryPoint;
-import com.lugowoy.helper.factory.creator.CreatorPoint;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.points.Point;
+import com.lugowoy.helper.models.Point;
 
 /** Created by Konstantin Lugowoy on 11.07.2017. */
 
@@ -22,8 +20,7 @@ public class Main {
         Point<Double> pointM = getPoint(POINT_M);
         Point<Double> pointA = getPoint(POINT_A);
 
-        Point<Double> pointO = FactoryPoint.getFactoryPoint(new CreatorPoint<Double>()).create(DEFAULT_COORDINATE,
-                                                                                               DEFAULT_COORDINATE);
+        Point<Double> pointO = Point.create(DEFAULT_COORDINATE, DEFAULT_COORDINATE);
 
         if (isDifferent(pointO, pointA)) {
             System.out.printf("Distance from point M(%.2f, %.2f) to line OA is equal : %.2f .",
@@ -43,7 +40,6 @@ public class Main {
 
     private static double getDistanceFromPointToLine(Point<Double> pointM, Point<Double> pointA, Point<Double> pointO) {
         double distanceFromPointToLine, A, B, C;
-
         A = pointA.getCoordinateY() - pointO.getCoordinateY();
         B = pointA.getCoordinateX() - pointO.getCoordinateX();
         C = pointA.getCoordinateY() * pointO.getCoordinateX() - pointO.getCoordinateY() * pointA.getCoordinateX();
@@ -54,12 +50,8 @@ public class Main {
     }
 
     private static Point<Double> getPoint(String pointName) {
-        Point<Double> point = FactoryPoint.getFactoryPoint(new CreatorPoint<Double>()).create();
-        try {
-            enterCoordinatesOfPoint(pointName, point);
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
-        }
+        Point<Double> point = Point.create();
+        enterCoordinatesOfPoint(pointName, point);
         return point;
     }
 
@@ -71,8 +63,7 @@ public class Main {
             System.out.println("y : ");
             point.setCoordinateY(READER.readDouble());
         } else {
-            throw new IllegalArgumentException(
-                    new NullPointerException("The object of Point class passed by argument is equal to null."));
+            System.err.println("The object of Point class passed by argument is equal to null.");
         }
     }
 

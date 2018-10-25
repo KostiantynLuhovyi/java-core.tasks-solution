@@ -1,11 +1,9 @@
 package com.lugowoy.tasks.determineNumbersWithEqualNumberOfEvenAndOddDigits;
 
-import com.lugowoy.helper.factory.FactoryArray;
-import com.lugowoy.helper.factory.creator.CreatorArrayNumbers;
 import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.arrays.Array;
-import com.lugowoy.helper.other.ArrayLength;
+import com.lugowoy.helper.models.Array;
+import com.lugowoy.helper.other.LengthArray;
 
 /** Created by Konstantin Lugowoy on 06.09.2018 */
 
@@ -14,10 +12,9 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthArray = ArrayLength.getLengthArray(new ReadingConsole());
+        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
 
-        Array<Integer> integerArray = FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(
-                                                                       new FillingArrayRandomIntegerNumbers().fill(lengthArray, Integer.MAX_VALUE));
+        Array<Integer> integerArray = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, Integer.MAX_VALUE));
 
         System.out.println("Numbers : " + integerArray);
 
@@ -33,7 +30,7 @@ public class Main {
     }
 
     private static Array<Integer> determineNumbersWithEqualNumberOfEvenAndOddDigits(Array<Integer> integerArray) {
-        Array<Integer> resultArray = FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(0);
+        Array<Integer> resultArray = Array.create(0);
         int counterEvenNumbers = 0, counterOddNumbers = 0;
         for (int i = 0; i < integerArray.getLength(); i++) {
             int number = integerArray.get(i);

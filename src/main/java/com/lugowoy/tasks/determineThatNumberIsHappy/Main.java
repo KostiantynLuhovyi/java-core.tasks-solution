@@ -14,9 +14,9 @@ public class Main {
         System.out.println("Enter the number of verification it is \"happy\" : ");
         int number = reader.readInt();
 
-        DeterminantHappyNumber determinator = DeterminantHappyNumber::determineThatNumberIsHappy;
+        DeterminantHappyNumber determinant = DeterminantHappyNumber::determineThatNumberIsHappy;
 
-        if (determinator.determine(number)) {
+        if (determinant.determine(number)) {
             System.out.printf("The entered number %d is \"happy\" .", number);
         } else {
             System.out.printf("The entered number %d is not \"happy\" .", number);

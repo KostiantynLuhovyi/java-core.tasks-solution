@@ -13,9 +13,9 @@ public class Main {
 
         Ticket ticket = new Ticket(GeneratorRandomNumber.generateInt(MIN_VALUE_OF_NUMBER_TICKET, MAX_VALUE_OF_NUMBER_TICKET));
 
-        DeterminantHappyTicket determinator = DeterminantHappyTicket::determineThatTicketIsHappyUsingArithmeticOperators;
+        DeterminantHappyTicket determinant = DeterminantHappyTicket::determineThatTicketIsHappyUsingArithmeticOperators;
 
-        if (determinator.determine(ticket)) {
+        if (determinant.determine(ticket)) {
             System.out.printf("Ticket number %d is \"happy\".", ticket.getNumber());
         } else {
             System.out.printf("Ticket number %d is not \"happy\".", ticket.getNumber());

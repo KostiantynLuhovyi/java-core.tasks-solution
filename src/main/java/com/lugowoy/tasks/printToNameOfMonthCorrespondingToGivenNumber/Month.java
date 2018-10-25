@@ -5,7 +5,7 @@ package com.lugowoy.tasks.printToNameOfMonthCorrespondingToGivenNumber;
 public enum Month {
     JANUARY (1),
     FEBRUARY (2),
-    MARTH (3),
+    MARCH(3),
     APRIL (4),
     MAY (5),
     JUNE (6),

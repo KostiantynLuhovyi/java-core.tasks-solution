@@ -1,11 +1,9 @@
 package com.lugowoy.tasks.printAllThreeDigitNumbersThatDoNotHaveSameDigits;
 
-import com.lugowoy.helper.factory.FactoryArray;
-import com.lugowoy.helper.factory.creator.CreatorArrayNumbers;
 import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.arrays.Array;
-import com.lugowoy.helper.other.ArrayLength;
+import com.lugowoy.helper.models.Array;
+import com.lugowoy.helper.other.LengthArray;
 
 /** Created by Konstantin Lugowoy on 13.07.2017. */
 
@@ -14,10 +12,9 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of array : ");
-        int lengthArray = ArrayLength.getLengthArray(new ReadingConsole());
+        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
 
-        Array<Integer> array = FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(
-                                                                new FillingArrayRandomIntegerNumbers().fill(lengthArray));
+        Array<Integer> array = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray));
 
         System.out.println("Numbers : " + array);
         System.out.println();
@@ -32,17 +29,15 @@ public class Main {
     }
 
     private static Array<Integer> getAllThreeDigitNumbersThatDoNotHaveSameDigits(Array<Integer> array) {
-        Array<Integer> resultArray = FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(0);
+        Array<Integer> resultArray = Array.create(0);
         for (int i = 0; i < array.getLength(); i++) {
             String stringOfValue = Integer.toString(array.get(i));
-
             if ((stringOfValue.startsWith("-") && (stringOfValue.length() == 4)) || (stringOfValue.matches("\\d{3}"))) {
                 int tmpValue = array.get(i);
                 int firstDigit = tmpValue % 10;
                 tmpValue /= 10;
                 int secondDigit = tmpValue % 10;
                 int thirdDigit = tmpValue / 10;
-
                 if ( ! ((firstDigit == secondDigit) || (secondDigit == thirdDigit) || (thirdDigit == firstDigit))) {
                     resultArray.add(array.get(i));
                 }

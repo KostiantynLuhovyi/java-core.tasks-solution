@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 public class Main {
 
     private static final int COST_OF_THE_MINUTES = 15;
-
     private static final int MINUTES_OF_HOUR = 60;
 
     public static void main(String[] args) {
@@ -30,7 +29,6 @@ public class Main {
 
     private static long enterCallTimeInSeconds(String msg) {
         Reader reader = Reader.getReader(new ReadingConsole());
-
         System.out.println(msg);
         int hours, minutes, seconds;
         while (true) {
@@ -40,9 +38,8 @@ public class Main {
             minutes = reader.readInt();
             System.out.println("Seconds : ");
             seconds = reader.readInt();
-
             if ((minutes > 60) && (seconds > 60)) {
-                System.out.println("Incorrect input.");
+                System.out.println("Incorrect input. Re-enter : ");
             } else {
                 break;
             }

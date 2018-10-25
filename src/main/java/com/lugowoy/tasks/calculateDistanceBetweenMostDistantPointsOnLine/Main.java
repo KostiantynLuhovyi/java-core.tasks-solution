@@ -3,7 +3,6 @@ package com.lugowoy.tasks.calculateDistanceBetweenMostDistantPointsOnLine;
 import com.lugowoy.helper.calculating.CalculationUsingTwoParameters;
 import com.lugowoy.helper.filling.array.numbers.FillingArrayReadDoubleNumbers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.tasks.calculateDistanceBetweenMostDistantPointsOnLine.Determinant.NotDetermineValueException;
 
 import java.util.Arrays;
 
@@ -18,15 +17,11 @@ public class Main {
         System.out.println("Enter numbers that are the values of points on the line : ");
         Line<Double> line = new Line<>(new FillingArrayReadDoubleNumbers(new ReadingConsole()).fill(LENGTH_ARRAY));
 
-        try {
-            Determinant<Double> determinator = Determinant::determineMinValueOfPointOnLine;
-            line.setValueMinPoint(determinator.determine(line));
+        Determinant<Double> determinator = Determinant::determineMinValueOfPointOnLine;
+        line.setValueMinPoint(determinator.determine(line));
 
-            determinator = Determinant::determineMaxValueOfPointOnLine;
-            line.setValueMaxPoint(determinator.determine(line));
-        } catch (NotDetermineValueException ex) {
-            System.err.println(ex.getMessage());
-        }
+        determinator = Determinant::determineMaxValueOfPointOnLine;
+        line.setValueMaxPoint(determinator.determine(line));
 
         System.out.println("Values of points on the line : ");
         Arrays.stream(line.getPointsOnLine()).forEachOrdered(valuePoint -> System.out.print(valuePoint + " "));

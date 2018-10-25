@@ -12,7 +12,6 @@ public class DeterminantDigitOfNumber {
                 int digit = number % 10;
                 number /= 10;
                 countDigit++;
-
                 sumDigit = calculateSumDigitInNumber(digit, sumDigit);
             } else {
                 break;

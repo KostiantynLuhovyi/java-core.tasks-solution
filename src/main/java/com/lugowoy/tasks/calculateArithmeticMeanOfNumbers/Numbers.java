@@ -1,7 +1,5 @@
 package com.lugowoy.tasks.calculateArithmeticMeanOfNumbers;
 
-import com.lugowoy.helper.other.DeepCloning;
-
 import java.io.Serializable;
 import java.util.Arrays;
 
@@ -18,8 +16,19 @@ public final class Numbers implements Serializable, Cloneable {
     }
 
     public Numbers(double[] numbers) {
-        //The setters are used in the constructor, since the class is declared with the modifier final.
-        this.setNumbers(numbers);
+        if (numbers != null) {
+            this.numbers = numbers;
+        } else {
+            this.numbers = new double[DEFAULT_LENGTH];
+        }
+    }
+
+    public Numbers(Numbers numbers) {
+        if (numbers != null) {
+            this.numbers = numbers.getNumbers();
+        } else {
+            this.numbers = new double[DEFAULT_LENGTH];
+        }
     }
 
     @Override
@@ -38,18 +47,6 @@ public final class Numbers implements Serializable, Cloneable {
     @Override
     public String toString() {
         return Arrays.toString(numbers);
-    }
-
-    @Override
-    public Numbers clone() {
-        Numbers numbers = new Numbers();
-        try {
-            numbers = (Numbers)super.clone();
-            numbers.setNumbers(DeepCloning.CLONER.deepClone(this.getNumbers()));
-        } catch (CloneNotSupportedException ex) {
-            new InternalError(ex.getMessage()).printStackTrace();
-        }
-        return numbers;
     }
 
     public double[] getNumbers() {

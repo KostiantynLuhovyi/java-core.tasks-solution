@@ -1,10 +1,10 @@
 package com.lugowoy.tasks.convertUAHToOthersCurrencies;
 
-import com.lugowoy.helper.other.DeepCloning;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
+
+import static com.lugowoy.helper.other.DeepCloning.CLONER;
 
 /**Created by Konstantin Lugowoy on 15-Dec-16.*/
 
@@ -49,10 +49,10 @@ public class Account implements Serializable, Cloneable {
         Account account = new Account();
         try {
             account = (Account) super.clone();
-            account.setUAH(DeepCloning.CLONER.deepClone(this.getUAH()));
-            account.setUSD(DeepCloning.CLONER.deepClone(this.getUSD()));
-            account.setEUR(DeepCloning.CLONER.deepClone(this.getEUR()));
-            account.setRUB(DeepCloning.CLONER.deepClone(this.getRUB()));
+            account.setUAH(CLONER.deepClone(this.getUAH()));
+            account.setUSD(CLONER.deepClone(this.getUSD()));
+            account.setEUR(CLONER.deepClone(this.getEUR()));
+            account.setRUB(CLONER.deepClone(this.getRUB()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

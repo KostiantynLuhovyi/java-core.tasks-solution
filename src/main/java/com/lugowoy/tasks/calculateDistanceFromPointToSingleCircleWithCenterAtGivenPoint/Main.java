@@ -1,11 +1,9 @@
 package com.lugowoy.tasks.calculateDistanceFromPointToSingleCircleWithCenterAtGivenPoint;
 
 import com.lugowoy.helper.calculating.CalculationUsingTwoParameters;
-import com.lugowoy.helper.factory.FactoryPoint;
-import com.lugowoy.helper.factory.creator.CreatorPoint;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.points.Point;
+import com.lugowoy.helper.models.Point;
 
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
@@ -15,8 +13,6 @@ import static java.lang.Math.sqrt;
 public class Main {
 
     private static final Reader READER = Reader.getReader(new ReadingConsole());
-
-    private static final FactoryPoint<Double> FACTORY = FactoryPoint.getFactoryPoint(new CreatorPoint<>());
 
     private static final String POINT_M = "M";
     private static final String POINT_C = "C";
@@ -46,16 +42,12 @@ public class Main {
                                                 + pow(firstPoint.getCoordinateY() - (secondPoint.getCoordinateY() + 1.0), 2);
 
     private static Point<Double> getPoint(String pointName) {
-        Point<Double> point = FACTORY.create();
-        try {
-            enterCoordinatesOfPoint(pointName, point);
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
-        }
+        Point<Double> point = Point.create();
+        enterCoordinatesOfPoint(pointName, point);
         return point;
     }
 
-    private static void enterCoordinatesOfPoint(String pointName, Point<Double> point) throws IllegalArgumentException {
+    private static void enterCoordinatesOfPoint(String pointName, Point<Double> point) {
         if (point != null) {
             System.out.println("Enter coordinates for the points " + pointName + " .");
             System.out.println("x : ");
@@ -63,8 +55,7 @@ public class Main {
             System.out.println("y : ");
             point.setCoordinateY(READER.readDouble());
         } else {
-            throw new IllegalArgumentException(
-                    new NullPointerException("The object of Point class passed by argument is equal to null."));
+            System.err.println("The object of Point class passed by argument is equal to null.");
         }
     }
 

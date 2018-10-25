@@ -1,9 +1,7 @@
 package com.lugowoy.tasks.printFilledMatrix5x5FromLeftToRight;
 
-import com.lugowoy.helper.factory.FactoryArray;
-import com.lugowoy.helper.factory.creator.CreatorArrayNumbers;
 import com.lugowoy.helper.filling.array.numbers.FillingArraySequentialAscendingIntegerNumbers;
-import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.models.Array;
 
 /** Created by Konstantin Lugowoy on 14.09.2018. */
 
@@ -17,8 +15,7 @@ public class Main {
         int[][] matrix = new int[5][5];
 
         final int quadMatrixLength = matrix.length * matrix.length;
-        Array<Integer> integerArray = FactoryArray.getFactoryArray(new CreatorArrayNumbers<Integer>()).create(
-                                                                       new FillingArraySequentialAscendingIntegerNumbers().fill(quadMatrixLength, START_BOUND, END_BOUND));
+        Array<Integer> integerArray = Array.create(new FillingArraySequentialAscendingIntegerNumbers().fill(quadMatrixLength, START_BOUND, END_BOUND));
 
         int indexElement = 0;
         for (int i = 0; i < matrix.length; i++) {

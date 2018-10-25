@@ -9,13 +9,11 @@ public class Main {
 
     private static final Reader READER = Reader.getReader(new ReadingConsole());
 
-    private static final String MSG = "Enter number of seconds since the beginning of the day :";
-
     private static final int SECONDS_IN_DAY = 86400;
 
     public static void main(String[] args) {
 
-        int numberOfSecondsSinceTheBeginningOfTheDay = enterNumberOfSecondsSinceTheBeginningOfTheDay(MSG);
+        int numberOfSecondsSinceTheBeginningOfTheDay = enterNumberOfSecondsSinceTheBeginningOfTheDay();
 
         int numberOfSecondsLeftInTheDay = SECONDS_IN_DAY - numberOfSecondsSinceTheBeginningOfTheDay;
 
@@ -28,9 +26,9 @@ public class Main {
 
     }
 
-    private static int enterNumberOfSecondsSinceTheBeginningOfTheDay(String msg) {
+    private static int enterNumberOfSecondsSinceTheBeginningOfTheDay() {
         int numberOfSecondsSinceTheBeginningOfTheDay;
-        System.out.println(msg);
+        System.out.println("Enter number of seconds since the beginning of the day :");
         while (true) {
             numberOfSecondsSinceTheBeginningOfTheDay = READER.readInt();
             if ((numberOfSecondsSinceTheBeginningOfTheDay >= 0) && (numberOfSecondsSinceTheBeginningOfTheDay <= SECONDS_IN_DAY)) {

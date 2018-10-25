@@ -15,35 +15,23 @@ public interface CalculatingArithmeticMeanNumber {
             }
         }
         resultArithmeticMeanNumber /= (numbers.getNumbers().length - 1);
-
         return resultArithmeticMeanNumber;
     }
 
     private static boolean checkNumbersNonNull(Numbers numbers) {
         boolean resultOfCheck = false;
-        try {
-            if (numbers != null) {
-                resultOfCheck = true;
-            } else {
-                throw new IllegalArgumentException(
-                          new NullPointerException("The object of Numbers class passed by argument is equal to null."));
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
+        if (numbers != null) {
+            resultOfCheck = true;
+        } else {
+            System.err.println("The object of Numbers class passed by argument is equal to null.");
         }
         return resultOfCheck;
     }
 
     private static boolean checkArrayNumbersNonNull(Numbers numbers) {
         boolean resultOfCheck = false;
-        try {
-            if (numbers.getNumbers() != null) {
-                resultOfCheck = true;
-            } else {
-                throw new IllegalArgumentException(new NullPointerException());
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
+        if (numbers.getNumbers() != null) {
+            resultOfCheck = true;
         }
         return resultOfCheck;
     }

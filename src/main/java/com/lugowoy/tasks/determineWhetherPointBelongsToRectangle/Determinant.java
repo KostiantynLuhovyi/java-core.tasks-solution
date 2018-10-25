@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.determineWhetherPointBelongsToRectangle;
 
-import com.lugowoy.helper.models.points.Point;
+import com.lugowoy.helper.models.Point;
 
 /** Created by Konstantin Lugowoy on 14.09.2017. */
 

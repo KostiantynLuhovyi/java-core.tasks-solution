@@ -1,10 +1,8 @@
 package com.lugowoy.tasks.calculationOfCoordinatesOfBodyCastAtAngleToHorizon;
 
-import com.lugowoy.helper.factory.FactoryPoint;
-import com.lugowoy.helper.factory.creator.CreatorPoint;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.points.Point;
+import com.lugowoy.helper.models.Point;
 
 /** Created by Konstantin Lugowoy on 06.11.2017. */
 
@@ -29,7 +27,7 @@ public class Main {
 
         System.out.println("The point in which there is a body having parameters entered by you : ");
 
-        Point<Double> point = FactoryPoint.getFactoryPoint(new CreatorPoint<Double>()).create();
+        Point<Double> point = Point.create();
         point.setCoordinateX(calculateCoordinateX(V, mass, angle, gamma, t));
         point.setCoordinateY(calculateCoordinateY(V, mass, angle, gamma, t));
 

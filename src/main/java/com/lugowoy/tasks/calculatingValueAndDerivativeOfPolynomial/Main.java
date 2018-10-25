@@ -1,16 +1,12 @@
 package com.lugowoy.tasks.calculatingValueAndDerivativeOfPolynomial;
 
-import com.lugowoy.helper.factory.FactoryArray;
-import com.lugowoy.helper.factory.creator.CreatorArrayNumbers;
 import com.lugowoy.helper.filling.array.numbers.FillerArrayNumbers;
 import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
-import com.lugowoy.helper.models.arrays.ArrayOfNumbers;
+import com.lugowoy.helper.models.Array;
 
 /** Created by Konstantin Lugowoy on 14.11.2017. */
 
 public class Main {
-
-    private static final FactoryArray<Integer> FACTORY = FactoryArray.getFactoryArray(new CreatorArrayNumbers<>());
 
     private static final FillerArrayNumbers<Integer> FILLER = FillerArrayNumbers.getFillerArrayNumbers(new FillingArrayRandomIntegerNumbers());
 
@@ -20,13 +16,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ArrayOfNumbers<Integer> polynomialCoefficients = (ArrayOfNumbers<Integer>) FACTORY.create(FILLER.fill(LENGTH_ARRAY,
-                                                                                                              START_BOUND,
-                                                                                                              END_BOUND));
+        Array<Integer> polynomialCoefficients = Array.create(FILLER.fill(LENGTH_ARRAY, START_BOUND, END_BOUND));
         System.out.println(polynomialCoefficients);
 
         //todo Check why value LENGTH_ARRAY is "LENGTH_ARRAY - 1";
-        ArrayOfNumbers<Integer> derivativeCoefficients = (ArrayOfNumbers<Integer>) FACTORY.create(LENGTH_ARRAY - 1);
+        Array<Integer> derivativeCoefficients = Array.create(LENGTH_ARRAY - 1);
 
         double resultPolynomial = 0;
         double resultDerivative = 0;
