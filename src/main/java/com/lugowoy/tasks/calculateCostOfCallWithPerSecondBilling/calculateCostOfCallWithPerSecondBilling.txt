@@ -1,2 +1,0 @@
-The user enters the start time and the end time of the telephone conversation from the keyboard (hours, minutes and seconds).
-Calculate the cost of the call, if the cost of the minute is 15 cents, taking into account per second charging.

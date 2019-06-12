@@ -1,1 +1,0 @@
-Write a program that finds the arithmetic mean of the three real numbers.

@@ -5,11 +5,17 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 
 import java.math.BigDecimal;
 
-/** Created by Konstantin Lugowoy on 06.06.2017. */
+import static java.math.RoundingMode.HALF_DOWN;
+
+/**
+ * The user enters the start time and the end time of the telephone conversation from the keyboard (hours, minutes and seconds).
+ * Calculate the cost of the call, if the cost of the minute is 15 cents, taking into account per second charging.
+ * <p>
+ * Created by Konstantin Lugowoy on 06.06.2017.
+ */
 
 public class Main {
 
-    private static final int COST_OF_THE_MINUTES = 15;
     private static final int MINUTES_OF_HOUR = 60;
 
     public static void main(String[] args) {
@@ -17,14 +23,19 @@ public class Main {
         long timeOfStartCallInSeconds = enterCallTimeInSeconds("Enter the start time of the call.");
         long timeOfFinishCallInSeconds = enterCallTimeInSeconds("Enter the finish time of the call.");
 
-        BigDecimal costOfTheCall = new BigDecimal(calculateCostOfCall(timeOfStartCallInSeconds, timeOfFinishCallInSeconds));
+        System.out.println("Enter the cost of the minutes : ");
+        BigDecimal costOfMinutes = new BigDecimal(Reader.getReader(new ReadingConsole()).readDouble());
+
+        BigDecimal costOfTheCall = calculateCostOfCall(costOfMinutes, timeOfStartCallInSeconds, timeOfFinishCallInSeconds);
 
         System.out.println("The cost of the call is : " + costOfTheCall);
 
     }
 
-    private static double calculateCostOfCall(long timeOfStartCallInSeconds, long timeOfFinishCallInSeconds) {
-        return (double) (timeOfFinishCallInSeconds - timeOfStartCallInSeconds) * COST_OF_THE_MINUTES / MINUTES_OF_HOUR;
+    private static BigDecimal calculateCostOfCall(BigDecimal costOfMinutes, long timeOfStartCallInSeconds,
+                                                                            long timeOfFinishCallInSeconds) {
+        BigDecimal timeToCall = new BigDecimal(timeOfFinishCallInSeconds - timeOfStartCallInSeconds);
+        return new BigDecimal(timeToCall.doubleValue()).multiply(costOfMinutes.divide(new BigDecimal(MINUTES_OF_HOUR), 3, HALF_DOWN));
     }
 
     private static long enterCallTimeInSeconds(String msg) {

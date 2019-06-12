@@ -2,7 +2,10 @@ package com.lugowoy.tasks.calculatingValueAndDerivativeOfPolynomial;
 
 import com.lugowoy.helper.filling.array.numbers.FillerArrayNumbers;
 import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.Array;
+import com.lugowoy.helper.other.LengthArray;
 
 /** Created by Konstantin Lugowoy on 14.11.2017. */
 
@@ -39,6 +42,9 @@ public class Main {
         System.out.println();
         System.out.println("Result polynomial : " + resultPolynomial);
         System.out.println("Result derivative : " + resultDerivative);
+
+        int resTest = LengthArray.readLengthArray(Reader.getReader(new ReadingConsole()), 20);
+        System.out.println(resTest);
 
     }
 

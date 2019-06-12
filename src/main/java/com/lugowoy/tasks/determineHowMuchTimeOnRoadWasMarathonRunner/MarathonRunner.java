@@ -1,11 +1,9 @@
 package com.lugowoy.tasks.determineHowMuchTimeOnRoadWasMarathonRunner;
 
-import com.lugowoy.helper.other.DeepCloning;
-
 import java.io.Serializable;
 import java.util.Objects;
 
-import static com.lugowoy.helper.other.DeepCloning.*;
+import static com.lugowoy.helper.other.DeepCloning.CLONER;
 
 /** Created by Konstantin Lugowoy on 23.03.2017. */
 

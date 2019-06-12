@@ -10,7 +10,7 @@ public interface CalculatingLengthOfCircle {
         if (circle != null) {
             circle.setLength(2 * PI * circle.getRadius());
         } else {
-            System.err.println("The object of Circle class passed by argument is equal to null.");
+            throw new NullPointerException("The object of Circle class passed by argument is equal to null.");
         }
         return circle;
     }

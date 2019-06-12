@@ -11,9 +11,6 @@ public class Circle implements Serializable, Cloneable {
     private double area;
     private double length;
 
-    public Circle() {
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -31,7 +28,7 @@ public class Circle implements Serializable, Cloneable {
 
     @Override
     public String toString() {
-        return "Circle[" +
+        return  this.getClass().getSimpleName() + "[" +
                 "radius=" + radius +
                 ", area=" + area +
                 ", length=" + length +
@@ -57,14 +54,10 @@ public class Circle implements Serializable, Cloneable {
     }
 
     public void setRadius(double radius) {
-        try {
-            if (radius > 0) {
-                this.radius = radius;
-            } else {
-                throw new IllegalArgumentException("The value of radius passed of argument is less than or equal to 0.");
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
+        if (radius > 0) {
+            this.radius = radius;
+        } else {
+            throw new IllegalArgumentException("The value of radius passed of argument is less than or equal to 0.");
         }
     }
 
@@ -73,14 +66,10 @@ public class Circle implements Serializable, Cloneable {
     }
 
     public void setArea(double area) {
-        try {
-            if (area > 0) {
-                this.area = area;
-            } else {
-                throw new IllegalArgumentException("The value of area passed by argument is less than or equal to 0.");
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
+        if (area > 0) {
+            this.area = area;
+        } else {
+            throw new IllegalArgumentException("The value of area passed by argument is less than or equal to 0.");
         }
     }
 
@@ -89,14 +78,10 @@ public class Circle implements Serializable, Cloneable {
     }
 
     public void setLength(double length) {
-        try {
-            if (length > 0) {
-                this.length = length;
-            } else {
-                throw new IllegalArgumentException("The value of length passed by argument is less than or equal to 0.");
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
+        if (length > 0) {
+            this.length = length;
+        } else {
+            throw new IllegalArgumentException("The value of length passed by argument is less than or equal to 0.");
         }
     }
 

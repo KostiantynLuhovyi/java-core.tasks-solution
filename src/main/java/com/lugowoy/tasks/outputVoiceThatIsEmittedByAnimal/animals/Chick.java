@@ -1,8 +1,6 @@
 package com.lugowoy.tasks.outputVoiceThatIsEmittedByAnimal.animals;
 
-import com.lugowoy.helper.other.DeepCloning;
-
-import static com.lugowoy.helper.other.DeepCloning.*;
+import static com.lugowoy.helper.other.DeepCloning.CLONER;
 
 /** Created by Konstantin Lugowoy on 04.10.2017. */
 

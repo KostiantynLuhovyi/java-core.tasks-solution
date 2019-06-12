@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.calculateAreaAndLengthOfCircle;
 
+import java.util.Objects;
+
 import static java.lang.Math.PI;
 import static java.lang.Math.pow;
 
@@ -8,10 +10,10 @@ import static java.lang.Math.pow;
 public interface CalculatingAreaOfCircle {
 
     static Circle calculateTheAreaOfTheCircle(Circle circle) {
-        if (circle != null) {
+        if (Objects.nonNull(circle)) {
             circle.setArea(PI * pow(circle.getRadius(), 2));
         } else {
-            System.err.println("The object of Circle class passed by argument is equal to null.");
+            throw new NullPointerException("The object of Circle class passed by argument is equal to null.");
         }
         return circle;
     }
