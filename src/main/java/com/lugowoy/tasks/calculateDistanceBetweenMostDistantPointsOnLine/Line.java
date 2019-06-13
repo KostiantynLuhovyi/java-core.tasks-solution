@@ -1,9 +1,9 @@
 package com.lugowoy.tasks.calculateDistanceBetweenMostDistantPointsOnLine;
 
+import com.rits.cloning.Cloner;
+
 import java.io.Serializable;
 import java.util.Arrays;
-
-import static com.lugowoy.helper.other.DeepCloning.CLONER;
 
 /** Created by Konstantin Lugowoy on 10.07.2017. */
 
@@ -59,11 +59,12 @@ public final class Line<T extends Number> implements Serializable, Cloneable {
     @Override
     protected Line<T> clone() {
         Line<T> line = new Line<>();
+        Cloner cloner = new Cloner();
         try {
             line = (Line<T>) super.clone();
-            line.setPointsOnLine(CLONER.deepClone(this.getPointsOnLine()));
-            line.setValueMinPoint(CLONER.deepClone(this.getValueMinPoint()));
-            line.setValueMaxPoint(CLONER.deepClone(this.getValueMaxPoint()));
+            line.setPointsOnLine(cloner.deepClone(this.getPointsOnLine()));
+            line.setValueMinPoint(cloner.deepClone(this.getValueMinPoint()));
+            line.setValueMaxPoint(cloner.deepClone(this.getValueMaxPoint()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

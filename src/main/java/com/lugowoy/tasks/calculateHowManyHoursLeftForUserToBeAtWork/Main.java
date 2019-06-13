@@ -3,7 +3,11 @@ package com.lugowoy.tasks.calculateHowManyHoursLeftForUserToBeAtWork;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 06.06.2017. */
+/**
+ * Calculate how many hours left for the user to be at work.
+ * <p>
+ * Created by Konstantin Lugowoy on 06.06.2017.
+ */
 
 public class Main {
 

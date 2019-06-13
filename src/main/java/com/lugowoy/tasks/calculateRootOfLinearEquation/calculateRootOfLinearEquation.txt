@@ -1,1 +1,0 @@
-Write a program that finds the root of the linear equation ax + b = 0.

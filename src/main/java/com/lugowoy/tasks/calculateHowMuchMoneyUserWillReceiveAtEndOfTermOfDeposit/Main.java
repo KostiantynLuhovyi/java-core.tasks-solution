@@ -6,7 +6,11 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-/** Created by Konstantin Lugowoy on 17.06.2017. */
+/**
+ * Calculate how much money user will receive at end of term of deposit.
+ * <p>
+ * Created by Konstantin Lugowoy on 17.06.2017.
+ */
 
 public class Main {
 

@@ -1,2 +1,0 @@
-The user enters from the keyboard the volume of the USB flash drive in gigabytes.
-Calculate how much it will fit the size of films entered by the user.

@@ -1,1 +1,0 @@
-The user enters the number and degree. The program calculates the degree of this number.

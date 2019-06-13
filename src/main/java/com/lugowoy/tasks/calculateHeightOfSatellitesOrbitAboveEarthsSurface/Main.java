@@ -3,7 +3,11 @@ package com.lugowoy.tasks.calculateHeightOfSatellitesOrbitAboveEarthsSurface;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 07.11.2017. */
+/**
+ * Calculate the height of the satellite's orbit above the Earth's surface.
+ * <p>
+ * Created by Konstantin Lugowoy on 07.11.2017.
+ */
 
 public class Main {
 

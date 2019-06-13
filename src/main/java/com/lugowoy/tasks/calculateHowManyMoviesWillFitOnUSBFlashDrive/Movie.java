@@ -1,8 +1,8 @@
 package com.lugowoy.tasks.calculateHowManyMoviesWillFitOnUSBFlashDrive;
 
-import java.io.Serializable;
+import com.rits.cloning.Cloner;
 
-import static com.lugowoy.helper.other.DeepCloning.CLONER;
+import java.io.Serializable;
 
 /** Created by Konstantin Lugowoy on 16.06.2017. */
 
@@ -54,7 +54,7 @@ public final class Movie implements Serializable, Cloneable {
         Movie movie = new Movie();
         try {
             movie = (Movie) super.clone();
-            movie.setNameMovie(CLONER.deepClone(this.getNameMovie()));
+            movie.setNameMovie(new Cloner().deepClone(this.getNameMovie()));
             movie.setSizeMovie(this.getSizeMovie());
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
@@ -83,31 +83,19 @@ public final class Movie implements Serializable, Cloneable {
     }
 
     private boolean checkNameOfMovie(String nameMovie) {
-        boolean resultOfCheck = false;
-        try {
-            if ((nameMovie != null) && (!nameMovie.equals(""))) {
-                resultOfCheck = true;
-            } else {
-                throw new IllegalArgumentException("The name of the movie passed by the argument is null or an empty string.");
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
+        if ((nameMovie != null) && (!nameMovie.equals(""))) {
+            return true;
+        } else {
+            throw new IllegalArgumentException("The name of the movie passed by the argument is null or an empty string.");
         }
-        return resultOfCheck;
     }
 
     private boolean checkSizeMovie(double sizeMovie) {
-        boolean resultOfCheck = false;
-        try {
-            if (sizeMovie > 0) {
-                resultOfCheck = true;
-            } else {
-                throw new IllegalArgumentException("The size of the movie passed by the argument is less than or equal to 0.");
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
+        if (sizeMovie > 0) {
+            return true;
+        } else {
+            throw new IllegalArgumentException("The size of the movie passed by the argument is less than or equal to 0.");
         }
-        return resultOfCheck;
     }
 
 }

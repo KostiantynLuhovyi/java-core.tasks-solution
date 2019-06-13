@@ -56,27 +56,18 @@ public final class FlashDriveUSB implements Serializable, Cloneable {
     }
 
     public void setSizeFlashDriveUSB(double sizeFlashDriveUSB) {
-        try {
-            if (checkSizeFlashDriveUSB(sizeFlashDriveUSB)) {
-                this.sizeFlashDriveUSB = sizeFlashDriveUSB;
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
+        if (checkSizeFlashDriveUSB(sizeFlashDriveUSB)) {
+            this.sizeFlashDriveUSB = sizeFlashDriveUSB;
         }
     }
 
-    private boolean checkSizeFlashDriveUSB(double sizeFlashDriveUSB) throws IllegalArgumentException {
-        boolean resultOfCheck = false;
-        try {
-            if (sizeFlashDriveUSB > 0) {
-                resultOfCheck = true;
-            } else {
-                throw new IllegalArgumentException("The size of the flash drive USB passed by the argument is less than or equal to 0.");
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
+    private boolean checkSizeFlashDriveUSB(double sizeFlashDriveUSB) {
+        if (sizeFlashDriveUSB > 0) {
+            return true;
+        } else {
+            throw new IllegalArgumentException("The size of the flash drive USB passed by the argument " +
+                                                                                         "is less than or equal to 0.");
         }
-        return resultOfCheck;
     }
 
 }

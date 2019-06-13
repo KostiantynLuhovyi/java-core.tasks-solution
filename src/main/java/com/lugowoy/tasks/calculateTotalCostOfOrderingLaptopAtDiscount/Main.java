@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.calculateTotalCostOfOrderingLaptopAtDiscount;
 
-import com.lugowoy.helper.calculating.CalculationUsingThreeParameters;
+import com.lugowoy.helper.calculating.CalculationThreeParameters;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
@@ -8,7 +8,12 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Random;
 
-/** Created by Konstantin Lugowoy on 15.06.2017. */
+/**
+ * The user enters from the keyboard the cost of one laptop, their number and percentage discount.
+ * Calculate the total cost of the order.
+ * <p>
+ * Created by Konstantin Lugowoy on 15.06.2017.
+ */
 
 public class Main {
 
@@ -32,9 +37,9 @@ public class Main {
 
     }
 
-    private static final CalculationUsingThreeParameters<BigDecimal, Laptop, Integer, BigDecimal> CALCULATING = (laptop,
-                                                                                                                 numberOfLaptop,
-                                                                                                                 discount) -> {
+    private static final CalculationThreeParameters<BigDecimal, Laptop, Integer, BigDecimal> CALCULATING = (laptop,
+                                                                                                            numberOfLaptop,
+                                                                                                            discount) -> {
         BigDecimal sumPriceOfLaptop = new BigDecimal(laptop.getPrice().multiply(new BigDecimal(numberOfLaptop)).doubleValue());
         return new BigDecimal(sumPriceOfLaptop.subtract(sumPriceOfLaptop.multiply(discount)
                                                                         .divide(new BigDecimal(100), SCALE, RoundingMode.DOWN))

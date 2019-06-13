@@ -1,13 +1,19 @@
 package com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers;
 
 import com.lugowoy.helper.filling.array.numbers.FillerArrayNumbers;
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
 import com.lugowoy.helper.models.Array;
 import com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating.CalculatingPercentage;
 import com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating.Calculator;
 import com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating.CalculatorPercentage;
 
-/** Created by Konstantin Lugowoy on 23.10.2017. */
+/**
+ * To guess randomly 100 integers in the range from -100 to 100. Calculate the percentage of positive numbers,
+ * the percentage of negative numbers and the percentage of zeros.
+ * Calculate the percentage of even numbers and the percentage of odd numbers.
+ * <p>
+ * Created by Konstantin Lugowoy on 23.10.2017.
+ */
 
 public class Main {
 
@@ -19,9 +25,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Array<Integer> array = Array.create(LENGTH_ARRAY);
+        Array<Integer> array = new Array<>(LENGTH_ARRAY);
 
-        FillerArrayNumbers.getFillerArrayNumbers(new FillingArrayRandomIntegerNumbers()).fill(array, MIN_BOUND, MAX_BOUND);
+        FillerArrayNumbers.getFillerArrayNumbers(new FillingArrayRandomInteger()).fill(array, MIN_BOUND, MAX_BOUND);
 
         System.out.println("Numbers : " + array);
 

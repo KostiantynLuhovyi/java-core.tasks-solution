@@ -1,2 +1,0 @@
-The teacher enters from the keyboard the number of students who submitted homework and the number of those who did not pass.
-Calculate how many percent of students who did not pass their homework from the total number of students.

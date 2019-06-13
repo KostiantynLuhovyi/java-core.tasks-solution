@@ -1,2 +1,0 @@
-Write a program that enters the coordinates M (x, y) and C (x, y) of points on the plane,
-and prints the result of the distance from the point M (x, y) to the unit circle centered at point C (x, y).

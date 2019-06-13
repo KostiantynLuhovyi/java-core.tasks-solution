@@ -1,1 +1,0 @@
-Calculate how much money user will receive at end of term of deposit.

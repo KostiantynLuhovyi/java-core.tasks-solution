@@ -1,2 +1,0 @@
-Write a program for entering three numbers, as the coordinates of points on a line
-and calculate the distance between the most distant from each other.

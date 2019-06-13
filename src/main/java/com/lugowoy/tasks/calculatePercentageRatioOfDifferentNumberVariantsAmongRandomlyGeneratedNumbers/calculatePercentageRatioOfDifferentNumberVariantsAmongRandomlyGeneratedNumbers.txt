@@ -1,3 +1,0 @@
-To guess randomly 100 integers in the range from -100 to 100. Calculate the percentage of positive numbers,
-the percentage of negative numbers and the percentage of zeros.
-Calculate the percentage of even numbers and the percentage of odd numbers.

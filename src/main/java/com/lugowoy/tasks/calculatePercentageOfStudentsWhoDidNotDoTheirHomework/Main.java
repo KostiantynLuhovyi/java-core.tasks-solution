@@ -3,7 +3,12 @@ package com.lugowoy.tasks.calculatePercentageOfStudentsWhoDidNotDoTheirHomework;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 17.06.2017. */
+/**
+ * The teacher enters from the keyboard the number of students who submitted homework and the number of those who did not pass.
+ * Calculate how many percent of students who did not pass their homework from the total number of students.
+ * <p>
+ * Created by Konstantin Lugowoy on 17.06.2017.
+ */
 
 public class Main {
 

@@ -1,1 +1,0 @@
-Calculate the height of the satellite's orbit above the Earth's surface.

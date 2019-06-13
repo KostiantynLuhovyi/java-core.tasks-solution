@@ -1,10 +1,14 @@
 package com.lugowoy.tasks.calculateRootOfLinearEquation;
 
-import com.lugowoy.helper.calculating.CalculationUsingOneParameter;
+import com.lugowoy.helper.calculating.CalculationOneParameter;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 14-Dec-16. */
+/**
+ * Write a program that finds the root of the linear equation ax + b = 0.
+ * <p>
+ * Created by Konstantin Lugowoy on 14-Dec-16.
+ */
 
 public class Main {
 
@@ -14,8 +18,8 @@ public class Main {
 
         LinearEquation equation = new LinearEquation();
 
-        CalculationUsingOneParameter<LinearEquation, LinearEquation> linearEquationCalculableOnTheObject =
-                                                                                new CalculatingLinearEquation()::calculateRootOfTheLinearEquation;
+        CalculationOneParameter<LinearEquation, LinearEquation> linearEquationCalculableOnTheObject =
+                                                      new CalculatingLinearEquation()::calculateRootOfTheLinearEquation;
 
         System.out.println("Calculate root in the linear equation : ax + b = 0");
 

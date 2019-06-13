@@ -28,9 +28,7 @@ _(124)_
     * _Write a program that finds the arithmetic mean of the three real numbers._  
 * `calculateCostOfCallWithPerSecondBilling`  
     * _The user enters the start time and the end time of the telephone conversation from the keyboard (hours, minutes and seconds).
-       Calculate the cost of the call, if the cost of the minute is 15 cents, taking into account per second charging._  
-* `calculateDegreeOfNumber`
-    * _The user enters the number and degree. The program calculates the degree of this number._  
+       Calculate the cost of the call, if the cost of the minute is 15 cents, taking into account per second charging._   
 * `calculateDistanceBetweenMostDistantPointsOnLine`
     * _Write a program for entering three numbers, as the coordinates of points on a line
          and calculate the distance between the most distant from each other._  
@@ -291,6 +289,8 @@ _(124)_
        (for example, entered 15 hours 6 minutes - the greeting "good day" is displayed)._  
 * `productOfSquareMatrices`  
     * _Product of square matrices._  
+* `raiseNumberToPower`
+    * _Raise the number entered in the power._ 
 * `removeCentralDigitNumberOfThreeDigitsNumber`  
     * _Entered from the keyboard three-digit number and remove it from the central digit._  
 * `reverseEntryThreeDigitNumber`  

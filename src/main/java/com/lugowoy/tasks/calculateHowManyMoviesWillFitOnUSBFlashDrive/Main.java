@@ -3,7 +3,12 @@ package com.lugowoy.tasks.calculateHowManyMoviesWillFitOnUSBFlashDrive;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 16.06.2017. */
+/**
+ * The user enters from the keyboard the volume of the USB flash drive in gigabytes.
+ * Calculate how much it will fit the size of films entered by the user.
+ * <p>
+ * Created by Konstantin Lugowoy on 16.06.2017.
+ */
 
 public class Main {
 
