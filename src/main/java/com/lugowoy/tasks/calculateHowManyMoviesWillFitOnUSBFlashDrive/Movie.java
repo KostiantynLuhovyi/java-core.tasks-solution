@@ -4,7 +4,9 @@ import com.rits.cloning.Cloner;
 
 import java.io.Serializable;
 
-/** Created by Konstantin Lugowoy on 16.06.2017. */
+/**
+ * Created by Konstantin Lugowoy on 16.06.2017.
+ */
 
 public final class Movie implements Serializable, Cloneable {
 

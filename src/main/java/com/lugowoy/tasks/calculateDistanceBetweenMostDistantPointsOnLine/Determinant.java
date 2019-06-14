@@ -3,7 +3,9 @@ package com.lugowoy.tasks.calculateDistanceBetweenMostDistantPointsOnLine;
 import java.util.Arrays;
 import java.util.Optional;
 
-/** Created by Konstantin Lugowoy on 10.07.2017. */
+/**
+ * Created by Konstantin Lugowoy on 10.07.2017.
+ */
 
 @FunctionalInterface
 public interface Determinant<T extends Number> {
@@ -16,7 +18,7 @@ public interface Determinant<T extends Number> {
         if (optionalMinValueOfPoint.isPresent()) {
             resultValue = optionalMinValueOfPoint.get();
         } else {
-            System.err.println("Can not determine the minimal value of point on the line.");
+            throw new ArithmeticException("Can not determine the minimal value of point on the line.");
         }
         return resultValue;
     }
@@ -27,7 +29,7 @@ public interface Determinant<T extends Number> {
         if (optionalMaxValueOfPoint.isPresent()) {
             resultValue = optionalMaxValueOfPoint.get();
         } else {
-            System.err.println("Can not determine the maximum value of point on the line.");
+            throw new ArithmeticException("Can not determine the maximum value of point on the line.");
         }
         return resultValue;
     }

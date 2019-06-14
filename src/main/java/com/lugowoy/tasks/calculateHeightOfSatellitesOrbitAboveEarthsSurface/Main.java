@@ -32,7 +32,7 @@ public class Main {
     }
 
     private static double calculateHeightOfSatellitesOrbitInKilometers(double heightOfSatellitesOrbitInMeters) {
-        return (double)(Math.round(heightOfSatellitesOrbitInMeters)) / 1000;
+        return (double) (Math.round(heightOfSatellitesOrbitInMeters)) / 1000;
     }
 
     private static double calculateHeightOfSatellitesOrbitInMeters(double orbitalPeriod) {

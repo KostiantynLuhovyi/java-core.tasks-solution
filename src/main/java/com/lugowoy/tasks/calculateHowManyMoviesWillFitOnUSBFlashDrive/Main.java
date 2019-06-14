@@ -27,7 +27,7 @@ public class Main {
     }
 
     private static int calculateNumberOfMovieOnFlashDriveUSB(FlashDriveUSB driveUSB, Movie movie) {
-        return (int)(driveUSB.getSizeFlashDriveUSB() * 1024 / movie.getSizeMovie());
+        return (int) (driveUSB.getSizeFlashDriveUSB() * 1024 / movie.getSizeMovie());
     }
 
     private static double enterSizeFlashDriveUSB() {

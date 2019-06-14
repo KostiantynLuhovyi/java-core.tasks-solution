@@ -37,13 +37,13 @@ public class Main {
 
         System.out.printf("If we assume that the point C(%.2f, %.2f) is the center of the unit circle, " +
                         "%n then the distance from the point M(%.2f, %.2f) to the unit circle is %.2f .",
-                pointC.getX(), pointC.getY(), pointM.getX(), pointM.getY(), distance);
+                                                  pointC.getX(), pointC.getY(), pointM.getX(), pointM.getY(), distance);
 
     }
 
     private static final CalculationTwoParameters<Double, Point2D<Double>, Point2D<Double>> CALCULATING
             = (firstPoint, secondPoint) -> sqrt(pow(firstPoint.getX() - (secondPoint.getX() + 1.0), 2))
-                                                  + pow(firstPoint.getY() - (secondPoint.getY() + 1.0), 2);
+                                                + pow(firstPoint.getY() - (secondPoint.getY() + 1.0), 2);
 
     private static Point2D<Double> getPoint(String pointName) {
         Point2D<Double> point = new Point2D<>(0d, 0d);

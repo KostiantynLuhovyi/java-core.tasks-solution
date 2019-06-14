@@ -30,8 +30,8 @@ public class Main {
         BigDecimal resultSum = new BigDecimal(depositSumInUAH.doubleValue() * rateOfAllMonths.doubleValue()
                                                                                        + depositSumInUAH.doubleValue());
 
-        System.out.println("Result sum deposit after " + termOfDepositInMonth
-                                                   + " month is equal " + resultSum.setScale(SCALE, RoundingMode.DOWN));
+        System.out.println("Result sum deposit after " + termOfDepositInMonth + " month is equal "
+                                                                        + resultSum.setScale(SCALE, RoundingMode.DOWN));
 
     }
 

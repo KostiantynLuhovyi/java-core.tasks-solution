@@ -11,7 +11,8 @@ import java.util.Objects;
  * and calculate the distance from the point M (x, y) to the straight line OA,
  * where O is the start origin of coordinates, and the point A is different from 0.
  * <p>
- * Created by Konstantin Lugowoy on 11.07.2017. */
+ * Created by Konstantin Lugowoy on 11.07.2017.
+ */
 
 public class Main {
 

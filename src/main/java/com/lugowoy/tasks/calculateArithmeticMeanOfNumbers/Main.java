@@ -34,7 +34,7 @@ public class Main {
 
         double resultArithmeticMeanNumbers = 0d;
         for (double number : array) {
-           resultArithmeticMeanNumbers += number;
+            resultArithmeticMeanNumbers += number;
         }
         resultArithmeticMeanNumbers /= array.getLength();
 

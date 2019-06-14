@@ -2,7 +2,9 @@ package com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmong
 
 import com.lugowoy.helper.models.Array;
 
-/** Created by Konstantin Lugowoy on 23.10.2017. */
+/**
+ * Created by Konstantin Lugowoy on 23.10.2017.
+ */
 
 public interface CalculatingPercentageOfPositiveNumbers<T extends Number> extends CalculatingPercentage<T> {
 

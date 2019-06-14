@@ -3,7 +3,9 @@ package com.lugowoy.tasks.calculateRootOfLinearEquation;
 import java.io.Serializable;
 import java.util.Objects;
 
-/** Created by Konstantin Lugowoy on 14-Dec-16. */
+/**
+ * Created by Konstantin Lugowoy on 14-Dec-16.
+ */
 
 public class LinearEquation implements Serializable, Cloneable {
 
@@ -52,7 +54,7 @@ public class LinearEquation implements Serializable, Cloneable {
             linearEquation.setA(this.getA());
             linearEquation.setB(this.getB());
             linearEquation.setXRootLinearEquation(this.getXRootLinearEquation());
-        } catch (CloneNotSupportedException  ex) {
+        } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }
         return linearEquation;

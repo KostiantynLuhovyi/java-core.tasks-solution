@@ -20,13 +20,13 @@ public class Main {
         System.out.println("Enter the radius of the circle : ");
         circle.setRadius(Reader.getReader(new ReadingConsole()).readDouble());
 
-        CalculationOneParameter<Circle, Circle> calculator = CalculatingAreaOfCircle::calculateTheAreaOfTheCircle;
+        CalculationOneParameter<Circle, Circle> calculator = CalculatingAreaOfCircle::calculateAreaOfCircle;
         calculator.calculate(circle);
 
         System.out.format("The area of the circle is equal to %f", circle.getArea());
         System.out.println();
 
-        calculator = CalculatingLengthOfCircle::calculateTheLengthOfTheCircle;
+        calculator = CalculatingLengthOfCircle::calculateLengthOfCircle;
         calculator.calculate(circle);
 
         System.out.format("The length of the circle is equal to %.3f", circle.getLength());

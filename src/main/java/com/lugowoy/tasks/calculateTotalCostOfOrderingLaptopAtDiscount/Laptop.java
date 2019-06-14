@@ -5,7 +5,9 @@ import com.rits.cloning.Cloner;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-/** Created by Konstantin Lugowoy on 15.06.2017. */
+/**
+ * Created by Konstantin Lugowoy on 15.06.2017.
+ */
 
 public final class Laptop implements Serializable, Cloneable {
 

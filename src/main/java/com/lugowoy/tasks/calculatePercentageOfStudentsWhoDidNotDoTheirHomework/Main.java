@@ -26,7 +26,7 @@ public class Main {
 
     private static double calculatePercentageOfStudentsWhoDidNotDoTheirHomework(int numberOfStudentsWhoDidTheirHomework,
                                                                                 int numberOfStudentsWhoDidNotDoTheirHomework) {
-        return (double)(numberOfStudentsWhoDidTheirHomework + numberOfStudentsWhoDidNotDoTheirHomework)
+        return (double) (numberOfStudentsWhoDidTheirHomework + numberOfStudentsWhoDidNotDoTheirHomework)
                                                                        * numberOfStudentsWhoDidNotDoTheirHomework / 100;
     }
 

@@ -5,7 +5,9 @@ import com.rits.cloning.Cloner;
 import java.io.Serializable;
 import java.util.Arrays;
 
-/** Created by Konstantin Lugowoy on 10.07.2017. */
+/**
+ * Created by Konstantin Lugowoy on 10.07.2017.
+ */
 
 public final class Line<T extends Number> implements Serializable, Cloneable {
 

@@ -2,7 +2,9 @@ package com.lugowoy.tasks.calculateHowManyMoviesWillFitOnUSBFlashDrive;
 
 import java.io.Serializable;
 
-/** Created by Konstantin Lugowoy on 16.06.2017. */
+/**
+ * Created by Konstantin Lugowoy on 16.06.2017.
+ */
 
 public final class FlashDriveUSB implements Serializable, Cloneable {
 
@@ -65,8 +67,7 @@ public final class FlashDriveUSB implements Serializable, Cloneable {
         if (sizeFlashDriveUSB > 0) {
             return true;
         } else {
-            throw new IllegalArgumentException("The size of the flash drive USB passed by the argument " +
-                                                                                         "is less than or equal to 0.");
+            throw new IllegalArgumentException("The size of the flash drive USB passed by the argument is less than or equal to 0.");
         }
     }
 

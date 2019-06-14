@@ -4,7 +4,9 @@ import com.lugowoy.helper.models.Array;
 
 import static java.lang.Math.abs;
 
-/** Created by Konstantin Lugowoy on 23.10.2017. */
+/**
+ * Created by Konstantin Lugowoy on 23.10.2017.
+ */
 
 public interface CalculatingPercentageOfEvenNumbers<T extends Number> extends CalculatingPercentage<T> {
 

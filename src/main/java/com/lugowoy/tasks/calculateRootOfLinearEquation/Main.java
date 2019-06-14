@@ -18,8 +18,7 @@ public class Main {
 
         LinearEquation equation = new LinearEquation();
 
-        CalculationOneParameter<LinearEquation, LinearEquation> linearEquationCalculableOnTheObject =
-                                                      new CalculatingLinearEquation()::calculateRootOfTheLinearEquation;
+        CalculationOneParameter<LinearEquation, LinearEquation> linearEquation = new CalculatingLinearEquation()::calculateLinearEquation;
 
         System.out.println("Calculate root in the linear equation : ax + b = 0");
 
@@ -29,7 +28,7 @@ public class Main {
         System.out.println("Enter value \"b\" : ");
         equation.setB(READER.readDouble());
 
-        linearEquationCalculableOnTheObject.calculate(equation);
+        linearEquation.calculate(equation);
 
         System.out.format("Root (x) in the linear equation equal : %f", equation.getXRootLinearEquation());
 

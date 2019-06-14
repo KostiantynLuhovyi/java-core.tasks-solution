@@ -3,7 +3,9 @@ package com.lugowoy.tasks.calculateAreaAndLengthOfCircle;
 import java.io.Serializable;
 import java.util.Objects;
 
-/** Created by Konstantin Lugowoy on 15-Dec-16. */
+/**
+ * Created by Konstantin Lugowoy on 15-Dec-16.
+ */
 
 public class Circle implements Serializable, Cloneable {
 
@@ -28,7 +30,7 @@ public class Circle implements Serializable, Cloneable {
 
     @Override
     public String toString() {
-        return  this.getClass().getSimpleName() + "[" +
+        return this.getClass().getSimpleName() + "[" +
                 "radius=" + radius +
                 ", area=" + area +
                 ", length=" + length +

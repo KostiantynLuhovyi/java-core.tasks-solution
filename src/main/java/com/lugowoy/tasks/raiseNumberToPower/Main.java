@@ -3,8 +3,6 @@ package com.lugowoy.tasks.raiseNumberToPower;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-import java.math.BigDecimal;
-
 /**
  * Raise the number entered in the power.
  * <p>

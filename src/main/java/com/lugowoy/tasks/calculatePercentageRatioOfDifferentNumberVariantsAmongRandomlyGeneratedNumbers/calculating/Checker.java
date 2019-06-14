@@ -2,6 +2,10 @@ package com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmong
 
 import com.lugowoy.helper.models.Array;
 
+/**
+ * Created by Konstantin Lugowoy on 23.10.2017.
+ */
+
 public class Checker {
 
     static <T> boolean checkObjectOfArrayClassNonNull(Array<T> array) {

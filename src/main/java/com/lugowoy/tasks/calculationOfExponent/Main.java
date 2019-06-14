@@ -1,6 +1,8 @@
 package com.lugowoy.tasks.calculationOfExponent;
 
-/** Created by Konstantin Lugowoy on 10.11.2017. */
+/**
+ * Created by Konstantin Lugowoy on 10.11.2017.
+ */
 
 public class Main {
 
@@ -10,7 +12,7 @@ public class Main {
 
         double x = 1, q = 1, s = 0;
 
-        for(int i = 0; i <= BOUND; i++) {
+        for (int i = 0; i <= BOUND; i++) {
             s += q;
             q *= x / (i + 1);
         }
