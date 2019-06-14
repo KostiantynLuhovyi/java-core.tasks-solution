@@ -6,7 +6,11 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 
 import java.math.BigDecimal;
 
-/**Created by Konstantin Lugowoy on 15-Dec-16.*/
+/**
+ * Write a program that allows the user to enter the number using the keypad UAH, and convert it into USD, EUR and RUB.
+ * <p>
+ * Created by Konstantin Lugowoy on 15-Dec-16.
+ */
 
 public class Main {
 

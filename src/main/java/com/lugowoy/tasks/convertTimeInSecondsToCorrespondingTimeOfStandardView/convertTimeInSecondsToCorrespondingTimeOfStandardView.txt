@@ -1,2 +1,0 @@
-The user enters the time in seconds from the keyboard.
-Convert this value in days, hours, minutes and seconds.

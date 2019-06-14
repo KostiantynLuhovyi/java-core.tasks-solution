@@ -3,7 +3,11 @@ package com.lugowoy.tasks.convertKilometersToMilesOfSeaAndLand;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/**Created by Konstantin Lugowoy on 31-Dec-16.*/
+/**
+ * Write a program that converts kilometers to miles of land and sea.
+ * <p>
+ * Created by Konstantin Lugowoy on 31-Dec-16.
+ */
 
 public class Main {
 

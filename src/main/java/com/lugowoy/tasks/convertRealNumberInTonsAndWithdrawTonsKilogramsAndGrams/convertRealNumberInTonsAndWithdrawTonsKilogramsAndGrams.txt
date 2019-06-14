@@ -1,2 +1,0 @@
-The user enters the mass in tons (real number) from the keyboard.
-Output separately the number of tons, kilograms, gram (for example, enter 126.456789t - get and output 126t 456kg 789g).

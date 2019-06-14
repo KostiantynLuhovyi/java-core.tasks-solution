@@ -1,12 +1,14 @@
 package com.lugowoy.tasks.calculatingNumberProductsOfPurchasedFromCertainSum;
 
+import com.rits.cloning.Cloner;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-import static com.lugowoy.helper.other.DeepCloning.CLONER;
-
-/**Created by Konstantin Lugowoy on 11-Feb-17.*/
+/**
+ * Created by Konstantin Lugowoy on 11-Feb-17.
+ */
 
 public final class Product implements Serializable, Cloneable {
 
@@ -40,7 +42,7 @@ public final class Product implements Serializable, Cloneable {
         Product product = new Product();
         try {
             product = (Product) super.clone();
-            product.setPrice(CLONER.deepClone(this.getPrice()));
+            product.setPrice(new Cloner().deepClone(this.getPrice()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }
@@ -52,14 +54,10 @@ public final class Product implements Serializable, Cloneable {
     }
 
     public void setPrice(BigDecimal price) {
-        try {
-            if ((price != null) && (price.doubleValue() > 0)) {
-                this.price = price;
-            } else {
-                 throw new IllegalArgumentException("The value of price passed by argument is incorrect.");
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
+        if ((price != null) && (price.doubleValue() > 0)) {
+            this.price = price;
+        } else {
+            throw new IllegalArgumentException("The value of price passed by argument is incorrect.");
         }
     }
 

@@ -3,7 +3,12 @@ package com.lugowoy.tasks.convertRealNumberInTonsAndWithdrawTonsKilogramsAndGram
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 26.03.2017. */
+/**
+ * The user enters the mass in tons (real number) from the keyboard.
+ * Output separately the number of tons, kilograms, gram (for example, enter 126.456789t - get and output 126t 456kg 789g).
+ * <p>
+ * Created by Konstantin Lugowoy on 26.03.2017.
+ */
 
 public class Main {
 

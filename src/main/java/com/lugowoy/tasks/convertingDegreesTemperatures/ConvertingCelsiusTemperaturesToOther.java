@@ -1,6 +1,8 @@
 package com.lugowoy.tasks.convertingDegreesTemperatures;
 
-/** Created by Konstantin Lugowoy on 11-Jan-17. */
+/**
+ * Created by Konstantin Lugowoy on 11-Jan-17.
+ */
 
 public class ConvertingCelsiusTemperaturesToOther implements Converting<Temperature> {
 

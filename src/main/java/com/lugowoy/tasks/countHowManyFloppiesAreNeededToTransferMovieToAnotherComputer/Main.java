@@ -3,7 +3,12 @@ package com.lugowoy.tasks.countHowManyFloppiesAreNeededToTransferMovieToAnotherC
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 17.06.2017. */
+/**
+ * The user enters from the keyboard the volume of one movie in gigabytes.
+ * Count how many floppies are needed to transfer the movie to another computer (the size of the floppy disk is considered equal to 1.44 MB).
+ * <p>
+ * Created by Konstantin Lugowoy on 17.06.2017.
+ */
 
 public class Main {
 

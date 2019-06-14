@@ -3,7 +3,12 @@ package com.lugowoy.tasks.checkThatAllDigitsOfNumberAreArrangedInAscendingOrder;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 06.10.2017. */
+/**
+ * Enter the number from the keyboard. Check that all the digits of this number are in a non-decreasing order
+ * (for example, the number 11299 corresponds to the job, and the number 22044 is not).
+ * <p>
+ * Created by Konstantin Lugowoy on 06.10.2017.
+ */
 
 public class Main {
 

@@ -1,12 +1,14 @@
 package com.lugowoy.tasks.calculatingNumberProductsOfPurchasedFromCertainSum;
 
+import com.rits.cloning.Cloner;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-import static com.lugowoy.helper.other.DeepCloning.CLONER;
-
-/**Created by Konstantin Lugowoy on 11-Feb-17.*/
+/**
+ * Created by Konstantin Lugowoy on 11-Feb-17.
+ */
 
 public final class User implements Serializable, Cloneable {
 
@@ -40,7 +42,7 @@ public final class User implements Serializable, Cloneable {
         User user = new User();
         try {
             user = (User) super.clone();
-            user.setAvailableSumOfMoney(CLONER.deepClone(this.getAvailableSumOfMoney()));
+            user.setAvailableSumOfMoney(new Cloner().deepClone(this.getAvailableSumOfMoney()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }
@@ -52,14 +54,10 @@ public final class User implements Serializable, Cloneable {
     }
 
     public void setAvailableSumOfMoney(BigDecimal availableSumOfMoney) {
-        try {
-            if ((availableSumOfMoney != null) && (availableSumOfMoney.doubleValue() >= 0)) {
-                this.availableSumOfMoney = availableSumOfMoney;
-            } else {
-                throw new IllegalArgumentException("The available sum of money passed by argument is incorrect.");
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
+        if ((availableSumOfMoney != null) && (availableSumOfMoney.doubleValue() >= 0)) {
+            this.availableSumOfMoney = availableSumOfMoney;
+        } else {
+            throw new IllegalArgumentException("The available sum of money passed by argument is incorrect.");
         }
     }
 

@@ -3,7 +3,11 @@ package com.lugowoy.tasks.calculatingFibonacciNumbers;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 02.09.2017. */
+/**
+ * Calculating Fibonacci numbers.
+ * <p>
+ * Created by Konstantin Lugowoy on 02.09.2017.
+ */
 
 public class Main {
 
@@ -11,20 +15,20 @@ public class Main {
 
     public static void main(String[] args) {
 
-        CalculatorFibonacciNumbers calculator = new CalculatorCyclicalFibonacciNumbers();
+        CalculatorFibonacciNumbers calculator = new CalculatorCyclicalFibonacci();
 
-        int number = enterNumberForCalculatingFibonacciNumbers();
+        int number = enterNumberForCalculatingFibonacci();
 
         System.out.println("Result : ");
         if (number > 0) {
-            calculator.calculatingOfPositiveFibonacciNumbers(number);
+            calculator.calculatingPositiveFibonacci(number);
         } else if (number < 0) {
-            calculator.calculatingOfNegativeFibonacciNumbers(number);
+            calculator.calculatingNegativeFibonacci(number);
         }
 
     }
 
-    private static int enterNumberForCalculatingFibonacciNumbers() {
+    private static int enterNumberForCalculatingFibonacci() {
         int inputNumber;
         System.out.println("Enter number for calculating Fibonacci numbers : ");
         while (true) {

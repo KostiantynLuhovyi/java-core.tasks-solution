@@ -3,7 +3,9 @@ package com.lugowoy.tasks.convertingDegreesTemperatures;
 import java.io.Serializable;
 import java.util.Objects;
 
-/** Created by Konstantin Lugowoy on 11-Jan-17. */
+/**
+ * Created by Konstantin Lugowoy on 11-Jan-17.
+ */
 
 public class Temperature implements Serializable, Cloneable {
 

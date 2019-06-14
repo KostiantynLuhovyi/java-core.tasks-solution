@@ -5,7 +5,12 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 
 import java.math.BigDecimal;
 
-/** Created by Konstantin Lugowoy on 04.10.2017. */
+/**
+ * The program for calculating the ideal weight for growth.
+ * Enter the height and weight, output a message about how much you need to gain or lose kg (ideal weight = height - 110).
+ * <p>
+ * Created by Konstantin Lugowoy on 04.10.2017.
+ */
 
 public class Main {
 

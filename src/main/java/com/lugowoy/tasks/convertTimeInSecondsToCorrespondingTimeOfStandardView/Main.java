@@ -3,7 +3,12 @@ package com.lugowoy.tasks.convertTimeInSecondsToCorrespondingTimeOfStandardView;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 06.06.2017. */
+/**
+ * The user enters the time in seconds from the keyboard.
+ * Convert this value in days, hours, minutes and seconds.
+ * <p>
+ * Created by Konstantin Lugowoy on 06.06.2017.
+ */
 
 public class Main {
 
@@ -18,11 +23,11 @@ public class Main {
             if (enteredTimeInTheSecond > 0) {
                 break;
             } else {
-                    System.out.println("Incorrect input. Re-enter : ");
+                System.out.println("Incorrect input. Re-enter : ");
             }
         }
 
-        long hour = enteredTimeInTheSecond  / 3600;
+        long hour = enteredTimeInTheSecond / 3600;
         long minutes = (enteredTimeInTheSecond % 3600) / 60;
         long seconds = enteredTimeInTheSecond % 60;
 

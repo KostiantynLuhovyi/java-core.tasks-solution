@@ -3,7 +3,13 @@ package com.lugowoy.tasks.calculateVelocityWithWhichYouNeedToGoToAirport;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 06.06.2017. */
+/**
+ * The user enters from the keyboard the distance to the airport (in kilometers, there may be a real value)
+ * and the time for which you need to reach (in minutes).
+ * Calculate the speed (km / h) with which you need to go.
+ * <p>
+ * Created by Konstantin Lugowoy on 06.06.2017.
+ */
 
 public class Main {
 

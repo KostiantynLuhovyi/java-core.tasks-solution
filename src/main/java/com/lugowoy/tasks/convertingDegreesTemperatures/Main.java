@@ -3,7 +3,12 @@ package com.lugowoy.tasks.convertingDegreesTemperatures;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 11-Jan-17. */
+/**
+ * Write a program that converts a specified number of degrees Celsius to degrees Fahrenheit, Kelvin, Reaumur and Delisle.
+ * Then realize the convert from degrees Fahrenheit, Kelvin, Reaumur and Delisle to degrees Celsius.
+ * <p>
+ * Created by Konstantin Lugowoy on 11-Jan-17.
+ */
 
 public class Main {
 
@@ -22,7 +27,7 @@ public class Main {
         } else {
             Converting<Temperature> converting = new ConvertingOtherTemperaturesToCelsius();
             switch (temperature.getScale()) {
-                case  Fahrenheit:
+                case Fahrenheit:
                     System.out.printf("%f degrees Fahrenheit is equal to %f degrees Celsius.", temperature.getDegreesTemperatures(),
                             converting.convert(temperature, TemperatureScale.Fahrenheit).getDegreesTemperatures());
                     break;

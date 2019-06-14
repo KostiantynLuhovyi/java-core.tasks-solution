@@ -1,1 +1,0 @@
-Check whether there is in the entered numbers are the same numbers in a row.

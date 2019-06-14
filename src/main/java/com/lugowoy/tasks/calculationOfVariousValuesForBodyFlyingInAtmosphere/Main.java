@@ -3,7 +3,16 @@ package com.lugowoy.tasks.calculationOfVariousValuesForBodyFlyingInAtmosphere;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 14.11.2017. */
+/**
+ * Calculate the trajectory of the motion of a body thrown at an angle to the horizon, provided that the body,
+ * in addition to the force of gravity, also acts on the strength of air resistance.
+ * Assume that in the atmosphere, depending on the height above the surface,
+ * the force of air resistance is different: in the first lower layer it is proportional to the square of the velocity of the body (and is directed against the velocity vector),
+ * in the second central layer, the air resistance force is proportional to the speed of the body, and in the third,
+ * the upper layer of the atmosphere, the force of air resistance is absent.
+ * <p>
+ * Created by Konstantin Lugowoy on 14.11.2017.
+ */
 
 public class Main {
 
@@ -67,19 +76,19 @@ public class Main {
             zoneNumberIndicator = bodyCoordinateY < firstAirspaceLevel ? 1 : bodyCoordinateY < secondAirspaceLevel ? 2 : 3;
 
             switch (zoneNumberIndicator) {
-                case 1 :
+                case 1:
                     projectionOfResistanceForceX = firstResistanceCoefficient * horizontalProjectionOfSpeed
                             * Math.sqrt(horizontalProjectionOfSpeed * horizontalProjectionOfSpeed
-                                                               + verticalProjectionOfSpeed * verticalProjectionOfSpeed);
+                            + verticalProjectionOfSpeed * verticalProjectionOfSpeed);
                     projectionOfResistanceForceY = firstResistanceCoefficient * verticalProjectionOfSpeed
                             * Math.sqrt(horizontalProjectionOfSpeed * horizontalProjectionOfSpeed
-                                                               + verticalProjectionOfSpeed * verticalProjectionOfSpeed);
+                            + verticalProjectionOfSpeed * verticalProjectionOfSpeed);
                     break;
-                case 2 :
+                case 2:
                     projectionOfResistanceForceX = secondResistanceCoefficient * horizontalProjectionOfSpeed;
                     projectionOfResistanceForceY = secondResistanceCoefficient * verticalProjectionOfSpeed;
                     break;
-                default :
+                default:
                     projectionOfResistanceForceX = 0;
                     projectionOfResistanceForceY = 0;
                     break;

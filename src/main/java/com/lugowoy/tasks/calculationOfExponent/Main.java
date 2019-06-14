@@ -1,6 +1,8 @@
 package com.lugowoy.tasks.calculationOfExponent;
 
 /**
+ * Calculation of the exponent.
+ * <p>
  * Created by Konstantin Lugowoy on 10.11.2017.
  */
 

@@ -3,7 +3,9 @@ package com.lugowoy.tasks.convertKilometersToMilesOfSeaAndLand;
 import java.io.Serializable;
 import java.util.Objects;
 
-/**Created by Konstantin Lugowoy on 31-Dec-16.*/
+/**
+ * Created by Konstantin Lugowoy on 31-Dec-16.
+ */
 
 public class Length implements Serializable, Cloneable {
 

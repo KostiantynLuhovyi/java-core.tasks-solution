@@ -4,7 +4,9 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Calendar;
 
-/** Created by Konstantin Lugowoy on 10-Feb-17. */
+/**
+ * Created by Konstantin Lugowoy on 10-Feb-17.
+ */
 
 public class CalculatingOfMonthlyPaymentsOnDeposit {
 

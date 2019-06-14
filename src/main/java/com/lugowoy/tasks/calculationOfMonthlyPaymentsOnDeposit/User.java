@@ -1,11 +1,13 @@
 package com.lugowoy.tasks.calculationOfMonthlyPaymentsOnDeposit;
 
+import com.rits.cloning.Cloner;
+
 import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static com.lugowoy.helper.other.DeepCloning.CLONER;
-
-/** Created by Konstantin Lugowoy on 10-Feb-17. */
+/**
+ * Created by Konstantin Lugowoy on 10-Feb-17.
+ */
 
 public class User implements Serializable, Cloneable {
 
@@ -67,13 +69,14 @@ public class User implements Serializable, Cloneable {
     @Override
     public User clone() {
         User user = new User();
+        Cloner cloner = new Cloner();
         try {
             user = (User) super.clone();
             user.setId(this.getId());
-            user.setFirstName(CLONER.deepClone(this.getFirstName()));
-            user.setSecondName(CLONER.deepClone(this.getSecondName()));
-            user.setBank(CLONER.deepClone(this.getBank()));
-            user.setPersonalAccount(CLONER.deepClone(this.getPersonalAccount()));
+            user.setFirstName(cloner.deepClone(this.getFirstName()));
+            user.setSecondName(cloner.deepClone(this.getSecondName()));
+            user.setBank(cloner.deepClone(this.getBank()));
+            user.setPersonalAccount(cloner.deepClone(this.getPersonalAccount()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

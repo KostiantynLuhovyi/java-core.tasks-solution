@@ -1,6 +1,8 @@
 package com.lugowoy.tasks.convertKilometersToMilesOfSeaAndLand;
 
-/**Created by Konstantin Lugowoy on 31-Dec-16.*/
+/**
+ * Created by Konstantin Lugowoy on 31-Dec-16.
+ */
 
 public interface Converting<T> {
 

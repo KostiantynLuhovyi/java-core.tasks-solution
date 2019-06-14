@@ -1,1 +1,0 @@
-Write a program to check the multiplicity of the number X by the number Y (both numbers are entered from the keyboard).

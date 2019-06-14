@@ -3,7 +3,12 @@ package com.lugowoy.tasks.checkCorrectnessOfEnteredTimeData;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 01.10.2017. */
+/**
+ * Enter the current time (number of hours, minutes, seconds) from the keyboard.
+ * Check the correctness of the entered values.
+ * <p>
+ * Created by Konstantin Lugowoy on 01.10.2017.
+ */
 
 public class Main {
 

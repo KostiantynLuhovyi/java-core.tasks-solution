@@ -1,6 +1,8 @@
 package com.lugowoy.tasks.checkCorrectnessOfEnteredTimeData;
 
-/** Created by Konstantin Lugowoy on 02.10.2017. */
+/**
+ * Created by Konstantin Lugowoy on 02.10.2017.
+ */
 
 public class CheckerSeconds {
 

@@ -6,7 +6,11 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-/**Created by Konstantin Lugowoy on 11-Feb-17.*/
+/**
+ * How many products can be purchased for the cost of Y on X UAH and how much money will remain?
+ * <p>
+ * Created by Konstantin Lugowoy on 11-Feb-17.
+ */
 
 public class Main {
 

@@ -6,7 +6,12 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-/** Created by Konstantin Lugowoy on 10-Feb-17. */
+/**
+ * Write a program that asks the user enter sum cash deposit , as well as a percentage per yearly, which pays the bank.
+ * Determine the amount of money paid by the bank in the current month
+ * <p>
+ * Created by Konstantin Lugowoy on 10-Feb-17.
+ */
 
 public class Main {
 
@@ -42,7 +47,7 @@ public class Main {
         CalculatingOfMonthlyPaymentsOnDeposit calculatingOfMonthlyPaymentsOnDeposit = new CalculatingOfMonthlyPaymentsOnDeposit();
 
         System.out.printf("The amount of payments for deposit percent for this month is equal : %f",
-                                       calculatingOfMonthlyPaymentsOnDeposit.calculateOfMonthlyPaymentsOnDeposit(user));
+                calculatingOfMonthlyPaymentsOnDeposit.calculateOfMonthlyPaymentsOnDeposit(user));
 
     }
 

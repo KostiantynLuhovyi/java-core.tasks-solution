@@ -2,7 +2,9 @@ package com.lugowoy.tasks.calculationOfIdealWeightForGrowth;
 
 import java.math.BigDecimal;
 
-/** Created by Konstantin Lugowoy on 04.10.2017. */
+/**
+ * Created by Konstantin Lugowoy on 04.10.2017.
+ */
 
 public class CalculatorIdealWeight {
 
@@ -25,17 +27,11 @@ public class CalculatorIdealWeight {
     }
 
     private static boolean checkWeightNotEqualGrowth(BigDecimal weight, BigDecimal growth) {
-        boolean resultOfCheck = false;
-        try {
-            if (growth.compareTo(weight) <= 0) {
-                throw new IllegalArgumentException("This calculator can not make calculations using values passed by arguments.");
-            } else {
-                resultOfCheck = true;
-            }
-        } catch (IllegalArgumentException ex) {
-            System.err.println(ex.getMessage());
+        if (growth.compareTo(weight) <= 0) {
+            throw new IllegalArgumentException("This calculator can not make calculations using values passed by arguments.");
+        } else {
+            return true;
         }
-        return resultOfCheck;
     }
 
 }

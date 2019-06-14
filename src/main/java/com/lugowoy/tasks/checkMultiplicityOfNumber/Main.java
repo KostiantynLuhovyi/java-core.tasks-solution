@@ -5,7 +5,11 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 
 import static java.lang.Math.abs;
 
-/** Created by Konstantin Lugowoy on 12.09.2017. */
+/**
+ * Write a program to check the multiplicity of the number X by the number Y (both numbers are entered from the keyboard).
+ * <p>
+ * Created by Konstantin Lugowoy on 12.09.2017.
+ */
 
 public class Main {
 

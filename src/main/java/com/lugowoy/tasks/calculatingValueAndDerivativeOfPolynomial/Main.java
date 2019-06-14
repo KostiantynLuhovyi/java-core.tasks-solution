@@ -1,17 +1,18 @@
 package com.lugowoy.tasks.calculatingValueAndDerivativeOfPolynomial;
 
-import com.lugowoy.helper.filling.array.numbers.FillerArrayNumbers;
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.other.LengthReader;
 
-/** Created by Konstantin Lugowoy on 14.11.2017. */
+/**
+ * Calculating the value and derivative of a polynomial based on the elements of the array.
+ * <p>
+ * Created by Konstantin Lugowoy on 14.11.2017.
+ */
 
 public class Main {
-
-    private static final FillerArrayNumbers<Integer> FILLER = FillerArrayNumbers.getFillerArrayNumbers(new FillingArrayRandomIntegerNumbers());
 
     private static final int LENGTH_ARRAY = 5;
     private static final int START_BOUND = -5;
@@ -19,11 +20,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Array<Integer> polynomialCoefficients = Array.create(FILLER.fill(LENGTH_ARRAY, START_BOUND, END_BOUND));
+        Array<Integer> polynomialCoefficients = new Array<>(new FillingArrayRandomInteger().fill(LENGTH_ARRAY, START_BOUND, END_BOUND));
         System.out.println(polynomialCoefficients);
 
         //todo Check why value LENGTH_ARRAY is "LENGTH_ARRAY - 1";
-        Array<Integer> derivativeCoefficients = Array.create(LENGTH_ARRAY - 1);
+        Array<Integer> derivativeCoefficients = new Array<>(LENGTH_ARRAY - 1);
 
         double resultPolynomial = 0;
         double resultDerivative = 0;
@@ -31,7 +32,7 @@ public class Main {
         double argument = 2.0;
         double factor = 1;
 
-        for(int i = 0; i < derivativeCoefficients.getLength(); i++){
+        for (int i = 0; i < derivativeCoefficients.getLength(); i++) {
             resultPolynomial += polynomialCoefficients.get(i) * factor;
             derivativeCoefficients.set(i, (i + 1) * polynomialCoefficients.get(i + 1));
             resultDerivative += derivativeCoefficients.get(i) * factor;
@@ -43,7 +44,7 @@ public class Main {
         System.out.println("Result polynomial : " + resultPolynomial);
         System.out.println("Result derivative : " + resultDerivative);
 
-        int resTest = LengthArray.readLengthArray(Reader.getReader(new ReadingConsole()), 20);
+        int resTest = LengthReader.readLength(Reader.getReader(new ReadingConsole()), 20);
         System.out.println(resTest);
 
     }

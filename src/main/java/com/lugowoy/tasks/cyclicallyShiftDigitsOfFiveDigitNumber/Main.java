@@ -3,7 +3,11 @@ package com.lugowoy.tasks.cyclicallyShiftDigitsOfFiveDigitNumber;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 06.03.2017. */
+/**
+ * Enter a five-digit number and shift it cyclically to the right by N digits.
+ * <p>
+ * Created by Konstantin Lugowoy on 06.03.2017.
+ */
 
 public class Main {
 

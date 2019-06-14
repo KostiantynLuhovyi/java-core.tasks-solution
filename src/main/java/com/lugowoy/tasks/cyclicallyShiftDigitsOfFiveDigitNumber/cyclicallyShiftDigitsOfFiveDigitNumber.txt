@@ -1,1 +1,0 @@
-Enter a five-digit number and shift it cyclically to the right by N digits.

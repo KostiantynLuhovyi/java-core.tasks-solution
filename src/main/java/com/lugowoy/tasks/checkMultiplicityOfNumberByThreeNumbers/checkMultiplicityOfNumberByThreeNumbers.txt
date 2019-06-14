@@ -1,1 +1,0 @@
-Enter the number and determine whether it is a multiple of 3, 5, and 7 at the same time.

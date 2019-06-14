@@ -3,7 +3,11 @@ package com.lugowoy.tasks.checkWhetherThereIsInEnteredNumbersAreSameNumbersInRow
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 06.10.2017. */
+/**
+ * Check whether there is in the entered numbers are the same numbers in a row.
+ * <p>
+ * Created by Konstantin Lugowoy on 06.10.2017.
+ */
 
 public class Main {
 

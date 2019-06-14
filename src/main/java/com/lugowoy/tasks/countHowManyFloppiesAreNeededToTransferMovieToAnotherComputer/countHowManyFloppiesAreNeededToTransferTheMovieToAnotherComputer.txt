@@ -1,2 +1,0 @@
-The user enters from the keyboard the volume of one movie in gigabytes.
-Count how many floppies are needed to transfer the movie to another computer (the size of the floppy disk is considered equal to 1.44 MB).

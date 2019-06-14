@@ -1,6 +1,10 @@
 package com.lugowoy.tasks.calculationOfPiNumberOnBasisOfProductOfNumbers;
 
-/** Created by Konstantin Lugowoy on 11.11.2017. */
+/**
+ * Calculating the number Pi on the basis of the product of numbers.
+ * <p>
+ * Created by Konstantin Lugowoy on 11.11.2017.
+ */
 
 public class Main {
 
@@ -10,7 +14,7 @@ public class Main {
 
         double Pi = 2, q = Math.sqrt(2);
 
-        for (int i = 0; i <= NUMBER_OF_FACTORS ; i++) {
+        for (int i = 0; i <= NUMBER_OF_FACTORS; i++) {
             Pi *= 2 / q;
             q = Math.sqrt(2 + q);
         }

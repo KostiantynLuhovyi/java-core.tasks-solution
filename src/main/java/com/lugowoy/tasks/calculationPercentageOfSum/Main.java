@@ -1,13 +1,17 @@
 package com.lugowoy.tasks.calculationPercentageOfSum;
 
-import com.lugowoy.helper.calculating.CalculationUsingOneParameter;
+import com.lugowoy.helper.calculating.CalculationOneParameter;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-/** Created by Konstantin Lugowoy on 04-Jan-17. */
+/**
+ * Write a program that finds the percentage P of the sum of S.
+ * <p>
+ * Created by Konstantin Lugowoy on 04-Jan-17.
+ */
 
 public class Main {
 
@@ -34,9 +38,8 @@ public class Main {
         };
 
         if (variableComparable.compareTo(variable) > 0) {
-            CalculationUsingOneParameter<Variable, Variable> variableCalculableOnTheObject =
-                                                          new CalculatingPercentOfSum()::calculateThePercentageOfTheSum;
-            variableCalculableOnTheObject.calculate(variable);
+            CalculationOneParameter<Variable, Variable> calculatorVariable = new CalculatingPercentOfSum()::calculateThePercentageOfTheSum;
+            calculatorVariable.calculate(variable);
 
             System.out.printf("Result calculation the percent of the sum of equal : %s",
                     variable.getPercent().setScale(2, RoundingMode.HALF_DOWN).stripTrailingZeros().toPlainString());

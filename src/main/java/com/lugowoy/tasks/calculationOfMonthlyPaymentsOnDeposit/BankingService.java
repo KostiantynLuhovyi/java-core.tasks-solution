@@ -3,7 +3,9 @@ package com.lugowoy.tasks.calculationOfMonthlyPaymentsOnDeposit;
 import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/** Created by Konstantin Lugowoy on 11-Feb-17. */
+/**
+ * Created by Konstantin Lugowoy on 11-Feb-17.
+ */
 
 public class BankingService implements Serializable, Cloneable {
 

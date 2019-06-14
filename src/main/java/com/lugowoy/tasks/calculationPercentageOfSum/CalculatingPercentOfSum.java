@@ -2,7 +2,9 @@ package com.lugowoy.tasks.calculationPercentageOfSum;
 
 import java.math.BigDecimal;
 
-/** Created by Konstantin Lugowoy on 04-Jan-17. */
+/**
+ * Created by Konstantin Lugowoy on 04-Jan-17.
+ */
 
 public class CalculatingPercentOfSum {
 

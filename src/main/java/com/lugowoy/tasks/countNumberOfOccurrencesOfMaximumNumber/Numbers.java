@@ -1,11 +1,13 @@
 package com.lugowoy.tasks.countNumberOfOccurrencesOfMaximumNumber;
 
+import com.rits.cloning.Cloner;
+
 import java.util.Arrays;
 import java.util.Objects;
 
-import static com.lugowoy.helper.other.DeepCloning.CLONER;
-
-/**Created by Konstantin Lugowoy on 14.11.2016.*/
+/**
+ * Created by Konstantin Lugowoy on 14.11.2016.
+ */
 
 class Numbers {
 
@@ -48,7 +50,7 @@ class Numbers {
         Numbers numbers = new Numbers();
         try {
             numbers = (Numbers) super.clone();
-            numbers.setNumbers(CLONER.deepClone(this.getNumbers()));
+            numbers.setNumbers(new Cloner().deepClone(this.getNumbers()));
             numbers.setMaxNumberCount(this.getMaxNumberCount());
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();

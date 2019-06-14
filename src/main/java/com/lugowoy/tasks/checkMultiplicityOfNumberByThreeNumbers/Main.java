@@ -5,7 +5,11 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 
 import static java.lang.Math.abs;
 
-/** Created by Konstantin Lugowoy on 12.09.2017. */
+/**
+ * Enter the number and determine whether it is a multiple of 3, 5, and 7 at the same time.
+ * <p>
+ * Created by Konstantin Lugowoy on 12.09.2017.
+ */
 
 public class Main {
 

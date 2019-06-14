@@ -3,7 +3,12 @@ package com.lugowoy.tasks.carryOutCyclicShiftOfEnteredNumberByCertainNumberOfDig
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 31.10.2017. */
+/**
+ * Carry out a circular shift to the left of the entered number by N digits
+ * (for example, by shifting the number 12345 to the left by 3 digits, the number is 45123).
+ * <p>
+ * Created by Konstantin Lugowoy on 31.10.2017.
+ */
 
 public class Main {
 

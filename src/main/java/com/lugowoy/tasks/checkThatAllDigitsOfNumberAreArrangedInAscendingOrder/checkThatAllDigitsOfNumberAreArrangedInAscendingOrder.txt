@@ -1,2 +1,0 @@
-Enter the number from the keyboard. Check that all the digits of this number are in a non-decreasing order
-(for example, the number 11299 corresponds to the job, and the number 22044 is not).

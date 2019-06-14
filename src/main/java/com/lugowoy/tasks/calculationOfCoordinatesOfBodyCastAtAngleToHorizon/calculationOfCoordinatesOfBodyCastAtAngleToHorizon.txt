@@ -1,3 +1,0 @@
-Write a program for calculating the coordinate time at the specified time body, thrown at an angle to the horizon.
-We assume that the mass of the body m is known, the initial velocity V, the angle a, under which the body is thrown to the horizon.
-In addition, we believe that the body acts as an air resistance force, modulo proportional to the speed of the body and directed opposite to the direction of flight of the body.

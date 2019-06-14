@@ -1,6 +1,10 @@
 package com.lugowoy.tasks.calculationOfPiNumberOnBasisOfFourierSeries;
 
-/** Created by Konstantin Lugowoy on 11.11.2017. */
+/**
+ * Calculation of the Pi number on the basis of the Fourier series.
+ * <p>
+ * Created by Konstantin Lugowoy on 11.11.2017.
+ */
 
 public class Main {
 
