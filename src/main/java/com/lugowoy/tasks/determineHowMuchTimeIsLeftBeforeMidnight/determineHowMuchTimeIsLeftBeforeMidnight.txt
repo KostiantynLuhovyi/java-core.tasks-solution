@@ -1,2 +1,0 @@
-The user enters the time in seconds from the beginning of the day from the keyboard.
-Determine how much time (hours, minutes and seconds) is left until midnight.

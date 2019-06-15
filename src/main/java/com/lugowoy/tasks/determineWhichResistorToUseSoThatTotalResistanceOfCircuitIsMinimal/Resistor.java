@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/** Created by Konstantin Lugowoy on 10.11.2017. */
+/**
+ * Created by Konstantin Lugowoy on 10.11.2017.
+ */
 
 public class Resistor implements Serializable, Cloneable {
 

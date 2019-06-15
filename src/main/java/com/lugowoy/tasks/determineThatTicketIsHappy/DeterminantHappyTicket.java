@@ -1,6 +1,8 @@
 package com.lugowoy.tasks.determineThatTicketIsHappy;
 
-/** Created by Konstantin Lugowoy on 18.08.2017. */
+/**
+ * Created by Konstantin Lugowoy on 18.08.2017.
+ */
 
 public interface DeterminantHappyTicket {
 
@@ -35,7 +37,7 @@ public interface DeterminantHappyTicket {
         if (ticket != null) {
             if ((ticket.getNumber() > 0)
                     && ((ticket.getNumber() >= MIN_VALUE_OF_NUMBER_TICKET)
-                        && (ticket.getNumber() <= MAX_VALUE_OF_NUMBER_TICKET))) {
+                    && (ticket.getNumber() <= MAX_VALUE_OF_NUMBER_TICKET))) {
                 int firstDigitOfNumberTicket = ticket.getNumber() % 100000;
                 int secondDigitOfNumberTicket = (ticket.getNumber() % 100000) / 10000;
                 int thirdDigitOfNumberTicket = (ticket.getNumber() % 10000) / 1000;

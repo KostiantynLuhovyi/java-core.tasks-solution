@@ -1,12 +1,18 @@
 package com.lugowoy.tasks.determineNumberThatContainsOnlyDifferentDigits;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.CheckerArray;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.other.CheckerLengthArray;
+import com.lugowoy.helper.other.LengthReader;
 
-/** Created by Konstantin Lugowoy on 12.09.2018 */
+import java.util.Objects;
+
+/**
+ * Determine a number consisting only of different digits. Print the first found number.
+ * <p>
+ * Created by Konstantin Lugowoy on 12.09.2018
+ */
 
 public class Main {
 
@@ -15,9 +21,9 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> integerArray = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, BOUND));
+        Array<Integer> integerArray = new Array<>(new FillingArrayRandomInteger().fill(lengthOfArray, BOUND));
 
         System.out.println("Numbers in an array : " + integerArray);
 
@@ -35,8 +41,7 @@ public class Main {
         int resultNumber = 0;
         int counterDifferentDigit = 0;
         int[] ints;
-        if (CheckerArray.checkArrayNonNull(integerArray)
-                && CheckerArray.checkLengthOfArrayIsGreaterZero(integerArray.getLength())) {
+        if (Objects.nonNull(integerArray) && CheckerLengthArray.checkLengthArray(integerArray)) {
             for (int i = 0; i < integerArray.getLength(); i++) {
                 int number = integerArray.get(i);
                 ints = getIntNumbersOfNumber(number);
@@ -70,7 +75,7 @@ public class Main {
     private static int[] getIntNumbersOfNumber(int number) {
         int[] numbers = new int[String.valueOf(number).length()];
         int index = numbers.length - 1;
-        while(number > 0) {
+        while (number > 0) {
             numbers[index] = number % 10;
             number /= 10;
             index--;

@@ -2,7 +2,9 @@ package com.lugowoy.tasks.determineTimeForPersonToRetire;
 
 import java.io.Serializable;
 
-/** Created by Konstantin Lugowoy on 02.10.2017. */
+/**
+ * Created by Konstantin Lugowoy on 02.10.2017.
+ */
 
 public class Person implements Serializable, Cloneable {
 

@@ -1,2 +1,0 @@
-The user enters from the keyboard the size of one movie in gigabytes (real value) and the speed of the internet connection in bits per second.
-Determine for what time (hours, minutes and seconds) the movie is downloaded.

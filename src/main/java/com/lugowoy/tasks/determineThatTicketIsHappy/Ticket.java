@@ -2,7 +2,9 @@ package com.lugowoy.tasks.determineThatTicketIsHappy;
 
 import java.io.Serializable;
 
-/** Created by Konstantin Lugowoy on 18.08.2017. */
+/**
+ * Created by Konstantin Lugowoy on 18.08.2017.
+ */
 
 public class Ticket implements Serializable, Cloneable {
 

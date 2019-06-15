@@ -3,7 +3,11 @@ package com.lugowoy.tasks.displayModuleEnteredNumber;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 12.09.2017. */
+/**
+ * Display module the entered number.
+ * <p>
+ * Created by Konstantin Lugowoy on 12.09.2017.
+ */
 
 public class Main {
 

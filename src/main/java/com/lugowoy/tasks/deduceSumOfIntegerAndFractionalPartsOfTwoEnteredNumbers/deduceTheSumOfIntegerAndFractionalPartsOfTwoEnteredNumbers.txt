@@ -1,2 +1,0 @@
-The user enters two real numbers from the keyboard.
-To deduce on the screen the sum of the integer and fractional parts of two numbers.

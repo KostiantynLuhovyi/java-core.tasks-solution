@@ -1,2 +1,0 @@
-An integer is entered from the keyboard. Determine whether it is simple.
-A prime number is divisible without a remainder by only 1 and itself.

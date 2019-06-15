@@ -3,7 +3,12 @@ package com.lugowoy.tasks.determineWhetherFiveDigitNumberIsPalindrome;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 14.09.2017. */
+/**
+ * Enter a five-digit number from the keyboard and determine if it is a palindrome.
+ * (ie, it reads the same in both directions, for example, 12321 is a palindrome, and 12345 is not a palindrome).
+ * <p>
+ * Created by Konstantin Lugowoy on 14.09.2017.
+ */
 
 public class Main {
 

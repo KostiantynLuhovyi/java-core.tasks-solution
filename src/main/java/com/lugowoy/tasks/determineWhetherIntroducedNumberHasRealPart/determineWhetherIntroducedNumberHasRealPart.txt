@@ -1,2 +1,0 @@
-Determine whether the introduced number has a real part.
-For example, the numbers 3.14 and 2.5 have a real part, and the numbers 5 and 10.0 do not.

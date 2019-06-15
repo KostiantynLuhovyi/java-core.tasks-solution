@@ -3,7 +3,11 @@ package com.lugowoy.tasks.determineNumberIsPolindrome;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 03.09.2017. */
+/**
+ * Determine that the number of palindromes, whose values in the forward and reverse order are the same.
+ * <p>
+ * Created by Konstantin Lugowoy on 03.09.2017.
+ */
 
 public class Main {
 

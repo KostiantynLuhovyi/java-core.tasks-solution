@@ -5,7 +5,11 @@ import com.lugowoy.helper.other.GeneratorRandomNumber;
 import static com.lugowoy.tasks.determineThatTicketIsHappy.DeterminantHappyTicket.MAX_VALUE_OF_NUMBER_TICKET;
 import static com.lugowoy.tasks.determineThatTicketIsHappy.DeterminantHappyTicket.MIN_VALUE_OF_NUMBER_TICKET;
 
-/** Created by Konstantin Lugowoy on 20.08.2017. */
+/**
+ * To determine that the ticket is happy.
+ * <p>
+ * Created by Konstantin Lugowoy on 20.08.2017.
+ */
 
 public class Main {
 

@@ -1,2 +1,0 @@
-The user enters the coordinates of the upper left, and the lower right corner of the rectangle,
-as well as the coordinates of the point (X, Y) in the Cartesian coordinate system. Does the point belong to this rectangle?

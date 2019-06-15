@@ -1,1 +1,0 @@
-Determine a number consisting only of different digits. Print the first found number.

@@ -1,1 +1,0 @@
-Determine the number of the palindrome. If it is not the only one, then take the second one.

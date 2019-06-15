@@ -3,7 +3,11 @@ package com.lugowoy.tasks.determineNumberOfDigitsInNumber;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 13.09.2017. */
+/**
+ * Enter an integer (no more than 4 digits!). Determine the number of digits in it.
+ * <p>
+ * Created by Konstantin Lugowoy on 13.09.2017.
+ */
 
 public class Main {
 

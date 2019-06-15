@@ -1,6 +1,10 @@
 package com.lugowoy.tasks.displayArmstrongNumbersInSpecifiedRange;
 
-/** Created by Konstantin Lugowoy on 02.11.2017. */
+/**
+ * Display on the screen all Armstrong numbers in the range from 0 to 10.000.000.
+ * <p>
+ * Created by Konstantin Lugowoy on 02.11.2017.
+ */
 
 public class Main {
 
@@ -32,7 +36,7 @@ public class Main {
         int count = numberOfDigit(number);
         while (number != 0) {
             digit = number % 10;
-            result = result+((int) Math.pow(digit, count));
+            result = result + ((int) Math.pow(digit, count));
             number = number / 10;
         }
         return tmpNumber == result;

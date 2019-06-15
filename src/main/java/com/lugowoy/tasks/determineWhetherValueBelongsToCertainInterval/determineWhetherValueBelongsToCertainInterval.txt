@@ -1,1 +1,0 @@
-Determine if K belongs to a certain interval (n,m],[n,m),(n,m),[n,m].

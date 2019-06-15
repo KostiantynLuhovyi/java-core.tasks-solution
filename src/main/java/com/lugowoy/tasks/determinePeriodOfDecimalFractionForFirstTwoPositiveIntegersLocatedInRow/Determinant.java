@@ -2,7 +2,9 @@ package com.lugowoy.tasks.determinePeriodOfDecimalFractionForFirstTwoPositiveInt
 
 import com.lugowoy.helper.models.Array;
 
-/** Created by Konstantin Lugowoy on 03.09.2017. */
+/**
+ * Created by Konstantin Lugowoy on 03.09.2017.
+ */
 
 public interface Determinant {
 
@@ -29,7 +31,7 @@ public interface Determinant {
                 t = r = p;
                 System.out.println();
                 System.out.print("The period of the decimal fraction p = m / i " +
-                                  "for the first two consecutive positive integers i and m, is equal : 0.");
+                                              "for the first two consecutive positive integers i and m, is equal : 0.");
                 for (n = 0; n < l; n++) {
                     r = (r * 10) % q;
                 }

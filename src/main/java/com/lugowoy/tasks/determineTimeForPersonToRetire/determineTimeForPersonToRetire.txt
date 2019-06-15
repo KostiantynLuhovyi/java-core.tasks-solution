@@ -1,1 +1,0 @@
-Enter the keyboard sex and age of the person. Determine whether it's time for him to retire.

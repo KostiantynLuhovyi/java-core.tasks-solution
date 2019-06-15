@@ -3,7 +3,11 @@ package com.lugowoy.tasks.determineAffiliationOfCertainValueToConcreteInterval;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 14.09.2018 */
+/**
+ * Write a program that displays messages about the belonging of some value of k to the intervals (-10k, 0], (0, 5], (5, 10], (10, 10k].
+ * <p>
+ * Created by Konstantin Lugowoy on 14.09.2018
+ */
 
 public class Main {
 
@@ -76,7 +80,7 @@ public class Main {
                     return;
             }
         }
-        if (isNotBelongToIntervals)  {
+        if (isNotBelongToIntervals) {
             System.out.println("The value does not included into one of the intervals.");
         }
     }

@@ -3,7 +3,9 @@ package com.lugowoy.tasks.determineThatNumberIsHappy;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Created by Konstantin Lugowoy on 17.08.2017. */
+/**
+ * Created by Konstantin Lugowoy on 17.08.2017.
+ */
 
 public interface DeterminantHappyNumber {
 

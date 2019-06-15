@@ -3,7 +3,9 @@ package com.lugowoy.tasks.determineHowMuchTimeOnRoadWasMarathonRunner;
 import java.util.Calendar;
 import java.util.Objects;
 
-/** Created by Konstantin Lugowoy on 23.03.2017. */
+/**
+ * Created by Konstantin Lugowoy on 23.03.2017.
+ */
 
 public class Time {
 

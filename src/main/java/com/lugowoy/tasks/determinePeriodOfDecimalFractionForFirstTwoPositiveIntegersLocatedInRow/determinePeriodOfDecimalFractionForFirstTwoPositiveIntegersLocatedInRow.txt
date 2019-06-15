@@ -1,1 +1,0 @@
-Determine the period of the decimal fraction p = m / n for the first two positive integers n and m located in a series.

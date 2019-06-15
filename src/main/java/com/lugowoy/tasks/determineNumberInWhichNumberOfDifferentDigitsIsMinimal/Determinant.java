@@ -2,7 +2,9 @@ package com.lugowoy.tasks.determineNumberInWhichNumberOfDifferentDigitsIsMinimal
 
 import com.lugowoy.helper.models.Array;
 
-/** Created by Konstantin Lugowoy on 03.09.2018 */
+/**
+ * Created by Konstantin Lugowoy on 03.09.2018
+ */
 
 @FunctionalInterface
 public interface Determinant {
@@ -33,7 +35,7 @@ public interface Determinant {
     private static int[] getPrimitiveIntegerArrayOfNumber(int number) {
         int[] resultArray = new int[String.valueOf(number).length()];
         int index = resultArray.length - 1;
-        while(number > 0) {
+        while (number > 0) {
             resultArray[index] = number % 10;
             number /= 10;
             index--;

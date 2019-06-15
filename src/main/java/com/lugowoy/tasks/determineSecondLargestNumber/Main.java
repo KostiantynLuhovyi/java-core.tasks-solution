@@ -3,7 +3,11 @@ package com.lugowoy.tasks.determineSecondLargestNumber;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/**Created by Konstantin Lugowoy on 14.11.2016.*/
+/**
+ * Enter three numbers and define the second largest number.
+ * <p>
+ * Created by Konstantin Lugowoy on 14.11.2016.
+ */
 
 public class Main {
 

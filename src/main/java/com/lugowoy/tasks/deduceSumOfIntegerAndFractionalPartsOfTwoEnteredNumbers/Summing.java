@@ -1,6 +1,8 @@
 package com.lugowoy.tasks.deduceSumOfIntegerAndFractionalPartsOfTwoEnteredNumbers;
 
-/** Created by Konstantin Lugowoy on 25.03.2017. */
+/**
+ * Created by Konstantin Lugowoy on 25.03.2017.
+ */
 
 @FunctionalInterface
 public interface Summing<T> {

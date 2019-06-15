@@ -1,1 +1,0 @@
-Display module the entered number.

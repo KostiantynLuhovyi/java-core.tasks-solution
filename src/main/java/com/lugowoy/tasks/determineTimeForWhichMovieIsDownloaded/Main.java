@@ -3,7 +3,12 @@ package com.lugowoy.tasks.determineTimeForWhichMovieIsDownloaded;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 16.06.2017. */
+/**
+ * The user enters from the keyboard the size of one movie in gigabytes (real value) and the speed of the internet connection in bits per second.
+ * Determine for what time (hours, minutes and seconds) the movie is downloaded.
+ * <p>
+ * Created by Konstantin Lugowoy on 16.06.2017.
+ */
 
 public class Main {
 

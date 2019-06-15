@@ -3,7 +3,11 @@ package com.lugowoy.tasks.determineWhetherNumberBelongsToRangeOfNumbers;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 11.09.2017. */
+/**
+ * Enter a number on the keyboard and check if this number belongs to the range from N to M (inclusive).
+ * <p>
+ * Created by Konstantin Lugowoy on 11.09.2017.
+ */
 
 public class Main {
 

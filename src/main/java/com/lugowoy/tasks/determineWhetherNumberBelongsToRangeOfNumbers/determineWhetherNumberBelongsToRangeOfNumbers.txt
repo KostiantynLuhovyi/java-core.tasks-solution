@@ -1,1 +1,0 @@
-Enter a number on the keyboard and check if this number belongs to the range from N to M (inclusive).

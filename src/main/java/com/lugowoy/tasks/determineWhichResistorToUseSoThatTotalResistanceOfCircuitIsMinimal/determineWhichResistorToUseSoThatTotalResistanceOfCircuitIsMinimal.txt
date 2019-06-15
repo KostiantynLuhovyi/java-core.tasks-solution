@@ -1,3 +1,0 @@
-Suppose that the area of the electrical circuit must consist of two blocks, in each of which two parallel resistors are located.
-The blocks are connected in series. There are three resistors of known resistance that can be freely shifted between blocks, and one main resistor, which must be in the second block.
-It is necessary to determine which resistor is inserted into the second block in addition to the main one, so that the total resistance of the circuit section is minimal.

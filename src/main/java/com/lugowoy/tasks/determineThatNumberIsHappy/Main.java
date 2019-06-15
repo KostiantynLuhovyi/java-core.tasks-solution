@@ -3,7 +3,11 @@ package com.lugowoy.tasks.determineThatNumberIsHappy;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 17.08.2017. */
+/**
+ * Determine that the number is "happy".
+ * <p>
+ * Created by Konstantin Lugowoy on 17.08.2017.
+ */
 
 public class Main {
 

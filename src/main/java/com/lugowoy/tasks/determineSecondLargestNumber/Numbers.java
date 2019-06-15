@@ -3,7 +3,9 @@ package com.lugowoy.tasks.determineSecondLargestNumber;
 import java.io.Serializable;
 import java.util.Objects;
 
-/**Created by Konstantin Lugowoy on 14.11.2016.*/
+/**
+ * Created by Konstantin Lugowoy on 14.11.2016.
+ */
 
 class Numbers implements Serializable, Cloneable {
 

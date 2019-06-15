@@ -3,7 +3,11 @@ package com.lugowoy.tasks.determineTimeForPersonToRetire;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 02.10.2017. */
+/**
+ * Enter the keyboard sex and age of the person. Determine whether it's time for him to retire.
+ * <p>
+ * Created by Konstantin Lugowoy on 02.10.2017.
+ */
 
 public class Main {
 

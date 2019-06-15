@@ -3,7 +3,11 @@ package com.lugowoy.tasks.determineWhetherValueBelongsToCertainInterval;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 14.09.2018 */
+/**
+ * Determine if K belongs to a certain interval (n,m],[n,m),(n,m),[n,m].
+ * <p>
+ * Created by Konstantin Lugowoy on 14.09.2018
+ */
 
 public class Main {
 

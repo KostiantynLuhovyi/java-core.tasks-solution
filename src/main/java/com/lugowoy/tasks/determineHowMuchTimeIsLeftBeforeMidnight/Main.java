@@ -3,7 +3,12 @@ package com.lugowoy.tasks.determineHowMuchTimeIsLeftBeforeMidnight;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 17.06.2017. */
+/**
+ * The user enters the time in seconds from the beginning of the day from the keyboard.
+ * Determine how much time (hours, minutes and seconds) is left until midnight.
+ * <p>
+ * Created by Konstantin Lugowoy on 17.06.2017.
+ */
 
 public class Main {
 

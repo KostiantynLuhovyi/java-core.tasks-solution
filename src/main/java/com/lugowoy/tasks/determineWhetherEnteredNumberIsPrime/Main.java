@@ -3,7 +3,12 @@ package com.lugowoy.tasks.determineWhetherEnteredNumberIsPrime;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 06.10.2017. */
+/**
+ * An integer is entered from the keyboard. Determine whether it is simple.
+ * A prime number is divisible without a remainder by only 1 and itself.
+ * <p>
+ * Created by Konstantin Lugowoy on 06.10.2017.
+ */
 
 public class Main {
 

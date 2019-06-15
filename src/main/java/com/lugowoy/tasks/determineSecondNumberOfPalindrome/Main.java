@@ -1,12 +1,18 @@
 package com.lugowoy.tasks.determineSecondNumberOfPalindrome;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayReadIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayReadInteger;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.CheckerArray;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.other.CheckerLengthArray;
+import com.lugowoy.helper.other.LengthReader;
 
-/** Created by Konstantin Lugowoy on 13.09.2018 */
+import java.util.Objects;
+
+/**
+ * Determine the number of the palindrome. If it is not the only one, then take the second one.
+ * <p>
+ * Created by Konstantin Lugowoy on 13.09.2018
+ */
 
 public class Main {
 
@@ -15,9 +21,9 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> integerArray = Array.create(new FillingArrayReadIntegerNumbers(new ReadingConsole()).fill(lengthOfArray, BOUND));
+        Array<Integer> integerArray = new Array<>(new FillingArrayReadInteger(new ReadingConsole()).fill(lengthOfArray, BOUND));
 
         System.out.println("Numbers in an array : " + integerArray);
 
@@ -33,8 +39,7 @@ public class Main {
 
     private static int determineSecondNumberOfPolindrome(Array<Integer> integerArray) {
         int resultNumber = 0;
-        if (CheckerArray.checkArrayNonNull(integerArray)
-                && CheckerArray.checkLengthOfArrayIsEqualToOrGreaterThanZero(integerArray.getLength())) {
+        if (Objects.nonNull(integerArray) && CheckerLengthArray.checkLengthArray(integerArray)) {
             int counterPolindromeNumber = 0;
             for (int i = 0; i < integerArray.getLength(); i++) {
                 int number = integerArray.get(i);

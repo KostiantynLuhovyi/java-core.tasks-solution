@@ -1,6 +1,8 @@
 package com.lugowoy.tasks.determineWhichResistorToUseSoThatTotalResistanceOfCircuitIsMinimal;
 
-/** Created by Konstantin Lugowoy on 10.11.2017. */
+/**
+ * Created by Konstantin Lugowoy on 10.11.2017.
+ */
 
 @FunctionalInterface
 public interface Determinant {

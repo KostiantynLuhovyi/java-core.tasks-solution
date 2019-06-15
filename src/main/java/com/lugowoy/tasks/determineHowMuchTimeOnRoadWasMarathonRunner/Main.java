@@ -3,7 +3,12 @@ package com.lugowoy.tasks.determineHowMuchTimeOnRoadWasMarathonRunner;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 23.03.2017. */
+/**
+ * The marathon runner has passed S kilometers with a speed of V meters per second (distance and speed are entered from the keyboard).
+ * Determine how much time he was on the road (hours, minutes, seconds)?
+ * <p>
+ * Created by Konstantin Lugowoy on 23.03.2017.
+ */
 
 public class Main {
 

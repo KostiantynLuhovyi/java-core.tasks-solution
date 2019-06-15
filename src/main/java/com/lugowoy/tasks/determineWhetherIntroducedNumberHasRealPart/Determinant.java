@@ -1,6 +1,8 @@
 package com.lugowoy.tasks.determineWhetherIntroducedNumberHasRealPart;
 
-/** Created by Konstantin Lugowoy on 01.10.2017. */
+/**
+ * Created by Konstantin Lugowoy on 01.10.2017.
+ */
 
 @FunctionalInterface
 public interface Determinant {
@@ -11,7 +13,7 @@ public interface Determinant {
         boolean result = false;
         double integerPartOfNumber, realPartOfNumber;
 
-        integerPartOfNumber = (int)number;
+        integerPartOfNumber = (int) number;
         realPartOfNumber = number - integerPartOfNumber;
 
         if (realPartOfNumber != 0) {

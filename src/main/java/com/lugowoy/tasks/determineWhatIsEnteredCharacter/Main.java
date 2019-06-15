@@ -3,7 +3,11 @@ package com.lugowoy.tasks.determineWhatIsEnteredCharacter;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 11.09.2017. */
+/**
+ * Enter a symbol from the keyboard. Determine what it is: a number, letter or punctuation mark.
+ * <p>
+ * Created by Konstantin Lugowoy on 11.09.2017.
+ */
 
 public class Main {
 
@@ -18,7 +22,7 @@ public class Main {
             System.out.println("Entered symbol is number.");
         } else if (Character.isLetter(symbol)) {
             System.out.println("Entered symbol is letter.");
-        } else if (",.:!\"'".indexOf(symbol) > -1){
+        } else if (",.:!\"'".indexOf(symbol) > -1) {
             System.out.println("Entered symbol is punctuation mark.");
         }
 
