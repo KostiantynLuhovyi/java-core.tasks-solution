@@ -3,7 +3,12 @@ package com.lugowoy.tasks.roundNumberToTwoDecimalPlaces;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 16.06.2017. */
+/**
+ * The user enters a fractional number from the keyboard.
+ * Round it up to two decimal places and display it.
+ * <p>
+ * Created by Konstantin Lugowoy on 16.06.2017.
+ */
 
 public class Main {
 
@@ -11,7 +16,7 @@ public class Main {
 
         double number = enterNumber();
 
-        double resultNumber = (int)(number * 100 + 0.5) / 100.0;
+        double resultNumber = (int) (number * 100 + 0.5) / 100.0;
 
         System.out.println(resultNumber);
 

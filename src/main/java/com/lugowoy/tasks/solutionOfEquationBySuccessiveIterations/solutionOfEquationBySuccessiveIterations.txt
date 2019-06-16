@@ -1,1 +1,0 @@
-The solution of an equation of the form x = f (x) by the method of successive iterations.

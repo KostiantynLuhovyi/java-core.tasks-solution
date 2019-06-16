@@ -2,7 +2,9 @@ package com.lugowoy.tasks.writeProgramUsingBernoulliScheme;
 
 import com.lugowoy.helper.other.GeneratorRandomNumber;
 
-/** Created by Konstantin Lugowoy on 16.11.2017. */
+/**
+ * Created by Konstantin Lugowoy on 16.11.2017.
+ */
 
 public class SchemeBernoulli {
 

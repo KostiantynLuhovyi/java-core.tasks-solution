@@ -1,6 +1,10 @@
 package com.lugowoy.tasks.solutionOfEquationBySuccessiveIterations;
 
-/** Created by Konstantin Lugowoy on 14.11.2017. */
+/**
+ * The solution of an equation of the form x = f (x) by the method of successive iterations.
+ * <p>
+ * Created by Konstantin Lugowoy on 14.11.2017.
+ */
 
 public class Main {
 
@@ -16,13 +20,13 @@ public class Main {
         double function = initialApproximateValue;
 
         int i = 0;
-        do{
+        do {
             i++;
             rootOfEquation = function;
             function = (rootOfEquation * rootOfEquation + 10) / 7;
-        } while((i <= NUMBER_OF_COUNT) && (Math.abs(rootOfEquation - function) > FAULT));
+        } while ((i <= NUMBER_OF_COUNT) && (Math.abs(rootOfEquation - function) > FAULT));
 
-            rootOfEquation = function;
+        rootOfEquation = function;
 
         System.out.println("Result of the equation : " + rootOfEquation);
 

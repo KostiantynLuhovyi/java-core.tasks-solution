@@ -1,6 +1,8 @@
 package com.lugowoy.tasks.removeCentralDigitNumberOfThreeDigitsNumber;
 
-/**Created by Konstantin Lugowoy on 07-Feb-17.*/
+/**
+ * Created by Konstantin Lugowoy on 07-Feb-17.
+ */
 
 public class Number {
 

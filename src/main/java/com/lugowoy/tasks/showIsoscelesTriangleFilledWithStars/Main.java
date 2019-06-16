@@ -3,7 +3,12 @@ package com.lugowoy.tasks.showIsoscelesTriangleFilledWithStars;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 25.10.2017. */
+/**
+ * Show an isosceles triangle on the screen (the user enters the height).
+ * Then do the same, but that the figure inside was empty (only the outline remains).
+ * <p>
+ * Created by Konstantin Lugowoy on 25.10.2017.
+ */
 
 public class Main {
 

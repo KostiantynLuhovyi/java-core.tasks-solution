@@ -1,6 +1,10 @@
 package com.lugowoy.tasks.writeProgramThatGeneratesMultiplicationTable;
 
-/** Created by Konstantin Lugowoy on 27.06.2017. */
+/**
+ * Write a program that generates a multiplication table.
+ * <p>
+ * Created by Konstantin Lugowoy on 27.06.2017.
+ */
 
 public class Main {
 

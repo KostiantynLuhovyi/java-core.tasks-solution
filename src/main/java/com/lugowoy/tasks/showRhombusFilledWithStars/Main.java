@@ -3,7 +3,12 @@ package com.lugowoy.tasks.showRhombusFilledWithStars;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 25.10.2017. */
+/**
+ * Write a program that displays a rhombus (the lengths of diagonals of a rhombus are the same in value, but can be equal to any number).
+ * Then do the same, but that the figure inside was empty (only the outline remains).
+ * <p>
+ * Created by Konstantin Lugowoy on 25.10.2017.
+ */
 
 public class Main {
 

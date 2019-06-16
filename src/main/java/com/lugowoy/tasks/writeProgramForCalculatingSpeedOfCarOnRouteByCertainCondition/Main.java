@@ -3,7 +3,13 @@ package com.lugowoy.tasks.writeProgramForCalculatingSpeedOfCarOnRouteByCertainCo
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 07.11.2017. */
+/**
+ * Write a program to calculate the speed of the car on the route if it is known that the car is moving at a constant known speed between points A and B,
+ * the distance between which is also known. Then the car moves from point B to point C (the distance between points is known) with a constant but unknown speed.
+ * It must be calculated if the average speed of the car on the route from point A to point C (via point B) is known.
+ * <p>
+ * Created by Konstantin Lugowoy on 07.11.2017.
+ */
 
 public class Main {
 
@@ -50,13 +56,12 @@ public class Main {
     }
 
     private static double calculateSpeedTravelOnSecondRoadSection(double totalTravelTime, double timeTravelOnFirstRoadSection,
-                                                                        double... totalValueOfDistance) {
+                                                                  double... totalValueOfDistance) {
         double resultSumOfValuesTotalDistance = 0.0;
         for (double valueDistance : totalValueOfDistance) {
             resultSumOfValuesTotalDistance += valueDistance;
         }
-        return totalTravelTime > timeTravelOnFirstRoadSection ? resultSumOfValuesTotalDistance / (totalTravelTime - timeTravelOnFirstRoadSection)
-                                                              : -1;
+        return totalTravelTime > timeTravelOnFirstRoadSection ? resultSumOfValuesTotalDistance / (totalTravelTime - timeTravelOnFirstRoadSection) : -1;
     }
 
 }

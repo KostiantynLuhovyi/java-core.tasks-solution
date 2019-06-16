@@ -1,6 +1,11 @@
 package com.lugowoy.tasks.showAllEightDigitNumbersOfNumbersInWhichDoNotRepeat;
 
-/** Created by Konstantin Lugowoy on 21.10.2017. */
+/**
+ * Display on the screen all eight-digit numbers, the numbers in which do not repeat.
+ * These numbers must be divisible by 12345 without any residue. Show the total number of numbers found.
+ * <p>
+ * Created by Konstantin Lugowoy on 21.10.2017.
+ */
 
 public class Main {
 

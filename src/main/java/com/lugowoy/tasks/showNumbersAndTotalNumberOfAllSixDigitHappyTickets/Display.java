@@ -1,6 +1,8 @@
 package com.lugowoy.tasks.showNumbersAndTotalNumberOfAllSixDigitHappyTickets;
 
-/** Created by Konstantin Lugowoy on 21.10.2017. */
+/**
+ * Created by Konstantin Lugowoy on 21.10.2017.
+ */
 
 @FunctionalInterface
 public interface Display {
@@ -16,9 +18,9 @@ public interface Display {
                 ticket[j] = k % 10;
             }
             if (ticket[0] + ticket[1] + ticket[2] == ticket[3] + ticket[4] + ticket[5]) {
-                System.out.println(ticket[0] + " " + ticket[1] + " " + ticket[2] + " "
-                                    + ticket[3] + " " + ticket[4] + " " + ticket[5]);
-
+                for (int j = 0; j < ticket.length; j++) {
+                    System.out.print(ticket[j] + " ");
+                }
                 countHappyTicketNumber++;
             }
         }

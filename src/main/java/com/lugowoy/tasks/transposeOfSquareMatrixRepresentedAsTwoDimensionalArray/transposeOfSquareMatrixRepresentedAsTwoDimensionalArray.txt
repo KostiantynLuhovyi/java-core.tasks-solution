@@ -1,1 +1,0 @@
-Transpose of a square matrix represented as a two-dimensional array.

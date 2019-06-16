@@ -3,7 +3,11 @@ package com.lugowoy.tasks.writeProgramUsingBernoulliScheme;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 18.11.2017. */
+/**
+ * Write a program using the Bernoulli scheme.
+ * <p>
+ * Created by Konstantin Lugowoy on 18.11.2017.
+ */
 
 public class Main {
 

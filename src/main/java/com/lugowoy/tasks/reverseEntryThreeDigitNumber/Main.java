@@ -3,7 +3,11 @@ package com.lugowoy.tasks.reverseEntryThreeDigitNumber;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/**Created by Konstantin Lugowoy on 03-Feb-17.*/
+/**
+ * Key in three-digit number and "reverse" it.
+ * <p>
+ * Created by Konstantin Lugowoy on 03-Feb-17.
+ */
 
 public class Main {
 

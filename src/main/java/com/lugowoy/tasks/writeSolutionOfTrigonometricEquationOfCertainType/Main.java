@@ -3,7 +3,12 @@ package com.lugowoy.tasks.writeSolutionOfTrigonometricEquationOfCertainType;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 08.11.2017. */
+/**
+ * Write a solution of a trigonometric equation of the form :
+ * a*cos(x) + b*sin(x) = c
+ * <p>
+ * Created by Konstantin Lugowoy on 08.11.2017.
+ */
 
 public class Main {
 

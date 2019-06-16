@@ -3,7 +3,11 @@ package com.lugowoy.tasks.removeCentralDigitNumberOfThreeDigitsNumber;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/**Created by Konstantin Lugowoy on 07-Feb-17.*/
+/**
+ * Entered from the keyboard three-digit number and remove it from the central digit.
+ * <p>
+ * Created by Konstantin Lugowoy on 07-Feb-17.
+ */
 
 public class Main {
 

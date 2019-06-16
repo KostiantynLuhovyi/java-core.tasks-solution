@@ -1,2 +1,0 @@
-The user enters a fractional number from the keyboard.
-Round it up to two decimal places and display it.

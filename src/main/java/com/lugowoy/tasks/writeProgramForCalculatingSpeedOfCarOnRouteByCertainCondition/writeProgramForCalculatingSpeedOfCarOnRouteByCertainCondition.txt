@@ -1,3 +1,0 @@
-Write a program to calculate the speed of the car on the route if it is known that the car is moving at a constant known speed between points A and B,
-the distance between which is also known. Then the car moves from point B to point C (the distance between points is known) with a constant but unknown speed.
-It must be calculated if the average speed of the car on the route from point A to point C (via point B) is known.

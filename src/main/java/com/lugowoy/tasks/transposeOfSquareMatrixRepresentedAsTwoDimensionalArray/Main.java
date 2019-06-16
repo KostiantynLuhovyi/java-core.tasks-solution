@@ -2,7 +2,11 @@ package com.lugowoy.tasks.transposeOfSquareMatrixRepresentedAsTwoDimensionalArra
 
 import com.lugowoy.helper.other.GeneratorRandomNumber;
 
-/** Created by Konstantin Lugowoy on 14.11.2017. */
+/**
+ * Transpose of a square matrix represented as a two-dimensional array.
+ * <p>
+ * Created by Konstantin Lugowoy on 14.11.2017.
+ */
 
 public class Main {
 

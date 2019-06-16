@@ -6,7 +6,11 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
-/** Created by Konstantin Lugowoy on 11.07.2017. */
+/**
+ * Write a program that introduces three integers and prints the set of solutions of equation ax² + bx + c = 0;
+ * <p>
+ * Created by Konstantin Lugowoy on 11.07.2017.
+ */
 
 public class Main {
 

@@ -1,1 +1,0 @@
-Key in three-digit number and "reverse" it.

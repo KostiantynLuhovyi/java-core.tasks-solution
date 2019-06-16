@@ -3,7 +3,11 @@ package com.lugowoy.tasks.searchNthPrimeNumber;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/**Created by Konstantin Lugowoy on 19.11.2016.*/
+/**
+ * Realization of the search n-th prime number.
+ * <p>
+ * Created by Konstantin Lugowoy on 19.11.2016.
+ */
 
 public class Main {
 
