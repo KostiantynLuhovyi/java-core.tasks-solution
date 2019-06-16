@@ -1,6 +1,8 @@
 package com.lugowoy.tasks.printToWelcomeScreenCorrespondingToEnteredTime;
 
-/** Created by Konstantin Lugowoy on 04.10.2017. */
+/**
+ * Created by Konstantin Lugowoy on 04.10.2017.
+ */
 
 public class PrinterWelcomeCorrespondingToEnteredTime extends PrinterWelcome {
 

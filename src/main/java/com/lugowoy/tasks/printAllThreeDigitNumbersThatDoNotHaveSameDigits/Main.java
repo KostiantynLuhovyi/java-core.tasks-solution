@@ -1,20 +1,24 @@
 package com.lugowoy.tasks.printAllThreeDigitNumbersThatDoNotHaveSameDigits;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.other.LengthReader;
 
-/** Created by Konstantin Lugowoy on 13.07.2017. */
+/**
+ * Output all three-digit numbers, in the decimal notation of which there are no identical digits.
+ * <p>
+ * Created by Konstantin Lugowoy on 13.07.2017.
+ */
 
 public class Main {
 
     public static void main(String[] args) {
 
         System.out.println("Enter length of array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> array = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray));
+        Array<Integer> array = new Array<>(new FillingArrayRandomInteger().fill(lengthOfArray));
 
         System.out.println("Numbers : " + array);
         System.out.println();
@@ -29,7 +33,7 @@ public class Main {
     }
 
     private static Array<Integer> getAllThreeDigitNumbersThatDoNotHaveSameDigits(Array<Integer> array) {
-        Array<Integer> resultArray = Array.create(0);
+        Array<Integer> resultArray = new Array<>(0);
         for (int i = 0; i < array.getLength(); i++) {
             String stringOfValue = Integer.toString(array.get(i));
             if ((stringOfValue.startsWith("-") && (stringOfValue.length() == 4)) || (stringOfValue.matches("\\d{3}"))) {
@@ -38,7 +42,7 @@ public class Main {
                 tmpValue /= 10;
                 int secondDigit = tmpValue % 10;
                 int thirdDigit = tmpValue / 10;
-                if ( ! ((firstDigit == secondDigit) || (secondDigit == thirdDigit) || (thirdDigit == firstDigit))) {
+                if (!((firstDigit == secondDigit) || (secondDigit == thirdDigit) || (thirdDigit == firstDigit))) {
                     resultArray.add(array.get(i));
                 }
             }

@@ -1,6 +1,8 @@
 package com.lugowoy.tasks.elementaryImplementationOfDynamicList;
 
-/** Created by Konstantin Lugowoy on 18.11.2017. */
+/**
+ * Created by Konstantin Lugowoy on 18.11.2017.
+ */
 
 public class DynamicList {
 

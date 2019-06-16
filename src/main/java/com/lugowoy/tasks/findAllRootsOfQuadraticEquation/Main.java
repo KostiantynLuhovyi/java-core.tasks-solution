@@ -3,7 +3,12 @@ package com.lugowoy.tasks.findAllRootsOfQuadraticEquation;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 09.07.2017. */
+/**
+ * Write a program that introduces positive real numbers for the quadratic equation ax² + bx + c = 0.
+ * Find both roots of this equation.
+ * <p>
+ * Created by Konstantin Lugowoy on 09.07.2017.
+ */
 
 public class Main {
 
@@ -40,12 +45,12 @@ public class Main {
         Reader reader = Reader.getReader(new ReadingConsole());
         while (true) {
             number = reader.readDouble();
-                if (number > 0) {
-                    break;
-                } else {
-                    System.out.println("Number must be a positive real number.");
-                    System.out.println("Re-enter : ");
-                }
+            if (number > 0) {
+                break;
+            } else {
+                System.out.println("Number must be a positive real number.");
+                System.out.println("Re-enter : ");
+            }
         }
         return number;
     }

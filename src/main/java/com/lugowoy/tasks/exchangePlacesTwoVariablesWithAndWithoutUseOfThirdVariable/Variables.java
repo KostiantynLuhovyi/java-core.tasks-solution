@@ -3,7 +3,9 @@ package com.lugowoy.tasks.exchangePlacesTwoVariablesWithAndWithoutUseOfThirdVari
 import java.io.Serializable;
 import java.util.Objects;
 
-/**Created by Konstantin Lugowoy on 18-Jan-17.*/
+/**
+ * Created by Konstantin Lugowoy on 18-Jan-17.
+ */
 
 public class Variables implements Serializable, Cloneable {
 

@@ -1,1 +1,0 @@
-The program prints a table of temperature correlations for Celsius and Fahrenheit in the specified range.

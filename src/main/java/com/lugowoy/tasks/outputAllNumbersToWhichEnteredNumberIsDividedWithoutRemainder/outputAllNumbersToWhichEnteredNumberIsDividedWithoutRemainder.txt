@@ -1,2 +1,0 @@
-An integer is entered from the keyboard. Display all numbers on which the entered number is divided without a remainder.
-For example, for 60 such numbers will be 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60.

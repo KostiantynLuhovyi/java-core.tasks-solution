@@ -3,7 +3,11 @@ package com.lugowoy.tasks.exchangeCentralNumberOfTwoNumbers;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 05-Feb-17. */
+/**
+ * Enter from the keyboard two three-digit numbers and change their central numbers.
+ * <p>
+ * Created by Konstantin Lugowoy on 05-Feb-17.
+ */
 
 public class Main {
 
@@ -15,12 +19,12 @@ public class Main {
         Number secondNumber = enterNumber();
 
         System.out.printf("The following values have been entered : \n" +
-                "first number = %d;\nsecond number = %d.\n", firstNumber.getNumber(), secondNumber.getNumber());
+                        "first number = %d;\nsecond number = %d.\n", firstNumber.getNumber(), secondNumber.getNumber());
 
         ExchangeCentralNumberOfTwoNumber.exchange(firstNumber, secondNumber);
 
         System.out.printf("The result to exchange central number of  the two numbers : \n" +
-                "first number = %d;\nsecond number = %d.\n", firstNumber.getNumber(), secondNumber.getNumber());
+                        "first number = %d;\nsecond number = %d.\n", firstNumber.getNumber(), secondNumber.getNumber());
 
     }
 

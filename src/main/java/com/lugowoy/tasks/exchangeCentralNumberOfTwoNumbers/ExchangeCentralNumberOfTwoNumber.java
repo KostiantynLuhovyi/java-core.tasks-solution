@@ -1,6 +1,8 @@
 package com.lugowoy.tasks.exchangeCentralNumberOfTwoNumbers;
 
-/** Created by Konstantin Lugowoy on 05-Feb-17. */
+/**
+ * Created by Konstantin Lugowoy on 05-Feb-17.
+ */
 
 public class ExchangeCentralNumberOfTwoNumber {
 

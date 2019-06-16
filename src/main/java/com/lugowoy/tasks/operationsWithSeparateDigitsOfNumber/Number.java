@@ -3,7 +3,9 @@ package com.lugowoy.tasks.operationsWithSeparateDigitsOfNumber;
 import java.io.Serializable;
 import java.util.Objects;
 
-/**Created by Konstantin Lugowoy on 05-Feb-17.*/
+/**
+ * Created by Konstantin Lugowoy on 05-Feb-17.
+ */
 
 public class Number implements Serializable, Cloneable {
 

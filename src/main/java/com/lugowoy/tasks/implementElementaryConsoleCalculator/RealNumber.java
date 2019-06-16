@@ -2,7 +2,9 @@ package com.lugowoy.tasks.implementElementaryConsoleCalculator;
 
 import java.io.Serializable;
 
-/** Created by Konstantin Lugowoy on 11.09.2017. */
+/**
+ * Created by Konstantin Lugowoy on 11.09.2017.
+ */
 
 public class RealNumber implements Serializable, Cloneable {
 

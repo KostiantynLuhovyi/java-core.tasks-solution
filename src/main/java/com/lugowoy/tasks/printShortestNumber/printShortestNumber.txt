@@ -1,1 +1,0 @@
-Find the shortest number. Print the found number and their length.

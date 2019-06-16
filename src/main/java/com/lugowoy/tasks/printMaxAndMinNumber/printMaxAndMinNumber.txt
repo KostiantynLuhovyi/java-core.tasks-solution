@@ -1,1 +1,0 @@
-Print max and min value number.

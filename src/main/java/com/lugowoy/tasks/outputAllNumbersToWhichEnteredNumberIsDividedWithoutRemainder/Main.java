@@ -3,7 +3,12 @@ package com.lugowoy.tasks.outputAllNumbersToWhichEnteredNumberIsDividedWithoutRe
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 06.10.2017. */
+/**
+ * An integer is entered from the keyboard. Display all numbers on which the entered number is divided without a remainder.
+ * For example, for 60 such numbers will be 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60.
+ * <p>
+ * Created by Konstantin Lugowoy on 06.10.2017.
+ */
 
 public class Main {
 

@@ -4,7 +4,11 @@ import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.other.GeneratorRandomNumber;
 
-/**Created by Konstantin Lugowoy on 07.11.2016.*/
+/**
+ * Enter three numbers and define two of the same number of them.
+ * <p>
+ * Created by Konstantin Lugowoy on 07.11.2016.
+ */
 
 public class Main {
 
@@ -50,7 +54,7 @@ public class Main {
                 default:
                     break;
             }
-        } while (true) ;
+        } while (true);
 
     }
 

@@ -7,7 +7,13 @@ import com.lugowoy.tasks.outputVoiceThatIsEmittedByAnimal.animals.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Created by Konstantin Lugowoy on 04.10.2017. */
+/**
+ * Write a program that prompts the user to select an animal from the list (1 - cat, 2 - dog, etc.),
+ * and in response shows what voices the selected animal makes.
+ * There should be at least 10 animals on the list.
+ * <p>
+ * Created by Konstantin Lugowoy on 04.10.2017.
+ */
 
 public class Main {
 

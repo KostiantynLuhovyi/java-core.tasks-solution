@@ -7,7 +7,12 @@ import com.lugowoy.tasks.checkCorrectnessOfEnteredTimeData.CheckerHours;
 import com.lugowoy.tasks.checkCorrectnessOfEnteredTimeData.CheckerMinutes;
 import com.lugowoy.tasks.checkCorrectnessOfEnteredTimeData.CheckerSeconds;
 
-/** Created by Konstantin Lugowoy on 04.10.2017. */
+/**
+ * The time (hours and minutes) is entered - the program displays a greeting corresponding to the entered time
+ * (for example, entered 15 hours 6 minutes - the greeting "good day" is displayed).
+ * <p>
+ * Created by Konstantin Lugowoy on 04.10.2017.
+ */
 
 public class Main {
 

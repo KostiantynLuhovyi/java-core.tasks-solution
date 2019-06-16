@@ -1,20 +1,24 @@
 package com.lugowoy.tasks.printShortestNumber;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.other.LengthReader;
 
-/** Created by Konstantin Lugowoy on 08.08.2018. */
+/**
+ * Find the shortest number. Print the found number and their length.
+ * <p>
+ * Created by Konstantin Lugowoy on 08.08.2018.
+ */
 
 public class Main {
 
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> integerArray = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, Integer.MAX_VALUE));
+        Array<Integer> integerArray = new Array<>(new FillingArrayRandomInteger().fill(lengthOfArray, Integer.MAX_VALUE));
 
         System.out.println("Numbers in an array : " + integerArray);
 

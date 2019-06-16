@@ -3,7 +3,12 @@ package com.lugowoy.tasks.flipNumberDownSoThatDigitsAreArrangedInReverseOrder;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 06.10.2017. */
+/**
+ * An integer of any length is entered from the keyboard. It is necessary to turn this number around,
+ * i.e. the numbers should be in the reverse order (for example, enter the number 1234 - the result will be 4321).
+ * <p>
+ * Created by Konstantin Lugowoy on 06.10.2017.
+ */
 
 public class Main {
 

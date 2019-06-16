@@ -1,1 +1,0 @@
-Enter a four-digit number, and calculate the sum of the first and the third digit and the difference between the second and fourth digits.

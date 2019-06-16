@@ -1,1 +1,0 @@
-Output all three-digit numbers, in the decimal notation of which there are no identical digits.

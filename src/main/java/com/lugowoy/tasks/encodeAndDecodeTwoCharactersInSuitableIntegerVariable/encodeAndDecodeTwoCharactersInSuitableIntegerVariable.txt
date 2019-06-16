@@ -1,1 +1,0 @@
-Encode and decode the two characters into a suitable integer variable.

@@ -1,2 +1,0 @@
-Write a program that prompts the user to enter the day of the week number, and in response displays the name of that day (for example, 6 is Saturday).
-Solve using if and switch.

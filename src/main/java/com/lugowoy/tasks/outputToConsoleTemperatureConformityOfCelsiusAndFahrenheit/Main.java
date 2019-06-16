@@ -3,7 +3,11 @@ package com.lugowoy.tasks.outputToConsoleTemperatureConformityOfCelsiusAndFahren
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 05.10.2017. */
+/**
+ * The program prints a table of temperature correlations for Celsius and Fahrenheit in the specified range.
+ * <p>
+ * Created by Konstantin Lugowoy on 05.10.2017.
+ */
 
 public class Main {
 

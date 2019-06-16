@@ -3,7 +3,17 @@ package com.lugowoy.tasks.implementElementaryConsoleCalculator;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 11.09.2017. */
+/**
+ * Implement a calculator. We input 2 any real numbers in the variables a and b. You need to display the menu with the items:
+ * 1) a + b ;
+ * 2) a - b ;
+ * 3) a * b ;
+ * 4) a / b ;
+ * 5) a % b ;
+ * If you select the appropriate menu item, the result of the calculation is output (there should be a check of division by 0!)
+ * <p>
+ * Created by Konstantin Lugowoy on 11.09.2017.
+ */
 
 public class Main {
 
@@ -56,28 +66,29 @@ public class Main {
 
         if ((select >= 1) && (select <= 5)) {
             switch (select) {
-                case 1 :
+                case 1:
                     calculator = CalculatorOperations::addition;
                     System.out.println("The addition operation is selected.");
                     break;
-                case 2 :
-                    calculator= CalculatorOperations::subtraction;
+                case 2:
+                    calculator = CalculatorOperations::subtraction;
                     System.out.println("The subtraction operation is selected.");
                     break;
-                case 3 :
+                case 3:
                     calculator = CalculatorOperations::multiple;
                     System.out.println("The multiple operation is selected.");
                     break;
-                case 4 :
+                case 4:
                     calculator = CalculatorOperations::divide;
                     System.out.println("The divide operation is selected.");
                     break;
-                case 5 :
+                case 5:
                     calculator = CalculatorOperations::remainderOfDivision;
                     System.out.println("The remainder of divide operation is selected.");
                     break;
-                default :
-                    System.out.println("Not selected a suitable arithmetic operation. "); break;
+                default:
+                    System.out.println("Not selected a suitable arithmetic operation. ");
+                    break;
             }
         }
         return calculator;

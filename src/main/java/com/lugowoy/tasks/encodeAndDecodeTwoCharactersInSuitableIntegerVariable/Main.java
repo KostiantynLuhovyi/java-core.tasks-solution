@@ -3,7 +3,11 @@ package com.lugowoy.tasks.encodeAndDecodeTwoCharactersInSuitableIntegerVariable;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 08.11.2017. */
+/**
+ * Encode and decode the two characters into a suitable integer variable.
+ * <p>
+ * Created by Konstantin Lugowoy on 08.11.2017.
+ */
 
 public class Main {
 
@@ -32,15 +36,15 @@ public class Main {
     }
 
     private static int encode(char firstCharacter, char secondCharacter) {
-        return (((int)firstCharacter << 16)) + ((int)secondCharacter);
+        return (((int) firstCharacter << 16)) + ((int) secondCharacter);
     }
 
     private static char decodeSecondCharacter(int number, char character) {
-        return (char)(number ^ ((int)character << 16));
+        return (char) (number ^ ((int) character << 16));
     }
 
     private static char decodeFirstCharacter(int number) {
-        return (char)(number >>> 16);
+        return (char) (number >>> 16);
     }
 
 }

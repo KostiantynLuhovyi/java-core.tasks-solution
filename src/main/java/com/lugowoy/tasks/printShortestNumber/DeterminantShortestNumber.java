@@ -2,7 +2,9 @@ package com.lugowoy.tasks.printShortestNumber;
 
 import com.lugowoy.helper.models.Array;
 
-/** Created by Konstantin Lugowoy on 08.08.2018. */
+/**
+ * Created by Konstantin Lugowoy on 08.08.2018.
+ */
 
 public interface DeterminantShortestNumber<T> {
 

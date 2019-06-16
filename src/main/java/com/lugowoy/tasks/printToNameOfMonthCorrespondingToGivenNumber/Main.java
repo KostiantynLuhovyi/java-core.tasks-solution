@@ -3,7 +3,12 @@ package com.lugowoy.tasks.printToNameOfMonthCorrespondingToGivenNumber;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
-/** Created by Konstantin Lugowoy on 29.09.2018. */
+/**
+ * Enter the number from 1 to 12. Output to the console the name of the month corresponding to the given number.
+ * (Make sure that the numbers are entered correctly).
+ * <p>
+ * Created by Konstantin Lugowoy on 29.09.2018.
+ */
 
 public class Main {
 
@@ -14,7 +19,7 @@ public class Main {
         System.out.println("Enter number of the month : ");
         int numberOfMonth;
         while (true) {
-             numberOfMonth = READER.readInt();
+            numberOfMonth = READER.readInt();
             if (numberOfMonth > 0 && numberOfMonth <= 12) {
                 break;
             } else {

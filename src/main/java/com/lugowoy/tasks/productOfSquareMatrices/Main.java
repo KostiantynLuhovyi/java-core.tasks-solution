@@ -2,7 +2,11 @@ package com.lugowoy.tasks.productOfSquareMatrices;
 
 import com.lugowoy.helper.other.GeneratorRandomNumber;
 
-/** Created by Konstantin Lugowoy on 14.11.2017. */
+/**
+ * Product of square matrices.
+ * <p>
+ * Created by Konstantin Lugowoy on 14.11.2017.
+ */
 
 public class Main {
 
@@ -34,8 +38,8 @@ public class Main {
 
         System.out.println("Result : ");
         for (int i = 0; i < LENGTH_ARRAY; i++) {
-            for(int j = 0; j < LENGTH_ARRAY; j++) {
-                for(int k = 0; k < LENGTH_ARRAY; k++) {
+            for (int j = 0; j < LENGTH_ARRAY; j++) {
+                for (int k = 0; k < LENGTH_ARRAY; k++) {
                     resultMatrix[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
                 }
                 System.out.print(resultMatrix[i][j] + (j != LENGTH_ARRAY - 1 ? "\t" : "\n"));

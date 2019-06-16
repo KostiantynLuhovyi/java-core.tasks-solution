@@ -1,9 +1,13 @@
 package com.lugowoy.tasks.findMaximumValueAmongFourVariablesUsingTernaryOperator;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
 import com.lugowoy.helper.models.Array;
 
-/** Created by Konstantin Lugowoy on 27.09.2017. */
+/**
+ * Find the maximum value among the 4 variables using the ternary operator.
+ * <p>
+ * Created by Konstantin Lugowoy on 27.09.2017.
+ */
 
 public class Main {
 
@@ -13,7 +17,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Array<Integer> array = Array.create(new FillingArrayRandomIntegerNumbers().fill(LENGTH_ARRAY, MIN_BOUND, MAX_BOUND));
+        Array<Integer> array = new Array<>(new FillingArrayRandomInteger().fill(LENGTH_ARRAY, MIN_BOUND, MAX_BOUND));
 
         System.out.println("Original array : " + array);
 

@@ -1,20 +1,24 @@
 package com.lugowoy.tasks.outputNumbersThatAreDivisibleByThreeAndNine;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.other.LengthReader;
 
-/** Created by Konstantin Lugowoy on 13.07.2017. */
+/**
+ * Output numbers that are divisible by 3 and 9.
+ * <p>
+ * Created by Konstantin Lugowoy on 13.07.2017.
+ */
 
 public class Main {
 
     public static void main(String[] args) {
 
         System.out.println("Enter length of array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> array = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray));
+        Array<Integer> array = new Array<>(new FillingArrayRandomInteger().fill(lengthOfArray));
 
         System.out.println("Numbers : " + array);
 
@@ -31,7 +35,7 @@ public class Main {
     }
 
     private static Array<Integer> printNumbersThatAreDivisibleByThreeAndNine(Array<Integer> array) {
-        Array<Integer> resultArray = Array.create(0);
+        Array<Integer> resultArray = new Array<>(0);
         for (int i = 0; i < array.getLength(); i++) {
             if ((array.get(i) % 3 == 0) && (array.get(i) % 9 == 0)) {
                 resultArray.add(array.get(i));

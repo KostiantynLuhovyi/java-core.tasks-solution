@@ -3,7 +3,9 @@ package com.lugowoy.tasks.identifyTwoIdenticalNumbers;
 import java.io.Serializable;
 import java.util.Objects;
 
-/**Created by Konstantin Lugowoy on 07.11.2016.*/
+/**
+ * Created by Konstantin Lugowoy on 07.11.2016.
+ */
 
 final class NumbersForComparison implements Serializable, Cloneable {
 

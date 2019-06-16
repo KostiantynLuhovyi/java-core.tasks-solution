@@ -1,1 +1,0 @@
-Print numbers whose length is greater than the average.

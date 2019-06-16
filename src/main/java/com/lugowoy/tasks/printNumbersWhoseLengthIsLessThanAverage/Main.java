@@ -1,11 +1,15 @@
 package com.lugowoy.tasks.printNumbersWhoseLengthIsLessThanAverage;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.other.LengthReader;
 
-/** Created by Konstantin Lugowoy on 09.08.2018. */
+/**
+ * Print numbers whose length is less than the average.
+ * <p>
+ * Created by Konstantin Lugowoy on 09.08.2018.
+ */
 
 public class Main {
 
@@ -14,9 +18,9 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> integerArray = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, MAX_VALUE));
+        Array<Integer> integerArray = new Array<>(new FillingArrayRandomInteger().fill(lengthOfArray, MAX_VALUE));
 
         System.out.println("Numbers in an array : " + integerArray);
 
